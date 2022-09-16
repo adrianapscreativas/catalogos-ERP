@@ -3,8 +3,8 @@ import { formatJSONResponse } from "@libs/api-gateway";
 import { middyfy } from "@libs/lambda";
 import { APIGatewayEvent } from "aws-lambda";
 import { statusCode } from "@libs/status-code";
-import { BranchesInterface } from "@functions/interfaces/BranchesInterface/BranchesInterface";
 import createBranchesController from "@functions/controllers/branches/createBranchesController";
+import BranchTransformer from "@functions/transformers/BranchTransformer";
 
 
 /**
@@ -20,33 +20,22 @@ import createBranchesController from "@functions/controllers/branches/createBran
 const create: ValidatedEventAPIGatewayProxyEvent<APIGatewayEvent> = async (
   event
 ) => {
-  const { street, status, city, cp, locality, num_ext, num_int } =
-    event.body as BranchesInterface;
+  const branch = BranchTransformer.reverse(event.body as any);
 
-  const data = {
-    street,
-    status,
-    city,
-    cp,
-    locality,
-    num_ext,
-    num_int,
-  };
+  const retrieveData = await createBranchesController(branch);
 
-  const rerieveData = await createBranchesController(data);
-
-  if (!rerieveData) {
+  if (Array.isArray(retrieveData)) {
     return formatJSONResponse(statusCode.STATUS_CODE_FORM_ERROR, {
       success: false,
-      message: "Brand dont created",
-      data: rerieveData,
+      message: "Unsatisfied model",
+      data: retrieveData,
     });
   }
 
   return formatJSONResponse(statusCode.STATUS_CODE_CREATED, {
     success: true,
     message: "Brand created",
-    data: rerieveData,
+    data: retrieveData,
   });
 };
 
