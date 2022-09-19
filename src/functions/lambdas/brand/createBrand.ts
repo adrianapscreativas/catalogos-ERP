@@ -1,10 +1,10 @@
 import createBrandController from "@functions/controllers/brand/createBrandController";
-import { BrandInterface } from "@functions/interfaces/BrandsInterface/BrandsInterfaces";
 import type { ValidatedEventAPIGatewayProxyEvent } from "@libs/api-gateway";
 import { formatJSONResponse } from "@libs/api-gateway";
 import { middyfy } from "@libs/lambda";
 import { APIGatewayEvent } from "aws-lambda";
 import { statusCode } from "@libs/status-code";
+import BrandTransformer from "@functions/transformers/BrandTransformer";
 /**
  * Its a demos for create item.
  *
@@ -15,14 +15,18 @@ import { statusCode } from "@libs/status-code";
 
 const create: ValidatedEventAPIGatewayProxyEvent<APIGatewayEvent> = async (event) => {
 
-  const { name,status } = event.body as BrandInterface;
+const brand = BrandTransformer.reverse(event.body as any);
 
-  const data = {
-    name,
-    status
-  };
+  const rerieveData = await createBrandController(brand);
 
-  const rerieveData = await createBrandController(data);
+  if (Array.isArray(rerieveData)) {
+    return formatJSONResponse(statusCode.STATUS_CODE_FORM_ERROR, {
+      success: false,
+      message: "Unsatisfied model",
+      data: rerieveData,
+    });
+  }
+
 
   return formatJSONResponse(statusCode.STATUS_CODE_CREATED,{
     success: true,

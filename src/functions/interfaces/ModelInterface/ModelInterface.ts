@@ -4,6 +4,6 @@
  export interface ModelInterface {
     name?: string;
     id_brand: string;
-    status:string;
+    status:boolean;
   }
   

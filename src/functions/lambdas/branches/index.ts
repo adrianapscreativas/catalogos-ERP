@@ -5,7 +5,7 @@
  import { handlerPath } from '@libs/handler-resolver';
 
  export const createBranch= {
-   handler: `${handlerPath(__dirname)}/createBrand.main`,
+   handler: `${handlerPath(__dirname)}/createBranches.main`,
    description: 'lambda for create brand',
    tags: {
     Enterprise: 'skeleton-App',
@@ -17,7 +17,7 @@
      {
        http: {
          method: 'post',
-         path:  '${self:custom.api_prefix}/brands',
+         path:  '${self:custom.api_prefix}/branches',
          cors: true
        },
      },

@@ -1,10 +1,11 @@
+import BranchSchema from '@functions/schemas/BranchSchema';
 import { validate, ValidationError } from 'class-validator';
 import BranchesModel from '../../../../database/models/Branches'
 
 /**
  * Controller for processing logic.
  */
-const createBranchesController = async (model: BranchesModel): Promise<BranchesModel | ValidationError[]>  => {
+const createBranchesController = async (model: BranchSchema): Promise<BranchesModel | ValidationError[]>  => {
 
   const validationBranch:ValidationError[] = await validate(model);
 

@@ -1,4 +1,5 @@
-import BranchesModel from 'database/models/Branches';
+import BranchSchema from "@functions/schemas/BranchSchema";
+
 class BranchTransformer {
   /**
    * Transforms an `BranchesInterface` into a plain object.
@@ -10,19 +11,19 @@ class BranchTransformer {
   /**
    * Transforms a plain object into an `BranchesInterface`.
    */
-  static reverse(model: Record<string, string>): BranchesModel {
-    return  new BranchesModel({
-        street: model.street,
-        status: Boolean(model.status),
-        num_ext: model.num_ext,
-        num_int: model.num_int,
-        locality: model.locality,
-        city: model.city,
-        state: model.state,
-        cp: model.cp,
-    });
-  }
+  static reverse(model: Record<string, string>): BranchSchema {
+    const branch = new BranchSchema();
+    branch.city = model.city;
+    branch.cp = model.cp;
+    branch.locality = model.locality;
+    branch.num_ext = model.num_ext;
+    branch.num_int = model.num_int;
+    branch.state = model.state;
+    branch.status = Boolean(model.status);
+    branch.street = model.street;
 
+    return branch
+  }
 }
 
 export default BranchTransformer;

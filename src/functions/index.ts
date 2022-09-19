@@ -4,4 +4,4 @@ export {createBrand,getAllBrands,getBrandsByPK,deleteBrandsByPK,updateBrandsByPK
 // export {demo ,demoDelete} from './lambdas'
 // export {createPlace,deletePlaceByPK,getPlaceByPK,getAllPlace,updatePlaceByPK} from './lambdas/placeOfPurchase'
 // export {createTimePurchase,getAllTimePurchase,deleteTimePurchaseByPK,getTimePurchaseByPK,updateTimePurchaseByPK} from './lambdas/timePurchase'
-export {} from './lambdas/branches'
+export {createBranch,} from './lambdas/branches'

@@ -5,7 +5,8 @@
  * Don't include this comment in the md file.
  */
 
-import { IsDefined, IsOptional } from "class-validator";
+import { BrandInterface } from "@functions/interfaces/BrandsInterface/BrandsInterfaces";
+import { IsDefined, IsOptional, Length, MinLength } from "class-validator";
 import {
   Model,
   DataTypes,
@@ -20,33 +21,25 @@ import sequelizeClient from "../sequelizeClient";
 class BranchesModel extends Model<
   InferAttributes<BranchesModel>,
   InferCreationAttributes<BranchesModel>
-> {
+> implements BrandInterface{
 
-  @IsOptional()
   declare id: CreationOptional<number>;
   
-  @IsDefined()
   declare street: string;
 
-  @IsDefined()
   declare num_ext: string;
 
-  @IsDefined()
+  
   declare status: boolean;
 
-  @IsOptional()
   declare num_int: string;
 
-  @IsDefined()
   declare locality: string;
 
-  @IsDefined()
   declare city: string;
 
-  @IsDefined()
   declare state: string;
 
-  @IsDefined()
   declare cp: string;
 
 }

@@ -5,28 +5,39 @@
  * Don't include this comment in the md file.
  */
 
-import { Model, DataTypes, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize';
+import { BrandInterface } from "@functions/interfaces/BrandsInterface/BrandsInterfaces";
+import {
+  Model,
+  DataTypes,
+  InferAttributes,
+  InferCreationAttributes,
+  CreationOptional,
+} from "sequelize";
 
 import sequelizeClient from "../sequelizeClient";
 
-
-class BrandModel extends Model<InferAttributes<BrandModel>, InferCreationAttributes<BrandModel>> {
+class BrandModel
+  extends Model<
+    InferAttributes<BrandModel>,
+    InferCreationAttributes<BrandModel>
+  >
+  implements BrandInterface
+{
   declare id: CreationOptional<number>;
   declare name: string;
   declare status: boolean;
 
   static associate(models) {
     // define association here
-    BrandModel.hasMany(models.Models, {foreignKey: 'id_brand'})
+    BrandModel.hasMany(models.Models, { foreignKey: "id_brand" });
   }
-
 }
 BrandModel.init(
   {
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: new DataTypes.STRING(128),
@@ -44,6 +55,5 @@ BrandModel.init(
     sequelize: sequelizeClient(),
   }
 );
-
 
 export default BrandModel;

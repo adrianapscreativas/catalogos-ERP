@@ -4,6 +4,9 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __esm = (fn2, res) => function __init() {
+  return fn2 && (res = (0, fn2[__getOwnPropNames(fn2)[0]])(fn2 = 0)), res;
+};
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -24,6 +27,15 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __decorateClass = (decorators, target, key, kind) => {
+  var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
+  for (var i = decorators.length - 1, decorator; i >= 0; i--)
+    if (decorator = decorators[i])
+      result = (kind ? decorator(target, key, result) : decorator(result)) || result;
+  if (kind && result)
+    __defProp(target, key, result);
+  return result;
+};
 
 // node_modules/pg-connection-string/index.js
 var require_pg_connection_string = __commonJS({
@@ -114,8 +126,8 @@ var require_pg_connection_string = __commonJS({
 var require_retry_as_promised = __commonJS({
   "node_modules/retry-as-promised/index.js"(exports, module2) {
     "use strict";
-    var util = require("util");
-    var format = util.format;
+    var util2 = require("util");
+    var format = util2.format;
     function TimeoutError2(message, err) {
       Error.call(this);
       Error.captureStackTrace(this, TimeoutError2);
@@ -123,7 +135,7 @@ var require_retry_as_promised = __commonJS({
       this.message = message;
       this.previous = err;
     }
-    util.inherits(TimeoutError2, Error);
+    util2.inherits(TimeoutError2, Error);
     function matches(match, err) {
       if (match === true)
         return true;
@@ -5763,7 +5775,7 @@ var require_zigzag = __commonJS({
 var require_point = __commonJS({
   "node_modules/wkx/lib/point.js"(exports, module2) {
     module2.exports = Point;
-    var util = require("util");
+    var util2 = require("util");
     var Geometry = require_geometry();
     var Types = require_types();
     var BinaryWriter = require_binarywriter();
@@ -5778,7 +5790,7 @@ var require_point = __commonJS({
       this.hasZ = typeof this.z !== "undefined";
       this.hasM = typeof this.m !== "undefined";
     }
-    util.inherits(Point, Geometry);
+    util2.inherits(Point, Geometry);
     Point.Z = function(x, y, z, srid) {
       var point = new Point(x, y, z, void 0, srid);
       point.hasZ = true;
@@ -5935,7 +5947,7 @@ var require_point = __commonJS({
 var require_linestring = __commonJS({
   "node_modules/wkx/lib/linestring.js"(exports, module2) {
     module2.exports = LineString;
-    var util = require("util");
+    var util2 = require("util");
     var Geometry = require_geometry();
     var Types = require_types();
     var Point = require_point();
@@ -5949,7 +5961,7 @@ var require_linestring = __commonJS({
         this.hasM = this.points[0].hasM;
       }
     }
-    util.inherits(LineString, Geometry);
+    util2.inherits(LineString, Geometry);
     LineString.Z = function(points, srid) {
       var lineString = new LineString(points, srid);
       lineString.hasZ = true;
@@ -6070,7 +6082,7 @@ var require_linestring = __commonJS({
 var require_polygon = __commonJS({
   "node_modules/wkx/lib/polygon.js"(exports, module2) {
     module2.exports = Polygon;
-    var util = require("util");
+    var util2 = require("util");
     var Geometry = require_geometry();
     var Types = require_types();
     var Point = require_point();
@@ -6085,7 +6097,7 @@ var require_polygon = __commonJS({
         this.hasM = this.exteriorRing[0].hasM;
       }
     }
-    util.inherits(Polygon, Geometry);
+    util2.inherits(Polygon, Geometry);
     Polygon.Z = function(exteriorRing, interiorRings, srid) {
       var polygon = new Polygon(exteriorRing, interiorRings, srid);
       polygon.hasZ = true;
@@ -6283,7 +6295,7 @@ var require_polygon = __commonJS({
 var require_multipoint = __commonJS({
   "node_modules/wkx/lib/multipoint.js"(exports, module2) {
     module2.exports = MultiPoint;
-    var util = require("util");
+    var util2 = require("util");
     var Types = require_types();
     var Geometry = require_geometry();
     var Point = require_point();
@@ -6297,7 +6309,7 @@ var require_multipoint = __commonJS({
         this.hasM = this.points[0].hasM;
       }
     }
-    util.inherits(MultiPoint, Geometry);
+    util2.inherits(MultiPoint, Geometry);
     MultiPoint.Z = function(points, srid) {
       var multiPoint = new MultiPoint(points, srid);
       multiPoint.hasZ = true;
@@ -6412,7 +6424,7 @@ var require_multipoint = __commonJS({
 var require_multilinestring = __commonJS({
   "node_modules/wkx/lib/multilinestring.js"(exports, module2) {
     module2.exports = MultiLineString;
-    var util = require("util");
+    var util2 = require("util");
     var Types = require_types();
     var Geometry = require_geometry();
     var Point = require_point();
@@ -6427,7 +6439,7 @@ var require_multilinestring = __commonJS({
         this.hasM = this.lineStrings[0].hasM;
       }
     }
-    util.inherits(MultiLineString, Geometry);
+    util2.inherits(MultiLineString, Geometry);
     MultiLineString.Z = function(lineStrings, srid) {
       var multiLineString = new MultiLineString(lineStrings, srid);
       multiLineString.hasZ = true;
@@ -6553,7 +6565,7 @@ var require_multilinestring = __commonJS({
 var require_multipolygon = __commonJS({
   "node_modules/wkx/lib/multipolygon.js"(exports, module2) {
     module2.exports = MultiPolygon;
-    var util = require("util");
+    var util2 = require("util");
     var Types = require_types();
     var Geometry = require_geometry();
     var Point = require_point();
@@ -6568,7 +6580,7 @@ var require_multipolygon = __commonJS({
         this.hasM = this.polygons[0].hasM;
       }
     }
-    util.inherits(MultiPolygon, Geometry);
+    util2.inherits(MultiPolygon, Geometry);
     MultiPolygon.Z = function(polygons, srid) {
       var multiPolygon = new MultiPolygon(polygons, srid);
       multiPolygon.hasZ = true;
@@ -6718,7 +6730,7 @@ var require_multipolygon = __commonJS({
 var require_geometrycollection = __commonJS({
   "node_modules/wkx/lib/geometrycollection.js"(exports, module2) {
     module2.exports = GeometryCollection;
-    var util = require("util");
+    var util2 = require("util");
     var Types = require_types();
     var Geometry = require_geometry();
     var BinaryWriter = require_binarywriter();
@@ -6731,7 +6743,7 @@ var require_geometrycollection = __commonJS({
         this.hasM = this.geometries[0].hasM;
       }
     }
-    util.inherits(GeometryCollection, Geometry);
+    util2.inherits(GeometryCollection, Geometry);
     GeometryCollection.Z = function(geometries, srid) {
       var geometryCollection = new GeometryCollection(geometries, srid);
       geometryCollection.hasZ = true;
@@ -7960,7 +7972,7 @@ var require_validation_error = __commonJS({
     };
     __publicField(ValidationErrorItem2, "TypeStringMap", ValidationErrorItemType2);
     __publicField(ValidationErrorItem2, "Origins", ValidationErrorItemOrigin2);
-    var ValidationError2 = class extends import_base_error.default {
+    var ValidationError3 = class extends import_base_error.default {
       constructor(message, errors, options = {}) {
         super(message);
         __publicField(this, "errors");
@@ -7985,7 +7997,7 @@ var require_validation_error = __commonJS({
         }, []);
       }
     };
-    var validation_error_default = ValidationError2;
+    var validation_error_default = ValidationError3;
   }
 });
 
@@ -9258,13 +9270,13 @@ var require_isIP = __commonJS({
     var IPv6SegmentFormat = "(?:[0-9a-fA-F]{1,4})";
     var IPv6AddressRegExp = new RegExp("^(" + "(?:".concat(IPv6SegmentFormat, ":){7}(?:").concat(IPv6SegmentFormat, "|:)|") + "(?:".concat(IPv6SegmentFormat, ":){6}(?:").concat(IPv4AddressFormat, "|:").concat(IPv6SegmentFormat, "|:)|") + "(?:".concat(IPv6SegmentFormat, ":){5}(?::").concat(IPv4AddressFormat, "|(:").concat(IPv6SegmentFormat, "){1,2}|:)|") + "(?:".concat(IPv6SegmentFormat, ":){4}(?:(:").concat(IPv6SegmentFormat, "){0,1}:").concat(IPv4AddressFormat, "|(:").concat(IPv6SegmentFormat, "){1,3}|:)|") + "(?:".concat(IPv6SegmentFormat, ":){3}(?:(:").concat(IPv6SegmentFormat, "){0,2}:").concat(IPv4AddressFormat, "|(:").concat(IPv6SegmentFormat, "){1,4}|:)|") + "(?:".concat(IPv6SegmentFormat, ":){2}(?:(:").concat(IPv6SegmentFormat, "){0,3}:").concat(IPv4AddressFormat, "|(:").concat(IPv6SegmentFormat, "){1,5}|:)|") + "(?:".concat(IPv6SegmentFormat, ":){1}(?:(:").concat(IPv6SegmentFormat, "){0,4}:").concat(IPv4AddressFormat, "|(:").concat(IPv6SegmentFormat, "){1,6}|:)|") + "(?::((?::".concat(IPv6SegmentFormat, "){0,5}:").concat(IPv4AddressFormat, "|(?::").concat(IPv6SegmentFormat, "){1,7}|:))") + ")(%[0-9a-zA-Z-.:]{1,})?$");
     function isIP(str) {
-      var version = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
+      var version2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
       (0, _assertString.default)(str);
-      version = String(version);
-      if (!version) {
+      version2 = String(version2);
+      if (!version2) {
         return isIP(str, 4) || isIP(str, 6);
       }
-      if (version === "4") {
+      if (version2 === "4") {
         if (!IPv4AddressRegExp.test(str)) {
           return false;
         }
@@ -9273,7 +9285,7 @@ var require_isIP = __commonJS({
         });
         return parts[3] <= 255;
       }
-      if (version === "6") {
+      if (version2 === "6") {
         return !!IPv6AddressRegExp.test(str);
       }
       return false;
@@ -9668,7 +9680,7 @@ var require_isIPRange = __commonJS({
     var v4Subnet = 32;
     var v6Subnet = 128;
     function isIPRange(str) {
-      var version = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
+      var version2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
       (0, _assertString.default)(str);
       var parts = str.split("/");
       if (parts.length !== 2) {
@@ -9680,12 +9692,12 @@ var require_isIPRange = __commonJS({
       if (parts[1].length > 1 && parts[1].startsWith("0")) {
         return false;
       }
-      var isValidIP = (0, _isIP.default)(parts[0], version);
+      var isValidIP = (0, _isIP.default)(parts[0], version2);
       if (!isValidIP) {
         return false;
       }
       var expectedSubnet = null;
-      switch (String(version)) {
+      switch (String(version2)) {
         case "4":
           expectedSubnet = v4Subnet;
           break;
@@ -11076,9 +11088,9 @@ var require_isUUID = __commonJS({
       5: /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
       all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
     };
-    function isUUID(str, version) {
+    function isUUID(str, version2) {
       (0, _assertString.default)(str);
-      var pattern = uuid[![void 0, null].includes(version) ? version : "all"];
+      var pattern = uuid[![void 0, null].includes(version2) ? version2 : "all"];
       return !!pattern && pattern.test(str);
     }
     module2.exports = exports.default;
@@ -11715,16 +11727,16 @@ var require_isISBN = __commonJS({
     var isbn13Maybe = /^(?:[0-9]{13})$/;
     var factor = [1, 3];
     function isISBN(str) {
-      var version = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
+      var version2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
       (0, _assertString.default)(str);
-      version = String(version);
-      if (!version) {
+      version2 = String(version2);
+      if (!version2) {
         return isISBN(str, 10) || isISBN(str, 13);
       }
       var sanitized = str.replace(/[\s-]+/g, "");
       var checksum = 0;
       var i;
-      if (version === "10") {
+      if (version2 === "10") {
         if (!isbn10Maybe.test(sanitized)) {
           return false;
         }
@@ -11739,7 +11751,7 @@ var require_isISBN = __commonJS({
         if (checksum % 11 === 0) {
           return !!sanitized;
         }
-      } else if (version === "13") {
+      } else if (version2 === "13") {
         if (!isbn13Maybe.test(sanitized)) {
           return false;
         }
@@ -14278,9 +14290,9 @@ var require_validator = __commonJS({
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
-    var version = "13.7.0";
+    var version2 = "13.7.0";
     var validator = {
-      version,
+      version: version2,
       toDate: _toDate.default,
       toFloat: _toFloat.default,
       toInt: _toInt.default,
@@ -18401,7 +18413,7 @@ var require_moment_timezone = __commonJS({
       if (moment.version === void 0 && moment.default) {
         moment = moment.default;
       }
-      var VERSION = "0.5.37", zones = {}, links = {}, countries = {}, names = {}, guesses = {}, cachedGuess;
+      var VERSION = "0.5.37", zones = {}, links = {}, countries2 = {}, names = {}, guesses = {}, cachedGuess;
       if (!moment || typeof moment.version !== "string") {
         logError("Moment Timezone requires Moment.js. See https://momentjs.com/timezone/docs/#/use-it/browser/");
       }
@@ -18489,8 +18501,8 @@ var require_moment_timezone = __commonJS({
         },
         countries: function() {
           var zone_name = this.name;
-          return Object.keys(countries).filter(function(country_code) {
-            return countries[country_code].zones.indexOf(zone_name) !== -1;
+          return Object.keys(countries2).filter(function(country_code) {
+            return countries2[country_code].zones.indexOf(zone_name) !== -1;
           });
         },
         parse: function(timestamp) {
@@ -18696,7 +18708,7 @@ var require_moment_timezone = __commonJS({
         return out.sort();
       }
       function getCountryNames() {
-        return Object.keys(countries);
+        return Object.keys(countries2);
       }
       function addLink(aliases) {
         var i, alias, normal0, normal1;
@@ -18721,7 +18733,7 @@ var require_moment_timezone = __commonJS({
           split = data[i].split("|");
           country_code = split[0].toUpperCase();
           country_zones = split[1].split(" ");
-          countries[country_code] = new Country(
+          countries2[country_code] = new Country(
             country_code,
             country_zones
           );
@@ -18729,7 +18741,7 @@ var require_moment_timezone = __commonJS({
       }
       function getCountry(name) {
         name = name.toUpperCase();
-        return countries[name] || null;
+        return countries2[name] || null;
       }
       function zonesForCountry(country, with_offset) {
         country = getCountry(country);
@@ -18782,7 +18794,7 @@ var require_moment_timezone = __commonJS({
       tz._zones = zones;
       tz._links = links;
       tz._names = names;
-      tz._countries = countries;
+      tz._countries = countries2;
       tz.add = addZone;
       tz.link = addLink;
       tz.load = loadData;
@@ -20288,10 +20300,10 @@ var require_supports_color = __commonJS({
         return 3;
       }
       if ("TERM_PROGRAM" in env) {
-        const version = Number.parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
+        const version2 = Number.parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
         switch (env.TERM_PROGRAM) {
           case "iTerm.app":
-            return version >= 3 ? 3 : 2;
+            return version2 >= 3 ? 3 : 2;
           case "Apple_Terminal":
             return 2;
         }
@@ -20326,14 +20338,14 @@ var require_supports_color = __commonJS({
 var require_node = __commonJS({
   "node_modules/debug/src/node.js"(exports, module2) {
     var tty = require("tty");
-    var util = require("util");
+    var util2 = require("util");
     exports.init = init;
     exports.log = log;
     exports.formatArgs = formatArgs;
     exports.save = save;
     exports.load = load;
     exports.useColors = useColors;
-    exports.destroy = util.deprecate(
+    exports.destroy = util2.deprecate(
       () => {
       },
       "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."
@@ -20464,7 +20476,7 @@ var require_node = __commonJS({
       return new Date().toISOString() + " ";
     }
     function log(...args) {
-      return process.stderr.write(util.format(...args) + "\n");
+      return process.stderr.write(util2.format(...args) + "\n");
     }
     function save(namespaces) {
       if (namespaces) {
@@ -20487,11 +20499,11 @@ var require_node = __commonJS({
     var { formatters } = module2.exports;
     formatters.o = function(v) {
       this.inspectOpts.colors = this.useColors;
-      return util.inspect(v, this.inspectOpts).split("\n").map((str) => str.trim()).join(" ");
+      return util2.inspect(v, this.inspectOpts).split("\n").map((str) => str.trim()).join(" ");
     };
     formatters.O = function(v) {
       this.inspectOpts.colors = this.useColors;
-      return util.inspect(v, this.inspectOpts);
+      return util2.inspect(v, this.inspectOpts);
     };
   }
 });
@@ -23996,7 +24008,7 @@ var require_data_types7 = __commonJS({
 var require_data_types8 = __commonJS({
   "node_modules/sequelize/lib/data-types.js"(exports, module2) {
     "use strict";
-    var util = require("util");
+    var util2 = require("util");
     var _ = require_lodash();
     var wkx = require_wkx();
     var sequelizeErrors = require_errors();
@@ -24060,7 +24072,7 @@ var require_data_types8 = __commonJS({
           if (this.options.binary && Buffer.isBuffer(value) || typeof value === "number") {
             return true;
           }
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid string", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid string", value));
         }
         return true;
       }
@@ -24105,7 +24117,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (typeof value !== "string") {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid string", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid string", value));
         }
         return true;
       }
@@ -24116,7 +24128,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (typeof value !== "string") {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid string", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid string", value));
         }
         return true;
       }
@@ -24156,7 +24168,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!Validator2.isFloat(String(value))) {
-          throw new sequelizeErrors.ValidationError(util.format(`%j is not a valid ${this.key.toLowerCase()}`, value));
+          throw new sequelizeErrors.ValidationError(util2.format(`%j is not a valid ${this.key.toLowerCase()}`, value));
         }
         return true;
       }
@@ -24189,7 +24201,7 @@ var require_data_types8 = __commonJS({
     var INTEGER2 = class extends NUMBER2 {
       validate(value) {
         if (!Validator2.isInt(String(value))) {
-          throw new sequelizeErrors.ValidationError(util.format(`%j is not a valid ${this.key.toLowerCase()}`, value));
+          throw new sequelizeErrors.ValidationError(util2.format(`%j is not a valid ${this.key.toLowerCase()}`, value));
         }
         return true;
       }
@@ -24208,7 +24220,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!Validator2.isFloat(String(value))) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid float", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid float", value));
         }
         return true;
       }
@@ -24235,7 +24247,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!Validator2.isDecimal(String(value))) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid decimal", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid decimal", value));
         }
         return true;
       }
@@ -24268,7 +24280,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!Validator2.isBoolean(String(value))) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid boolean", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid boolean", value));
         }
         return true;
       }
@@ -24306,7 +24318,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!Validator2.isDate(String(value))) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid date", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid date", value));
         }
         return true;
       }
@@ -24367,7 +24379,7 @@ var require_data_types8 = __commonJS({
     var HSTORE2 = class extends ABSTRACT2 {
       validate(value) {
         if (!_.isPlainObject(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid hstore", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid hstore", value));
         }
         return true;
       }
@@ -24405,7 +24417,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (typeof value !== "string" && !Buffer.isBuffer(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid blob", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid blob", value));
         }
         return true;
       }
@@ -24449,7 +24461,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!Array.isArray(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid range", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid range", value));
         }
         if (value.length !== 2) {
           throw new sequelizeErrors.ValidationError("A range must be an array with two elements");
@@ -24460,7 +24472,7 @@ var require_data_types8 = __commonJS({
     var UUID2 = class extends ABSTRACT2 {
       validate(value, options) {
         if (typeof value !== "string" || !Validator2.isUUID(value) && (!options || !options.acceptStrings)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid uuid", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid uuid", value));
         }
         return true;
       }
@@ -24468,7 +24480,7 @@ var require_data_types8 = __commonJS({
     var UUIDV12 = class extends ABSTRACT2 {
       validate(value, options) {
         if (typeof value !== "string" || !Validator2.isUUID(value) && (!options || !options.acceptStrings)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid uuid", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid uuid", value));
         }
         return true;
       }
@@ -24476,7 +24488,7 @@ var require_data_types8 = __commonJS({
     var UUIDV42 = class extends ABSTRACT2 {
       validate(value, options) {
         if (typeof value !== "string" || !Validator2.isUUID(value, 4) && (!options || !options.acceptStrings)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid uuidv4", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid uuidv4", value));
         }
         return true;
       }
@@ -24504,7 +24516,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!this.values.includes(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid choice in %j", value, this.values));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid choice in %j", value, this.values));
         }
         return true;
       }
@@ -24521,7 +24533,7 @@ var require_data_types8 = __commonJS({
       }
       validate(value) {
         if (!Array.isArray(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid array", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid array", value));
         }
         return true;
       }
@@ -24564,7 +24576,7 @@ var require_data_types8 = __commonJS({
     var CIDR2 = class extends ABSTRACT2 {
       validate(value) {
         if (typeof value !== "string" || !Validator2.isIPRange(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid CIDR", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid CIDR", value));
         }
         return true;
       }
@@ -24572,7 +24584,7 @@ var require_data_types8 = __commonJS({
     var INET2 = class extends ABSTRACT2 {
       validate(value) {
         if (typeof value !== "string" || !Validator2.isIP(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid INET", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid INET", value));
         }
         return true;
       }
@@ -24580,7 +24592,7 @@ var require_data_types8 = __commonJS({
     var MACADDR2 = class extends ABSTRACT2 {
       validate(value) {
         if (typeof value !== "string" || !Validator2.isMACAddress(value)) {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid MACADDR", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid MACADDR", value));
         }
         return true;
       }
@@ -24588,7 +24600,7 @@ var require_data_types8 = __commonJS({
     var TSVECTOR2 = class extends ABSTRACT2 {
       validate(value) {
         if (typeof value !== "string") {
-          throw new sequelizeErrors.ValidationError(util.format("%j is not a valid string", value));
+          throw new sequelizeErrors.ValidationError(util2.format("%j is not a valid string", value));
         }
         return true;
       }
@@ -25017,10 +25029,10 @@ var require_validate = __commonJS({
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
-    function validate(uuid) {
+    function validate2(uuid) {
       return typeof uuid === "string" && _regex.default.test(uuid);
     }
-    var _default = validate;
+    var _default = validate2;
     exports.default = _default;
   }
 });
@@ -25190,7 +25202,7 @@ var require_v35 = __commonJS({
     exports.DNS = DNS;
     var URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
     exports.URL = URL;
-    function _default(name, version, hashfunc) {
+    function _default(name, version2, hashfunc) {
       function generateUUID(value, namespace, buf, offset) {
         if (typeof value === "string") {
           value = stringToBytes(value);
@@ -25205,7 +25217,7 @@ var require_v35 = __commonJS({
         bytes.set(namespace);
         bytes.set(value, namespace.length);
         bytes = hashfunc(bytes);
-        bytes[6] = bytes[6] & 15 | version;
+        bytes[6] = bytes[6] & 15 | version2;
         bytes[8] = bytes[8] & 63 | 128;
         if (buf) {
           offset = offset || 0;
@@ -25372,13 +25384,13 @@ var require_version = __commonJS({
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
-    function version(uuid) {
+    function version2(uuid) {
       if (!(0, _validate.default)(uuid)) {
         throw TypeError("Invalid UUID");
       }
       return parseInt(uuid.substr(14, 1), 16);
     }
-    var _default = version;
+    var _default = version2;
     exports.default = _default;
   }
 });
@@ -32884,31 +32896,31 @@ var require_semver = __commonJS({
     var parseOptions = require_parse_options();
     var { compareIdentifiers } = require_identifiers();
     var SemVer = class {
-      constructor(version, options) {
+      constructor(version2, options) {
         options = parseOptions(options);
-        if (version instanceof SemVer) {
-          if (version.loose === !!options.loose && version.includePrerelease === !!options.includePrerelease) {
-            return version;
+        if (version2 instanceof SemVer) {
+          if (version2.loose === !!options.loose && version2.includePrerelease === !!options.includePrerelease) {
+            return version2;
           } else {
-            version = version.version;
+            version2 = version2.version;
           }
-        } else if (typeof version !== "string") {
-          throw new TypeError(`Invalid Version: ${version}`);
+        } else if (typeof version2 !== "string") {
+          throw new TypeError(`Invalid Version: ${version2}`);
         }
-        if (version.length > MAX_LENGTH) {
+        if (version2.length > MAX_LENGTH) {
           throw new TypeError(
             `version is longer than ${MAX_LENGTH} characters`
           );
         }
-        debug("SemVer", version, options);
+        debug("SemVer", version2, options);
         this.options = options;
         this.loose = !!options.loose;
         this.includePrerelease = !!options.includePrerelease;
-        const m = version.trim().match(options.loose ? re[t.LOOSE] : re[t.FULL]);
+        const m = version2.trim().match(options.loose ? re[t.LOOSE] : re[t.FULL]);
         if (!m) {
-          throw new TypeError(`Invalid Version: ${version}`);
+          throw new TypeError(`Invalid Version: ${version2}`);
         }
-        this.raw = version;
+        this.raw = version2;
         this.major = +m[1];
         this.minor = +m[2];
         this.patch = +m[3];
@@ -33108,23 +33120,23 @@ var require_parse2 = __commonJS({
     var { re, t } = require_re();
     var SemVer = require_semver();
     var parseOptions = require_parse_options();
-    var parse = (version, options) => {
+    var parse = (version2, options) => {
       options = parseOptions(options);
-      if (version instanceof SemVer) {
-        return version;
+      if (version2 instanceof SemVer) {
+        return version2;
       }
-      if (typeof version !== "string") {
+      if (typeof version2 !== "string") {
         return null;
       }
-      if (version.length > MAX_LENGTH) {
+      if (version2.length > MAX_LENGTH) {
         return null;
       }
       const r = options.loose ? re[t.LOOSE] : re[t.FULL];
-      if (!r.test(version)) {
+      if (!r.test(version2)) {
         return null;
       }
       try {
-        return new SemVer(version, options);
+        return new SemVer(version2, options);
       } catch (er) {
         return null;
       }
@@ -33137,8 +33149,8 @@ var require_parse2 = __commonJS({
 var require_valid = __commonJS({
   "node_modules/semver/functions/valid.js"(exports, module2) {
     var parse = require_parse2();
-    var valid = (version, options) => {
-      const v = parse(version, options);
+    var valid = (version2, options) => {
+      const v = parse(version2, options);
       return v ? v.version : null;
     };
     module2.exports = valid;
@@ -33149,8 +33161,8 @@ var require_valid = __commonJS({
 var require_clean = __commonJS({
   "node_modules/semver/functions/clean.js"(exports, module2) {
     var parse = require_parse2();
-    var clean = (version, options) => {
-      const s = parse(version.trim().replace(/^[=v]+/, ""), options);
+    var clean = (version2, options) => {
+      const s = parse(version2.trim().replace(/^[=v]+/, ""), options);
       return s ? s.version : null;
     };
     module2.exports = clean;
@@ -33161,14 +33173,14 @@ var require_clean = __commonJS({
 var require_inc = __commonJS({
   "node_modules/semver/functions/inc.js"(exports, module2) {
     var SemVer = require_semver();
-    var inc = (version, release, options, identifier2) => {
+    var inc = (version2, release, options, identifier2) => {
       if (typeof options === "string") {
         identifier2 = options;
         options = void 0;
       }
       try {
         return new SemVer(
-          version instanceof SemVer ? version.version : version,
+          version2 instanceof SemVer ? version2.version : version2,
           options
         ).inc(release, identifier2).version;
       } catch (er) {
@@ -33256,8 +33268,8 @@ var require_patch = __commonJS({
 var require_prerelease = __commonJS({
   "node_modules/semver/functions/prerelease.js"(exports, module2) {
     var parse = require_parse2();
-    var prerelease = (version, options) => {
-      const parsed = parse(version, options);
+    var prerelease = (version2, options) => {
+      const parsed = parse(version2, options);
       return parsed && parsed.prerelease.length ? parsed.prerelease : null;
     };
     module2.exports = prerelease;
@@ -33413,23 +33425,23 @@ var require_coerce = __commonJS({
     var SemVer = require_semver();
     var parse = require_parse2();
     var { re, t } = require_re();
-    var coerce = (version, options) => {
-      if (version instanceof SemVer) {
-        return version;
+    var coerce = (version2, options) => {
+      if (version2 instanceof SemVer) {
+        return version2;
       }
-      if (typeof version === "number") {
-        version = String(version);
+      if (typeof version2 === "number") {
+        version2 = String(version2);
       }
-      if (typeof version !== "string") {
+      if (typeof version2 !== "string") {
         return null;
       }
       options = options || {};
       let match = null;
       if (!options.rtl) {
-        match = version.match(re[t.COERCE]);
+        match = version2.match(re[t.COERCE]);
       } else {
         let next;
-        while ((next = re[t.COERCERTL].exec(version)) && (!match || match.index + match[0].length !== version.length)) {
+        while ((next = re[t.COERCERTL].exec(version2)) && (!match || match.index + match[0].length !== version2.length)) {
           if (!match || next.index + next[0].length !== match.index + match[0].length) {
             match = next;
           }
@@ -34203,19 +34215,19 @@ var require_range2 = __commonJS({
           });
         });
       }
-      test(version) {
-        if (!version) {
+      test(version2) {
+        if (!version2) {
           return false;
         }
-        if (typeof version === "string") {
+        if (typeof version2 === "string") {
           try {
-            version = new SemVer(version, this.options);
+            version2 = new SemVer(version2, this.options);
           } catch (er) {
             return false;
           }
         }
         for (let i = 0; i < this.set.length; i++) {
-          if (testSet(this.set[i], version, this.options)) {
+          if (testSet(this.set[i], version2, this.options)) {
             return true;
           }
         }
@@ -34430,13 +34442,13 @@ var require_range2 = __commonJS({
       }
       return `${from} ${to}`.trim();
     };
-    var testSet = (set, version, options) => {
+    var testSet = (set, version2, options) => {
       for (let i = 0; i < set.length; i++) {
-        if (!set[i].test(version)) {
+        if (!set[i].test(version2)) {
           return false;
         }
       }
-      if (version.prerelease.length && !options.includePrerelease) {
+      if (version2.prerelease.length && !options.includePrerelease) {
         for (let i = 0; i < set.length; i++) {
           debug(set[i].semver);
           if (set[i].semver === Comparator.ANY) {
@@ -34444,7 +34456,7 @@ var require_range2 = __commonJS({
           }
           if (set[i].semver.prerelease.length > 0) {
             const allowed = set[i].semver;
-            if (allowed.major === version.major && allowed.minor === version.minor && allowed.patch === version.patch) {
+            if (allowed.major === version2.major && allowed.minor === version2.minor && allowed.patch === version2.patch) {
               return true;
             }
           }
@@ -34503,19 +34515,19 @@ var require_comparator = __commonJS({
       toString() {
         return this.value;
       }
-      test(version) {
-        debug("Comparator.test", version, this.options.loose);
-        if (this.semver === ANY || version === ANY) {
+      test(version2) {
+        debug("Comparator.test", version2, this.options.loose);
+        if (this.semver === ANY || version2 === ANY) {
           return true;
         }
-        if (typeof version === "string") {
+        if (typeof version2 === "string") {
           try {
-            version = new SemVer(version, this.options);
+            version2 = new SemVer(version2, this.options);
           } catch (er) {
             return false;
           }
         }
-        return cmp(version, this.operator, this.semver, this.options);
+        return cmp(version2, this.operator, this.semver, this.options);
       }
       intersects(comp, options) {
         if (!(comp instanceof Comparator)) {
@@ -34561,13 +34573,13 @@ var require_comparator = __commonJS({
 var require_satisfies = __commonJS({
   "node_modules/semver/functions/satisfies.js"(exports, module2) {
     var Range = require_range2();
-    var satisfies = (version, range, options) => {
+    var satisfies = (version2, range, options) => {
       try {
         range = new Range(range, options);
       } catch (er) {
         return false;
       }
-      return range.test(version);
+      return range.test(version2);
     };
     module2.exports = satisfies;
   }
@@ -34721,8 +34733,8 @@ var require_outside = __commonJS({
     var lt = require_lt();
     var lte = require_lte();
     var gte = require_gte();
-    var outside = (version, range, hilo, options) => {
-      version = new SemVer(version, options);
+    var outside = (version2, range, hilo, options) => {
+      version2 = new SemVer(version2, options);
       range = new Range(range, options);
       let gtfn, ltefn, ltfn, comp, ecomp;
       switch (hilo) {
@@ -34743,7 +34755,7 @@ var require_outside = __commonJS({
         default:
           throw new TypeError('Must provide a hilo val of "<" or ">"');
       }
-      if (satisfies(version, range, options)) {
+      if (satisfies(version2, range, options)) {
         return false;
       }
       for (let i = 0; i < range.set.length; ++i) {
@@ -34765,9 +34777,9 @@ var require_outside = __commonJS({
         if (high.operator === comp || high.operator === ecomp) {
           return false;
         }
-        if ((!low.operator || low.operator === comp) && ltefn(version, low.semver)) {
+        if ((!low.operator || low.operator === comp) && ltefn(version2, low.semver)) {
           return false;
-        } else if (low.operator === ecomp && ltfn(version, low.semver)) {
+        } else if (low.operator === ecomp && ltfn(version2, low.semver)) {
           return false;
         }
       }
@@ -34781,7 +34793,7 @@ var require_outside = __commonJS({
 var require_gtr = __commonJS({
   "node_modules/semver/ranges/gtr.js"(exports, module2) {
     var outside = require_outside();
-    var gtr = (version, range, options) => outside(version, range, ">", options);
+    var gtr = (version2, range, options) => outside(version2, range, ">", options);
     module2.exports = gtr;
   }
 });
@@ -34790,7 +34802,7 @@ var require_gtr = __commonJS({
 var require_ltr = __commonJS({
   "node_modules/semver/ranges/ltr.js"(exports, module2) {
     var outside = require_outside();
-    var ltr = (version, range, options) => outside(version, range, "<", options);
+    var ltr = (version2, range, options) => outside(version2, range, "<", options);
     module2.exports = ltr;
   }
 });
@@ -34818,12 +34830,12 @@ var require_simplify = __commonJS({
       let first = null;
       let prev = null;
       const v = versions.sort((a, b) => compare(a, b, options));
-      for (const version of v) {
-        const included = satisfies(version, range, options);
+      for (const version2 of v) {
+        const included = satisfies(version2, range, options);
         if (included) {
-          prev = version;
+          prev = version2;
           if (!first) {
-            first = version;
+            first = version2;
           }
         } else {
           if (prev) {
@@ -35630,8 +35642,8 @@ var require_connection_manager = __commonJS({
                 };
                 _options.logging.__testLoggingFn = true;
                 if (this.sequelize.options.databaseVersion === 0) {
-                  const version = await this.sequelize.databaseVersion(_options);
-                  const parsedVersion = _.get(semver.coerce(version), "version") || version;
+                  const version2 = await this.sequelize.databaseVersion(_options);
+                  const parsedVersion = _.get(semver.coerce(version2), "version") || version2;
                   this.sequelize.options.databaseVersion = semver.valid(parsedVersion) ? parsedVersion : this.dialect.defaultVersion;
                 }
                 if (semver.lt(this.sequelize.options.databaseVersion, this.dialect.defaultVersion)) {
@@ -36818,7 +36830,7 @@ var require_query_generator = __commonJS({
       return a;
     };
     var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-    var util = require("util");
+    var util2 = require("util");
     var _ = require_lodash();
     var uuidv4 = require_dist().v4;
     var Utils2 = require_utils();
@@ -37185,7 +37197,7 @@ var require_query_generator = __commonJS({
             field.name = field.attribute;
           }
           if (!field.name) {
-            throw new Error(`The following index field has no name: ${util.inspect(field)}`);
+            throw new Error(`The following index field has no name: ${util2.inspect(field)}`);
           }
           result += this.quoteIdentifier(field.name);
           if (this._dialect.supports.index.collate && field.collate) {
@@ -37377,7 +37389,7 @@ var require_query_generator = __commonJS({
                   }
                 }
                 if (!(item2 instanceof Association2)) {
-                  throw new Error(util.format("Unable to find a valid association for model, '%s'", model.name));
+                  throw new Error(util2.format("Unable to find a valid association for model, '%s'", model.name));
                 }
               }
             }
@@ -37435,7 +37447,7 @@ var require_query_generator = __commonJS({
         if (_.isPlainObject(collection) && collection.raw) {
           throw new Error('The `{raw: "..."}` syntax is no longer supported.  Use `sequelize.literal` instead.');
         }
-        throw new Error(`Unknown structure passed to order / group: ${util.inspect(collection)}`);
+        throw new Error(`Unknown structure passed to order / group: ${util2.inspect(collection)}`);
       }
       _initQuoteIdentifier() {
         this._quoteIdentifier = this.quoteIdentifier;
@@ -38878,7 +38890,7 @@ var require_query_generator2 = __commonJS({
     var _ = require_lodash();
     var Utils2 = require_utils();
     var AbstractQueryGenerator = require_query_generator();
-    var util = require("util");
+    var util2 = require("util");
     var Op2 = require_operators();
     var JSON_FUNCTION_REGEX = /^\s*((?:[a-z]+_){0,2}jsonb?(?:_[a-z]+){0,2})\([^)]*\)/i;
     var JSON_OPERATOR_REGEX = /^\s*(->>?|@>|<@|\?[|&]?|\|{2}|#-)/i;
@@ -39091,7 +39103,7 @@ var require_query_generator2 = __commonJS({
               str = this.jsonPathExtractionQuery(column, paths);
             }
             if (smth.value) {
-              str += util.format(" = %s", this.escape(smth.value));
+              str += util2.format(" = %s", this.escape(smth.value));
             }
             return str;
           }
@@ -41523,8 +41535,8 @@ var require_connection_manager5 = __commonJS({
             switch (message.parameterName) {
               case "server_version":
                 if (this.sequelize.options.databaseVersion === 0) {
-                  const version = semver.coerce(message.parameterValue).version;
-                  this.sequelize.options.databaseVersion = semver.valid(version) ? version : this.dialect.defaultVersion;
+                  const version2 = semver.coerce(message.parameterValue).version;
+                  this.sequelize.options.databaseVersion = semver.valid(version2) ? version2 : this.dialect.defaultVersion;
                 }
                 break;
               case "standard_conforming_strings":
@@ -42014,7 +42026,7 @@ var require_query_generator5 = __commonJS({
       return a;
     };
     var Utils2 = require_utils();
-    var util = require("util");
+    var util2 = require("util");
     var DataTypes2 = require_data_types8();
     var AbstractQueryGenerator = require_query_generator();
     var semver = require_semver2();
@@ -42178,7 +42190,7 @@ var require_query_generator5 = __commonJS({
               str = this.jsonPathExtractionQuery(column, paths);
             }
             if (smth.value) {
-              str += util.format(" = %s", this.escape(smth.value));
+              str += util2.format(" = %s", this.escape(smth.value));
             }
             return str;
           }
@@ -45808,7 +45820,7 @@ var require_query_generator8 = __commonJS({
     var _ = require_lodash();
     var Utils2 = require_utils();
     var AbstractQueryGenerator = require_query_generator();
-    var util = require("util");
+    var util2 = require("util");
     var Op2 = require_operators();
     var JSON_FUNCTION_REGEX = /^\s*((?:[a-z]+_){0,2}jsonb?(?:_[a-z]+){0,2})\([^)]*\)/i;
     var JSON_OPERATOR_REGEX = /^\s*(->>?|@>|<@|\?[|&]?|\|{2}|#-)/i;
@@ -46030,7 +46042,7 @@ var require_query_generator8 = __commonJS({
               str = this.jsonPathExtractionQuery(column, paths);
             }
             if (attr.value) {
-              str += util.format(" = %s", this.escape(attr.value));
+              str += util2.format(" = %s", this.escape(attr.value));
             }
             return str;
           }
@@ -47408,8 +47420,11052 @@ var require_lib3 = __commonJS({
   }
 });
 
-// node_modules/@middy/core/index.js
+// node_modules/class-validator/cjs/metadata/ValidationMetadata.js
+var require_ValidationMetadata = __commonJS({
+  "node_modules/class-validator/cjs/metadata/ValidationMetadata.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidationMetadata = void 0;
+    var ValidationMetadata = class {
+      constructor(args) {
+        this.groups = [];
+        this.each = false;
+        this.context = void 0;
+        this.type = args.type;
+        this.target = args.target;
+        this.propertyName = args.propertyName;
+        this.constraints = args.constraints;
+        this.constraintCls = args.constraintCls;
+        this.validationTypeOptions = args.validationTypeOptions;
+        if (args.validationOptions) {
+          this.message = args.validationOptions.message;
+          this.groups = args.validationOptions.groups;
+          this.always = args.validationOptions.always;
+          this.each = args.validationOptions.each;
+          this.context = args.validationOptions.context;
+        }
+      }
+    };
+    exports.ValidationMetadata = ValidationMetadata;
+  }
+});
+
+// node_modules/class-validator/cjs/validation-schema/ValidationSchemaToMetadataTransformer.js
+var require_ValidationSchemaToMetadataTransformer = __commonJS({
+  "node_modules/class-validator/cjs/validation-schema/ValidationSchemaToMetadataTransformer.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidationSchemaToMetadataTransformer = void 0;
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var ValidationSchemaToMetadataTransformer = class {
+      transform(schema) {
+        const metadatas = [];
+        Object.keys(schema.properties).forEach((property) => {
+          schema.properties[property].forEach((validation) => {
+            const validationOptions = {
+              message: validation.message,
+              groups: validation.groups,
+              always: validation.always,
+              each: validation.each
+            };
+            const args = {
+              type: validation.type,
+              target: schema.name,
+              propertyName: property,
+              constraints: validation.constraints,
+              validationTypeOptions: validation.options,
+              validationOptions
+            };
+            metadatas.push(new ValidationMetadata_1.ValidationMetadata(args));
+          });
+        });
+        return metadatas;
+      }
+    };
+    exports.ValidationSchemaToMetadataTransformer = ValidationSchemaToMetadataTransformer;
+  }
+});
+
+// node_modules/class-validator/cjs/utils/convert-to-array.util.js
+var require_convert_to_array_util = __commonJS({
+  "node_modules/class-validator/cjs/utils/convert-to-array.util.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.convertToArray = void 0;
+    function convertToArray(val) {
+      if (val instanceof Map) {
+        return Array.from(val.values());
+      }
+      return Array.isArray(val) ? val : Array.from(val);
+    }
+    exports.convertToArray = convertToArray;
+  }
+});
+
+// node_modules/class-validator/cjs/utils/get-global.util.js
+var require_get_global_util = __commonJS({
+  "node_modules/class-validator/cjs/utils/get-global.util.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.getGlobal = void 0;
+    function getGlobal() {
+      if (typeof globalThis !== "undefined") {
+        return globalThis;
+      }
+      if (typeof global !== "undefined") {
+        return global;
+      }
+      if (typeof window !== "undefined") {
+        return window;
+      }
+      if (typeof self !== "undefined") {
+        return self;
+      }
+    }
+    exports.getGlobal = getGlobal;
+  }
+});
+
+// node_modules/class-validator/cjs/utils/is-promise.util.js
+var require_is_promise_util = __commonJS({
+  "node_modules/class-validator/cjs/utils/is-promise.util.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.isPromise = void 0;
+    function isPromise(p) {
+      return p !== null && typeof p === "object" && typeof p.then === "function";
+    }
+    exports.isPromise = isPromise;
+  }
+});
+
+// node_modules/class-validator/cjs/utils/index.js
+var require_utils2 = __commonJS({
+  "node_modules/class-validator/cjs/utils/index.js"(exports) {
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+      for (var p in m)
+        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+          __createBinding(exports2, m, p);
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __exportStar(require_convert_to_array_util(), exports);
+    __exportStar(require_get_global_util(), exports);
+    __exportStar(require_is_promise_util(), exports);
+  }
+});
+
+// node_modules/class-validator/cjs/metadata/MetadataStorage.js
+var require_MetadataStorage = __commonJS({
+  "node_modules/class-validator/cjs/metadata/MetadataStorage.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.getMetadataStorage = exports.MetadataStorage = void 0;
+    var ValidationSchemaToMetadataTransformer_1 = require_ValidationSchemaToMetadataTransformer();
+    var utils_1 = require_utils2();
+    var MetadataStorage = class {
+      constructor() {
+        this.validationMetadatas = [];
+        this.constraintMetadatas = [];
+      }
+      get hasValidationMetaData() {
+        return !!this.validationMetadatas.length;
+      }
+      addValidationSchema(schema) {
+        const validationMetadatas = new ValidationSchemaToMetadataTransformer_1.ValidationSchemaToMetadataTransformer().transform(schema);
+        validationMetadatas.forEach((validationMetadata) => this.addValidationMetadata(validationMetadata));
+      }
+      addValidationMetadata(metadata) {
+        this.validationMetadatas.push(metadata);
+      }
+      addConstraintMetadata(metadata) {
+        this.constraintMetadatas.push(metadata);
+      }
+      groupByPropertyName(metadata) {
+        const grouped = {};
+        metadata.forEach((metadata2) => {
+          if (!grouped[metadata2.propertyName])
+            grouped[metadata2.propertyName] = [];
+          grouped[metadata2.propertyName].push(metadata2);
+        });
+        return grouped;
+      }
+      getTargetValidationMetadatas(targetConstructor, targetSchema, always, strictGroups, groups) {
+        const includeMetadataBecauseOfAlwaysOption = (metadata) => {
+          if (typeof metadata.always !== "undefined")
+            return metadata.always;
+          if (metadata.groups && metadata.groups.length)
+            return false;
+          return always;
+        };
+        const excludeMetadataBecauseOfStrictGroupsOption = (metadata) => {
+          if (strictGroups) {
+            if (!groups || !groups.length) {
+              if (metadata.groups && metadata.groups.length)
+                return true;
+            }
+          }
+          return false;
+        };
+        const originalMetadatas = this.validationMetadatas.filter((metadata) => {
+          if (metadata.target !== targetConstructor && metadata.target !== targetSchema)
+            return false;
+          if (includeMetadataBecauseOfAlwaysOption(metadata))
+            return true;
+          if (excludeMetadataBecauseOfStrictGroupsOption(metadata))
+            return false;
+          if (groups && groups.length > 0)
+            return metadata.groups && !!metadata.groups.find((group) => groups.indexOf(group) !== -1);
+          return true;
+        });
+        const inheritedMetadatas = this.validationMetadatas.filter((metadata) => {
+          if (typeof metadata.target === "string")
+            return false;
+          if (metadata.target === targetConstructor)
+            return false;
+          if (metadata.target instanceof Function && !(targetConstructor.prototype instanceof metadata.target))
+            return false;
+          if (includeMetadataBecauseOfAlwaysOption(metadata))
+            return true;
+          if (excludeMetadataBecauseOfStrictGroupsOption(metadata))
+            return false;
+          if (groups && groups.length > 0)
+            return metadata.groups && !!metadata.groups.find((group) => groups.indexOf(group) !== -1);
+          return true;
+        });
+        const uniqueInheritedMetadatas = inheritedMetadatas.filter((inheritedMetadata) => {
+          return !originalMetadatas.find((originalMetadata) => {
+            return originalMetadata.propertyName === inheritedMetadata.propertyName && originalMetadata.type === inheritedMetadata.type;
+          });
+        });
+        return originalMetadatas.concat(uniqueInheritedMetadatas);
+      }
+      getTargetValidatorConstraints(target) {
+        return this.constraintMetadatas.filter((metadata) => metadata.target === target);
+      }
+    };
+    exports.MetadataStorage = MetadataStorage;
+    function getMetadataStorage() {
+      const global2 = (0, utils_1.getGlobal)();
+      if (!global2.classValidatorMetadataStorage) {
+        global2.classValidatorMetadataStorage = new MetadataStorage();
+      }
+      return global2.classValidatorMetadataStorage;
+    }
+    exports.getMetadataStorage = getMetadataStorage;
+  }
+});
+
+// node_modules/class-validator/cjs/validation/ValidationError.js
+var require_ValidationError = __commonJS({
+  "node_modules/class-validator/cjs/validation/ValidationError.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidationError = void 0;
+    var ValidationError3 = class {
+      toString(shouldDecorate = false, hasParent = false, parentPath = ``) {
+        const boldStart = shouldDecorate ? `\x1B[1m` : ``;
+        const boldEnd = shouldDecorate ? `\x1B[22m` : ``;
+        const propConstraintFailed = (propertyName) => ` - property ${boldStart}${parentPath}${propertyName}${boldEnd} has failed the following constraints: ${boldStart}${Object.keys(this.constraints).join(`, `)}${boldEnd} 
+`;
+        if (!hasParent) {
+          return `An instance of ${boldStart}${this.target ? this.target.constructor.name : "an object"}${boldEnd} has failed the validation:
+` + (this.constraints ? propConstraintFailed(this.property) : ``) + (this.children ? this.children.map((childError) => childError.toString(shouldDecorate, true, this.property)).join(``) : ``);
+        } else {
+          const formattedProperty = Number.isInteger(+this.property) ? `[${this.property}]` : `${parentPath ? `.` : ``}${this.property}`;
+          if (this.constraints) {
+            return propConstraintFailed(formattedProperty);
+          } else {
+            return this.children ? this.children.map((childError) => childError.toString(shouldDecorate, true, `${parentPath}${formattedProperty}`)).join(``) : ``;
+          }
+        }
+      }
+    };
+    exports.ValidationError = ValidationError3;
+  }
+});
+
+// node_modules/class-validator/cjs/validation/ValidationTypes.js
+var require_ValidationTypes = __commonJS({
+  "node_modules/class-validator/cjs/validation/ValidationTypes.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidationTypes = void 0;
+    var ValidationTypes = class {
+      static isValid(type) {
+        return type !== "isValid" && type !== "getMessage" && Object.keys(this).map((key) => this[key]).indexOf(type) !== -1;
+      }
+    };
+    exports.ValidationTypes = ValidationTypes;
+    ValidationTypes.CUSTOM_VALIDATION = "customValidation";
+    ValidationTypes.NESTED_VALIDATION = "nestedValidation";
+    ValidationTypes.PROMISE_VALIDATION = "promiseValidation";
+    ValidationTypes.CONDITIONAL_VALIDATION = "conditionalValidation";
+    ValidationTypes.WHITELIST = "whitelistValidation";
+    ValidationTypes.IS_DEFINED = "isDefined";
+  }
+});
+
+// node_modules/class-validator/cjs/validation/ValidationUtils.js
+var require_ValidationUtils = __commonJS({
+  "node_modules/class-validator/cjs/validation/ValidationUtils.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidationUtils = exports.constraintToString = void 0;
+    function constraintToString(constraint) {
+      if (Array.isArray(constraint)) {
+        return constraint.join(", ");
+      }
+      return `${constraint}`;
+    }
+    exports.constraintToString = constraintToString;
+    var ValidationUtils = class {
+      static replaceMessageSpecialTokens(message, validationArguments) {
+        let messageString;
+        if (message instanceof Function) {
+          messageString = message(validationArguments);
+        } else if (typeof message === "string") {
+          messageString = message;
+        }
+        if (messageString && Array.isArray(validationArguments.constraints)) {
+          validationArguments.constraints.forEach((constraint, index) => {
+            messageString = messageString.replace(new RegExp(`\\$constraint${index + 1}`, "g"), constraintToString(constraint));
+          });
+        }
+        if (messageString && validationArguments.value !== void 0 && validationArguments.value !== null && typeof validationArguments.value === "string")
+          messageString = messageString.replace(/\$value/g, validationArguments.value);
+        if (messageString)
+          messageString = messageString.replace(/\$property/g, validationArguments.property);
+        if (messageString)
+          messageString = messageString.replace(/\$target/g, validationArguments.targetName);
+        return messageString;
+      }
+    };
+    exports.ValidationUtils = ValidationUtils;
+  }
+});
+
+// node_modules/class-validator/cjs/validation/ValidationExecutor.js
+var require_ValidationExecutor = __commonJS({
+  "node_modules/class-validator/cjs/validation/ValidationExecutor.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidationExecutor = void 0;
+    var ValidationError_1 = require_ValidationError();
+    var ValidationTypes_1 = require_ValidationTypes();
+    var ValidationUtils_1 = require_ValidationUtils();
+    var utils_1 = require_utils2();
+    var MetadataStorage_1 = require_MetadataStorage();
+    var ValidationExecutor = class {
+      constructor(validator, validatorOptions) {
+        this.validator = validator;
+        this.validatorOptions = validatorOptions;
+        this.awaitingPromises = [];
+        this.ignoreAsyncValidations = false;
+        this.metadataStorage = (0, MetadataStorage_1.getMetadataStorage)();
+      }
+      execute(object, targetSchema, validationErrors) {
+        var _a;
+        if (!this.metadataStorage.hasValidationMetaData && ((_a = this.validatorOptions) === null || _a === void 0 ? void 0 : _a.enableDebugMessages) === true) {
+          console.warn(`No metadata found. There is more than once class-validator version installed probably. You need to flatten your dependencies.`);
+        }
+        const groups = this.validatorOptions ? this.validatorOptions.groups : void 0;
+        const strictGroups = this.validatorOptions && this.validatorOptions.strictGroups || false;
+        const always = this.validatorOptions && this.validatorOptions.always || false;
+        const targetMetadatas = this.metadataStorage.getTargetValidationMetadatas(object.constructor, targetSchema, always, strictGroups, groups);
+        const groupedMetadatas = this.metadataStorage.groupByPropertyName(targetMetadatas);
+        if (this.validatorOptions && this.validatorOptions.forbidUnknownValues && !targetMetadatas.length) {
+          const validationError = new ValidationError_1.ValidationError();
+          if (!this.validatorOptions || !this.validatorOptions.validationError || this.validatorOptions.validationError.target === void 0 || this.validatorOptions.validationError.target === true)
+            validationError.target = object;
+          validationError.value = void 0;
+          validationError.property = void 0;
+          validationError.children = [];
+          validationError.constraints = { unknownValue: "an unknown value was passed to the validate function" };
+          validationErrors.push(validationError);
+          return;
+        }
+        if (this.validatorOptions && this.validatorOptions.whitelist)
+          this.whitelist(object, groupedMetadatas, validationErrors);
+        Object.keys(groupedMetadatas).forEach((propertyName) => {
+          const value = object[propertyName];
+          const definedMetadatas = groupedMetadatas[propertyName].filter((metadata) => metadata.type === ValidationTypes_1.ValidationTypes.IS_DEFINED);
+          const metadatas = groupedMetadatas[propertyName].filter((metadata) => metadata.type !== ValidationTypes_1.ValidationTypes.IS_DEFINED && metadata.type !== ValidationTypes_1.ValidationTypes.WHITELIST);
+          if (value instanceof Promise && metadatas.find((metadata) => metadata.type === ValidationTypes_1.ValidationTypes.PROMISE_VALIDATION)) {
+            this.awaitingPromises.push(value.then((resolvedValue) => {
+              this.performValidations(object, resolvedValue, propertyName, definedMetadatas, metadatas, validationErrors);
+            }));
+          } else {
+            this.performValidations(object, value, propertyName, definedMetadatas, metadatas, validationErrors);
+          }
+        });
+      }
+      whitelist(object, groupedMetadatas, validationErrors) {
+        const notAllowedProperties = [];
+        Object.keys(object).forEach((propertyName) => {
+          if (!groupedMetadatas[propertyName] || groupedMetadatas[propertyName].length === 0)
+            notAllowedProperties.push(propertyName);
+        });
+        if (notAllowedProperties.length > 0) {
+          if (this.validatorOptions && this.validatorOptions.forbidNonWhitelisted) {
+            notAllowedProperties.forEach((property) => {
+              const validationError = this.generateValidationError(object, object[property], property);
+              validationError.constraints = { [ValidationTypes_1.ValidationTypes.WHITELIST]: `property ${property} should not exist` };
+              validationError.children = void 0;
+              validationErrors.push(validationError);
+            });
+          } else {
+            notAllowedProperties.forEach((property) => delete object[property]);
+          }
+        }
+      }
+      stripEmptyErrors(errors) {
+        return errors.filter((error) => {
+          if (error.children) {
+            error.children = this.stripEmptyErrors(error.children);
+          }
+          if (Object.keys(error.constraints).length === 0) {
+            if (error.children.length === 0) {
+              return false;
+            } else {
+              delete error.constraints;
+            }
+          }
+          return true;
+        });
+      }
+      performValidations(object, value, propertyName, definedMetadatas, metadatas, validationErrors) {
+        const customValidationMetadatas = metadatas.filter((metadata) => metadata.type === ValidationTypes_1.ValidationTypes.CUSTOM_VALIDATION);
+        const nestedValidationMetadatas = metadatas.filter((metadata) => metadata.type === ValidationTypes_1.ValidationTypes.NESTED_VALIDATION);
+        const conditionalValidationMetadatas = metadatas.filter((metadata) => metadata.type === ValidationTypes_1.ValidationTypes.CONDITIONAL_VALIDATION);
+        const validationError = this.generateValidationError(object, value, propertyName);
+        validationErrors.push(validationError);
+        const canValidate = this.conditionalValidations(object, value, conditionalValidationMetadatas);
+        if (!canValidate) {
+          return;
+        }
+        this.customValidations(object, value, definedMetadatas, validationError);
+        this.mapContexts(object, value, definedMetadatas, validationError);
+        if (value === void 0 && this.validatorOptions && this.validatorOptions.skipUndefinedProperties === true) {
+          return;
+        }
+        if (value === null && this.validatorOptions && this.validatorOptions.skipNullProperties === true) {
+          return;
+        }
+        if ((value === null || value === void 0) && this.validatorOptions && this.validatorOptions.skipMissingProperties === true) {
+          return;
+        }
+        this.customValidations(object, value, customValidationMetadatas, validationError);
+        this.nestedValidations(value, nestedValidationMetadatas, validationError.children);
+        this.mapContexts(object, value, metadatas, validationError);
+        this.mapContexts(object, value, customValidationMetadatas, validationError);
+      }
+      generateValidationError(object, value, propertyName) {
+        const validationError = new ValidationError_1.ValidationError();
+        if (!this.validatorOptions || !this.validatorOptions.validationError || this.validatorOptions.validationError.target === void 0 || this.validatorOptions.validationError.target === true)
+          validationError.target = object;
+        if (!this.validatorOptions || !this.validatorOptions.validationError || this.validatorOptions.validationError.value === void 0 || this.validatorOptions.validationError.value === true)
+          validationError.value = value;
+        validationError.property = propertyName;
+        validationError.children = [];
+        validationError.constraints = {};
+        return validationError;
+      }
+      conditionalValidations(object, value, metadatas) {
+        return metadatas.map((metadata) => metadata.constraints[0](object, value)).reduce((resultA, resultB) => resultA && resultB, true);
+      }
+      customValidations(object, value, metadatas, error) {
+        metadatas.forEach((metadata) => {
+          this.metadataStorage.getTargetValidatorConstraints(metadata.constraintCls).forEach((customConstraintMetadata) => {
+            if (customConstraintMetadata.async && this.ignoreAsyncValidations)
+              return;
+            if (this.validatorOptions && this.validatorOptions.stopAtFirstError && Object.keys(error.constraints || {}).length > 0)
+              return;
+            const validationArguments = {
+              targetName: object.constructor ? object.constructor.name : void 0,
+              property: metadata.propertyName,
+              object,
+              value,
+              constraints: metadata.constraints
+            };
+            if (!metadata.each || !(Array.isArray(value) || value instanceof Set || value instanceof Map)) {
+              const validatedValue = customConstraintMetadata.instance.validate(value, validationArguments);
+              if ((0, utils_1.isPromise)(validatedValue)) {
+                const promise = validatedValue.then((isValid) => {
+                  if (!isValid) {
+                    const [type, message] = this.createValidationError(object, value, metadata, customConstraintMetadata);
+                    error.constraints[type] = message;
+                    if (metadata.context) {
+                      if (!error.contexts) {
+                        error.contexts = {};
+                      }
+                      error.contexts[type] = Object.assign(error.contexts[type] || {}, metadata.context);
+                    }
+                  }
+                });
+                this.awaitingPromises.push(promise);
+              } else {
+                if (!validatedValue) {
+                  const [type, message] = this.createValidationError(object, value, metadata, customConstraintMetadata);
+                  error.constraints[type] = message;
+                }
+              }
+              return;
+            }
+            const arrayValue = (0, utils_1.convertToArray)(value);
+            const validatedSubValues = arrayValue.map((subValue) => customConstraintMetadata.instance.validate(subValue, validationArguments));
+            const validationIsAsync = validatedSubValues.some((validatedSubValue) => (0, utils_1.isPromise)(validatedSubValue));
+            if (validationIsAsync) {
+              const asyncValidatedSubValues = validatedSubValues.map((validatedSubValue) => (0, utils_1.isPromise)(validatedSubValue) ? validatedSubValue : Promise.resolve(validatedSubValue));
+              const asyncValidationIsFinishedPromise = Promise.all(asyncValidatedSubValues).then((flatValidatedValues) => {
+                const validationResult2 = flatValidatedValues.every((isValid) => isValid);
+                if (!validationResult2) {
+                  const [type, message] = this.createValidationError(object, value, metadata, customConstraintMetadata);
+                  error.constraints[type] = message;
+                  if (metadata.context) {
+                    if (!error.contexts) {
+                      error.contexts = {};
+                    }
+                    error.contexts[type] = Object.assign(error.contexts[type] || {}, metadata.context);
+                  }
+                }
+              });
+              this.awaitingPromises.push(asyncValidationIsFinishedPromise);
+              return;
+            }
+            const validationResult = validatedSubValues.every((isValid) => isValid);
+            if (!validationResult) {
+              const [type, message] = this.createValidationError(object, value, metadata, customConstraintMetadata);
+              error.constraints[type] = message;
+            }
+          });
+        });
+      }
+      nestedValidations(value, metadatas, errors) {
+        if (value === void 0) {
+          return;
+        }
+        metadatas.forEach((metadata) => {
+          if (metadata.type !== ValidationTypes_1.ValidationTypes.NESTED_VALIDATION && metadata.type !== ValidationTypes_1.ValidationTypes.PROMISE_VALIDATION) {
+            return;
+          }
+          if (Array.isArray(value) || value instanceof Set || value instanceof Map) {
+            const arrayLikeValue = value instanceof Set ? Array.from(value) : value;
+            arrayLikeValue.forEach((subValue, index) => {
+              this.performValidations(value, subValue, index.toString(), [], metadatas, errors);
+            });
+          } else if (value instanceof Object) {
+            const targetSchema = typeof metadata.target === "string" ? metadata.target : metadata.target.name;
+            this.execute(value, targetSchema, errors);
+          } else {
+            const error = new ValidationError_1.ValidationError();
+            error.value = value;
+            error.property = metadata.propertyName;
+            error.target = metadata.target;
+            const [type, message] = this.createValidationError(metadata.target, value, metadata);
+            error.constraints = {
+              [type]: message
+            };
+            errors.push(error);
+          }
+        });
+      }
+      mapContexts(object, value, metadatas, error) {
+        return metadatas.forEach((metadata) => {
+          if (metadata.context) {
+            let customConstraint;
+            if (metadata.type === ValidationTypes_1.ValidationTypes.CUSTOM_VALIDATION) {
+              const customConstraints = this.metadataStorage.getTargetValidatorConstraints(metadata.constraintCls);
+              customConstraint = customConstraints[0];
+            }
+            const type = this.getConstraintType(metadata, customConstraint);
+            if (error.constraints[type]) {
+              if (!error.contexts) {
+                error.contexts = {};
+              }
+              error.contexts[type] = Object.assign(error.contexts[type] || {}, metadata.context);
+            }
+          }
+        });
+      }
+      createValidationError(object, value, metadata, customValidatorMetadata) {
+        const targetName = object.constructor ? object.constructor.name : void 0;
+        const type = this.getConstraintType(metadata, customValidatorMetadata);
+        const validationArguments = {
+          targetName,
+          property: metadata.propertyName,
+          object,
+          value,
+          constraints: metadata.constraints
+        };
+        let message = metadata.message || "";
+        if (!metadata.message && (!this.validatorOptions || this.validatorOptions && !this.validatorOptions.dismissDefaultMessages)) {
+          if (customValidatorMetadata && customValidatorMetadata.instance.defaultMessage instanceof Function) {
+            message = customValidatorMetadata.instance.defaultMessage(validationArguments);
+          }
+        }
+        const messageString = ValidationUtils_1.ValidationUtils.replaceMessageSpecialTokens(message, validationArguments);
+        return [type, messageString];
+      }
+      getConstraintType(metadata, customValidatorMetadata) {
+        const type = customValidatorMetadata && customValidatorMetadata.name ? customValidatorMetadata.name : metadata.type;
+        return type;
+      }
+    };
+    exports.ValidationExecutor = ValidationExecutor;
+  }
+});
+
+// node_modules/class-validator/cjs/validation/Validator.js
+var require_Validator = __commonJS({
+  "node_modules/class-validator/cjs/validation/Validator.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Validator = void 0;
+    var ValidationExecutor_1 = require_ValidationExecutor();
+    var Validator2 = class {
+      validate(objectOrSchemaName, objectOrValidationOptions, maybeValidatorOptions) {
+        return this.coreValidate(objectOrSchemaName, objectOrValidationOptions, maybeValidatorOptions);
+      }
+      async validateOrReject(objectOrSchemaName, objectOrValidationOptions, maybeValidatorOptions) {
+        const errors = await this.coreValidate(objectOrSchemaName, objectOrValidationOptions, maybeValidatorOptions);
+        if (errors.length)
+          return Promise.reject(errors);
+      }
+      validateSync(objectOrSchemaName, objectOrValidationOptions, maybeValidatorOptions) {
+        const object = typeof objectOrSchemaName === "string" ? objectOrValidationOptions : objectOrSchemaName;
+        const options = typeof objectOrSchemaName === "string" ? maybeValidatorOptions : objectOrValidationOptions;
+        const schema = typeof objectOrSchemaName === "string" ? objectOrSchemaName : void 0;
+        const executor = new ValidationExecutor_1.ValidationExecutor(this, options);
+        executor.ignoreAsyncValidations = true;
+        const validationErrors = [];
+        executor.execute(object, schema, validationErrors);
+        return executor.stripEmptyErrors(validationErrors);
+      }
+      coreValidate(objectOrSchemaName, objectOrValidationOptions, maybeValidatorOptions) {
+        const object = typeof objectOrSchemaName === "string" ? objectOrValidationOptions : objectOrSchemaName;
+        const options = typeof objectOrSchemaName === "string" ? maybeValidatorOptions : objectOrValidationOptions;
+        const schema = typeof objectOrSchemaName === "string" ? objectOrSchemaName : void 0;
+        const executor = new ValidationExecutor_1.ValidationExecutor(this, options);
+        const validationErrors = [];
+        executor.execute(object, schema, validationErrors);
+        return Promise.all(executor.awaitingPromises).then(() => {
+          return executor.stripEmptyErrors(validationErrors);
+        });
+      }
+    };
+    exports.Validator = Validator2;
+  }
+});
+
+// node_modules/class-validator/cjs/container.js
+var require_container = __commonJS({
+  "node_modules/class-validator/cjs/container.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.getFromContainer = exports.useContainer = void 0;
+    var defaultContainer = new class {
+      constructor() {
+        this.instances = [];
+      }
+      get(someClass) {
+        let instance = this.instances.find((instance2) => instance2.type === someClass);
+        if (!instance) {
+          instance = { type: someClass, object: new someClass() };
+          this.instances.push(instance);
+        }
+        return instance.object;
+      }
+    }();
+    var userContainer;
+    var userContainerOptions;
+    function useContainer(iocContainer, options) {
+      userContainer = iocContainer;
+      userContainerOptions = options;
+    }
+    exports.useContainer = useContainer;
+    function getFromContainer(someClass) {
+      if (userContainer) {
+        try {
+          const instance = userContainer.get(someClass);
+          if (instance)
+            return instance;
+          if (!userContainerOptions || !userContainerOptions.fallback)
+            return instance;
+        } catch (error) {
+          if (!userContainerOptions || !userContainerOptions.fallbackOnErrors)
+            throw error;
+        }
+      }
+      return defaultContainer.get(someClass);
+    }
+    exports.getFromContainer = getFromContainer;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/Allow.js
+var require_Allow = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/Allow.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Allow = void 0;
+    var ValidationTypes_1 = require_ValidationTypes();
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var MetadataStorage_1 = require_MetadataStorage();
+    function Allow(validationOptions) {
+      return function(object, propertyName) {
+        const args = {
+          type: ValidationTypes_1.ValidationTypes.WHITELIST,
+          target: object.constructor,
+          propertyName,
+          validationOptions
+        };
+        (0, MetadataStorage_1.getMetadataStorage)().addValidationMetadata(new ValidationMetadata_1.ValidationMetadata(args));
+      };
+    }
+    exports.Allow = Allow;
+  }
+});
+
+// node_modules/class-validator/cjs/metadata/ConstraintMetadata.js
+var require_ConstraintMetadata = __commonJS({
+  "node_modules/class-validator/cjs/metadata/ConstraintMetadata.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ConstraintMetadata = void 0;
+    var container_1 = require_container();
+    var ConstraintMetadata = class {
+      constructor(target, name, async = false) {
+        this.target = target;
+        this.name = name;
+        this.async = async;
+      }
+      get instance() {
+        return (0, container_1.getFromContainer)(this.target);
+      }
+    };
+    exports.ConstraintMetadata = ConstraintMetadata;
+  }
+});
+
+// node_modules/class-validator/cjs/register-decorator.js
+var require_register_decorator = __commonJS({
+  "node_modules/class-validator/cjs/register-decorator.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.registerDecorator = void 0;
+    var ConstraintMetadata_1 = require_ConstraintMetadata();
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var ValidationTypes_1 = require_ValidationTypes();
+    var container_1 = require_container();
+    var MetadataStorage_1 = require_MetadataStorage();
+    function registerDecorator(options) {
+      let constraintCls;
+      if (options.validator instanceof Function) {
+        constraintCls = options.validator;
+        const constraintClasses = (0, container_1.getFromContainer)(MetadataStorage_1.MetadataStorage).getTargetValidatorConstraints(options.validator);
+        if (constraintClasses.length > 1) {
+          throw `More than one implementation of ValidatorConstraintInterface found for validator on: ${options.target.name}:${options.propertyName}`;
+        }
+      } else {
+        const validator = options.validator;
+        constraintCls = class CustomConstraint {
+          validate(value, validationArguments) {
+            return validator.validate(value, validationArguments);
+          }
+          defaultMessage(validationArguments) {
+            if (validator.defaultMessage) {
+              return validator.defaultMessage(validationArguments);
+            }
+            return "";
+          }
+        };
+        (0, MetadataStorage_1.getMetadataStorage)().addConstraintMetadata(new ConstraintMetadata_1.ConstraintMetadata(constraintCls, options.name, options.async));
+      }
+      const validationMetadataArgs = {
+        type: options.name && ValidationTypes_1.ValidationTypes.isValid(options.name) ? options.name : ValidationTypes_1.ValidationTypes.CUSTOM_VALIDATION,
+        target: options.target,
+        propertyName: options.propertyName,
+        validationOptions: options.options,
+        constraintCls,
+        constraints: options.constraints
+      };
+      (0, MetadataStorage_1.getMetadataStorage)().addValidationMetadata(new ValidationMetadata_1.ValidationMetadata(validationMetadataArgs));
+    }
+    exports.registerDecorator = registerDecorator;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/ValidateBy.js
+var require_ValidateBy = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/ValidateBy.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidateBy = exports.buildMessage = void 0;
+    var register_decorator_1 = require_register_decorator();
+    function buildMessage(impl, validationOptions) {
+      return (validationArguments) => {
+        const eachPrefix = validationOptions && validationOptions.each ? "each value in " : "";
+        return impl(eachPrefix, validationArguments);
+      };
+    }
+    exports.buildMessage = buildMessage;
+    function ValidateBy(options, validationOptions) {
+      return function(object, propertyName) {
+        (0, register_decorator_1.registerDecorator)({
+          name: options.name,
+          target: object.constructor,
+          propertyName,
+          options: validationOptions,
+          constraints: options.constraints,
+          validator: options.validator
+        });
+      };
+    }
+    exports.ValidateBy = ValidateBy;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsDefined.js
+var require_IsDefined = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsDefined.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsDefined = exports.isDefined = exports.IS_DEFINED = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var ValidationTypes_1 = require_ValidationTypes();
+    exports.IS_DEFINED = ValidationTypes_1.ValidationTypes.IS_DEFINED;
+    function isDefined(value) {
+      return value !== void 0 && value !== null;
+    }
+    exports.isDefined = isDefined;
+    function IsDefined2(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_DEFINED,
+        validator: {
+          validate: (value) => isDefined(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property should not be null or undefined", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsDefined = IsDefined2;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsOptional.js
+var require_IsOptional = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsOptional.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsOptional = void 0;
+    var ValidationTypes_1 = require_ValidationTypes();
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var MetadataStorage_1 = require_MetadataStorage();
+    function IsOptional2(validationOptions) {
+      return function(object, propertyName) {
+        const args = {
+          type: ValidationTypes_1.ValidationTypes.CONDITIONAL_VALIDATION,
+          target: object.constructor,
+          propertyName,
+          constraints: [
+            (object2, value) => {
+              return object2[propertyName] !== null && object2[propertyName] !== void 0;
+            }
+          ],
+          validationOptions
+        };
+        (0, MetadataStorage_1.getMetadataStorage)().addValidationMetadata(new ValidationMetadata_1.ValidationMetadata(args));
+      };
+    }
+    exports.IsOptional = IsOptional2;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/Validate.js
+var require_Validate = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/Validate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Validate = exports.ValidatorConstraint = void 0;
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var MetadataStorage_1 = require_MetadataStorage();
+    var ValidationTypes_1 = require_ValidationTypes();
+    var ConstraintMetadata_1 = require_ConstraintMetadata();
+    function ValidatorConstraint(options) {
+      return function(target) {
+        const isAsync = options && options.async;
+        let name = options && options.name ? options.name : "";
+        if (!name) {
+          name = target.name;
+          if (!name)
+            name = name.replace(/\.?([A-Z]+)/g, (x, y) => "_" + y.toLowerCase()).replace(/^_/, "");
+        }
+        const metadata = new ConstraintMetadata_1.ConstraintMetadata(target, name, isAsync);
+        (0, MetadataStorage_1.getMetadataStorage)().addConstraintMetadata(metadata);
+      };
+    }
+    exports.ValidatorConstraint = ValidatorConstraint;
+    function Validate(constraintClass, constraintsOrValidationOptions, maybeValidationOptions) {
+      return function(object, propertyName) {
+        const args = {
+          type: ValidationTypes_1.ValidationTypes.CUSTOM_VALIDATION,
+          target: object.constructor,
+          propertyName,
+          constraintCls: constraintClass,
+          constraints: Array.isArray(constraintsOrValidationOptions) ? constraintsOrValidationOptions : void 0,
+          validationOptions: !Array.isArray(constraintsOrValidationOptions) ? constraintsOrValidationOptions : maybeValidationOptions
+        };
+        (0, MetadataStorage_1.getMetadataStorage)().addValidationMetadata(new ValidationMetadata_1.ValidationMetadata(args));
+      };
+    }
+    exports.Validate = Validate;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/ValidateIf.js
+var require_ValidateIf = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/ValidateIf.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidateIf = void 0;
+    var ValidationTypes_1 = require_ValidationTypes();
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var MetadataStorage_1 = require_MetadataStorage();
+    function ValidateIf(condition, validationOptions) {
+      return function(object, propertyName) {
+        const args = {
+          type: ValidationTypes_1.ValidationTypes.CONDITIONAL_VALIDATION,
+          target: object.constructor,
+          propertyName,
+          constraints: [condition],
+          validationOptions
+        };
+        (0, MetadataStorage_1.getMetadataStorage)().addValidationMetadata(new ValidationMetadata_1.ValidationMetadata(args));
+      };
+    }
+    exports.ValidateIf = ValidateIf;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/ValidateNested.js
+var require_ValidateNested = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/ValidateNested.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidateNested = void 0;
+    var ValidationTypes_1 = require_ValidationTypes();
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var MetadataStorage_1 = require_MetadataStorage();
+    function ValidateNested(validationOptions) {
+      const opts = { ...validationOptions };
+      const eachPrefix = opts.each ? "each value in " : "";
+      opts.message = opts.message || eachPrefix + "nested property $property must be either object or array";
+      return function(object, propertyName) {
+        const args = {
+          type: ValidationTypes_1.ValidationTypes.NESTED_VALIDATION,
+          target: object.constructor,
+          propertyName,
+          validationOptions: opts
+        };
+        (0, MetadataStorage_1.getMetadataStorage)().addValidationMetadata(new ValidationMetadata_1.ValidationMetadata(args));
+      };
+    }
+    exports.ValidateNested = ValidateNested;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/ValidatePromise.js
+var require_ValidatePromise = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/ValidatePromise.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ValidatePromise = void 0;
+    var ValidationTypes_1 = require_ValidationTypes();
+    var ValidationMetadata_1 = require_ValidationMetadata();
+    var MetadataStorage_1 = require_MetadataStorage();
+    function ValidatePromise(validationOptions) {
+      return function(object, propertyName) {
+        const args = {
+          type: ValidationTypes_1.ValidationTypes.PROMISE_VALIDATION,
+          target: object.constructor,
+          propertyName,
+          validationOptions
+        };
+        (0, MetadataStorage_1.getMetadataStorage)().addValidationMetadata(new ValidationMetadata_1.ValidationMetadata(args));
+      };
+    }
+    exports.ValidatePromise = ValidatePromise;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsLatLong.js
+var require_IsLatLong = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsLatLong.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsLatLong = exports.isLatLong = exports.IS_LATLONG = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isLatLong_1 = __importDefault(require_isLatLong());
+    exports.IS_LATLONG = "isLatLong";
+    function isLatLong(value) {
+      return typeof value === "string" && (0, isLatLong_1.default)(value);
+    }
+    exports.isLatLong = isLatLong;
+    function IsLatLong(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_LATLONG,
+        validator: {
+          validate: (value, args) => isLatLong(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a latitude,longitude string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsLatLong = IsLatLong;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsLatitude.js
+var require_IsLatitude = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsLatitude.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsLatitude = exports.isLatitude = exports.IS_LATITUDE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var IsLatLong_1 = require_IsLatLong();
+    exports.IS_LATITUDE = "isLatitude";
+    function isLatitude(value) {
+      return (typeof value === "number" || typeof value === "string") && (0, IsLatLong_1.isLatLong)(`${value},0`);
+    }
+    exports.isLatitude = isLatitude;
+    function IsLatitude(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_LATITUDE,
+        validator: {
+          validate: (value, args) => isLatitude(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a latitude string or number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsLatitude = IsLatitude;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsLongitude.js
+var require_IsLongitude = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsLongitude.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsLongitude = exports.isLongitude = exports.IS_LONGITUDE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var IsLatLong_1 = require_IsLatLong();
+    exports.IS_LONGITUDE = "isLongitude";
+    function isLongitude(value) {
+      return (typeof value === "number" || typeof value === "string") && (0, IsLatLong_1.isLatLong)(`0,${value}`);
+    }
+    exports.isLongitude = isLongitude;
+    function IsLongitude(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_LONGITUDE,
+        validator: {
+          validate: (value, args) => isLongitude(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a longitude string or number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsLongitude = IsLongitude;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/Equals.js
+var require_Equals = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/Equals.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Equals = exports.equals = exports.EQUALS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.EQUALS = "equals";
+    function equals(value, comparison) {
+      return value === comparison;
+    }
+    exports.equals = equals;
+    function Equals(comparison, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.EQUALS,
+        constraints: [comparison],
+        validator: {
+          validate: (value, args) => equals(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be equal to $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.Equals = Equals;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/NotEquals.js
+var require_NotEquals = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/NotEquals.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.NotEquals = exports.notEquals = exports.NOT_EQUALS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.NOT_EQUALS = "notEquals";
+    function notEquals(value, comparison) {
+      return value !== comparison;
+    }
+    exports.notEquals = notEquals;
+    function NotEquals(comparison, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.NOT_EQUALS,
+        constraints: [comparison],
+        validator: {
+          validate: (value, args) => notEquals(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property should not be equal to $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.NotEquals = NotEquals;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsEmpty.js
+var require_IsEmpty = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsEmpty.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsEmpty = exports.isEmpty = exports.IS_EMPTY = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_EMPTY = "isEmpty";
+    function isEmpty(value) {
+      return value === "" || value === null || value === void 0;
+    }
+    exports.isEmpty = isEmpty;
+    function IsEmpty(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_EMPTY,
+        validator: {
+          validate: (value, args) => isEmpty(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be empty", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsEmpty = IsEmpty;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsNotEmpty.js
+var require_IsNotEmpty = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsNotEmpty.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsNotEmpty = exports.isNotEmpty = exports.IS_NOT_EMPTY = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_NOT_EMPTY = "isNotEmpty";
+    function isNotEmpty(value) {
+      return value !== "" && value !== null && value !== void 0;
+    }
+    exports.isNotEmpty = isNotEmpty;
+    function IsNotEmpty2(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_NOT_EMPTY,
+        validator: {
+          validate: (value, args) => isNotEmpty(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property should not be empty", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsNotEmpty = IsNotEmpty2;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsIn.js
+var require_IsIn = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsIn.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsIn = exports.isIn = exports.IS_IN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_IN = "isIn";
+    function isIn(value, possibleValues) {
+      return !Array.isArray(possibleValues) || possibleValues.some((possibleValue) => possibleValue === value);
+    }
+    exports.isIn = isIn;
+    function IsIn(values, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_IN,
+        constraints: [values],
+        validator: {
+          validate: (value, args) => isIn(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be one of the following values: $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsIn = IsIn;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/common/IsNotIn.js
+var require_IsNotIn = __commonJS({
+  "node_modules/class-validator/cjs/decorator/common/IsNotIn.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsNotIn = exports.isNotIn = exports.IS_NOT_IN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_NOT_IN = "isNotIn";
+    function isNotIn(value, possibleValues) {
+      return !Array.isArray(possibleValues) || !possibleValues.some((possibleValue) => possibleValue === value);
+    }
+    exports.isNotIn = isNotIn;
+    function IsNotIn(values, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_NOT_IN,
+        constraints: [values],
+        validator: {
+          validate: (value, args) => isNotIn(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property should not be one of the following values: $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsNotIn = IsNotIn;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/number/IsDivisibleBy.js
+var require_IsDivisibleBy = __commonJS({
+  "node_modules/class-validator/cjs/decorator/number/IsDivisibleBy.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsDivisibleBy = exports.isDivisibleBy = exports.IS_DIVISIBLE_BY = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isDivisibleBy_1 = __importDefault(require_isDivisibleBy());
+    exports.IS_DIVISIBLE_BY = "isDivisibleBy";
+    function isDivisibleBy(value, num) {
+      return typeof value === "number" && typeof num === "number" && (0, isDivisibleBy_1.default)(String(value), num);
+    }
+    exports.isDivisibleBy = isDivisibleBy;
+    function IsDivisibleBy(num, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_DIVISIBLE_BY,
+        constraints: [num],
+        validator: {
+          validate: (value, args) => isDivisibleBy(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be divisible by $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsDivisibleBy = IsDivisibleBy;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/number/IsPositive.js
+var require_IsPositive = __commonJS({
+  "node_modules/class-validator/cjs/decorator/number/IsPositive.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsPositive = exports.isPositive = exports.IS_POSITIVE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_POSITIVE = "isPositive";
+    function isPositive(value) {
+      return typeof value === "number" && value > 0;
+    }
+    exports.isPositive = isPositive;
+    function IsPositive(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_POSITIVE,
+        validator: {
+          validate: (value, args) => isPositive(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a positive number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsPositive = IsPositive;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/number/IsNegative.js
+var require_IsNegative = __commonJS({
+  "node_modules/class-validator/cjs/decorator/number/IsNegative.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsNegative = exports.isNegative = exports.IS_NEGATIVE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_NEGATIVE = "isNegative";
+    function isNegative(value) {
+      return typeof value === "number" && value < 0;
+    }
+    exports.isNegative = isNegative;
+    function IsNegative(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_NEGATIVE,
+        validator: {
+          validate: (value, args) => isNegative(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a negative number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsNegative = IsNegative;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/number/Max.js
+var require_Max = __commonJS({
+  "node_modules/class-validator/cjs/decorator/number/Max.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Max = exports.max = exports.MAX = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.MAX = "max";
+    function max(num, max2) {
+      return typeof num === "number" && typeof max2 === "number" && num <= max2;
+    }
+    exports.max = max;
+    function Max(maxValue, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.MAX,
+        constraints: [maxValue],
+        validator: {
+          validate: (value, args) => max(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must not be greater than $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.Max = Max;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/number/Min.js
+var require_Min = __commonJS({
+  "node_modules/class-validator/cjs/decorator/number/Min.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Min = exports.min = exports.MIN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.MIN = "min";
+    function min(num, min2) {
+      return typeof num === "number" && typeof min2 === "number" && num >= min2;
+    }
+    exports.min = min;
+    function Min(minValue, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.MIN,
+        constraints: [minValue],
+        validator: {
+          validate: (value, args) => min(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must not be less than $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.Min = Min;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/date/MinDate.js
+var require_MinDate = __commonJS({
+  "node_modules/class-validator/cjs/decorator/date/MinDate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.MinDate = exports.minDate = exports.MIN_DATE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.MIN_DATE = "minDate";
+    function minDate(date, minDate2) {
+      return date instanceof Date && date.getTime() >= minDate2.getTime();
+    }
+    exports.minDate = minDate;
+    function MinDate(date, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.MIN_DATE,
+        constraints: [date],
+        validator: {
+          validate: (value, args) => minDate(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => "minimal allowed date for " + eachPrefix + "$property is $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.MinDate = MinDate;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/date/MaxDate.js
+var require_MaxDate = __commonJS({
+  "node_modules/class-validator/cjs/decorator/date/MaxDate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.MaxDate = exports.maxDate = exports.MAX_DATE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.MAX_DATE = "maxDate";
+    function maxDate(date, maxDate2) {
+      return date instanceof Date && date.getTime() <= maxDate2.getTime();
+    }
+    exports.maxDate = maxDate;
+    function MaxDate(date, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.MAX_DATE,
+        constraints: [date],
+        validator: {
+          validate: (value, args) => maxDate(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => "maximal allowed date for " + eachPrefix + "$property is $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.MaxDate = MaxDate;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/Contains.js
+var require_Contains = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/Contains.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Contains = exports.contains = exports.CONTAINS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var contains_1 = __importDefault(require_contains());
+    exports.CONTAINS = "contains";
+    function contains(value, seed) {
+      return typeof value === "string" && (0, contains_1.default)(value, seed);
+    }
+    exports.contains = contains;
+    function Contains(seed, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.CONTAINS,
+        constraints: [seed],
+        validator: {
+          validate: (value, args) => contains(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain a $constraint1 string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.Contains = Contains;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/NotContains.js
+var require_NotContains = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/NotContains.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.NotContains = exports.notContains = exports.NOT_CONTAINS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var contains_1 = __importDefault(require_contains());
+    exports.NOT_CONTAINS = "notContains";
+    function notContains(value, seed) {
+      return typeof value === "string" && !(0, contains_1.default)(value, seed);
+    }
+    exports.notContains = notContains;
+    function NotContains(seed, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.NOT_CONTAINS,
+        constraints: [seed],
+        validator: {
+          validate: (value, args) => notContains(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property should not contain a $constraint1 string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.NotContains = NotContains;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsAlpha.js
+var require_IsAlpha = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsAlpha.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsAlpha = exports.isAlpha = exports.IS_ALPHA = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isAlpha_1 = __importDefault(require_isAlpha());
+    exports.IS_ALPHA = "isAlpha";
+    function isAlpha(value, locale) {
+      return typeof value === "string" && (0, isAlpha_1.default)(value, locale);
+    }
+    exports.isAlpha = isAlpha;
+    function IsAlpha(locale, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ALPHA,
+        constraints: [locale],
+        validator: {
+          validate: (value, args) => isAlpha(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain only letters (a-zA-Z)", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsAlpha = IsAlpha;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsAlphanumeric.js
+var require_IsAlphanumeric = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsAlphanumeric.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsAlphanumeric = exports.isAlphanumeric = exports.IS_ALPHANUMERIC = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isAlphanumeric_1 = __importDefault(require_isAlphanumeric());
+    exports.IS_ALPHANUMERIC = "isAlphanumeric";
+    function isAlphanumeric(value, locale) {
+      return typeof value === "string" && (0, isAlphanumeric_1.default)(value, locale);
+    }
+    exports.isAlphanumeric = isAlphanumeric;
+    function IsAlphanumeric(locale, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ALPHANUMERIC,
+        constraints: [locale],
+        validator: {
+          validate: (value, args) => isAlphanumeric(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain only letters and numbers", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsAlphanumeric = IsAlphanumeric;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsDecimal.js
+var require_IsDecimal = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsDecimal.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsDecimal = exports.isDecimal = exports.IS_DECIMAL = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isDecimal_1 = __importDefault(require_isDecimal());
+    exports.IS_DECIMAL = "isDecimal";
+    function isDecimal(value, options) {
+      return typeof value === "string" && (0, isDecimal_1.default)(value, options);
+    }
+    exports.isDecimal = isDecimal;
+    function IsDecimal(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_DECIMAL,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isDecimal(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property is not a valid decimal number.", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsDecimal = IsDecimal;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsAscii.js
+var require_IsAscii = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsAscii.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsAscii = exports.isAscii = exports.IS_ASCII = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isAscii_1 = __importDefault(require_isAscii());
+    exports.IS_ASCII = "isAscii";
+    function isAscii(value) {
+      return typeof value === "string" && (0, isAscii_1.default)(value);
+    }
+    exports.isAscii = isAscii;
+    function IsAscii(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ASCII,
+        validator: {
+          validate: (value, args) => isAscii(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain only ASCII characters", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsAscii = IsAscii;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsBase64.js
+var require_IsBase64 = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsBase64.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsBase64 = exports.isBase64 = exports.IS_BASE64 = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isBase64_1 = __importDefault(require_isBase64());
+    exports.IS_BASE64 = "isBase64";
+    function isBase64(value) {
+      return typeof value === "string" && (0, isBase64_1.default)(value);
+    }
+    exports.isBase64 = isBase64;
+    function IsBase64(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_BASE64,
+        validator: {
+          validate: (value, args) => isBase64(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be base64 encoded", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsBase64 = IsBase64;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsByteLength.js
+var require_IsByteLength = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsByteLength.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsByteLength = exports.isByteLength = exports.IS_BYTE_LENGTH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isByteLength_1 = __importDefault(require_isByteLength());
+    exports.IS_BYTE_LENGTH = "isByteLength";
+    function isByteLength(value, min, max) {
+      return typeof value === "string" && (0, isByteLength_1.default)(value, { min, max });
+    }
+    exports.isByteLength = isByteLength;
+    function IsByteLength(min, max, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_BYTE_LENGTH,
+        constraints: [min, max],
+        validator: {
+          validate: (value, args) => isByteLength(value, args.constraints[0], args.constraints[1]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property's byte length must fall into ($constraint1, $constraint2) range", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsByteLength = IsByteLength;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsCreditCard.js
+var require_IsCreditCard = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsCreditCard.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsCreditCard = exports.isCreditCard = exports.IS_CREDIT_CARD = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isCreditCard_1 = __importDefault(require_isCreditCard());
+    exports.IS_CREDIT_CARD = "isCreditCard";
+    function isCreditCard(value) {
+      return typeof value === "string" && (0, isCreditCard_1.default)(value);
+    }
+    exports.isCreditCard = isCreditCard;
+    function IsCreditCard(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_CREDIT_CARD,
+        validator: {
+          validate: (value, args) => isCreditCard(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a credit card", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsCreditCard = IsCreditCard;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsCurrency.js
+var require_IsCurrency = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsCurrency.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsCurrency = exports.isCurrency = exports.IS_CURRENCY = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isCurrency_1 = __importDefault(require_isCurrency());
+    exports.IS_CURRENCY = "isCurrency";
+    function isCurrency(value, options) {
+      return typeof value === "string" && (0, isCurrency_1.default)(value, options);
+    }
+    exports.isCurrency = isCurrency;
+    function IsCurrency(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_CURRENCY,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isCurrency(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a currency", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsCurrency = IsCurrency;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsEmail.js
+var require_IsEmail = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsEmail.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsEmail = exports.isEmail = exports.IS_EMAIL = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isEmail_1 = __importDefault(require_isEmail());
+    exports.IS_EMAIL = "isEmail";
+    function isEmail(value, options) {
+      return typeof value === "string" && (0, isEmail_1.default)(value, options);
+    }
+    exports.isEmail = isEmail;
+    function IsEmail(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_EMAIL,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isEmail(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an email", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsEmail = IsEmail;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsFQDN.js
+var require_IsFQDN = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsFQDN.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsFQDN = exports.isFQDN = exports.IS_FQDN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isFQDN_1 = __importDefault(require_isFQDN());
+    exports.IS_FQDN = "isFqdn";
+    function isFQDN(value, options) {
+      return typeof value === "string" && (0, isFQDN_1.default)(value, options);
+    }
+    exports.isFQDN = isFQDN;
+    function IsFQDN(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_FQDN,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isFQDN(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid domain name", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsFQDN = IsFQDN;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsFullWidth.js
+var require_IsFullWidth = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsFullWidth.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsFullWidth = exports.isFullWidth = exports.IS_FULL_WIDTH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isFullWidth_1 = __importDefault(require_isFullWidth());
+    exports.IS_FULL_WIDTH = "isFullWidth";
+    function isFullWidth(value) {
+      return typeof value === "string" && (0, isFullWidth_1.default)(value);
+    }
+    exports.isFullWidth = isFullWidth;
+    function IsFullWidth(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_FULL_WIDTH,
+        validator: {
+          validate: (value, args) => isFullWidth(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain a full-width characters", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsFullWidth = IsFullWidth;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsHalfWidth.js
+var require_IsHalfWidth = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsHalfWidth.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsHalfWidth = exports.isHalfWidth = exports.IS_HALF_WIDTH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isHalfWidth_1 = __importDefault(require_isHalfWidth());
+    exports.IS_HALF_WIDTH = "isHalfWidth";
+    function isHalfWidth(value) {
+      return typeof value === "string" && (0, isHalfWidth_1.default)(value);
+    }
+    exports.isHalfWidth = isHalfWidth;
+    function IsHalfWidth(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_HALF_WIDTH,
+        validator: {
+          validate: (value, args) => isHalfWidth(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain a half-width characters", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsHalfWidth = IsHalfWidth;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsVariableWidth.js
+var require_IsVariableWidth = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsVariableWidth.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsVariableWidth = exports.isVariableWidth = exports.IS_VARIABLE_WIDTH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isVariableWidth_1 = __importDefault(require_isVariableWidth());
+    exports.IS_VARIABLE_WIDTH = "isVariableWidth";
+    function isVariableWidth(value) {
+      return typeof value === "string" && (0, isVariableWidth_1.default)(value);
+    }
+    exports.isVariableWidth = isVariableWidth;
+    function IsVariableWidth(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_VARIABLE_WIDTH,
+        validator: {
+          validate: (value, args) => isVariableWidth(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain a full-width and half-width characters", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsVariableWidth = IsVariableWidth;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsHexColor.js
+var require_IsHexColor = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsHexColor.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsHexColor = exports.isHexColor = exports.IS_HEX_COLOR = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isHexColor_1 = __importDefault(require_isHexColor());
+    exports.IS_HEX_COLOR = "isHexColor";
+    function isHexColor(value) {
+      return typeof value === "string" && (0, isHexColor_1.default)(value);
+    }
+    exports.isHexColor = isHexColor;
+    function IsHexColor(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_HEX_COLOR,
+        validator: {
+          validate: (value, args) => isHexColor(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a hexadecimal color", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsHexColor = IsHexColor;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsHexadecimal.js
+var require_IsHexadecimal = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsHexadecimal.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsHexadecimal = exports.isHexadecimal = exports.IS_HEXADECIMAL = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isHexadecimal_1 = __importDefault(require_isHexadecimal());
+    exports.IS_HEXADECIMAL = "isHexadecimal";
+    function isHexadecimal(value) {
+      return typeof value === "string" && (0, isHexadecimal_1.default)(value);
+    }
+    exports.isHexadecimal = isHexadecimal;
+    function IsHexadecimal(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_HEXADECIMAL,
+        validator: {
+          validate: (value, args) => isHexadecimal(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a hexadecimal number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsHexadecimal = IsHexadecimal;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/ValidationOptions.js
+var require_ValidationOptions = __commonJS({
+  "node_modules/class-validator/cjs/decorator/ValidationOptions.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.isValidationOptions = void 0;
+    function isValidationOptions(val) {
+      if (!val) {
+        return false;
+      }
+      return "each" in val || "message" in val || "groups" in val || "always" in val || "context" in val;
+    }
+    exports.isValidationOptions = isValidationOptions;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsMacAddress.js
+var require_IsMacAddress = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsMacAddress.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsMACAddress = exports.isMACAddress = exports.IS_MAC_ADDRESS = void 0;
+    var ValidationOptions_1 = require_ValidationOptions();
+    var ValidateBy_1 = require_ValidateBy();
+    var isMACAddress_1 = __importDefault(require_isMACAddress());
+    exports.IS_MAC_ADDRESS = "isMacAddress";
+    function isMACAddress(value, options) {
+      return typeof value === "string" && (0, isMACAddress_1.default)(value, options);
+    }
+    exports.isMACAddress = isMACAddress;
+    function IsMACAddress(optionsOrValidationOptionsArg, validationOptionsArg) {
+      const options = !(0, ValidationOptions_1.isValidationOptions)(optionsOrValidationOptionsArg) ? optionsOrValidationOptionsArg : void 0;
+      const validationOptions = (0, ValidationOptions_1.isValidationOptions)(optionsOrValidationOptionsArg) ? optionsOrValidationOptionsArg : validationOptionsArg;
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_MAC_ADDRESS,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isMACAddress(value, options),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a MAC Address", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsMACAddress = IsMACAddress;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsIP.js
+var require_IsIP = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsIP.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsIP = exports.isIP = exports.IS_IP = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isIP_1 = __importDefault(require_isIP());
+    exports.IS_IP = "isIp";
+    function isIP(value, version2) {
+      const versionStr = version2 ? `${version2}` : void 0;
+      return typeof value === "string" && (0, isIP_1.default)(value, versionStr);
+    }
+    exports.isIP = isIP;
+    function IsIP(version2, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_IP,
+        constraints: [version2],
+        validator: {
+          validate: (value, args) => isIP(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an ip address", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsIP = IsIP;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsPort.js
+var require_IsPort = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsPort.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsPort = exports.isPort = exports.IS_PORT = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isPort_1 = __importDefault(require_isPort());
+    exports.IS_PORT = "isPort";
+    function isPort(value) {
+      return typeof value === "string" && (0, isPort_1.default)(value);
+    }
+    exports.isPort = isPort;
+    function IsPort(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_PORT,
+        validator: {
+          validate: (value, args) => isPort(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a port", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsPort = IsPort;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsISBN.js
+var require_IsISBN = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsISBN.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsISBN = exports.isISBN = exports.IS_ISBN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isISBN_1 = __importDefault(require_isISBN());
+    exports.IS_ISBN = "isIsbn";
+    function isISBN(value, version2) {
+      const versionStr = version2 ? `${version2}` : void 0;
+      return typeof value === "string" && (0, isISBN_1.default)(value, versionStr);
+    }
+    exports.isISBN = isISBN;
+    function IsISBN(version2, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ISBN,
+        constraints: [version2],
+        validator: {
+          validate: (value, args) => isISBN(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an ISBN", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsISBN = IsISBN;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsISIN.js
+var require_IsISIN = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsISIN.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsISIN = exports.isISIN = exports.IS_ISIN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isISIN_1 = __importDefault(require_isISIN());
+    exports.IS_ISIN = "isIsin";
+    function isISIN(value) {
+      return typeof value === "string" && (0, isISIN_1.default)(value);
+    }
+    exports.isISIN = isISIN;
+    function IsISIN(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ISIN,
+        validator: {
+          validate: (value, args) => isISIN(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an ISIN (stock/security identifier)", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsISIN = IsISIN;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsISO8601.js
+var require_IsISO8601 = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsISO8601.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsISO8601 = exports.isISO8601 = exports.IS_ISO8601 = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isISO8601_1 = __importDefault(require_isISO8601());
+    exports.IS_ISO8601 = "isIso8601";
+    function isISO8601(value, options) {
+      return typeof value === "string" && (0, isISO8601_1.default)(value, options);
+    }
+    exports.isISO8601 = isISO8601;
+    function IsISO8601(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ISO8601,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isISO8601(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid ISO 8601 date string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsISO8601 = IsISO8601;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsJSON.js
+var require_IsJSON = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsJSON.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsJSON = exports.isJSON = exports.IS_JSON = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isJSON_1 = __importDefault(require_isJSON());
+    exports.IS_JSON = "isJson";
+    function isJSON(value) {
+      return typeof value === "string" && (0, isJSON_1.default)(value);
+    }
+    exports.isJSON = isJSON;
+    function IsJSON(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_JSON,
+        validator: {
+          validate: (value, args) => isJSON(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a json string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsJSON = IsJSON;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsJWT.js
+var require_IsJWT = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsJWT.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsJWT = exports.isJWT = exports.IS_JWT = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isJWT_1 = __importDefault(require_isJWT());
+    exports.IS_JWT = "isJwt";
+    function isJWT(value) {
+      return typeof value === "string" && (0, isJWT_1.default)(value);
+    }
+    exports.isJWT = isJWT;
+    function IsJWT(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_JWT,
+        validator: {
+          validate: (value, args) => isJWT(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a jwt string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsJWT = IsJWT;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsLowercase.js
+var require_IsLowercase = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsLowercase.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsLowercase = exports.isLowercase = exports.IS_LOWERCASE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isLowercase_1 = __importDefault(require_isLowercase());
+    exports.IS_LOWERCASE = "isLowercase";
+    function isLowercase(value) {
+      return typeof value === "string" && (0, isLowercase_1.default)(value);
+    }
+    exports.isLowercase = isLowercase;
+    function IsLowercase(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_LOWERCASE,
+        validator: {
+          validate: (value, args) => isLowercase(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a lowercase string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsLowercase = IsLowercase;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsMobilePhone.js
+var require_IsMobilePhone = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsMobilePhone.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsMobilePhone = exports.isMobilePhone = exports.IS_MOBILE_PHONE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isMobilePhone_1 = __importDefault(require_isMobilePhone());
+    exports.IS_MOBILE_PHONE = "isMobilePhone";
+    function isMobilePhone(value, locale, options) {
+      return typeof value === "string" && (0, isMobilePhone_1.default)(value, locale, options);
+    }
+    exports.isMobilePhone = isMobilePhone;
+    function IsMobilePhone(locale, options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_MOBILE_PHONE,
+        constraints: [locale, options],
+        validator: {
+          validate: (value, args) => isMobilePhone(value, args.constraints[0], args.constraints[1]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a phone number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsMobilePhone = IsMobilePhone;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsISO31661Alpha2.js
+var require_IsISO31661Alpha2 = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsISO31661Alpha2.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsISO31661Alpha2 = exports.isISO31661Alpha2 = exports.IS_ISO31661_ALPHA_2 = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isISO31661Alpha2_1 = __importDefault(require_isISO31661Alpha2());
+    exports.IS_ISO31661_ALPHA_2 = "isISO31661Alpha2";
+    function isISO31661Alpha2(value) {
+      return typeof value === "string" && (0, isISO31661Alpha2_1.default)(value);
+    }
+    exports.isISO31661Alpha2 = isISO31661Alpha2;
+    function IsISO31661Alpha2(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ISO31661_ALPHA_2,
+        validator: {
+          validate: (value, args) => isISO31661Alpha2(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid ISO31661 Alpha2 code", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsISO31661Alpha2 = IsISO31661Alpha2;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsISO31661Alpha3.js
+var require_IsISO31661Alpha3 = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsISO31661Alpha3.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsISO31661Alpha3 = exports.isISO31661Alpha3 = exports.IS_ISO31661_ALPHA_3 = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isISO31661Alpha3_1 = __importDefault(require_isISO31661Alpha3());
+    exports.IS_ISO31661_ALPHA_3 = "isISO31661Alpha3";
+    function isISO31661Alpha3(value) {
+      return typeof value === "string" && (0, isISO31661Alpha3_1.default)(value);
+    }
+    exports.isISO31661Alpha3 = isISO31661Alpha3;
+    function IsISO31661Alpha3(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ISO31661_ALPHA_3,
+        validator: {
+          validate: (value, args) => isISO31661Alpha3(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid ISO31661 Alpha3 code", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsISO31661Alpha3 = IsISO31661Alpha3;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsMongoId.js
+var require_IsMongoId = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsMongoId.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsMongoId = exports.isMongoId = exports.IS_MONGO_ID = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isMongoId_1 = __importDefault(require_isMongoId());
+    exports.IS_MONGO_ID = "isMongoId";
+    function isMongoId(value) {
+      return typeof value === "string" && (0, isMongoId_1.default)(value);
+    }
+    exports.isMongoId = isMongoId;
+    function IsMongoId(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_MONGO_ID,
+        validator: {
+          validate: (value, args) => isMongoId(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a mongodb id", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsMongoId = IsMongoId;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsMultibyte.js
+var require_IsMultibyte = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsMultibyte.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsMultibyte = exports.isMultibyte = exports.IS_MULTIBYTE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isMultibyte_1 = __importDefault(require_isMultibyte());
+    exports.IS_MULTIBYTE = "isMultibyte";
+    function isMultibyte(value) {
+      return typeof value === "string" && (0, isMultibyte_1.default)(value);
+    }
+    exports.isMultibyte = isMultibyte;
+    function IsMultibyte(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_MULTIBYTE,
+        validator: {
+          validate: (value, args) => isMultibyte(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain one or more multibyte chars", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsMultibyte = IsMultibyte;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsSurrogatePair.js
+var require_IsSurrogatePair = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsSurrogatePair.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsSurrogatePair = exports.isSurrogatePair = exports.IS_SURROGATE_PAIR = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isSurrogatePair_1 = __importDefault(require_isSurrogatePair());
+    exports.IS_SURROGATE_PAIR = "isSurrogatePair";
+    function isSurrogatePair(value) {
+      return typeof value === "string" && (0, isSurrogatePair_1.default)(value);
+    }
+    exports.isSurrogatePair = isSurrogatePair;
+    function IsSurrogatePair(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_SURROGATE_PAIR,
+        validator: {
+          validate: (value, args) => isSurrogatePair(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain any surrogate pairs chars", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsSurrogatePair = IsSurrogatePair;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsUrl.js
+var require_IsUrl = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsUrl.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsUrl = exports.isURL = exports.IS_URL = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isURL_1 = __importDefault(require_isURL());
+    exports.IS_URL = "isUrl";
+    function isURL(value, options) {
+      return typeof value === "string" && (0, isURL_1.default)(value, options);
+    }
+    exports.isURL = isURL;
+    function IsUrl(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_URL,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isURL(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an URL address", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsUrl = IsUrl;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsUUID.js
+var require_IsUUID = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsUUID.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsUUID = exports.isUUID = exports.IS_UUID = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isUUID_1 = __importDefault(require_isUUID());
+    exports.IS_UUID = "isUuid";
+    function isUUID(value, version2) {
+      return typeof value === "string" && (0, isUUID_1.default)(value, version2);
+    }
+    exports.isUUID = isUUID;
+    function IsUUID(version2, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_UUID,
+        constraints: [version2],
+        validator: {
+          validate: (value, args) => isUUID(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a UUID", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsUUID = IsUUID;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsFirebasePushId.js
+var require_IsFirebasePushId = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsFirebasePushId.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsFirebasePushId = exports.isFirebasePushId = exports.IS_FIREBASE_PUSH_ID = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_FIREBASE_PUSH_ID = "IsFirebasePushId";
+    function isFirebasePushId(value) {
+      const webSafeRegex = /^[a-zA-Z0-9_-]*$/;
+      return typeof value === "string" && value.length === 20 && webSafeRegex.test(value);
+    }
+    exports.isFirebasePushId = isFirebasePushId;
+    function IsFirebasePushId(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_FIREBASE_PUSH_ID,
+        validator: {
+          validate: (value, args) => isFirebasePushId(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a Firebase Push Id", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsFirebasePushId = IsFirebasePushId;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsUppercase.js
+var require_IsUppercase = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsUppercase.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsUppercase = exports.isUppercase = exports.IS_UPPERCASE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isUppercase_1 = __importDefault(require_isUppercase());
+    exports.IS_UPPERCASE = "isUppercase";
+    function isUppercase(value) {
+      return typeof value === "string" && (0, isUppercase_1.default)(value);
+    }
+    exports.isUppercase = isUppercase;
+    function IsUppercase(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_UPPERCASE,
+        validator: {
+          validate: (value, args) => isUppercase(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be uppercase", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsUppercase = IsUppercase;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/Length.js
+var require_Length = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/Length.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Length = exports.length = exports.IS_LENGTH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isLength_1 = __importDefault(require_isLength());
+    exports.IS_LENGTH = "isLength";
+    function length(value, min, max) {
+      return typeof value === "string" && (0, isLength_1.default)(value, { min, max });
+    }
+    exports.length = length;
+    function Length(min, max, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_LENGTH,
+        constraints: [min, max],
+        validator: {
+          validate: (value, args) => length(value, args.constraints[0], args.constraints[1]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix, args) => {
+            const isMinLength = args.constraints[0] !== null && args.constraints[0] !== void 0;
+            const isMaxLength = args.constraints[1] !== null && args.constraints[1] !== void 0;
+            if (isMinLength && (!args.value || args.value.length < args.constraints[0])) {
+              return eachPrefix + "$property must be longer than or equal to $constraint1 characters";
+            } else if (isMaxLength && args.value.length > args.constraints[1]) {
+              return eachPrefix + "$property must be shorter than or equal to $constraint2 characters";
+            }
+            return eachPrefix + "$property must be longer than or equal to $constraint1 and shorter than or equal to $constraint2 characters";
+          }, validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.Length = Length;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/MaxLength.js
+var require_MaxLength = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/MaxLength.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.MaxLength = exports.maxLength = exports.MAX_LENGTH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isLength_1 = __importDefault(require_isLength());
+    exports.MAX_LENGTH = "maxLength";
+    function maxLength(value, max) {
+      return typeof value === "string" && (0, isLength_1.default)(value, { min: 0, max });
+    }
+    exports.maxLength = maxLength;
+    function MaxLength(max, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.MAX_LENGTH,
+        constraints: [max],
+        validator: {
+          validate: (value, args) => maxLength(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be shorter than or equal to $constraint1 characters", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.MaxLength = MaxLength;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/MinLength.js
+var require_MinLength = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/MinLength.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.MinLength = exports.minLength = exports.MIN_LENGTH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isLength_1 = __importDefault(require_isLength());
+    exports.MIN_LENGTH = "minLength";
+    function minLength(value, min) {
+      return typeof value === "string" && (0, isLength_1.default)(value, { min });
+    }
+    exports.minLength = minLength;
+    function MinLength(min, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.MIN_LENGTH,
+        constraints: [min],
+        validator: {
+          validate: (value, args) => minLength(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be longer than or equal to $constraint1 characters", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.MinLength = MinLength;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/Matches.js
+var require_Matches = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/Matches.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Matches = exports.matches = exports.MATCHES = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var matches_1 = __importDefault(require_matches());
+    exports.MATCHES = "matches";
+    function matches(value, pattern, modifiers) {
+      return typeof value === "string" && (0, matches_1.default)(value, pattern, modifiers);
+    }
+    exports.matches = matches;
+    function Matches(pattern, modifiersOrAnnotationOptions, validationOptions) {
+      let modifiers;
+      if (modifiersOrAnnotationOptions && modifiersOrAnnotationOptions instanceof Object && !validationOptions) {
+        validationOptions = modifiersOrAnnotationOptions;
+      } else {
+        modifiers = modifiersOrAnnotationOptions;
+      }
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.MATCHES,
+        constraints: [pattern, modifiers],
+        validator: {
+          validate: (value, args) => matches(value, args.constraints[0], args.constraints[1]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix, args) => eachPrefix + "$property must match $constraint1 regular expression", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.Matches = Matches;
+  }
+});
+
+// node_modules/libphonenumber-js/metadata.min.json
+var metadata_min_exports = {};
+__export(metadata_min_exports, {
+  countries: () => countries,
+  country_calling_codes: () => country_calling_codes,
+  default: () => metadata_min_default,
+  nonGeographic: () => nonGeographic,
+  version: () => version
+});
+var version, country_calling_codes, countries, nonGeographic, metadata_min_default;
+var init_metadata_min = __esm({
+  "node_modules/libphonenumber-js/metadata.min.json"() {
+    version = 4;
+    country_calling_codes = { "1": ["US", "AG", "AI", "AS", "BB", "BM", "BS", "CA", "DM", "DO", "GD", "GU", "JM", "KN", "KY", "LC", "MP", "MS", "PR", "SX", "TC", "TT", "VC", "VG", "VI"], "7": ["RU", "KZ"], "20": ["EG"], "27": ["ZA"], "30": ["GR"], "31": ["NL"], "32": ["BE"], "33": ["FR"], "34": ["ES"], "36": ["HU"], "39": ["IT", "VA"], "40": ["RO"], "41": ["CH"], "43": ["AT"], "44": ["GB", "GG", "IM", "JE"], "45": ["DK"], "46": ["SE"], "47": ["NO", "SJ"], "48": ["PL"], "49": ["DE"], "51": ["PE"], "52": ["MX"], "53": ["CU"], "54": ["AR"], "55": ["BR"], "56": ["CL"], "57": ["CO"], "58": ["VE"], "60": ["MY"], "61": ["AU", "CC", "CX"], "62": ["ID"], "63": ["PH"], "64": ["NZ"], "65": ["SG"], "66": ["TH"], "81": ["JP"], "82": ["KR"], "84": ["VN"], "86": ["CN"], "90": ["TR"], "91": ["IN"], "92": ["PK"], "93": ["AF"], "94": ["LK"], "95": ["MM"], "98": ["IR"], "211": ["SS"], "212": ["MA", "EH"], "213": ["DZ"], "216": ["TN"], "218": ["LY"], "220": ["GM"], "221": ["SN"], "222": ["MR"], "223": ["ML"], "224": ["GN"], "225": ["CI"], "226": ["BF"], "227": ["NE"], "228": ["TG"], "229": ["BJ"], "230": ["MU"], "231": ["LR"], "232": ["SL"], "233": ["GH"], "234": ["NG"], "235": ["TD"], "236": ["CF"], "237": ["CM"], "238": ["CV"], "239": ["ST"], "240": ["GQ"], "241": ["GA"], "242": ["CG"], "243": ["CD"], "244": ["AO"], "245": ["GW"], "246": ["IO"], "247": ["AC"], "248": ["SC"], "249": ["SD"], "250": ["RW"], "251": ["ET"], "252": ["SO"], "253": ["DJ"], "254": ["KE"], "255": ["TZ"], "256": ["UG"], "257": ["BI"], "258": ["MZ"], "260": ["ZM"], "261": ["MG"], "262": ["RE", "YT"], "263": ["ZW"], "264": ["NA"], "265": ["MW"], "266": ["LS"], "267": ["BW"], "268": ["SZ"], "269": ["KM"], "290": ["SH", "TA"], "291": ["ER"], "297": ["AW"], "298": ["FO"], "299": ["GL"], "350": ["GI"], "351": ["PT"], "352": ["LU"], "353": ["IE"], "354": ["IS"], "355": ["AL"], "356": ["MT"], "357": ["CY"], "358": ["FI", "AX"], "359": ["BG"], "370": ["LT"], "371": ["LV"], "372": ["EE"], "373": ["MD"], "374": ["AM"], "375": ["BY"], "376": ["AD"], "377": ["MC"], "378": ["SM"], "380": ["UA"], "381": ["RS"], "382": ["ME"], "383": ["XK"], "385": ["HR"], "386": ["SI"], "387": ["BA"], "389": ["MK"], "420": ["CZ"], "421": ["SK"], "423": ["LI"], "500": ["FK"], "501": ["BZ"], "502": ["GT"], "503": ["SV"], "504": ["HN"], "505": ["NI"], "506": ["CR"], "507": ["PA"], "508": ["PM"], "509": ["HT"], "590": ["GP", "BL", "MF"], "591": ["BO"], "592": ["GY"], "593": ["EC"], "594": ["GF"], "595": ["PY"], "596": ["MQ"], "597": ["SR"], "598": ["UY"], "599": ["CW", "BQ"], "670": ["TL"], "672": ["NF"], "673": ["BN"], "674": ["NR"], "675": ["PG"], "676": ["TO"], "677": ["SB"], "678": ["VU"], "679": ["FJ"], "680": ["PW"], "681": ["WF"], "682": ["CK"], "683": ["NU"], "685": ["WS"], "686": ["KI"], "687": ["NC"], "688": ["TV"], "689": ["PF"], "690": ["TK"], "691": ["FM"], "692": ["MH"], "850": ["KP"], "852": ["HK"], "853": ["MO"], "855": ["KH"], "856": ["LA"], "880": ["BD"], "886": ["TW"], "960": ["MV"], "961": ["LB"], "962": ["JO"], "963": ["SY"], "964": ["IQ"], "965": ["KW"], "966": ["SA"], "967": ["YE"], "968": ["OM"], "970": ["PS"], "971": ["AE"], "972": ["IL"], "973": ["BH"], "974": ["QA"], "975": ["BT"], "976": ["MN"], "977": ["NP"], "992": ["TJ"], "993": ["TM"], "994": ["AZ"], "995": ["GE"], "996": ["KG"], "998": ["UZ"] };
+    countries = { AC: ["247", "00", "(?:[01589]\\d|[46])\\d{4}", [5, 6]], AD: ["376", "00", "(?:1|6\\d)\\d{7}|[135-9]\\d{5}", [6, 8, 9], [["(\\d{3})(\\d{3})", "$1 $2", ["[135-9]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["1"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]]]], AE: ["971", "00", "(?:[4-7]\\d|9[0-689])\\d{7}|800\\d{2,9}|[2-4679]\\d{7}", [5, 6, 7, 8, 9, 10, 11, 12], [["(\\d{3})(\\d{2,9})", "$1 $2", ["60|8"]], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[236]|[479][2-8]"], "0$1"], ["(\\d{3})(\\d)(\\d{5})", "$1 $2 $3", ["[479]"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["5"], "0$1"]], "0"], AF: ["93", "00", "[2-7]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-7]"], "0$1"]], "0"], AG: ["1", "011", "(?:268|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([457]\\d{6})$", "268$1", 0, "268"], AI: ["1", "011", "(?:264|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2457]\\d{6})$", "264$1", 0, "264"], AL: ["355", "00", "(?:700\\d\\d|900)\\d{3}|8\\d{5,7}|(?:[2-5]|6\\d)\\d{7}", [6, 7, 8, 9], [["(\\d{3})(\\d{3,4})", "$1 $2", ["80|9"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["4[2-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2358][2-5]|4"], "0$1"], ["(\\d{3})(\\d{5})", "$1 $2", ["[23578]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["6"], "0$1"]], "0"], AM: ["374", "00", "(?:[1-489]\\d|55|60|77)\\d{6}", [8], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[89]0"], "0 $1"], ["(\\d{3})(\\d{5})", "$1 $2", ["2|3[12]"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["1|47"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[3-9]"], "0$1"]], "0"], AO: ["244", "00", "[29]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[29]"]]]], AR: ["54", "00", "(?:11|[89]\\d\\d)\\d{8}|[2368]\\d{9}", [10, 11], [["(\\d{4})(\\d{2})(\\d{4})", "$1 $2-$3", ["2(?:2[024-9]|3[0-59]|47|6[245]|9[02-8])|3(?:3[28]|4[03-9]|5[2-46-8]|7[1-578]|8[2-9])", "2(?:[23]02|6(?:[25]|4[6-8])|9(?:[02356]|4[02568]|72|8[23]))|3(?:3[28]|4(?:[04679]|3[5-8]|5[4-68]|8[2379])|5(?:[2467]|3[237]|8[2-5])|7[1-578]|8(?:[2469]|3[2578]|5[4-8]|7[36-8]|8[5-8]))|2(?:2[24-9]|3[1-59]|47)", "2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3[78]|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8[23])|7[1-578]|8(?:[2469]|3[278]|5[56][46]|86[3-6]))|2(?:2[24-9]|3[1-59]|47)|38(?:[58][78]|7[378])|3(?:4[35][56]|58[45]|8(?:[38]5|54|76))[4-6]", "2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3(?:5(?:4[0-25689]|[56])|[78])|58|8[2379])|5(?:[2467]|3[237]|8(?:[23]|4(?:[45]|60)|5(?:4[0-39]|5|64)))|7[1-578]|8(?:[2469]|3[278]|54(?:4|5[13-7]|6[89])|86[3-6]))|2(?:2[24-9]|3[1-59]|47)|38(?:[58][78]|7[378])|3(?:454|85[56])[46]|3(?:4(?:36|5[56])|8(?:[38]5|76))[4-6]"], "0$1", 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2-$3", ["1"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["[68]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2-$3", ["[23]"], "0$1", 1], ["(\\d)(\\d{4})(\\d{2})(\\d{4})", "$2 15-$3-$4", ["9(?:2[2-469]|3[3-578])", "9(?:2(?:2[024-9]|3[0-59]|47|6[245]|9[02-8])|3(?:3[28]|4[03-9]|5[2-46-8]|7[1-578]|8[2-9]))", "9(?:2(?:[23]02|6(?:[25]|4[6-8])|9(?:[02356]|4[02568]|72|8[23]))|3(?:3[28]|4(?:[04679]|3[5-8]|5[4-68]|8[2379])|5(?:[2467]|3[237]|8[2-5])|7[1-578]|8(?:[2469]|3[2578]|5[4-8]|7[36-8]|8[5-8])))|92(?:2[24-9]|3[1-59]|47)", "9(?:2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3[78]|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8[23])|7[1-578]|8(?:[2469]|3[278]|5(?:[56][46]|[78])|7[378]|8(?:6[3-6]|[78]))))|92(?:2[24-9]|3[1-59]|47)|93(?:4[35][56]|58[45]|8(?:[38]5|54|76))[4-6]", "9(?:2(?:[23]02|6(?:[25]|4(?:64|[78]))|9(?:[02356]|4(?:[0268]|5[2-6])|72|8[23]))|3(?:3[28]|4(?:[04679]|3(?:5(?:4[0-25689]|[56])|[78])|5(?:4[46]|8)|8[2379])|5(?:[2467]|3[237]|8(?:[23]|4(?:[45]|60)|5(?:4[0-39]|5|64)))|7[1-578]|8(?:[2469]|3[278]|5(?:4(?:4|5[13-7]|6[89])|[56][46]|[78])|7[378]|8(?:6[3-6]|[78]))))|92(?:2[24-9]|3[1-59]|47)|93(?:4(?:36|5[56])|8(?:[38]5|76))[4-6]"], "0$1", 0, "$1 $2 $3-$4"], ["(\\d)(\\d{2})(\\d{4})(\\d{4})", "$2 15-$3-$4", ["91"], "0$1", 0, "$1 $2 $3-$4"], ["(\\d{3})(\\d{3})(\\d{5})", "$1-$2-$3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{4})", "$2 15-$3-$4", ["9"], "0$1", 0, "$1 $2 $3-$4"]], "0", 0, "0?(?:(11|2(?:2(?:02?|[13]|2[13-79]|4[1-6]|5[2457]|6[124-8]|7[1-4]|8[13-6]|9[1267])|3(?:02?|1[467]|2[03-6]|3[13-8]|[49][2-6]|5[2-8]|[67])|4(?:7[3-578]|9)|6(?:[0136]|2[24-6]|4[6-8]?|5[15-8])|80|9(?:0[1-3]|[19]|2\\d|3[1-6]|4[02568]?|5[2-4]|6[2-46]|72?|8[23]?))|3(?:3(?:2[79]|6|8[2578])|4(?:0[0-24-9]|[12]|3[5-8]?|4[24-7]|5[4-68]?|6[02-9]|7[126]|8[2379]?|9[1-36-8])|5(?:1|2[1245]|3[237]?|4[1-46-9]|6[2-4]|7[1-6]|8[2-5]?)|6[24]|7(?:[069]|1[1568]|2[15]|3[145]|4[13]|5[14-8]|7[2-57]|8[126])|8(?:[01]|2[15-7]|3[2578]?|4[13-6]|5[4-8]?|6[1-357-9]|7[36-8]?|8[5-8]?|9[124])))15)?", "9$1"], AS: ["1", "011", "(?:[58]\\d\\d|684|900)\\d{7}", [10], 0, "1", 0, "1|([267]\\d{6})$", "684$1", 0, "684"], AT: ["43", "00", "1\\d{3,12}|2\\d{6,12}|43(?:(?:0\\d|5[02-9])\\d{3,9}|2\\d{4,5}|[3467]\\d{4}|8\\d{4,6}|9\\d{4,7})|5\\d{4,12}|8\\d{7,12}|9\\d{8,12}|(?:[367]\\d|4[0-24-9])\\d{4,11}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13], [["(\\d)(\\d{3,12})", "$1 $2", ["1(?:11|[2-9])"], "0$1"], ["(\\d{3})(\\d{2})", "$1 $2", ["517"], "0$1"], ["(\\d{2})(\\d{3,5})", "$1 $2", ["5[079]"], "0$1"], ["(\\d{3})(\\d{3,10})", "$1 $2", ["(?:31|4)6|51|6(?:5[0-3579]|[6-9])|7(?:20|32|8)|[89]"], "0$1"], ["(\\d{4})(\\d{3,9})", "$1 $2", ["[2-467]|5[2-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4,7})", "$1 $2 $3", ["5"], "0$1"]], "0"], AU: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{7}(?:\\d(?:\\d{2})?)?|8[0-24-9]\\d{7})|[2-478]\\d{8}|1\\d{4,7}", [5, 6, 7, 8, 9, 10, 12], [["(\\d{2})(\\d{3,4})", "$1 $2", ["16"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,4})", "$1 $2 $3", ["16"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["14|4"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["[2378]"], "(0$1)"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1(?:30|[89])"]]], "0", 0, "0|(183[12])", 0, 0, 0, [["(?:(?:2(?:[0-26-9]\\d|3[0-8]|4[02-9]|5[0135-9])|3(?:[0-3589]\\d|4[0-578]|6[1-9]|7[0-35-9])|7(?:[013-57-9]\\d|2[0-8]))\\d{3}|8(?:51(?:0(?:0[03-9]|[12479]\\d|3[2-9]|5[0-8]|6[1-9]|8[0-7])|1(?:[0235689]\\d|1[0-69]|4[0-589]|7[0-47-9])|2(?:0[0-79]|[18][13579]|2[14-9]|3[0-46-9]|[4-6]\\d|7[89]|9[0-4]))|(?:6[0-8]|[78]\\d)\\d{3}|9(?:[02-9]\\d{3}|1(?:(?:[0-58]\\d|6[0135-9])\\d|7(?:0[0-24-9]|[1-9]\\d)|9(?:[0-46-9]\\d|5[0-79])))))\\d{3}", [9]], ["4(?:83[0-38]|93[0-6])\\d{5}|4(?:[0-3]\\d|4[047-9]|5[0-25-9]|6[06-9]|7[02-9]|8[0-24-9]|9[0-27-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, ["163\\d{2,6}", [5, 6, 7, 8, 9]], ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], AW: ["297", "00", "(?:[25-79]\\d\\d|800)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[25-9]"]]]], AX: ["358", "00|99(?:[01469]|5(?:[14]1|3[23]|5[59]|77|88|9[09]))", "2\\d{4,9}|35\\d{4,5}|(?:60\\d\\d|800)\\d{4,6}|7\\d{5,11}|(?:[14]\\d|3[0-46-9]|50)\\d{4,8}", [5, 6, 7, 8, 9, 10, 11, 12], 0, "0", 0, 0, 0, 0, "18", 0, "00"], AZ: ["994", "00", "365\\d{6}|(?:[124579]\\d|60|88)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["90"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[28]|2|365|46", "1[28]|2|365[45]|46", "1[28]|2|365(?:4|5[02])|46"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[13-9]"], "0$1"]], "0"], BA: ["387", "00", "6\\d{8}|(?:[35689]\\d|49|70)\\d{6}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["6[1-3]|[7-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2-$3", ["[3-5]|6[56]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["6"], "0$1"]], "0"], BB: ["1", "011", "(?:246|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2-9]\\d{6})$", "246$1", 0, "246"], BD: ["880", "00", "[1-469]\\d{9}|8[0-79]\\d{7,8}|[2-79]\\d{8}|[2-9]\\d{7}|[3-9]\\d{6}|[57-9]\\d{5}", [6, 7, 8, 9, 10], [["(\\d{2})(\\d{4,6})", "$1-$2", ["31[5-8]|[459]1"], "0$1"], ["(\\d{3})(\\d{3,7})", "$1-$2", ["3(?:[67]|8[013-9])|4(?:6[168]|7|[89][18])|5(?:6[128]|9)|6(?:28|4[14]|5)|7[2-589]|8(?:0[014-9]|[12])|9[358]|(?:3[2-5]|4[235]|5[2-578]|6[0389]|76|8[3-7]|9[24])1|(?:44|66)[01346-9]"], "0$1"], ["(\\d{4})(\\d{3,6})", "$1-$2", ["[13-9]|22"], "0$1"], ["(\\d)(\\d{7,8})", "$1-$2", ["2"], "0$1"]], "0"], BE: ["32", "00", "4\\d{8}|[1-9]\\d{7}", [8, 9], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:80|9)0"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[239]|4[23]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[15-8]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["4"], "0$1"]], "0"], BF: ["226", "00", "[025-7]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[025-7]"]]]], BG: ["359", "00", "[2-7]\\d{6,7}|[89]\\d{6,8}|2\\d{5}", [6, 7, 8, 9], [["(\\d)(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["2"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["43[1-6]|70[1-9]"], "0$1"], ["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,3})", "$1 $2 $3", ["[356]|4[124-7]|7[1-9]|8[1-6]|9[1-7]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:70|8)0"], "0$1"], ["(\\d{3})(\\d{3})(\\d{2})", "$1 $2 $3", ["43[1-7]|7"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[48]|9[08]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"], "0$1"]], "0"], BH: ["973", "00", "[136-9]\\d{7}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[13679]|8[047]"]]]], BI: ["257", "00", "(?:[267]\\d|31)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2367]"]]]], BJ: ["229", "00", "(?:[25689]\\d|40)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24-689]"]]]], BL: ["590", "00", "(?:590|(?:69|80)\\d|976)\\d{6}", [9], 0, "0", 0, 0, 0, 0, 0, [["590(?:2[7-9]|5[12]|87)\\d{4}"], ["69(?:0\\d\\d|1(?:2[2-9]|3[0-5]))\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["976[01]\\d{5}"]]], BM: ["1", "011", "(?:441|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2-8]\\d{6})$", "441$1", 0, "441"], BN: ["673", "00", "[2-578]\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-578]"]]]], BO: ["591", "00(?:1\\d)?", "(?:[2-467]\\d\\d|8001)\\d{5}", [8, 9], [["(\\d)(\\d{7})", "$1 $2", ["[23]|4[46]"]], ["(\\d{8})", "$1", ["[67]"]], ["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["8"]]], "0", 0, "0(1\\d)?"], BQ: ["599", "00", "(?:[34]1|7\\d)\\d{5}", [7], 0, 0, 0, 0, 0, 0, "[347]"], BR: ["55", "00(?:1[245]|2[1-35]|31|4[13]|[56]5|99)", "(?:[1-46-9]\\d\\d|5(?:[0-46-9]\\d|5[0-46-9]))\\d{8}|[1-9]\\d{9}|[3589]\\d{8}|[34]\\d{7}", [8, 9, 10, 11], [["(\\d{4})(\\d{4})", "$1-$2", ["300|4(?:0[02]|37)", "4(?:02|37)0|[34]00"]], ["(\\d{3})(\\d{2,3})(\\d{4})", "$1 $2 $3", ["(?:[358]|90)0"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2-$3", ["(?:[14689][1-9]|2[12478]|3[1-578]|5[13-5]|7[13-579])[2-57]"], "($1)"], ["(\\d{2})(\\d{5})(\\d{4})", "$1 $2-$3", ["[16][1-9]|[2-57-9]"], "($1)"]], "0", 0, "(?:0|90)(?:(1[245]|2[1-35]|31|4[13]|[56]5|99)(\\d{10,11}))?", "$2"], BS: ["1", "011", "(?:242|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([3-8]\\d{6})$", "242$1", 0, "242"], BT: ["975", "00", "[17]\\d{7}|[2-8]\\d{6}", [7, 8], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-68]|7[246]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[67]|7"]]]], BW: ["267", "00", "(?:0800|(?:[37]|800)\\d)\\d{6}|(?:[2-6]\\d|90)\\d{5}", [7, 8, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["90"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[24-6]|3[15-79]"]], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[37]"]], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{4})(\\d{3})", "$1 $2 $3", ["8"]]]], BY: ["375", "810", "(?:[12]\\d|33|44|902)\\d{7}|8(?:0[0-79]\\d{5,7}|[1-7]\\d{9})|8(?:1[0-489]|[5-79]\\d)\\d{7}|8[1-79]\\d{6,7}|8[0-79]\\d{5}|8\\d{5}", [6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{3})", "$1 $2", ["800"], "8 $1"], ["(\\d{3})(\\d{2})(\\d{2,4})", "$1 $2 $3", ["800"], "8 $1"], ["(\\d{4})(\\d{2})(\\d{3})", "$1 $2-$3", ["1(?:5[169]|6[3-5]|7[179])|2(?:1[35]|2[34]|3[3-5])", "1(?:5[169]|6(?:3[1-3]|4|5[125])|7(?:1[3-9]|7[0-24-6]|9[2-7]))|2(?:1[35]|2[34]|3[3-5])"], "8 0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["1(?:[56]|7[467])|2[1-3]"], "8 0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[1-4]"], "8 0$1"], ["(\\d{3})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["[89]"], "8 $1"]], "8", 0, "0|80?", 0, 0, 0, 0, "8~10"], BZ: ["501", "00", "(?:0800\\d|[2-8])\\d{6}", [7, 11], [["(\\d{3})(\\d{4})", "$1-$2", ["[2-8]"]], ["(\\d)(\\d{3})(\\d{4})(\\d{3})", "$1-$2-$3-$4", ["0"]]]], CA: ["1", "011", "(?:[2-8]\\d|90)\\d{8}|3\\d{6}", [7, 10], 0, "1", 0, 0, 0, 0, 0, [["(?:2(?:04|[23]6|[48]9|50|63)|3(?:06|43|6[578])|4(?:03|1[68]|3[178]|50|68|74)|5(?:06|1[49]|48|79|8[147])|6(?:04|13|39|47|72)|7(?:0[59]|78|8[02])|8(?:[06]7|19|25|73)|90[25])[2-9]\\d{6}", [10]], ["", [10]], ["8(?:00|33|44|55|66|77|88)[2-9]\\d{6}", [10]], ["900[2-9]\\d{6}", [10]], ["52(?:3(?:[2-46-9][02-9]\\d|5(?:[02-46-9]\\d|5[0-46-9]))|4(?:[2-478][02-9]\\d|5(?:[034]\\d|2[024-9]|5[0-46-9])|6(?:0[1-9]|[2-9]\\d)|9(?:[05-9]\\d|2[0-5]|49)))\\d{4}|52[34][2-9]1[02-9]\\d{4}|(?:5(?:00|2[125-7]|33|44|66|77|88)|622)[2-9]\\d{6}", [10]], 0, ["310\\d{4}", [7]], 0, ["600[2-9]\\d{6}", [10]]]], CC: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{8}(?:\\d{2})?|8[0-24-9]\\d{7})|[148]\\d{8}|1\\d{5,7}", [6, 7, 8, 9, 10, 12], 0, "0", 0, "0|([59]\\d{7})$", "8$1", 0, 0, [["8(?:51(?:0(?:02|31|60|89)|1(?:18|76)|223)|91(?:0(?:1[0-2]|29)|1(?:[28]2|50|79)|2(?:10|64)|3(?:[06]8|22)|4[29]8|62\\d|70[23]|959))\\d{3}", [9]], ["4(?:83[0-38]|93[0-6])\\d{5}|4(?:[0-3]\\d|4[047-9]|5[0-25-9]|6[06-9]|7[02-9]|8[0-24-9]|9[0-27-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, 0, ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], CD: ["243", "00", "[189]\\d{8}|[1-68]\\d{6}", [7, 9], [["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["88"], "0$1"], ["(\\d{2})(\\d{5})", "$1 $2", ["[1-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[89]"], "0$1"]], "0"], CF: ["236", "00", "(?:[27]\\d{3}|8776)\\d{4}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[278]"]]]], CG: ["242", "00", "222\\d{6}|(?:0\\d|80)\\d{7}", [9], [["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[02]"]]]], CH: ["41", "00", "8\\d{11}|[2-9]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8[047]|90"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-79]|81"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["8"], "0$1"]], "0"], CI: ["225", "00", "[02]\\d{9}", [10], [["(\\d{2})(\\d{2})(\\d)(\\d{5})", "$1 $2 $3 $4", ["2"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3 $4", ["0"]]]], CK: ["682", "00", "[2-578]\\d{4}", [5], [["(\\d{2})(\\d{3})", "$1 $2", ["[2-578]"]]]], CL: ["56", "(?:0|1(?:1[0-69]|2[02-5]|5[13-58]|69|7[0167]|8[018]))0", "12300\\d{6}|6\\d{9,10}|[2-9]\\d{8}", [9, 10, 11], [["(\\d{5})(\\d{4})", "$1 $2", ["219", "2196"], "($1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["44"]], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2[1-36]"], "($1)"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["9[2-9]"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["3[2-5]|[47]|5[1-3578]|6[13-57]|8(?:0[1-9]|[1-9])"], "($1)"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["60|8"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]], ["(\\d{3})(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["60"]]]], CM: ["237", "00", "[26]\\d{8}|88\\d{6,7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["88"]], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["[26]|88"]]]], CN: ["86", "00|1(?:[12]\\d|79)\\d\\d00", "1[127]\\d{8,9}|2\\d{9}(?:\\d{2})?|[12]\\d{6,7}|86\\d{6}|(?:1[03-689]\\d|6)\\d{7,9}|(?:[3-579]\\d|8[0-57-9])\\d{6,9}", [7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{5,6})", "$1 $2", ["(?:10|2[0-57-9])[19]", "(?:10|2[0-57-9])(?:10|9[56])", "(?:10|2[0-57-9])(?:100|9[56])"], "0$1"], ["(\\d{3})(\\d{5,6})", "$1 $2", ["3(?:[157]|35|49|9[1-68])|4(?:[17]|2[179]|6[47-9]|8[23])|5(?:[1357]|2[37]|4[36]|6[1-46]|80)|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]|4[13]|5[1-5])|(?:4[35]|59|85)[1-9]", "(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[1-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))[19]", "85[23](?:10|95)|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[14-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))(?:10|9[56])", "85[23](?:100|95)|(?:3(?:[157]\\d|35|49|9[1-68])|4(?:[17]\\d|2[179]|[35][1-9]|6[47-9]|8[23])|5(?:[1357]\\d|2[37]|4[36]|6[1-46]|80|9[1-9])|6(?:3[1-5]|6[0238]|9[12])|7(?:01|[1579]\\d|2[248]|3[014-9]|4[3-6]|6[023689])|8(?:1[236-8]|2[5-7]|[37]\\d|5[14-9]|8[36-8]|9[1-8])|9(?:0[1-3689]|1[1-79]|[379]\\d|4[13]|5[1-5]))(?:100|9[56])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["(?:4|80)0"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["10|2(?:[02-57-9]|1[1-9])", "10|2(?:[02-57-9]|1[1-9])", "10[0-79]|2(?:[02-57-9]|1[1-79])|(?:10|21)8(?:0[1-9]|[1-9])"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["3(?:[3-59]|7[02-68])|4(?:[26-8]|3[3-9]|5[2-9])|5(?:3[03-9]|[468]|7[028]|9[2-46-9])|6|7(?:[0-247]|3[04-9]|5[0-4689]|6[2368])|8(?:[1-358]|9[1-7])|9(?:[013479]|5[1-5])|(?:[34]1|55|79|87)[02-9]"], "0$1", 1], ["(\\d{3})(\\d{7,8})", "$1 $2", ["9"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["80"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["[3-578]"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["1[3-9]"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["[12]"], "0$1", 1]], "0", 0, "0|(1(?:[12]\\d|79)\\d\\d)", 0, 0, 0, 0, "00"], CO: ["57", "00(?:4(?:[14]4|56)|[579])", "(?:60\\d\\d|9101)\\d{6}|(?:1\\d|3)\\d{9}", [10, 11], [["(\\d{3})(\\d{7})", "$1 $2", ["6"], "($1)"], ["(\\d{3})(\\d{7})", "$1 $2", ["[39]"]], ["(\\d)(\\d{3})(\\d{7})", "$1-$2-$3", ["1"], "0$1", 0, "$1 $2 $3"]], "0", 0, "0(4(?:[14]4|56)|[579])?"], CR: ["506", "00", "(?:8\\d|90)\\d{8}|(?:[24-8]\\d{3}|3005)\\d{4}", [8, 10], [["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]|8[3-9]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["[89]"]]], 0, 0, "(19(?:0[0-2468]|1[09]|20|66|77|99))"], CU: ["53", "119", "[27]\\d{6,7}|[34]\\d{5,7}|(?:5|8\\d\\d)\\d{7}", [6, 7, 8, 10], [["(\\d{2})(\\d{4,6})", "$1 $2", ["2[1-4]|[34]"], "(0$1)"], ["(\\d)(\\d{6,7})", "$1 $2", ["7"], "(0$1)"], ["(\\d)(\\d{7})", "$1 $2", ["5"], "0$1"], ["(\\d{3})(\\d{7})", "$1 $2", ["8"], "0$1"]], "0"], CV: ["238", "0", "(?:[2-59]\\d\\d|800)\\d{4}", [7], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[2-589]"]]]], CW: ["599", "00", "(?:[34]1|60|(?:7|9\\d)\\d)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["[3467]"]], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["9[4-8]"]]], 0, 0, 0, 0, 0, "[69]"], CX: ["61", "001[14-689]|14(?:1[14]|34|4[17]|[56]6|7[47]|88)0011", "1(?:[0-79]\\d{8}(?:\\d{2})?|8[0-24-9]\\d{7})|[148]\\d{8}|1\\d{5,7}", [6, 7, 8, 9, 10, 12], 0, "0", 0, "0|([59]\\d{7})$", "8$1", 0, 0, [["8(?:51(?:0(?:01|30|59|88)|1(?:17|46|75)|2(?:22|35))|91(?:00[6-9]|1(?:[28]1|49|78)|2(?:09|63)|3(?:12|26|75)|4(?:56|97)|64\\d|7(?:0[01]|1[0-2])|958))\\d{3}", [9]], ["4(?:83[0-38]|93[0-6])\\d{5}|4(?:[0-3]\\d|4[047-9]|5[0-25-9]|6[06-9]|7[02-9]|8[0-24-9]|9[0-27-9])\\d{6}", [9]], ["180(?:0\\d{3}|2)\\d{3}", [7, 10]], ["190[0-26]\\d{6}", [10]], 0, 0, 0, 0, ["14(?:5(?:1[0458]|[23][458])|71\\d)\\d{4}", [9]], ["13(?:00\\d{6}(?:\\d{2})?|45[0-4]\\d{3})|13\\d{4}", [6, 8, 10, 12]]], "0011"], CY: ["357", "00", "(?:[279]\\d|[58]0)\\d{6}", [8], [["(\\d{2})(\\d{6})", "$1 $2", ["[257-9]"]]]], CZ: ["420", "00", "(?:[2-578]\\d|60)\\d{7}|9\\d{8,11}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-8]|9[015-7]"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{2})", "$1 $2 $3 $4", ["96"]], ["(\\d{2})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]]]], DE: ["49", "00", "[2579]\\d{5,14}|49(?:[34]0|69|8\\d)\\d\\d?|49(?:37|49|60|7[089]|9\\d)\\d{1,3}|49(?:2[02-9]|3[2-689]|7[1-7])\\d{1,8}|(?:1|[368]\\d|4[0-8])\\d{3,13}|49(?:[015]\\d|[23]1|[46][1-8])\\d{1,9}", [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], [["(\\d{2})(\\d{3,13})", "$1 $2", ["3[02]|40|[68]9"], "0$1"], ["(\\d{3})(\\d{3,12})", "$1 $2", ["2(?:0[1-389]|1[124]|2[18]|3[14])|3(?:[35-9][15]|4[015])|906|(?:2[4-9]|4[2-9]|[579][1-9]|[68][1-8])1", "2(?:0[1-389]|12[0-8])|3(?:[35-9][15]|4[015])|906|2(?:[13][14]|2[18])|(?:2[4-9]|4[2-9]|[579][1-9]|[68][1-8])1"], "0$1"], ["(\\d{4})(\\d{2,11})", "$1 $2", ["[24-6]|3(?:[3569][02-46-9]|4[2-4679]|7[2-467]|8[2-46-8])|70[2-8]|8(?:0[2-9]|[1-8])|90[7-9]|[79][1-9]", "[24-6]|3(?:3(?:0[1-467]|2[127-9]|3[124578]|7[1257-9]|8[1256]|9[145])|4(?:2[135]|4[13578]|9[1346])|5(?:0[14]|2[1-3589]|6[1-4]|7[13468]|8[13568])|6(?:2[1-489]|3[124-6]|6[13]|7[12579]|8[1-356]|9[135])|7(?:2[1-7]|4[145]|6[1-5]|7[1-4])|8(?:21|3[1468]|6|7[1467]|8[136])|9(?:0[12479]|2[1358]|4[134679]|6[1-9]|7[136]|8[147]|9[1468]))|70[2-8]|8(?:0[2-9]|[1-8])|90[7-9]|[79][1-9]|3[68]4[1347]|3(?:47|60)[1356]|3(?:3[46]|46|5[49])[1246]|3[4579]3[1357]"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["138"], "0$1"], ["(\\d{5})(\\d{2,10})", "$1 $2", ["3"], "0$1"], ["(\\d{3})(\\d{5,11})", "$1 $2", ["181"], "0$1"], ["(\\d{3})(\\d)(\\d{4,10})", "$1 $2 $3", ["1(?:3|80)|9"], "0$1"], ["(\\d{3})(\\d{7,8})", "$1 $2", ["1[67]"], "0$1"], ["(\\d{3})(\\d{7,12})", "$1 $2", ["8"], "0$1"], ["(\\d{5})(\\d{6})", "$1 $2", ["185", "1850", "18500"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{4})(\\d{7})", "$1 $2", ["18[68]"], "0$1"], ["(\\d{5})(\\d{6})", "$1 $2", ["15[0568]"], "0$1"], ["(\\d{4})(\\d{7})", "$1 $2", ["15[1279]"], "0$1"], ["(\\d{3})(\\d{8})", "$1 $2", ["18"], "0$1"], ["(\\d{3})(\\d{2})(\\d{7,8})", "$1 $2 $3", ["1(?:6[023]|7)"], "0$1"], ["(\\d{4})(\\d{2})(\\d{7})", "$1 $2 $3", ["15[279]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{8})", "$1 $2 $3", ["15"], "0$1"]], "0"], DJ: ["253", "00", "(?:2\\d|77)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[27]"]]]], DK: ["45", "00", "[2-9]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-9]"]]]], DM: ["1", "011", "(?:[58]\\d\\d|767|900)\\d{7}", [10], 0, "1", 0, "1|([2-7]\\d{6})$", "767$1", 0, "767"], DO: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "8001|8[024]9"], DZ: ["213", "00", "(?:[1-4]|[5-79]\\d|80)\\d{7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[1-4]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["9"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-8]"], "0$1"]], "0"], EC: ["593", "00", "1\\d{9,10}|(?:[2-7]|9\\d)\\d{7}", [8, 9, 10, 11], [["(\\d)(\\d{3})(\\d{4})", "$1 $2-$3", ["[2-7]"], "(0$1)", 0, "$1-$2-$3"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["1"]]], "0"], EE: ["372", "00", "8\\d{9}|[4578]\\d{7}|(?:[3-8]\\d|90)\\d{5}", [7, 8, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["[369]|4[3-8]|5(?:[0-2]|5[0-478]|6[45])|7[1-9]|88", "[369]|4[3-8]|5(?:[02]|1(?:[0-8]|95)|5[0-478]|6(?:4[0-4]|5[1-589]))|7[1-9]|88"]], ["(\\d{4})(\\d{3,4})", "$1 $2", ["[45]|8(?:00|[1-49])", "[45]|8(?:00[1-9]|[1-49])"]], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["7"]], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]]]], EG: ["20", "00", "[189]\\d{8,9}|[24-6]\\d{8}|[135]\\d{7}", [8, 9, 10], [["(\\d)(\\d{7,8})", "$1 $2", ["[23]"], "0$1"], ["(\\d{2})(\\d{6,7})", "$1 $2", ["1[35]|[4-6]|8[2468]|9[235-7]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[189]"], "0$1"]], "0"], EH: ["212", "00", "[5-8]\\d{8}", [9], 0, "0", 0, 0, 0, 0, "528[89]"], ER: ["291", "00", "[178]\\d{6}", [7], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[178]"], "0$1"]], "0"], ES: ["34", "00", "[5-9]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[89]00"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-9]"]]]], ET: ["251", "00", "(?:11|[2-579]\\d)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-579]"], "0$1"]], "0"], FI: ["358", "00|99(?:[01469]|5(?:[14]1|3[23]|5[59]|77|88|9[09]))", "[1-35689]\\d{4}|7\\d{10,11}|(?:[124-7]\\d|3[0-46-9])\\d{8}|[1-9]\\d{5,8}", [5, 6, 7, 8, 9, 10, 11, 12], [["(\\d)(\\d{4,9})", "$1 $2", ["[2568][1-8]|3(?:0[1-9]|[1-9])|9"], "0$1"], ["(\\d{3})(\\d{3,7})", "$1 $2", ["[12]00|[368]|70[07-9]"], "0$1"], ["(\\d{2})(\\d{4,8})", "$1 $2", ["[1245]|7[135]"], "0$1"], ["(\\d{2})(\\d{6,10})", "$1 $2", ["7"], "0$1"]], "0", 0, 0, 0, 0, "1[03-79]|[2-9]", 0, "00"], FJ: ["679", "0(?:0|52)", "45\\d{5}|(?:0800\\d|[235-9])\\d{6}", [7, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["[235-9]|45"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["0"]]], 0, 0, 0, 0, 0, 0, 0, "00"], FK: ["500", "00", "[2-7]\\d{4}", [5]], FM: ["691", "00", "(?:[39]\\d\\d|820)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[389]"]]]], FO: ["298", "00", "[2-9]\\d{5}", [6], [["(\\d{6})", "$1", ["[2-9]"]]], 0, 0, "(10(?:01|[12]0|88))"], FR: ["33", "00", "[1-9]\\d{8}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0 $1"], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["[1-79]"], "0$1"]], "0"], GA: ["241", "00", "(?:[067]\\d|11)\\d{6}|[2-7]\\d{6}", [7, 8], [["(\\d)(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-7]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["0"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["11|[67]"], "0$1"]], 0, 0, "0(11\\d{6}|60\\d{6}|61\\d{6}|6[256]\\d{6}|7[467]\\d{6})", "$1"], GB: ["44", "00", "[1-357-9]\\d{9}|[18]\\d{8}|8\\d{6}", [7, 9, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["800", "8001", "80011", "800111", "8001111"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["845", "8454", "84546", "845464"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["800"], "0$1"], ["(\\d{5})(\\d{4,5})", "$1 $2", ["1(?:38|5[23]|69|76|94)", "1(?:(?:38|69)7|5(?:24|39)|768|946)", "1(?:3873|5(?:242|39[4-6])|(?:697|768)[347]|9467)"], "0$1"], ["(\\d{4})(\\d{5,6})", "$1 $2", ["1(?:[2-69][02-9]|[78])"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["[25]|7(?:0|6[02-9])", "[25]|7(?:0|6(?:[03-9]|2[356]))"], "0$1"], ["(\\d{4})(\\d{6})", "$1 $2", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1389]"], "0$1"]], "0", 0, 0, 0, 0, 0, [["(?:1(?:1(?:3(?:[0-58]\\d\\d|73[0235])|4(?:[0-5]\\d\\d|69[7-9]|70[01359])|(?:5[0-26-9]|[78][0-49])\\d\\d|6(?:[0-4]\\d\\d|50[0-79]))|2(?:(?:0[024-9]|2[3-9]|3[3-79]|4[1-689]|[58][02-9]|6[0-47-9]|7[013-9]|9\\d)\\d\\d|1(?:[0-7]\\d\\d|8(?:[02]\\d|1[0-26-9])))|(?:3(?:0\\d|1[0-8]|[25][02-9]|3[02-579]|[468][0-46-9]|7[1-35-79]|9[2-578])|4(?:0[03-9]|[137]\\d|[28][02-57-9]|4[02-69]|5[0-8]|[69][0-79])|5(?:0[1-35-9]|[16]\\d|2[024-9]|3[015689]|4[02-9]|5[03-9]|7[0-35-9]|8[0-468]|9[0-57-9])|6(?:0[034689]|1\\d|2[0-35689]|[38][013-9]|4[1-467]|5[0-69]|6[13-9]|7[0-8]|9[0-24578])|7(?:0[0246-9]|2\\d|3[0236-8]|4[03-9]|5[0-46-9]|6[013-9]|7[0-35-9]|8[024-9]|9[02-9])|8(?:0[35-9]|2[1-57-9]|3[02-578]|4[0-578]|5[124-9]|6[2-69]|7\\d|8[02-9]|9[02569])|9(?:0[02-589]|[18]\\d|2[02-689]|3[1-57-9]|4[2-9]|5[0-579]|6[2-47-9]|7[0-24578]|9[2-57]))\\d\\d)|2(?:0[013478]|3[0189]|4[017]|8[0-46-9]|9[0-2])\\d{3})\\d{4}|1(?:2(?:0(?:46[1-4]|87[2-9])|545[1-79]|76(?:2\\d|3[1-8]|6[1-6])|9(?:7(?:2[0-4]|3[2-5])|8(?:2[2-8]|7[0-47-9]|8[3-5])))|3(?:6(?:38[2-5]|47[23])|8(?:47[04-9]|64[0157-9]))|4(?:044[1-7]|20(?:2[23]|8\\d)|6(?:0(?:30|5[2-57]|6[1-8]|7[2-8])|140)|8(?:052|87[1-3]))|5(?:2(?:4(?:3[2-79]|6\\d)|76\\d)|6(?:26[06-9]|686))|6(?:06(?:4\\d|7[4-79])|295[5-7]|35[34]\\d|47(?:24|61)|59(?:5[08]|6[67]|74)|9(?:55[0-4]|77[23]))|7(?:26(?:6[13-9]|7[0-7])|(?:442|688)\\d|50(?:2[0-3]|[3-68]2|76))|8(?:27[56]\\d|37(?:5[2-5]|8[239])|843[2-58])|9(?:0(?:0(?:6[1-8]|85)|52\\d)|3583|4(?:66[1-8]|9(?:2[01]|81))|63(?:23|3[1-4])|9561))\\d{3}", [9, 10]], ["7(?:457[0-57-9]|700[01]|911[028])\\d{5}|7(?:[1-3]\\d\\d|4(?:[0-46-9]\\d|5[0-689])|5(?:0[0-8]|[13-9]\\d|2[0-35-9])|7(?:0[1-9]|[1-7]\\d|8[02-9]|9[0-689])|8(?:[014-9]\\d|[23][0-8])|9(?:[024-9]\\d|1[02-9]|3[0-689]))\\d{6}", [10]], ["80[08]\\d{7}|800\\d{6}|8001111"], ["(?:8(?:4[2-5]|7[0-3])|9(?:[01]\\d|8[2-49]))\\d{7}|845464\\d", [7, 10]], ["70\\d{8}", [10]], 0, ["(?:3[0347]|55)\\d{8}", [10]], ["76(?:464|652)\\d{5}|76(?:0[0-2]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}", [10]], ["56\\d{8}", [10]]], 0, " x"], GD: ["1", "011", "(?:473|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2-9]\\d{6})$", "473$1", 0, "473"], GE: ["995", "00", "(?:[3-57]\\d\\d|800)\\d{6}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["70"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["32"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[57]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[348]"], "0$1"]], "0"], GF: ["594", "00", "(?:[56]94|80\\d|976)\\d{6}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[569]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], GG: ["44", "00", "(?:1481|[357-9]\\d{3})\\d{6}|8\\d{6}(?:\\d{2})?", [7, 9, 10], 0, "0", 0, "0|([25-9]\\d{5})$", "1481$1", 0, 0, [["1481[25-9]\\d{5}", [10]], ["7(?:(?:781|839)\\d|911[17])\\d{5}", [10]], ["80[08]\\d{7}|800\\d{6}|8001111"], ["(?:8(?:4[2-5]|7[0-3])|9(?:[01]\\d|8[0-3]))\\d{7}|845464\\d", [7, 10]], ["70\\d{8}", [10]], 0, ["(?:3[0347]|55)\\d{8}", [10]], ["76(?:464|652)\\d{5}|76(?:0[0-2]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}", [10]], ["56\\d{8}", [10]]]], GH: ["233", "00", "(?:[235]\\d{3}|800)\\d{5}", [8, 9], [["(\\d{3})(\\d{5})", "$1 $2", ["8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[235]"], "0$1"]], "0"], GI: ["350", "00", "(?:[25]\\d\\d|606)\\d{5}", [8], [["(\\d{3})(\\d{5})", "$1 $2", ["2"]]]], GL: ["299", "00", "(?:19|[2-689]\\d|70)\\d{4}", [6], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["19|[2-9]"]]]], GM: ["220", "00", "[2-9]\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], GN: ["224", "00", "722\\d{6}|(?:3|6\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["3"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[67]"]]]], GP: ["590", "00", "(?:590|(?:69|80)\\d|976)\\d{6}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[569]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0", 0, 0, 0, 0, 0, [["590(?:0[1-68]|[14][0-24-9]|2[0-68]|3[1289]|5[3-579]|6[0-289]|7[08]|8[0-689]|9\\d)\\d{4}"], ["69(?:0\\d\\d|1(?:2[2-9]|3[0-5]))\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["976[01]\\d{5}"]]], GQ: ["240", "00", "222\\d{6}|(?:3\\d|55|[89]0)\\d{7}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235]"]], ["(\\d{3})(\\d{6})", "$1 $2", ["[89]"]]]], GR: ["30", "00", "5005000\\d{3}|8\\d{9,11}|(?:[269]\\d|70)\\d{8}", [10, 11, 12], [["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["21|7"]], ["(\\d{4})(\\d{6})", "$1 $2", ["2(?:2|3[2-57-9]|4[2-469]|5[2-59]|6[2-9]|7[2-69]|8[2-49])|5"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2689]"]], ["(\\d{3})(\\d{3,4})(\\d{5})", "$1 $2 $3", ["8"]]]], GT: ["502", "00", "(?:1\\d{3}|[2-7])\\d{7}", [8, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]]]], GU: ["1", "011", "(?:[58]\\d\\d|671|900)\\d{7}", [10], 0, "1", 0, "1|([3-9]\\d{6})$", "671$1", 0, "671"], GW: ["245", "00", "[49]\\d{8}|4\\d{6}", [7, 9], [["(\\d{3})(\\d{4})", "$1 $2", ["40"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[49]"]]]], GY: ["592", "001", "9008\\d{3}|(?:[2-467]\\d\\d|862)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-46-9]"]]]], HK: ["852", "00(?:30|5[09]|[126-9]?)", "8[0-46-9]\\d{6,7}|9\\d{4,7}|(?:[2-7]|9\\d{3})\\d{7}", [5, 6, 7, 8, 9, 11], [["(\\d{3})(\\d{2,5})", "$1 $2", ["900", "9003"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]|8[1-4]|9(?:0[1-9]|[1-8])"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{3})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["9"]]], 0, 0, 0, 0, 0, 0, 0, "00"], HN: ["504", "00", "8\\d{10}|[237-9]\\d{7}", [8, 11], [["(\\d{4})(\\d{4})", "$1-$2", ["[237-9]"]]]], HR: ["385", "00", "(?:[24-69]\\d|3[0-79])\\d{7}|80\\d{5,7}|[1-79]\\d{7}|6\\d{5,6}", [6, 7, 8, 9], [["(\\d{2})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["6[01]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{4})(\\d{3})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[67]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-5]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"], "0$1"]], "0"], HT: ["509", "00", "[2-489]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["[2-489]"]]]], HU: ["36", "00", "[235-7]\\d{8}|[1-9]\\d{7}", [8, 9], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "(06 $1)"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[27][2-9]|3[2-7]|4[24-9]|5[2-79]|6|8[2-57-9]|9[2-69]"], "(06 $1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-9]"], "06 $1"]], "06"], ID: ["62", "00[89]", "(?:(?:00[1-9]|8\\d)\\d{4}|[1-36])\\d{6}|00\\d{10}|[1-9]\\d{8,10}|[2-9]\\d{7}", [7, 8, 9, 10, 11, 12, 13], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["15"]], ["(\\d{2})(\\d{5,9})", "$1 $2", ["2[124]|[36]1"], "(0$1)"], ["(\\d{3})(\\d{5,7})", "$1 $2", ["800"], "0$1"], ["(\\d{3})(\\d{5,8})", "$1 $2", ["[2-79]"], "(0$1)"], ["(\\d{3})(\\d{3,4})(\\d{3})", "$1-$2-$3", ["8[1-35-9]"], "0$1"], ["(\\d{3})(\\d{6,8})", "$1 $2", ["1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["804"], "0$1"], ["(\\d{3})(\\d)(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["80"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1-$2-$3", ["8"], "0$1"]], "0"], IE: ["353", "00", "(?:1\\d|[2569])\\d{6,8}|4\\d{6,9}|7\\d{8}|8\\d{8,9}", [7, 8, 9, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["2[24-9]|47|58|6[237-9]|9[35-9]"], "(0$1)"], ["(\\d{3})(\\d{5})", "$1 $2", ["[45]0"], "(0$1)"], ["(\\d)(\\d{3,4})(\\d{4})", "$1 $2 $3", ["1"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2569]|4[1-69]|7[14]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["70"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["81"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[78]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["4"], "(0$1)"], ["(\\d{2})(\\d)(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], IL: ["972", "0(?:0|1[2-9])", "1\\d{6}(?:\\d{3,5})?|[57]\\d{8}|[1-489]\\d{7}", [7, 8, 9, 10, 11, 12], [["(\\d{4})(\\d{3})", "$1-$2", ["125"]], ["(\\d{4})(\\d{2})(\\d{2})", "$1-$2-$3", ["121"]], ["(\\d)(\\d{3})(\\d{4})", "$1-$2-$3", ["[2-489]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["[57]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1-$2-$3", ["12"]], ["(\\d{4})(\\d{6})", "$1-$2", ["159"]], ["(\\d)(\\d{3})(\\d{3})(\\d{3})", "$1-$2-$3-$4", ["1[7-9]"]], ["(\\d{3})(\\d{1,2})(\\d{3})(\\d{4})", "$1-$2 $3-$4", ["15"]]], "0"], IM: ["44", "00", "1624\\d{6}|(?:[3578]\\d|90)\\d{8}", [10], 0, "0", 0, "0|([25-8]\\d{5})$", "1624$1", 0, "74576|(?:16|7[56])24"], IN: ["91", "00", "(?:000800|[2-9]\\d\\d)\\d{7}|1\\d{7,12}", [8, 9, 10, 11, 12, 13], [["(\\d{8})", "$1", ["5(?:0|2[23]|3[03]|[67]1|88)", "5(?:0|2(?:21|3)|3(?:0|3[23])|616|717|888)", "5(?:0|2(?:21|3)|3(?:0|3[23])|616|717|8888)"], 0, 1], ["(\\d{4})(\\d{4,5})", "$1 $2", ["180", "1800"], 0, 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["140"], 0, 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["11|2[02]|33|4[04]|79[1-7]|80[2-46]", "11|2[02]|33|4[04]|79(?:[1-6]|7[19])|80(?:[2-4]|6[0-589])", "11|2[02]|33|4[04]|79(?:[124-6]|3(?:[02-9]|1[0-24-9])|7(?:1|9[1-6]))|80(?:[2-4]|6[0-589])"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["1(?:2[0-249]|3[0-25]|4[145]|[68]|7[1257])|2(?:1[257]|3[013]|4[01]|5[0137]|6[0158]|78|8[1568])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|5[12]|[78]1)|6(?:12|[2-4]1|5[17]|6[13]|80)|7(?:12|3[134]|4[47]|61|88)|8(?:16|2[014]|3[126]|6[136]|7[078]|8[34]|91)|(?:43|59|75)[15]|(?:1[59]|29|67|72)[14]", "1(?:2[0-24]|3[0-25]|4[145]|[59][14]|6[1-9]|7[1257]|8[1-57-9])|2(?:1[257]|3[013]|4[01]|5[0137]|6[058]|78|8[1568]|9[14])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|3[15]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|[578]1|9[15])|674|7(?:(?:2[14]|3[34]|5[15])[2-6]|61[346]|88[0-8])|8(?:70[2-6]|84[235-7]|91[3-7])|(?:1(?:29|60|8[06])|261|552|6(?:12|[2-47]1|5[17]|6[13]|80)|7(?:12|31|4[47])|8(?:16|2[014]|3[126]|6[136]|7[78]|83))[2-7]", "1(?:2[0-24]|3[0-25]|4[145]|[59][14]|6[1-9]|7[1257]|8[1-57-9])|2(?:1[257]|3[013]|4[01]|5[0137]|6[058]|78|8[1568]|9[14])|3(?:26|4[1-3]|5[34]|6[01489]|7[02-46]|8[159])|4(?:1[36]|2[1-47]|3[15]|5[12]|6[0-26-9]|7[0-24-9]|8[013-57]|9[014-7])|5(?:1[025]|22|[36][25]|4[28]|[578]1|9[15])|6(?:12(?:[2-6]|7[0-8])|74[2-7])|7(?:(?:2[14]|5[15])[2-6]|3171|61[346]|88(?:[2-7]|82))|8(?:70[2-6]|84(?:[2356]|7[19])|91(?:[3-6]|7[19]))|73[134][2-6]|(?:74[47]|8(?:16|2[014]|3[126]|6[136]|7[78]|83))(?:[2-6]|7[19])|(?:1(?:29|60|8[06])|261|552|6(?:[2-4]1|5[17]|6[13]|7(?:1|4[0189])|80)|7(?:12|88[01]))[2-7]"], "0$1", 1], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1(?:[2-479]|5[0235-9])|[2-5]|6(?:1[1358]|2[2457-9]|3[2-5]|4[235-7]|5[2-689]|6[24578]|7[235689]|8[1-6])|7(?:1[013-9]|28|3[129]|4[1-35689]|5[29]|6[02-5]|70)|807", "1(?:[2-479]|5[0235-9])|[2-5]|6(?:1[1358]|2(?:[2457]|84|95)|3(?:[2-4]|55)|4[235-7]|5[2-689]|6[24578]|7[235689]|8[1-6])|7(?:1(?:[013-8]|9[6-9])|28[6-8]|3(?:17|2[0-49]|9[2-57])|4(?:1[2-4]|[29][0-7]|3[0-8]|[56]|8[0-24-7])|5(?:2[1-3]|9[0-6])|6(?:0[5689]|2[5-9]|3[02-8]|4|5[0-367])|70[13-7])|807[19]", "1(?:[2-479]|5(?:[0236-9]|5[013-9]))|[2-5]|6(?:2(?:84|95)|355|83)|73179|807(?:1|9[1-3])|(?:1552|6(?:1[1358]|2[2457]|3[2-4]|4[235-7]|5[2-689]|6[24578]|7[235689]|8[124-6])\\d|7(?:1(?:[013-8]\\d|9[6-9])|28[6-8]|3(?:2[0-49]|9[2-57])|4(?:1[2-4]|[29][0-7]|3[0-8]|[56]\\d|8[0-24-7])|5(?:2[1-3]|9[0-6])|6(?:0[5689]|2[5-9]|3[02-8]|4\\d|5[0-367])|70[13-7]))[2-7]"], "0$1", 1], ["(\\d{5})(\\d{5})", "$1 $2", ["[6-9]"], "0$1", 1], ["(\\d{4})(\\d{2,4})(\\d{4})", "$1 $2 $3", ["1(?:6|8[06])", "1(?:6|8[06]0)"], 0, 1], ["(\\d{4})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["18"], 0, 1]], "0"], IO: ["246", "00", "3\\d{6}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["3"]]]], IQ: ["964", "00", "(?:1|7\\d\\d)\\d{7}|[2-6]\\d{7,8}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-6]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"]], "0"], IR: ["98", "00", "[1-9]\\d{9}|(?:[1-8]\\d\\d|9)\\d{3,4}", [4, 5, 6, 7, 10], [["(\\d{4,5})", "$1", ["96"], "0$1"], ["(\\d{2})(\\d{4,5})", "$1 $2", ["(?:1[137]|2[13-68]|3[1458]|4[145]|5[1468]|6[16]|7[1467]|8[13467])[12689]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["[1-8]"], "0$1"]], "0"], IS: ["354", "00|1(?:0(?:01|[12]0)|100)", "(?:38\\d|[4-9])\\d{6}", [7, 9], [["(\\d{3})(\\d{4})", "$1 $2", ["[4-9]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["3"]]], 0, 0, 0, 0, 0, 0, 0, "00"], IT: ["39", "00", "0\\d{5,10}|1\\d{8,10}|3(?:[0-8]\\d{7,10}|9\\d{7,8})|(?:55|70)\\d{8}|8\\d{5}(?:\\d{2,4})?", [6, 7, 8, 9, 10, 11], [["(\\d{2})(\\d{4,6})", "$1 $2", ["0[26]"]], ["(\\d{3})(\\d{3,6})", "$1 $2", ["0[13-57-9][0159]|8(?:03|4[17]|9[2-5])", "0[13-57-9][0159]|8(?:03|4[17]|9(?:2|3[04]|[45][0-4]))"]], ["(\\d{4})(\\d{2,6})", "$1 $2", ["0(?:[13-579][2-46-8]|8[236-8])"]], ["(\\d{4})(\\d{4})", "$1 $2", ["894"]], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["0[26]|5"]], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["1(?:44|[679])|[378]"]], ["(\\d{3})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["0[13-57-9][0159]|14"]], ["(\\d{2})(\\d{4})(\\d{5})", "$1 $2 $3", ["0[26]"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["0"]], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["3"]]], 0, 0, 0, 0, 0, 0, [["0669[0-79]\\d{1,6}|0(?:1(?:[0159]\\d|[27][1-5]|31|4[1-4]|6[1356]|8[2-57])|2\\d\\d|3(?:[0159]\\d|2[1-4]|3[12]|[48][1-6]|6[2-59]|7[1-7])|4(?:[0159]\\d|[23][1-9]|4[245]|6[1-5]|7[1-4]|81)|5(?:[0159]\\d|2[1-5]|3[2-6]|4[1-79]|6[4-6]|7[1-578]|8[3-8])|6(?:[0-57-9]\\d|6[0-8])|7(?:[0159]\\d|2[12]|3[1-7]|4[2-46]|6[13569]|7[13-6]|8[1-59])|8(?:[0159]\\d|2[3-578]|3[1-356]|[6-8][1-5])|9(?:[0159]\\d|[238][1-5]|4[12]|6[1-8]|7[1-6]))\\d{2,7}"], ["3[1-9]\\d{8}|3[2-9]\\d{7}", [9, 10]], ["80(?:0\\d{3}|3)\\d{3}", [6, 9]], ["(?:0878\\d{3}|89(?:2\\d|3[04]|4(?:[0-4]|[5-9]\\d\\d)|5[0-4]))\\d\\d|(?:1(?:44|6[346])|89(?:38|5[5-9]|9))\\d{6}", [6, 8, 9, 10]], ["1(?:78\\d|99)\\d{6}", [9, 10]], 0, 0, 0, ["55\\d{8}", [10]], ["84(?:[08]\\d{3}|[17])\\d{3}", [6, 9]]]], JE: ["44", "00", "1534\\d{6}|(?:[3578]\\d|90)\\d{8}", [10], 0, "0", 0, "0|([0-24-8]\\d{5})$", "1534$1", 0, 0, [["1534[0-24-8]\\d{5}"], ["7(?:(?:(?:50|82)9|937)\\d|7(?:00[378]|97[7-9]))\\d{5}"], ["80(?:07(?:35|81)|8901)\\d{4}"], ["(?:8(?:4(?:4(?:4(?:05|42|69)|703)|5(?:041|800))|7(?:0002|1206))|90(?:066[59]|1810|71(?:07|55)))\\d{4}"], ["701511\\d{4}"], 0, ["(?:3(?:0(?:07(?:35|81)|8901)|3\\d{4}|4(?:4(?:4(?:05|42|69)|703)|5(?:041|800))|7(?:0002|1206))|55\\d{4})\\d{4}"], ["76(?:464|652)\\d{5}|76(?:0[0-2]|2[356]|34|4[01347]|5[49]|6[0-369]|77|8[14]|9[139])\\d{6}"], ["56\\d{8}"]]], JM: ["1", "011", "(?:[58]\\d\\d|658|900)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "658|876"], JO: ["962", "00", "(?:(?:[2689]|7\\d)\\d|32|53)\\d{6}", [8, 9], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2356]|87"], "(0$1)"], ["(\\d{3})(\\d{5,6})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["70"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["7"], "0$1"]], "0"], JP: ["81", "010", "00[1-9]\\d{6,14}|[257-9]\\d{9}|(?:00|[1-9]\\d\\d)\\d{6}", [8, 9, 10, 11, 12, 13, 14, 15, 16, 17], [["(\\d{3})(\\d{3})(\\d{3})", "$1-$2-$3", ["(?:12|57|99)0"], "0$1"], ["(\\d{4})(\\d)(\\d{4})", "$1-$2-$3", ["1(?:26|3[79]|4[56]|5[4-68]|6[3-5])|499|5(?:76|97)|746|8(?:3[89]|47|51|63)|9(?:80|9[16])", "1(?:267|3(?:7[247]|9[278])|466|5(?:47|58|64)|6(?:3[245]|48|5[4-68]))|499[2468]|5(?:76|97)9|7468|8(?:3(?:8[7-9]|96)|477|51[2-9]|636)|9(?:802|9(?:1[23]|69))|1(?:45|58)[67]", "1(?:267|3(?:7[247]|9[278])|466|5(?:47|58|64)|6(?:3[245]|48|5[4-68]))|499[2468]|5(?:769|979[2-69])|7468|8(?:3(?:8[7-9]|96[2457-9])|477|51[2-9]|636[457-9])|9(?:802|9(?:1[23]|69))|1(?:45|58)[67]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["60"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1-$2-$3", ["[36]|4(?:2[09]|7[01])", "[36]|4(?:2(?:0|9[02-69])|7(?:0[019]|1))"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["1(?:1|5[45]|77|88|9[69])|2(?:2[1-37]|3[0-269]|4[59]|5|6[24]|7[1-358]|8[1369]|9[0-38])|4(?:[28][1-9]|3[0-57]|[45]|6[248]|7[2-579]|9[29])|5(?:2|3[045]|4[0-369]|5[29]|8[02389]|9[0-389])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9[2-6])|8(?:2[124589]|3[27-9]|49|51|6|7[0-468]|8[68]|9[019])|9(?:[23][1-9]|4[15]|5[138]|6[1-3]|7[156]|8[189]|9[1-489])", "1(?:1|5(?:4[018]|5[017])|77|88|9[69])|2(?:2(?:[127]|3[014-9])|3[0-269]|4[59]|5(?:[1-3]|5[0-69]|9[19])|62|7(?:[1-35]|8[0189])|8(?:[16]|3[0134]|9[0-5])|9(?:[028]|17))|4(?:2(?:[13-79]|8[014-6])|3[0-57]|[45]|6[248]|7[2-47]|8[1-9])|5(?:2|3[045]|4[0-369]|8[02389]|9[0-3])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9(?:[23]|4[0-59]|5[01569]|6[0167]))|8(?:2(?:[1258]|4[0-39]|9[0-2469])|49|51|6(?:[0-24]|36|5[0-3589]|72|9[01459])|7[0-468]|8[68])|9(?:[23][1-9]|4[15]|5[138]|6[1-3]|7[156]|8[189]|9(?:[1289]|3[34]|4[0178]))|(?:49|55|83)[29]|(?:264|837)[016-9]|2(?:57|93)[015-9]|(?:25[0468]|422|838)[01]|(?:47[59]|59[89]|8(?:6[68]|9))[019]", "1(?:1|5(?:4[018]|5[017])|77|88|9[69])|2(?:2[127]|3[0-269]|4[59]|5(?:[1-3]|5[0-69]|9(?:17|99))|6(?:2|4[016-9])|7(?:[1-35]|8[0189])|8(?:[16]|3[0134]|9[0-5])|9(?:[028]|17))|4(?:2(?:[13-79]|8[014-6])|3[0-57]|[45]|6[248]|7[2-47]|9[29])|5(?:2|3[045]|4[0-369]|5[29]|8[02389]|9[0-3])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9(?:[23]|4[0-59]|5[01569]|6[0167]))|8(?:2(?:[1258]|4[0-39]|9[0169])|3(?:[29]|7(?:[017-9]|6[6-8]))|49|51|6(?:[0-24]|36[23]|5(?:[0-389]|5[23])|6(?:[01]|9[178])|72|9[0145])|7[0-468]|8[68])|9(?:4[15]|5[138]|7[156]|8[189]|9(?:[1289]|3(?:31|4[357])|4[0178]))|(?:8294|96)[1-3]|2(?:57|93)[015-9]|(?:223|8699)[014-9]|(?:25[0468]|422|838)[01]|(?:48|8292|9[23])[1-9]|(?:47[59]|59[89]|8(?:68|9))[019]", "1(?:1|5(?:4[018]|5[017])|77|88|9[69])|2(?:2[127]|3[0-269]|4[59]|5(?:[1-3]|5[0-69]|7[015-9]|9(?:17|99))|6(?:2|4[016-9])|7(?:[1-35]|8[0189])|8(?:[16]|3[0134]|9[0-5])|9(?:[028]|17|3[015-9]))|4(?:2(?:[13-79]|8[014-6])|3[0-57]|[45]|6[248]|7[2-47]|9[29])|5(?:2|3[045]|4[0-369]|5[29]|8[02389]|9[0-3])|7(?:2[02-46-9]|34|[58]|6[0249]|7[57]|9(?:[23]|4[0-59]|5[01569]|6[0167]))|8(?:2(?:[1258]|4[0-39]|9(?:[019]|4[1-3]|6(?:[0-47-9]|5[01346-9])))|3(?:[29]|7(?:[017-9]|6[6-8]))|49|51|6(?:[0-24]|36[23]|5(?:[0-389]|5[23])|6(?:[01]|9[178])|72|9[0145])|7[0-468]|8[68])|9(?:4[15]|5[138]|6[1-3]|7[156]|8[189]|9(?:[1289]|3(?:31|4[357])|4[0178]))|(?:223|8699)[014-9]|(?:25[0468]|422|838)[01]|(?:48|829(?:2|66)|9[23])[1-9]|(?:47[59]|59[89]|8(?:68|9))[019]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{4})", "$1-$2-$3", ["[14]|[289][2-9]|5[3-9]|7[2-4679]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2-$3", ["800"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2-$3", ["[257-9]"], "0$1"]], "0"], KE: ["254", "000", "(?:[17]\\d\\d|900)\\d{6}|(?:2|80)0\\d{6,7}|[4-6]\\d{6,8}", [7, 8, 9, 10], [["(\\d{2})(\\d{5,7})", "$1 $2", ["[24-6]"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["[17]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[89]"], "0$1"]], "0"], KG: ["996", "00", "8\\d{9}|(?:[235-8]\\d|99)\\d{7}", [9, 10], [["(\\d{4})(\\d{5})", "$1 $2", ["3(?:1[346]|[24-79])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[235-79]|88"], "0$1"], ["(\\d{3})(\\d{3})(\\d)(\\d{2,3})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], KH: ["855", "00[14-9]", "1\\d{9}|[1-9]\\d{7,8}", [8, 9, 10], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-9]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], KI: ["686", "00", "(?:[37]\\d|6[0-79])\\d{6}|(?:[2-48]\\d|50)\\d{3}", [5, 8], 0, "0"], KM: ["269", "00", "[3478]\\d{6}", [7], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[3478]"]]]], KN: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2-7]\\d{6})$", "869$1", 0, "869"], KP: ["850", "00|99", "85\\d{6}|(?:19\\d|[2-7])\\d{7}", [8, 10], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-7]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"]], "0"], KR: ["82", "00(?:[125689]|3(?:[46]5|91)|7(?:00|27|3|55|6[126]))", "00[1-9]\\d{8,11}|(?:[12]|5\\d{3})\\d{7}|[13-6]\\d{9}|(?:[1-6]\\d|80)\\d{7}|[3-6]\\d{4,5}|(?:00|7)0\\d{8}", [5, 6, 8, 9, 10, 11, 12, 13, 14], [["(\\d{2})(\\d{3,4})", "$1-$2", ["(?:3[1-3]|[46][1-4]|5[1-5])1"], "0$1"], ["(\\d{4})(\\d{4})", "$1-$2", ["1"]], ["(\\d)(\\d{3,4})(\\d{4})", "$1-$2-$3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1-$2-$3", ["60|8"], "0$1"], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1-$2-$3", ["[1346]|5[1-5]"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2-$3", ["[57]"], "0$1"], ["(\\d{2})(\\d{5})(\\d{4})", "$1-$2-$3", ["5"], "0$1"]], "0", 0, "0(8(?:[1-46-8]|5\\d\\d))?"], KW: ["965", "00", "18\\d{5}|(?:[2569]\\d|41)\\d{6}", [7, 8], [["(\\d{4})(\\d{3,4})", "$1 $2", ["[169]|2(?:[235]|4[1-35-9])|52"]], ["(\\d{3})(\\d{5})", "$1 $2", ["[245]"]]]], KY: ["1", "011", "(?:345|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2-9]\\d{6})$", "345$1", 0, "345"], KZ: ["7", "810", "(?:33622|8\\d{8})\\d{5}|[78]\\d{9}", [10, 14], 0, "8", 0, 0, 0, 0, "33|7", 0, "8~10"], LA: ["856", "00", "[23]\\d{9}|3\\d{8}|(?:[235-8]\\d|41)\\d{6}", [8, 9, 10], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["2[13]|3[14]|[4-8]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["30[013-9]"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[23]"], "0$1"]], "0"], LB: ["961", "00", "[27-9]\\d{7}|[13-9]\\d{6}", [7, 8], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[13-69]|7(?:[2-57]|62|8[0-7]|9[04-9])|8[02-9]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[27-9]"]]], "0"], LC: ["1", "011", "(?:[58]\\d\\d|758|900)\\d{7}", [10], 0, "1", 0, "1|([2-8]\\d{6})$", "758$1", 0, "758"], LI: ["423", "00", "[68]\\d{8}|(?:[2378]\\d|90)\\d{5}", [7, 9], [["(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3", ["[2379]|8(?:0[09]|7)", "[2379]|8(?:0(?:02|9)|7)"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["69"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]]], "0", 0, "0|(1001)"], LK: ["94", "00", "[1-9]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[1-689]"], "0$1"]], "0"], LR: ["231", "00", "(?:2|33|5\\d|77|88)\\d{7}|[4-6]\\d{6}", [7, 8, 9], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[4-6]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[3578]"], "0$1"]], "0"], LS: ["266", "00", "(?:[256]\\d\\d|800)\\d{5}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[2568]"]]]], LT: ["370", "00", "(?:[3469]\\d|52|[78]0)\\d{6}", [8], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["52[0-7]"], "(8-$1)", 1], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[7-9]"], "8 $1", 1], ["(\\d{2})(\\d{6})", "$1 $2", ["37|4(?:[15]|6[1-8])"], "(8-$1)", 1], ["(\\d{3})(\\d{5})", "$1 $2", ["[3-6]"], "(8-$1)", 1]], "8", 0, "[08]"], LU: ["352", "00", "35[013-9]\\d{4,8}|6\\d{8}|35\\d{2,4}|(?:[2457-9]\\d|3[0-46-9])\\d{2,9}", [4, 5, 6, 7, 8, 9, 10, 11], [["(\\d{2})(\\d{3})", "$1 $2", ["2(?:0[2-689]|[2-9])|[3-57]|8(?:0[2-9]|[13-9])|9(?:0[89]|[2-579])"]], ["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["2(?:0[2-689]|[2-9])|[3-57]|8(?:0[2-9]|[13-9])|9(?:0[89]|[2-579])"]], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["20[2-689]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})", "$1 $2 $3 $4", ["2(?:[0367]|4[3-8])"]], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["80[01]|90[015]"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3 $4", ["20"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})(\\d{1,2})", "$1 $2 $3 $4 $5", ["2(?:[0367]|4[3-8])"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{1,5})", "$1 $2 $3 $4", ["[3-57]|8[13-9]|9(?:0[89]|[2-579])|(?:2|80)[2-9]"]]], 0, 0, "(15(?:0[06]|1[12]|[35]5|4[04]|6[26]|77|88|99)\\d)"], LV: ["371", "00", "(?:[268]\\d|90)\\d{6}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[269]|8[01]"]]]], LY: ["218", "00", "[2-9]\\d{8}", [9], [["(\\d{2})(\\d{7})", "$1-$2", ["[2-9]"], "0$1"]], "0"], MA: ["212", "00", "[5-8]\\d{8}", [9], [["(\\d{5})(\\d{4})", "$1-$2", ["5(?:29|38)", "5(?:29[89]|389)", "5(?:29[89]|389)0"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["5[45]"], "0$1"], ["(\\d{4})(\\d{5})", "$1-$2", ["5(?:2[2-489]|3[5-9]|9)|892", "5(?:2(?:[2-49]|8[235-9])|3[5-9]|9)|892"], "0$1"], ["(\\d{2})(\\d{7})", "$1-$2", ["8"], "0$1"], ["(\\d{3})(\\d{6})", "$1-$2", ["[5-7]"], "0$1"]], "0", 0, 0, 0, 0, 0, [["5(?:29(?:[189][05]|2[29]|3[01])|389[05])\\d{4}|5(?:2(?:[0-25-7]\\d|3[1-578]|4[02-46-8]|8[0235-7]|90)|3(?:[0-47]\\d|5[02-9]|6[02-8]|8[08]|9[3-9])|(?:4[067]|5[03])\\d)\\d{5}"], ["(?:6(?:[0-79]\\d|8[0-247-9])|7(?:[017]\\d|2[0-2]|6[0-8]))\\d{6}"], ["80\\d{7}"], ["89\\d{7}"], 0, 0, 0, 0, ["592(?:4[0-2]|93)\\d{4}"]]], MC: ["377", "00", "(?:[3489]|6\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["4"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[389]"]], ["(\\d)(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4 $5", ["6"], "0$1"]], "0"], MD: ["373", "00", "(?:[235-7]\\d|[89]0)\\d{6}", [8], [["(\\d{3})(\\d{5})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["22|3"], "0$1"], ["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[25-7]"], "0$1"]], "0"], ME: ["382", "00", "(?:20|[3-79]\\d)\\d{6}|80\\d{6,7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[2-9]"], "0$1"]], "0"], MF: ["590", "00", "(?:590|(?:69|80)\\d|976)\\d{6}", [9], 0, "0", 0, 0, 0, 0, 0, [["590(?:0[079]|[14]3|[27][79]|30|5[0-268]|87)\\d{4}"], ["69(?:0\\d\\d|1(?:2[2-9]|3[0-5]))\\d{4}"], ["80[0-5]\\d{6}"], 0, 0, 0, 0, 0, ["976[01]\\d{5}"]]], MG: ["261", "00", "[23]\\d{8}", [9], [["(\\d{2})(\\d{2})(\\d{3})(\\d{2})", "$1 $2 $3 $4", ["[23]"], "0$1"]], "0", 0, "0|([24-9]\\d{6})$", "20$1"], MH: ["692", "011", "329\\d{4}|(?:[256]\\d|45)\\d{5}", [7], [["(\\d{3})(\\d{4})", "$1-$2", ["[2-6]"]]], "1"], MK: ["389", "00", "[2-578]\\d{7}", [8], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["2|34[47]|4(?:[37]7|5[47]|64)"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[347]"], "0$1"], ["(\\d{3})(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[58]"], "0$1"]], "0"], ML: ["223", "00", "[24-9]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24-9]"]]]], MM: ["95", "00", "1\\d{5,7}|95\\d{6}|(?:[4-7]|9[0-46-9])\\d{6,8}|(?:2|8\\d)\\d{5,8}", [6, 7, 8, 9, 10], [["(\\d)(\\d{2})(\\d{3})", "$1 $2 $3", ["16|2"], "0$1"], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["[45]|6(?:0[23]|[1-689]|7[235-7])|7(?:[0-4]|5[2-7])|8[1-6]"], "0$1"], ["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[12]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[4-7]|8[1-35]"], "0$1"], ["(\\d)(\\d{3})(\\d{4,6})", "$1 $2 $3", ["9(?:2[0-4]|[35-9]|4[137-9])"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["92"], "0$1"], ["(\\d)(\\d{5})(\\d{4})", "$1 $2 $3", ["9"], "0$1"]], "0"], MN: ["976", "001", "[12]\\d{7,9}|[5-9]\\d{7}", [8, 9, 10], [["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["[12]1"], "0$1"], ["(\\d{4})(\\d{4})", "$1 $2", ["[5-9]"]], ["(\\d{3})(\\d{5,6})", "$1 $2", ["[12]2[1-3]"], "0$1"], ["(\\d{4})(\\d{5,6})", "$1 $2", ["[12](?:27|3[2-8]|4[2-68]|5[1-4689])", "[12](?:27|3[2-8]|4[2-68]|5[1-4689])[0-3]"], "0$1"], ["(\\d{5})(\\d{4,5})", "$1 $2", ["[12]"], "0$1"]], "0"], MO: ["853", "00", "0800\\d{3}|(?:28|[68]\\d)\\d{6}", [7, 8], [["(\\d{4})(\\d{3})", "$1 $2", ["0"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[268]"]]]], MP: ["1", "011", "[58]\\d{9}|(?:67|90)0\\d{7}", [10], 0, "1", 0, "1|([2-9]\\d{6})$", "670$1", 0, "670"], MQ: ["596", "00", "(?:69|80)\\d{7}|(?:59|97)6\\d{6}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[569]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], MR: ["222", "00", "(?:[2-4]\\d\\d|800)\\d{5}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2-48]"]]]], MS: ["1", "011", "(?:[58]\\d\\d|664|900)\\d{7}", [10], 0, "1", 0, "1|([34]\\d{6})$", "664$1", 0, "664"], MT: ["356", "00", "3550\\d{4}|(?:[2579]\\d\\d|800)\\d{5}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[2357-9]"]]]], MU: ["230", "0(?:0|[24-7]0|3[03])", "(?:5|8\\d\\d)\\d{7}|[2-468]\\d{6}", [7, 8, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-46]|8[013]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["5"]], ["(\\d{5})(\\d{5})", "$1 $2", ["8"]]], 0, 0, 0, 0, 0, 0, 0, "020"], MV: ["960", "0(?:0|19)", "(?:800|9[0-57-9]\\d)\\d{7}|[34679]\\d{6}", [7, 10], [["(\\d{3})(\\d{4})", "$1-$2", ["[3467]|9[13-9]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], MW: ["265", "00", "(?:[129]\\d|31|77|88)\\d{7}|1\\d{6}", [7, 9], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["1[2-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[137-9]"], "0$1"]], "0"], MX: ["52", "0[09]", "1(?:(?:44|99)[1-9]|65[0-689])\\d{7}|(?:1(?:[017]\\d|[235][1-9]|4[0-35-9]|6[0-46-9]|8[1-79]|9[1-8])|[2-9]\\d)\\d{8}", [10, 11], [["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["33|5[56]|81"], 0, 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[2-9]"], 0, 1], ["(\\d)(\\d{2})(\\d{4})(\\d{4})", "$2 $3 $4", ["1(?:33|5[56]|81)"], 0, 1], ["(\\d)(\\d{3})(\\d{3})(\\d{4})", "$2 $3 $4", ["1"], 0, 1]], "01", 0, "0(?:[12]|4[45])|1", 0, 0, 0, 0, "00"], MY: ["60", "00", "1\\d{8,9}|(?:3\\d|[4-9])\\d{7}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1-$2 $3", ["[4-79]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1-$2 $3", ["1(?:[02469]|[378][1-9]|53)|8", "1(?:[02469]|[37][1-9]|53|8(?:[1-46-9]|5[7-9]))|8"], "0$1"], ["(\\d)(\\d{4})(\\d{4})", "$1-$2 $3", ["3"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{4})", "$1-$2-$3-$4", ["1(?:[367]|80)"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1-$2 $3", ["15"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4})", "$1-$2 $3", ["1"], "0$1"]], "0"], MZ: ["258", "00", "(?:2|8\\d)\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2|8[2-79]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["8"]]]], NA: ["264", "00", "[68]\\d{7,8}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["88"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["6"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["87"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"]], "0"], NC: ["687", "00", "(?:050|[2-57-9]\\d\\d)\\d{3}", [6], [["(\\d{2})(\\d{2})(\\d{2})", "$1.$2.$3", ["[02-57-9]"]]]], NE: ["227", "00", "[027-9]\\d{7}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["08"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[089]|2[013]|7[04]"]]]], NF: ["672", "00", "[13]\\d{5}", [6], [["(\\d{2})(\\d{4})", "$1 $2", ["1[0-3]"]], ["(\\d)(\\d{5})", "$1 $2", ["[13]"]]], 0, 0, "([0-258]\\d{4})$", "3$1"], NG: ["234", "009", "(?:[124-7]|9\\d{3})\\d{6}|[1-9]\\d{7}|[78]\\d{9,13}", [7, 8, 10, 11, 12, 13, 14], [["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["78"], "0$1"], ["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[12]|9(?:0[3-9]|[1-9])"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,3})", "$1 $2 $3", ["[3-7]|8[2-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[7-9]"], "0$1"], ["(\\d{3})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["[78]"], "0$1"], ["(\\d{3})(\\d{5})(\\d{5,6})", "$1 $2 $3", ["[78]"], "0$1"]], "0"], NI: ["505", "00", "(?:1800|[25-8]\\d{3})\\d{4}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[125-8]"]]]], NL: ["31", "00", "(?:[124-7]\\d\\d|3(?:[02-9]\\d|1[0-8]))\\d{6}|8\\d{6,9}|9\\d{6,10}|1\\d{4,5}", [5, 6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{4,7})", "$1 $2", ["[89]0"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["66"], "0$1"], ["(\\d)(\\d{8})", "$1 $2", ["6"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["1[16-8]|2[259]|3[124]|4[17-9]|5[124679]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-578]|91"], "0$1"], ["(\\d{3})(\\d{3})(\\d{5})", "$1 $2 $3", ["9"], "0$1"]], "0"], NO: ["47", "00", "(?:0|[2-9]\\d{3})\\d{4}", [5, 8], [["(\\d{3})(\\d{2})(\\d{3})", "$1 $2 $3", ["[489]|59"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[235-7]"]]], 0, 0, 0, 0, 0, "[02-689]|7[0-8]"], NP: ["977", "00", "(?:1\\d|9)\\d{9}|[1-9]\\d{7}", [8, 10, 11], [["(\\d)(\\d{7})", "$1-$2", ["1[2-6]"], "0$1"], ["(\\d{2})(\\d{6})", "$1-$2", ["1[01]|[2-8]|9(?:[1-59]|[67][2-6])"], "0$1"], ["(\\d{3})(\\d{7})", "$1-$2", ["9"]]], "0"], NR: ["674", "00", "(?:444|(?:55|8\\d)\\d|666)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[4-68]"]]]], NU: ["683", "00", "(?:[47]|888\\d)\\d{3}", [4, 7], [["(\\d{3})(\\d{4})", "$1 $2", ["8"]]]], NZ: ["64", "0(?:0|161)", "[29]\\d{7,9}|50\\d{5}(?:\\d{2,3})?|6[0-35-9]\\d{6}|7\\d{7,8}|8\\d{4,9}|(?:11\\d|[34])\\d{7}", [5, 6, 7, 8, 9, 10], [["(\\d{2})(\\d{3,8})", "$1 $2", ["8[1-579]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["50[036-8]|[89]0", "50(?:[0367]|88)|[89]0"], "0$1"], ["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["24|[346]|7[2-57-9]|9[2-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2(?:10|74)|[59]|80"], "0$1"], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["1|2[028]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,5})", "$1 $2 $3", ["2(?:[169]|7[0-35-9])|7|86"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, "00"], OM: ["968", "00", "(?:1505|[279]\\d{3}|500)\\d{4}|800\\d{5,6}", [7, 8, 9], [["(\\d{3})(\\d{4,6})", "$1 $2", ["[58]"]], ["(\\d{2})(\\d{6})", "$1 $2", ["2"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[179]"]]]], PA: ["507", "00", "(?:00800|8\\d{3})\\d{6}|[68]\\d{7}|[1-57-9]\\d{6}", [7, 8, 10, 11], [["(\\d{3})(\\d{4})", "$1-$2", ["[1-57-9]"]], ["(\\d{4})(\\d{4})", "$1-$2", ["[68]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]]]], PE: ["51", "00|19(?:1[124]|77|90)00", "(?:[14-8]|9\\d)\\d{7}", [8, 9], [["(\\d{3})(\\d{5})", "$1 $2", ["80"], "(0$1)"], ["(\\d)(\\d{7})", "$1 $2", ["1"], "(0$1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["[4-8]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"]]], "0", 0, 0, 0, 0, 0, 0, "00", " Anexo "], PF: ["689", "00", "4\\d{5}(?:\\d{2})?|8\\d{7,8}", [6, 8, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["44"]], ["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["4|8[7-9]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]]]], PG: ["675", "00|140[1-3]", "(?:180|[78]\\d{3})\\d{4}|(?:[2-589]\\d|64)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["18|[2-69]|85"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[78]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], PH: ["63", "00", "(?:[2-7]|9\\d)\\d{8}|2\\d{5}|(?:1800|8)\\d{7,9}", [6, 8, 9, 10, 11, 12, 13], [["(\\d)(\\d{5})", "$1 $2", ["2"], "(0$1)"], ["(\\d{4})(\\d{4,6})", "$1 $2", ["3(?:23|39|46)|4(?:2[3-6]|[35]9|4[26]|76)|544|88[245]|(?:52|64|86)2", "3(?:230|397|461)|4(?:2(?:35|[46]4|51)|396|4(?:22|63)|59[347]|76[15])|5(?:221|446)|642[23]|8(?:622|8(?:[24]2|5[13]))"], "(0$1)"], ["(\\d{5})(\\d{4})", "$1 $2", ["346|4(?:27|9[35])|883", "3469|4(?:279|9(?:30|56))|8834"], "(0$1)"], ["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["2"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[3-7]|8[2-8]"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]], ["(\\d{4})(\\d{1,2})(\\d{3})(\\d{4})", "$1 $2 $3 $4", ["1"]]], "0"], PK: ["92", "00", "122\\d{6}|[24-8]\\d{10,11}|9(?:[013-9]\\d{8,10}|2(?:[01]\\d\\d|2(?:[06-8]\\d|1[01]))\\d{7})|(?:[2-8]\\d{3}|92(?:[0-7]\\d|8[1-9]))\\d{6}|[24-9]\\d{8}|[89]\\d{7}", [8, 9, 10, 11, 12], [["(\\d{3})(\\d{3})(\\d{2,7})", "$1 $2 $3", ["[89]0"], "0$1"], ["(\\d{4})(\\d{5})", "$1 $2", ["1"]], ["(\\d{3})(\\d{6,7})", "$1 $2", ["2(?:3[2358]|4[2-4]|9[2-8])|45[3479]|54[2-467]|60[468]|72[236]|8(?:2[2-689]|3[23578]|4[3478]|5[2356])|9(?:2[2-8]|3[27-9]|4[2-6]|6[3569]|9[25-8])", "9(?:2[3-8]|98)|(?:2(?:3[2358]|4[2-4]|9[2-8])|45[3479]|54[2-467]|60[468]|72[236]|8(?:2[2-689]|3[23578]|4[3478]|5[2356])|9(?:22|3[27-9]|4[2-6]|6[3569]|9[25-7]))[2-9]"], "(0$1)"], ["(\\d{2})(\\d{7,8})", "$1 $2", ["(?:2[125]|4[0-246-9]|5[1-35-7]|6[1-8]|7[14]|8[16]|91)[2-9]"], "(0$1)"], ["(\\d{5})(\\d{5})", "$1 $2", ["58"], "(0$1)"], ["(\\d{3})(\\d{7})", "$1 $2", ["3"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["2[125]|4[0-246-9]|5[1-35-7]|6[1-8]|7[14]|8[16]|91"], "(0$1)"], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[24-9]"], "(0$1)"]], "0"], PL: ["48", "00", "6\\d{5}(?:\\d{2})?|8\\d{9}|[1-9]\\d{6}(?:\\d{2})?", [6, 7, 8, 9, 10], [["(\\d{5})", "$1", ["19"]], ["(\\d{3})(\\d{3})", "$1 $2", ["11|64"]], ["(\\d{2})(\\d{2})(\\d{3})", "$1 $2 $3", ["(?:1[2-8]|2[2-69]|3[2-4]|4[1-468]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145])1", "(?:1[2-8]|2[2-69]|3[2-4]|4[1-468]|5[24-689]|6[1-3578]|7[14-7]|8[1-79]|9[145])19"]], ["(\\d{3})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["64"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["21|39|45|5[0137]|6[0469]|7[02389]|8(?:0[14]|8)"]], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["1[2-8]|[2-7]|8[1-79]|9[145]"]], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["8"]]]], PM: ["508", "00", "(?:[45]|80\\d\\d)\\d{5}", [6, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["[45]"], "0$1"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"], "0$1"]], "0"], PR: ["1", "011", "(?:[589]\\d\\d|787)\\d{7}", [10], 0, "1", 0, 0, 0, 0, "787|939"], PS: ["970", "00", "[2489]2\\d{6}|(?:1\\d|5)\\d{8}", [8, 9, 10], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["[2489]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], PT: ["351", "00", "1693\\d{5}|(?:[26-9]\\d|30)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["2[12]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["16|[236-9]"]]]], PW: ["680", "01[12]", "(?:[24-8]\\d\\d|345|900)\\d{4}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-9]"]]]], PY: ["595", "00", "59\\d{4,6}|9\\d{5,10}|(?:[2-46-8]\\d|5[0-8])\\d{4,7}", [6, 7, 8, 9, 10, 11], [["(\\d{3})(\\d{3,6})", "$1 $2", ["[2-9]0"], "0$1"], ["(\\d{2})(\\d{5})", "$1 $2", ["[26]1|3[289]|4[1246-8]|7[1-3]|8[1-36]"], "(0$1)"], ["(\\d{3})(\\d{4,5})", "$1 $2", ["2[279]|3[13-5]|4[359]|5|6(?:[34]|7[1-46-8])|7[46-8]|85"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2[14-68]|3[26-9]|4[1246-8]|6(?:1|75)|7[1-35]|8[1-36]"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["87"]], ["(\\d{3})(\\d{6})", "$1 $2", ["9(?:[5-79]|8[1-6])"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-8]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["9"]]], "0"], QA: ["974", "00", "[2-7]\\d{7}|800\\d{4}(?:\\d{2})?|2\\d{6}", [7, 8, 9], [["(\\d{3})(\\d{4})", "$1 $2", ["2[126]|8"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[2-7]"]]]], RE: ["262", "00", "976\\d{6}|(?:26|[68]\\d)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2689]"], "0$1"]], "0", 0, 0, 0, 0, "26[23]|69|[89]"], RO: ["40", "00", "(?:[2378]\\d|90)\\d{7}|[23]\\d{5}", [6, 9], [["(\\d{3})(\\d{3})", "$1 $2", ["2[3-6]", "2[3-6]\\d9"], "0$1"], ["(\\d{2})(\\d{4})", "$1 $2", ["219|31"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[23]1"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[237-9]"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, 0, " int "], RS: ["381", "00", "38[02-9]\\d{6,9}|6\\d{7,9}|90\\d{4,8}|38\\d{5,6}|(?:7\\d\\d|800)\\d{3,9}|(?:[12]\\d|3[0-79])\\d{5,10}", [6, 7, 8, 9, 10, 11, 12], [["(\\d{3})(\\d{3,9})", "$1 $2", ["(?:2[389]|39)0|[7-9]"], "0$1"], ["(\\d{2})(\\d{5,10})", "$1 $2", ["[1-36]"], "0$1"]], "0"], RU: ["7", "810", "8\\d{13}|[347-9]\\d{9}", [10, 14], [["(\\d{4})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["7(?:1[0-8]|2[1-9])", "7(?:1(?:[0-6]2|7|8[27])|2(?:1[23]|[2-9]2))", "7(?:1(?:[0-6]2|7|8[27])|2(?:13[03-69]|62[013-9]))|72[1-57-9]2"], "8 ($1)", 1], ["(\\d{5})(\\d)(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["7(?:1[0-68]|2[1-9])", "7(?:1(?:[06][3-6]|[18]|2[35]|[3-5][3-5])|2(?:[13][3-5]|[24-689]|7[457]))", "7(?:1(?:0(?:[356]|4[023])|[18]|2(?:3[013-9]|5)|3[45]|43[013-79]|5(?:3[1-8]|4[1-7]|5)|6(?:3[0-35-9]|[4-6]))|2(?:1(?:3[178]|[45])|[24-689]|3[35]|7[457]))|7(?:14|23)4[0-8]|71(?:33|45)[1-79]"], "8 ($1)", 1], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "8 ($1)", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[349]|8(?:[02-7]|1[1-8])"], "8 ($1)", 1], ["(\\d{4})(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["8"], "8 ($1)"]], "8", 0, 0, 0, 0, "3[04-689]|[489]", 0, "8~10"], RW: ["250", "00", "(?:06|[27]\\d\\d|[89]00)\\d{6}", [8, 9], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["0"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[7-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["2"]]], "0"], SA: ["966", "00", "92\\d{7}|(?:[15]|8\\d)\\d{8}", [9, 10], [["(\\d{4})(\\d{5})", "$1 $2", ["9"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["5"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["81"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]]], "0"], SB: ["677", "0[01]", "(?:[1-6]|[7-9]\\d\\d)\\d{4}", [5, 7], [["(\\d{2})(\\d{5})", "$1 $2", ["7|8[4-9]|9(?:[1-8]|9[0-8])"]]]], SC: ["248", "010|0[0-2]", "800\\d{4}|(?:[249]\\d|64)\\d{5}", [7], [["(\\d)(\\d{3})(\\d{3})", "$1 $2 $3", ["[246]|9[57]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], SD: ["249", "00", "[19]\\d{8}", [9], [["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[19]"], "0$1"]], "0"], SE: ["46", "00", "(?:[26]\\d\\d|9)\\d{9}|[1-9]\\d{8}|[1-689]\\d{7}|[1-4689]\\d{6}|2\\d{5}", [6, 7, 8, 9, 10], [["(\\d{2})(\\d{2,3})(\\d{2})", "$1-$2 $3", ["20"], "0$1", 0, "$1 $2 $3"], ["(\\d{3})(\\d{4})", "$1-$2", ["9(?:00|39|44|9)"], "0$1", 0, "$1 $2"], ["(\\d{2})(\\d{3})(\\d{2})", "$1-$2 $3", ["[12][136]|3[356]|4[0246]|6[03]|90[1-9]"], "0$1", 0, "$1 $2 $3"], ["(\\d)(\\d{2,3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["8"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2,3})(\\d{2})", "$1-$2 $3", ["1[2457]|2(?:[247-9]|5[0138])|3[0247-9]|4[1357-9]|5[0-35-9]|6(?:[125689]|4[02-57]|7[0-2])|9(?:[125-8]|3[02-5]|4[0-3])"], "0$1", 0, "$1 $2 $3"], ["(\\d{3})(\\d{2,3})(\\d{3})", "$1-$2 $3", ["9(?:00|39|44)"], "0$1", 0, "$1 $2 $3"], ["(\\d{2})(\\d{2,3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["1[13689]|2[0136]|3[1356]|4[0246]|54|6[03]|90[1-9]"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["10|7"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d)(\\d{3})(\\d{3})(\\d{2})", "$1-$2 $3 $4", ["8"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1-$2 $3 $4", ["[13-5]|2(?:[247-9]|5[0138])|6(?:[124-689]|7[0-2])|9(?:[125-8]|3[02-5]|4[0-3])"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{2})(\\d{3})", "$1-$2 $3 $4", ["9"], "0$1", 0, "$1 $2 $3 $4"], ["(\\d{3})(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1-$2 $3 $4 $5", ["[26]"], "0$1", 0, "$1 $2 $3 $4 $5"]], "0"], SG: ["65", "0[0-3]\\d", "(?:(?:1\\d|8)\\d\\d|7000)\\d{7}|[3689]\\d{7}", [8, 10, 11], [["(\\d{4})(\\d{4})", "$1 $2", ["[369]|8(?:0[1-5]|[1-9])"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"]], ["(\\d{4})(\\d{4})(\\d{3})", "$1 $2 $3", ["7"]], ["(\\d{4})(\\d{3})(\\d{4})", "$1 $2 $3", ["1"]]]], SH: ["290", "00", "(?:[256]\\d|8)\\d{3}", [4, 5], 0, 0, 0, 0, 0, 0, "[256]"], SI: ["386", "00|10(?:22|66|88|99)", "[1-7]\\d{7}|8\\d{4,7}|90\\d{4,6}", [5, 6, 7, 8], [["(\\d{2})(\\d{3,6})", "$1 $2", ["8[09]|9"], "0$1"], ["(\\d{3})(\\d{5})", "$1 $2", ["59|8"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[37][01]|4[0139]|51|6"], "0$1"], ["(\\d)(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[1-57]"], "(0$1)"]], "0", 0, 0, 0, 0, 0, 0, "00"], SJ: ["47", "00", "0\\d{4}|(?:[489]\\d|[57]9)\\d{6}", [5, 8], 0, 0, 0, 0, 0, 0, "79"], SK: ["421", "00", "[2-689]\\d{8}|[2-59]\\d{6}|[2-5]\\d{5}", [6, 7, 9], [["(\\d)(\\d{2})(\\d{3,4})", "$1 $2 $3", ["21"], "0$1"], ["(\\d{2})(\\d{2})(\\d{2,3})", "$1 $2 $3", ["[3-5][1-8]1", "[3-5][1-8]1[67]"], "0$1"], ["(\\d)(\\d{3})(\\d{3})(\\d{2})", "$1/$2 $3 $4", ["2"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[689]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1/$2 $3 $4", ["[3-5]"], "0$1"]], "0"], SL: ["232", "00", "(?:[237-9]\\d|66)\\d{6}", [8], [["(\\d{2})(\\d{6})", "$1 $2", ["[236-9]"], "(0$1)"]], "0"], SM: ["378", "00", "(?:0549|[5-7]\\d)\\d{6}", [8, 10], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[5-7]"]], ["(\\d{4})(\\d{6})", "$1 $2", ["0"]]], 0, 0, "([89]\\d{5})$", "0549$1"], SN: ["221", "00", "(?:[378]\\d|93)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[379]"]]]], SO: ["252", "00", "[346-9]\\d{8}|[12679]\\d{7}|[1-5]\\d{6}|[1348]\\d{5}", [6, 7, 8, 9], [["(\\d{2})(\\d{4})", "$1 $2", ["8[125]"]], ["(\\d{6})", "$1", ["[134]"]], ["(\\d)(\\d{6})", "$1 $2", ["[15]|2[0-79]|3[0-46-8]|4[0-7]"]], ["(\\d)(\\d{7})", "$1 $2", ["24|[67]"]], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[3478]|64|90"]], ["(\\d{2})(\\d{5,7})", "$1 $2", ["1|28|6(?:0[5-7]|[1-35-9])|9[2-9]"]]], "0"], SR: ["597", "00", "(?:[2-5]|68|[78]\\d)\\d{5}", [6, 7], [["(\\d{2})(\\d{2})(\\d{2})", "$1-$2-$3", ["56"]], ["(\\d{3})(\\d{3})", "$1-$2", ["[2-5]"]], ["(\\d{3})(\\d{4})", "$1-$2", ["[6-8]"]]]], SS: ["211", "00", "[19]\\d{8}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[19]"], "0$1"]], "0"], ST: ["239", "00", "(?:22|9\\d)\\d{5}", [7], [["(\\d{3})(\\d{4})", "$1 $2", ["[29]"]]]], SV: ["503", "00", "[267]\\d{7}|[89]00\\d{4}(?:\\d{4})?", [7, 8, 11], [["(\\d{3})(\\d{4})", "$1 $2", ["[89]"]], ["(\\d{4})(\\d{4})", "$1 $2", ["[267]"]], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["[89]"]]]], SX: ["1", "011", "7215\\d{6}|(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|(5\\d{6})$", "721$1", 0, "721"], SY: ["963", "00", "[1-39]\\d{8}|[1-5]\\d{7}", [8, 9], [["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-5]"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"], "0$1", 1]], "0"], SZ: ["268", "00", "0800\\d{4}|(?:[237]\\d|900)\\d{6}", [8, 9], [["(\\d{4})(\\d{4})", "$1 $2", ["[0237]"]], ["(\\d{5})(\\d{4})", "$1 $2", ["9"]]]], TA: ["290", "00", "8\\d{3}", [4], 0, 0, 0, 0, 0, 0, "8"], TC: ["1", "011", "(?:[58]\\d\\d|649|900)\\d{7}", [10], 0, "1", 0, "1|([2-479]\\d{6})$", "649$1", 0, "649"], TD: ["235", "00|16", "(?:22|[69]\\d|77)\\d{6}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[2679]"]]], 0, 0, 0, 0, 0, 0, 0, "00"], TG: ["228", "00", "[279]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[279]"]]]], TH: ["66", "00[1-9]", "(?:001800|[2-57]|[689]\\d)\\d{7}|1\\d{7,9}", [8, 9, 10, 13], [["(\\d)(\\d{3})(\\d{4})", "$1 $2 $3", ["2"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[13-9]"], "0$1"], ["(\\d{4})(\\d{3})(\\d{3})", "$1 $2 $3", ["1"]]], "0"], TJ: ["992", "810", "(?:00|[1-57-9]\\d)\\d{7}", [9], [["(\\d{6})(\\d)(\\d{2})", "$1 $2 $3", ["331", "3317"]], ["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["[34]7|91[78]"]], ["(\\d{4})(\\d)(\\d{4})", "$1 $2 $3", ["3[1-5]"]], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[0-57-9]"]]], 0, 0, 0, 0, 0, 0, 0, "8~10"], TK: ["690", "00", "[2-47]\\d{3,6}", [4, 5, 6, 7]], TL: ["670", "00", "7\\d{7}|(?:[2-47]\\d|[89]0)\\d{5}", [7, 8], [["(\\d{3})(\\d{4})", "$1 $2", ["[2-489]|70"]], ["(\\d{4})(\\d{4})", "$1 $2", ["7"]]]], TM: ["993", "810", "[1-6]\\d{7}", [8], [["(\\d{2})(\\d{2})(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["12"], "(8 $1)"], ["(\\d{3})(\\d)(\\d{2})(\\d{2})", "$1 $2-$3-$4", ["[1-5]"], "(8 $1)"], ["(\\d{2})(\\d{6})", "$1 $2", ["6"], "8 $1"]], "8", 0, 0, 0, 0, 0, 0, "8~10"], TN: ["216", "00", "[2-57-9]\\d{7}", [8], [["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-57-9]"]]]], TO: ["676", "00", "(?:0800|(?:[5-8]\\d\\d|999)\\d)\\d{3}|[2-8]\\d{4}", [5, 7], [["(\\d{2})(\\d{3})", "$1-$2", ["[2-4]|50|6[09]|7[0-24-69]|8[05]"]], ["(\\d{4})(\\d{3})", "$1 $2", ["0"]], ["(\\d{3})(\\d{4})", "$1 $2", ["[5-9]"]]]], TR: ["90", "00", "4\\d{6}|8\\d{11,12}|(?:[2-58]\\d\\d|900)\\d{7}", [7, 10, 12, 13], [["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["512|8[01589]|90"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["5(?:[0-59]|61)", "5(?:[0-59]|616)", "5(?:[0-59]|6161)"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[24][1-8]|3[1-9]"], "(0$1)", 1], ["(\\d{3})(\\d{3})(\\d{6,7})", "$1 $2 $3", ["80"], "0$1", 1]], "0"], TT: ["1", "011", "(?:[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2-46-8]\\d{6})$", "868$1", 0, "868"], TV: ["688", "00", "(?:2|7\\d\\d|90)\\d{4}", [5, 6, 7], [["(\\d{2})(\\d{3})", "$1 $2", ["2"]], ["(\\d{2})(\\d{4})", "$1 $2", ["90"]], ["(\\d{2})(\\d{5})", "$1 $2", ["7"]]]], TW: ["886", "0(?:0[25-79]|19)", "[2-689]\\d{8}|7\\d{9,10}|[2-8]\\d{7}|2\\d{6}", [7, 8, 9, 10, 11], [["(\\d{2})(\\d)(\\d{4})", "$1 $2 $3", ["202"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[258]0"], "0$1"], ["(\\d)(\\d{3,4})(\\d{4})", "$1 $2 $3", ["[23568]|4(?:0[02-48]|[1-47-9])|7[1-9]", "[23568]|4(?:0[2-48]|[1-47-9])|(?:400|7)[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[49]"], "0$1"], ["(\\d{2})(\\d{4})(\\d{4,5})", "$1 $2 $3", ["7"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, 0, "#"], TZ: ["255", "00[056]", "(?:[26-8]\\d|41|90)\\d{7}", [9], [["(\\d{3})(\\d{2})(\\d{4})", "$1 $2 $3", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[24]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[67]"], "0$1"]], "0"], UA: ["380", "00", "[89]\\d{9}|[3-9]\\d{8}", [9, 10], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["6[12][29]|(?:3[1-8]|4[136-8]|5[12457]|6[49])2|(?:56|65)[24]", "6[12][29]|(?:35|4[1378]|5[12457]|6[49])2|(?:56|65)[24]|(?:3[1-46-8]|46)2[013-9]"], "0$1"], ["(\\d{4})(\\d{5})", "$1 $2", ["3[1-8]|4(?:[1367]|[45][6-9]|8[4-6])|5(?:[1-5]|6[0135689]|7[4-6])|6(?:[12][3-7]|[459])", "3[1-8]|4(?:[1367]|[45][6-9]|8[4-6])|5(?:[1-5]|6(?:[015689]|3[02389])|7[4-6])|6(?:[12][3-7]|[459])"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[3-7]|89|9[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[89]"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, "0~0"], UG: ["256", "00[057]", "800\\d{6}|(?:[29]0|[347]\\d)\\d{7}", [9], [["(\\d{4})(\\d{5})", "$1 $2", ["202", "2024"], "0$1"], ["(\\d{3})(\\d{6})", "$1 $2", ["[27-9]|4(?:6[45]|[7-9])"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["[34]"], "0$1"]], "0"], US: ["1", "011", "[2-9]\\d{9}|3\\d{6}", [10], [["(\\d{3})(\\d{4})", "$1-$2", ["310"], 0, 1], ["(\\d{3})(\\d{3})(\\d{4})", "($1) $2-$3", ["[2-9]"], 0, 1, "$1-$2-$3"]], "1", 0, 0, 0, 0, 0, [["5(?:05(?:[2-57-9]\\d\\d|6(?:[0-35-9]\\d|44))|82(?:2(?:0[0-3]|[268]2)|3(?:0[02]|22|33)|4(?:00|4[24]|65|82)|5(?:00|29|58|83)|6(?:00|66|82)|7(?:58|77)|8(?:00|42|5[25]|88)|9(?:00|9[89])))\\d{4}|(?:2(?:0[1-35-9]|1[02-9]|2[03-589]|3[149]|4[08]|5[1-46]|6[0279]|7[0269]|8[13])|3(?:0[1-57-9]|1[02-9]|2[01356]|3[0-24679]|4[167]|5[12]|6[014]|8[056])|4(?:0[124-9]|1[02-579]|2[3-5]|3[0245]|4[023578]|58|6[349]|7[0589]|8[04])|5(?:0[1-47-9]|1[0235-8]|20|3[0149]|4[01]|5[19]|6[1-47]|7[0-5]|8[056])|6(?:0[1-35-9]|1[024-9]|2[03689]|[34][016]|5[01679]|6[0-279]|78|8[0-29])|7(?:0[1-46-8]|1[2-9]|2[04-7]|3[1247]|4[037]|5[47]|6[02359]|7[0-59]|8[156])|8(?:0[1-68]|1[02-8]|2[068]|3[0-289]|4[03578]|5[046-9]|6[02-5]|7[028])|9(?:0[1346-9]|1[02-9]|2[0589]|3[0146-8]|4[01357-9]|5[12469]|7[0-389]|8[04-69]))[2-9]\\d{6}"], [""], ["8(?:00|33|44|55|66|77|88)[2-9]\\d{6}"], ["900[2-9]\\d{6}"], ["52(?:3(?:[2-46-9][02-9]\\d|5(?:[02-46-9]\\d|5[0-46-9]))|4(?:[2-478][02-9]\\d|5(?:[034]\\d|2[024-9]|5[0-46-9])|6(?:0[1-9]|[2-9]\\d)|9(?:[05-9]\\d|2[0-5]|49)))\\d{4}|52[34][2-9]1[02-9]\\d{4}|5(?:00|2[125-7]|33|44|66|77|88)[2-9]\\d{6}"]]], UY: ["598", "0(?:0|1[3-9]\\d)", "4\\d{9}|[1249]\\d{7}|(?:[49]\\d|80)\\d{5}", [7, 8, 10], [["(\\d{3})(\\d{4})", "$1 $2", ["405|8|90"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["9"], "0$1"], ["(\\d{4})(\\d{4})", "$1 $2", ["[124]"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["4"], "0$1"]], "0", 0, 0, 0, 0, 0, 0, "00", " int. "], UZ: ["998", "810", "(?:33|55|[679]\\d|88)\\d{7}", [9], [["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[35-9]"], "8 $1"]], "8", 0, 0, 0, 0, 0, 0, "8~10"], VA: ["39", "00", "0\\d{5,10}|3[0-8]\\d{7,10}|55\\d{8}|8\\d{5}(?:\\d{2,4})?|(?:1\\d|39)\\d{7,8}", [6, 7, 8, 9, 10, 11], 0, 0, 0, 0, 0, 0, "06698"], VC: ["1", "011", "(?:[58]\\d\\d|784|900)\\d{7}", [10], 0, "1", 0, "1|([2-7]\\d{6})$", "784$1", 0, "784"], VE: ["58", "00", "[68]00\\d{7}|(?:[24]\\d|[59]0)\\d{8}", [10], [["(\\d{3})(\\d{7})", "$1-$2", ["[24-689]"], "0$1"]], "0"], VG: ["1", "011", "(?:284|[58]\\d\\d|900)\\d{7}", [10], 0, "1", 0, "1|([2-578]\\d{6})$", "284$1", 0, "284"], VI: ["1", "011", "[58]\\d{9}|(?:34|90)0\\d{7}", [10], 0, "1", 0, "1|([2-9]\\d{6})$", "340$1", 0, "340"], VN: ["84", "00", "[12]\\d{9}|[135-9]\\d{8}|[16]\\d{7}|[16-8]\\d{6}", [7, 8, 9, 10], [["(\\d{2})(\\d{5})", "$1 $2", ["80"], "0$1", 1], ["(\\d{4})(\\d{4,6})", "$1 $2", ["1"], 0, 1], ["(\\d{2})(\\d{3})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["[69]"], "0$1", 1], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[3578]"], "0$1", 1], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["2[48]"], "0$1", 1], ["(\\d{3})(\\d{4})(\\d{3})", "$1 $2 $3", ["2"], "0$1", 1]], "0"], VU: ["678", "00", "[57-9]\\d{6}|(?:[238]\\d|48)\\d{3}", [5, 7], [["(\\d{3})(\\d{4})", "$1 $2", ["[57-9]"]]]], WF: ["681", "00", "(?:40|72)\\d{4}|8\\d{5}(?:\\d{3})?", [6, 9], [["(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3", ["[478]"]], ["(\\d{3})(\\d{2})(\\d{2})(\\d{2})", "$1 $2 $3 $4", ["8"]]]], WS: ["685", "0", "(?:[2-6]|8\\d{5})\\d{4}|[78]\\d{6}|[68]\\d{5}", [5, 6, 7, 10], [["(\\d{5})", "$1", ["[2-5]|6[1-9]"]], ["(\\d{3})(\\d{3,7})", "$1 $2", ["[68]"]], ["(\\d{2})(\\d{5})", "$1 $2", ["7"]]]], XK: ["383", "00", "[23]\\d{7,8}|(?:4\\d\\d|[89]00)\\d{5}", [8, 9], [["(\\d{3})(\\d{5})", "$1 $2", ["[89]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3})", "$1 $2 $3", ["[2-4]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[23]"], "0$1"]], "0"], YE: ["967", "00", "(?:1|7\\d)\\d{7}|[1-7]\\d{6}", [7, 8, 9], [["(\\d)(\\d{3})(\\d{3,4})", "$1 $2 $3", ["[1-6]|7[24-68]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["7"], "0$1"]], "0"], YT: ["262", "00", "80\\d{7}|(?:26|63)9\\d{6}", [9], 0, "0", 0, 0, 0, 0, "269|63"], ZA: ["27", "00", "[1-79]\\d{8}|8\\d{4,9}", [5, 6, 7, 8, 9, 10], [["(\\d{2})(\\d{3,4})", "$1 $2", ["8[1-4]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{2,3})", "$1 $2 $3", ["8[1-4]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["860"], "0$1"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["[1-9]"], "0$1"], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["8"], "0$1"]], "0"], ZM: ["260", "00", "800\\d{6}|(?:21|63|[79]\\d)\\d{7}", [9], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[28]"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["[79]"], "0$1"]], "0"], ZW: ["263", "00", "2(?:[0-57-9]\\d{6,8}|6[0-24-9]\\d{6,7})|[38]\\d{9}|[35-8]\\d{8}|[3-6]\\d{7}|[1-689]\\d{6}|[1-3569]\\d{5}|[1356]\\d{4}", [5, 6, 7, 8, 9, 10], [["(\\d{3})(\\d{3,5})", "$1 $2", ["2(?:0[45]|2[278]|[49]8)|3(?:[09]8|17)|6(?:[29]8|37|75)|[23][78]|(?:33|5[15]|6[68])[78]"], "0$1"], ["(\\d)(\\d{3})(\\d{2,4})", "$1 $2 $3", ["[49]"], "0$1"], ["(\\d{3})(\\d{4})", "$1 $2", ["80"], "0$1"], ["(\\d{2})(\\d{7})", "$1 $2", ["24|8[13-59]|(?:2[05-79]|39|5[45]|6[15-8])2", "2(?:02[014]|4|[56]20|[79]2)|392|5(?:42|525)|6(?:[16-8]21|52[013])|8[13-59]"], "(0$1)"], ["(\\d{2})(\\d{3})(\\d{4})", "$1 $2 $3", ["7"], "0$1"], ["(\\d{3})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["2(?:1[39]|2[0157]|[378]|[56][14])|3(?:12|29)", "2(?:1[39]|2[0157]|[378]|[56][14])|3(?:123|29)"], "0$1"], ["(\\d{4})(\\d{6})", "$1 $2", ["8"], "0$1"], ["(\\d{2})(\\d{3,5})", "$1 $2", ["1|2(?:0[0-36-9]|12|29|[56])|3(?:1[0-689]|[24-6])|5(?:[0236-9]|1[2-4])|6(?:[013-59]|7[0-46-9])|(?:33|55|6[68])[0-69]|(?:29|3[09]|62)[0-79]"], "0$1"], ["(\\d{2})(\\d{3})(\\d{3,4})", "$1 $2 $3", ["29[013-9]|39|54"], "0$1"], ["(\\d{4})(\\d{3,5})", "$1 $2", ["(?:25|54)8", "258|5483"], "0$1"]], "0"] };
+    nonGeographic = { "800": ["800", 0, "(?:00|[1-9]\\d)\\d{6}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["\\d"]]], 0, 0, 0, 0, 0, 0, [0, 0, ["(?:00|[1-9]\\d)\\d{6}"]]], "808": ["808", 0, "[1-9]\\d{7}", [8], [["(\\d{4})(\\d{4})", "$1 $2", ["[1-9]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, 0, ["[1-9]\\d{7}"]]], "870": ["870", 0, "7\\d{11}|[35-7]\\d{8}", [9, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["[35-7]"]]], 0, 0, 0, 0, 0, 0, [0, ["(?:[356]|774[45])\\d{8}|7[6-8]\\d{7}"]]], "878": ["878", 0, "10\\d{10}", [12], [["(\\d{2})(\\d{5})(\\d{5})", "$1 $2 $3", ["1"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, ["10\\d{10}"]]], "881": ["881", 0, "[0-36-9]\\d{8}", [9], [["(\\d)(\\d{3})(\\d{5})", "$1 $2 $3", ["[0-36-9]"]]], 0, 0, 0, 0, 0, 0, [0, ["[0-36-9]\\d{8}"]]], "882": ["882", 0, "[13]\\d{6}(?:\\d{2,5})?|285\\d{9}|(?:[19]\\d|49)\\d{6}", [7, 8, 9, 10, 11, 12], [["(\\d{2})(\\d{5})", "$1 $2", ["16|342"]], ["(\\d{2})(\\d{6})", "$1 $2", ["4"]], ["(\\d{2})(\\d{2})(\\d{4})", "$1 $2 $3", ["[19]"]], ["(\\d{2})(\\d{4})(\\d{3})", "$1 $2 $3", ["3[23]"]], ["(\\d{2})(\\d{3,4})(\\d{4})", "$1 $2 $3", ["1"]], ["(\\d{2})(\\d{4})(\\d{4})", "$1 $2 $3", ["34[57]"]], ["(\\d{3})(\\d{4})(\\d{4})", "$1 $2 $3", ["34"]], ["(\\d{2})(\\d{4,5})(\\d{5})", "$1 $2 $3", ["[1-3]"]]], 0, 0, 0, 0, 0, 0, [0, ["342\\d{4}|(?:337|49)\\d{6}|3(?:2|47|7\\d{3})\\d{7}", [7, 8, 9, 10, 12]], 0, 0, 0, 0, 0, 0, ["1(?:3(?:0[0347]|[13][0139]|2[035]|4[013568]|6[0459]|7[06]|8[15-8]|9[0689])\\d{4}|6\\d{5,10})|(?:(?:285\\d\\d|3(?:45|[69]\\d{3}))\\d|9[89])\\d{6}"]]], "883": ["883", 0, "(?:210|370\\d\\d)\\d{7}|51\\d{7}(?:\\d{3})?", [9, 10, 12], [["(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3", ["510"]], ["(\\d{3})(\\d{3})(\\d{4})", "$1 $2 $3", ["2"]], ["(\\d{4})(\\d{4})(\\d{4})", "$1 $2 $3", ["51[13]"]], ["(\\d{3})(\\d{3})(\\d{3})(\\d{3})", "$1 $2 $3 $4", ["[35]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0, ["(?:210|(?:370[1-9]|51[013]0)\\d)\\d{7}|5100\\d{5}"]]], "888": ["888", 0, "\\d{11}", [11], [["(\\d{3})(\\d{3})(\\d{5})", "$1 $2 $3"]], 0, 0, 0, 0, 0, 0, [0, 0, 0, 0, 0, 0, ["\\d{11}"]]], "979": ["979", 0, "[1359]\\d{8}", [9], [["(\\d)(\\d{4})(\\d{4})", "$1 $2 $3", ["[1359]"]]], 0, 0, 0, 0, 0, 0, [0, 0, 0, ["[1359]\\d{8}"]]] };
+    metadata_min_default = { version, country_calling_codes, countries, nonGeographic };
+  }
+});
+
+// node_modules/libphonenumber-js/build/constants.js
+var require_constants2 = __commonJS({
+  "node_modules/libphonenumber-js/build/constants.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.WHITESPACE = exports.VALID_PUNCTUATION = exports.VALID_DIGITS = exports.PLUS_CHARS = exports.MIN_LENGTH_FOR_NSN = exports.MAX_LENGTH_FOR_NSN = exports.MAX_LENGTH_COUNTRY_CODE = void 0;
+    var MIN_LENGTH_FOR_NSN = 2;
+    exports.MIN_LENGTH_FOR_NSN = MIN_LENGTH_FOR_NSN;
+    var MAX_LENGTH_FOR_NSN = 17;
+    exports.MAX_LENGTH_FOR_NSN = MAX_LENGTH_FOR_NSN;
+    var MAX_LENGTH_COUNTRY_CODE = 3;
+    exports.MAX_LENGTH_COUNTRY_CODE = MAX_LENGTH_COUNTRY_CODE;
+    var VALID_DIGITS = "0-9\uFF10-\uFF19\u0660-\u0669\u06F0-\u06F9";
+    exports.VALID_DIGITS = VALID_DIGITS;
+    var DASHES = "-\u2010-\u2015\u2212\u30FC\uFF0D";
+    var SLASHES = "\uFF0F/";
+    var DOTS = "\uFF0E.";
+    var WHITESPACE = " \xA0\xAD\u200B\u2060\u3000";
+    exports.WHITESPACE = WHITESPACE;
+    var BRACKETS = "()\uFF08\uFF09\uFF3B\uFF3D\\[\\]";
+    var TILDES = "~\u2053\u223C\uFF5E";
+    var VALID_PUNCTUATION = "".concat(DASHES).concat(SLASHES).concat(DOTS).concat(WHITESPACE).concat(BRACKETS).concat(TILDES);
+    exports.VALID_PUNCTUATION = VALID_PUNCTUATION;
+    var PLUS_CHARS = "+\uFF0B";
+    exports.PLUS_CHARS = PLUS_CHARS;
+  }
+});
+
+// node_modules/libphonenumber-js/build/ParseError.js
+var require_ParseError = __commonJS({
+  "node_modules/libphonenumber-js/build/ParseError.js"(exports) {
+    "use strict";
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _inherits(subClass, superClass) {
+      if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function");
+      }
+      subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });
+      Object.defineProperty(subClass, "prototype", { writable: false });
+      if (superClass)
+        _setPrototypeOf(subClass, superClass);
+    }
+    function _createSuper(Derived) {
+      var hasNativeReflectConstruct = _isNativeReflectConstruct();
+      return function _createSuperInternal() {
+        var Super = _getPrototypeOf(Derived), result;
+        if (hasNativeReflectConstruct) {
+          var NewTarget = _getPrototypeOf(this).constructor;
+          result = Reflect.construct(Super, arguments, NewTarget);
+        } else {
+          result = Super.apply(this, arguments);
+        }
+        return _possibleConstructorReturn(this, result);
+      };
+    }
+    function _possibleConstructorReturn(self2, call) {
+      if (call && (_typeof(call) === "object" || typeof call === "function")) {
+        return call;
+      } else if (call !== void 0) {
+        throw new TypeError("Derived constructors may only return object or undefined");
+      }
+      return _assertThisInitialized(self2);
+    }
+    function _assertThisInitialized(self2) {
+      if (self2 === void 0) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+      }
+      return self2;
+    }
+    function _wrapNativeSuper(Class) {
+      var _cache = typeof Map === "function" ? /* @__PURE__ */ new Map() : void 0;
+      _wrapNativeSuper = function _wrapNativeSuper2(Class2) {
+        if (Class2 === null || !_isNativeFunction(Class2))
+          return Class2;
+        if (typeof Class2 !== "function") {
+          throw new TypeError("Super expression must either be null or a function");
+        }
+        if (typeof _cache !== "undefined") {
+          if (_cache.has(Class2))
+            return _cache.get(Class2);
+          _cache.set(Class2, Wrapper);
+        }
+        function Wrapper() {
+          return _construct(Class2, arguments, _getPrototypeOf(this).constructor);
+        }
+        Wrapper.prototype = Object.create(Class2.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } });
+        return _setPrototypeOf(Wrapper, Class2);
+      };
+      return _wrapNativeSuper(Class);
+    }
+    function _construct(Parent, args, Class) {
+      if (_isNativeReflectConstruct()) {
+        _construct = Reflect.construct;
+      } else {
+        _construct = function _construct2(Parent2, args2, Class2) {
+          var a = [null];
+          a.push.apply(a, args2);
+          var Constructor = Function.bind.apply(Parent2, a);
+          var instance = new Constructor();
+          if (Class2)
+            _setPrototypeOf(instance, Class2.prototype);
+          return instance;
+        };
+      }
+      return _construct.apply(null, arguments);
+    }
+    function _isNativeReflectConstruct() {
+      if (typeof Reflect === "undefined" || !Reflect.construct)
+        return false;
+      if (Reflect.construct.sham)
+        return false;
+      if (typeof Proxy === "function")
+        return true;
+      try {
+        Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
+        }));
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+    function _isNativeFunction(fn2) {
+      return Function.toString.call(fn2).indexOf("[native code]") !== -1;
+    }
+    function _setPrototypeOf(o, p) {
+      _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf2(o2, p2) {
+        o2.__proto__ = p2;
+        return o2;
+      };
+      return _setPrototypeOf(o, p);
+    }
+    function _getPrototypeOf(o) {
+      _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf2(o2) {
+        return o2.__proto__ || Object.getPrototypeOf(o2);
+      };
+      return _getPrototypeOf(o);
+    }
+    var ParseError = /* @__PURE__ */ function(_Error) {
+      _inherits(ParseError2, _Error);
+      var _super = _createSuper(ParseError2);
+      function ParseError2(code) {
+        var _this;
+        _classCallCheck(this, ParseError2);
+        _this = _super.call(this, code);
+        Object.setPrototypeOf(_assertThisInitialized(_this), ParseError2.prototype);
+        _this.name = _this.constructor.name;
+        return _this;
+      }
+      return _createClass(ParseError2);
+    }(/* @__PURE__ */ _wrapNativeSuper(Error));
+    exports["default"] = ParseError;
+  }
+});
+
+// node_modules/libphonenumber-js/build/tools/semver-compare.js
+var require_semver_compare = __commonJS({
+  "node_modules/libphonenumber-js/build/tools/semver-compare.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = _default;
+    function _default(a, b) {
+      a = a.split("-");
+      b = b.split("-");
+      var pa = a[0].split(".");
+      var pb = b[0].split(".");
+      for (var i = 0; i < 3; i++) {
+        var na = Number(pa[i]);
+        var nb = Number(pb[i]);
+        if (na > nb)
+          return 1;
+        if (nb > na)
+          return -1;
+        if (!isNaN(na) && isNaN(nb))
+          return 1;
+        if (isNaN(na) && !isNaN(nb))
+          return -1;
+      }
+      if (a[1] && b[1]) {
+        return a[1] > b[1] ? 1 : a[1] < b[1] ? -1 : 0;
+      }
+      return !a[1] && b[1] ? 1 : a[1] && !b[1] ? -1 : 0;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/metadata.js
+var require_metadata = __commonJS({
+  "node_modules/libphonenumber-js/build/metadata.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    exports.getCountryCallingCode = getCountryCallingCode;
+    exports.getExtPrefix = getExtPrefix;
+    exports.isSupportedCountry = isSupportedCountry;
+    exports.validateMetadata = validateMetadata;
+    var _semverCompare = _interopRequireDefault(require_semver_compare());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var V3 = "1.2.0";
+    var V4 = "1.7.35";
+    var DEFAULT_EXT_PREFIX = " ext. ";
+    var CALLING_CODE_REG_EXP = /^\d+$/;
+    var Metadata = /* @__PURE__ */ function() {
+      function Metadata2(metadata) {
+        _classCallCheck(this, Metadata2);
+        validateMetadata(metadata);
+        this.metadata = metadata;
+        setVersion.call(this, metadata);
+      }
+      _createClass(Metadata2, [{
+        key: "getCountries",
+        value: function getCountries() {
+          return Object.keys(this.metadata.countries).filter(function(_) {
+            return _ !== "001";
+          });
+        }
+      }, {
+        key: "getCountryMetadata",
+        value: function getCountryMetadata(countryCode) {
+          return this.metadata.countries[countryCode];
+        }
+      }, {
+        key: "nonGeographic",
+        value: function nonGeographic2() {
+          if (this.v1 || this.v2 || this.v3)
+            return;
+          return this.metadata.nonGeographic || this.metadata.nonGeographical;
+        }
+      }, {
+        key: "hasCountry",
+        value: function hasCountry(country) {
+          return this.getCountryMetadata(country) !== void 0;
+        }
+      }, {
+        key: "hasCallingCode",
+        value: function hasCallingCode(callingCode) {
+          if (this.getCountryCodesForCallingCode(callingCode)) {
+            return true;
+          }
+          if (this.nonGeographic()) {
+            if (this.nonGeographic()[callingCode]) {
+              return true;
+            }
+          } else {
+            var countryCodes = this.countryCallingCodes()[callingCode];
+            if (countryCodes && countryCodes.length === 1 && countryCodes[0] === "001") {
+              return true;
+            }
+          }
+        }
+      }, {
+        key: "isNonGeographicCallingCode",
+        value: function isNonGeographicCallingCode(callingCode) {
+          if (this.nonGeographic()) {
+            return this.nonGeographic()[callingCode] ? true : false;
+          } else {
+            return this.getCountryCodesForCallingCode(callingCode) ? false : true;
+          }
+        }
+      }, {
+        key: "country",
+        value: function country(countryCode) {
+          return this.selectNumberingPlan(countryCode);
+        }
+      }, {
+        key: "selectNumberingPlan",
+        value: function selectNumberingPlan(countryCode, callingCode) {
+          if (countryCode && CALLING_CODE_REG_EXP.test(countryCode)) {
+            callingCode = countryCode;
+            countryCode = null;
+          }
+          if (countryCode && countryCode !== "001") {
+            if (!this.hasCountry(countryCode)) {
+              throw new Error("Unknown country: ".concat(countryCode));
+            }
+            this.numberingPlan = new NumberingPlan(this.getCountryMetadata(countryCode), this);
+          } else if (callingCode) {
+            if (!this.hasCallingCode(callingCode)) {
+              throw new Error("Unknown calling code: ".concat(callingCode));
+            }
+            this.numberingPlan = new NumberingPlan(this.getNumberingPlanMetadata(callingCode), this);
+          } else {
+            this.numberingPlan = void 0;
+          }
+          return this;
+        }
+      }, {
+        key: "getCountryCodesForCallingCode",
+        value: function getCountryCodesForCallingCode(callingCode) {
+          var countryCodes = this.countryCallingCodes()[callingCode];
+          if (countryCodes) {
+            if (countryCodes.length === 1 && countryCodes[0].length === 3) {
+              return;
+            }
+            return countryCodes;
+          }
+        }
+      }, {
+        key: "getCountryCodeForCallingCode",
+        value: function getCountryCodeForCallingCode(callingCode) {
+          var countryCodes = this.getCountryCodesForCallingCode(callingCode);
+          if (countryCodes) {
+            return countryCodes[0];
+          }
+        }
+      }, {
+        key: "getNumberingPlanMetadata",
+        value: function getNumberingPlanMetadata(callingCode) {
+          var countryCode = this.getCountryCodeForCallingCode(callingCode);
+          if (countryCode) {
+            return this.getCountryMetadata(countryCode);
+          }
+          if (this.nonGeographic()) {
+            var metadata = this.nonGeographic()[callingCode];
+            if (metadata) {
+              return metadata;
+            }
+          } else {
+            var countryCodes = this.countryCallingCodes()[callingCode];
+            if (countryCodes && countryCodes.length === 1 && countryCodes[0] === "001") {
+              return this.metadata.countries["001"];
+            }
+          }
+        }
+      }, {
+        key: "countryCallingCode",
+        value: function countryCallingCode() {
+          return this.numberingPlan.callingCode();
+        }
+      }, {
+        key: "IDDPrefix",
+        value: function IDDPrefix() {
+          return this.numberingPlan.IDDPrefix();
+        }
+      }, {
+        key: "defaultIDDPrefix",
+        value: function defaultIDDPrefix() {
+          return this.numberingPlan.defaultIDDPrefix();
+        }
+      }, {
+        key: "nationalNumberPattern",
+        value: function nationalNumberPattern() {
+          return this.numberingPlan.nationalNumberPattern();
+        }
+      }, {
+        key: "possibleLengths",
+        value: function possibleLengths() {
+          return this.numberingPlan.possibleLengths();
+        }
+      }, {
+        key: "formats",
+        value: function formats() {
+          return this.numberingPlan.formats();
+        }
+      }, {
+        key: "nationalPrefixForParsing",
+        value: function nationalPrefixForParsing() {
+          return this.numberingPlan.nationalPrefixForParsing();
+        }
+      }, {
+        key: "nationalPrefixTransformRule",
+        value: function nationalPrefixTransformRule() {
+          return this.numberingPlan.nationalPrefixTransformRule();
+        }
+      }, {
+        key: "leadingDigits",
+        value: function leadingDigits() {
+          return this.numberingPlan.leadingDigits();
+        }
+      }, {
+        key: "hasTypes",
+        value: function hasTypes() {
+          return this.numberingPlan.hasTypes();
+        }
+      }, {
+        key: "type",
+        value: function type(_type) {
+          return this.numberingPlan.type(_type);
+        }
+      }, {
+        key: "ext",
+        value: function ext() {
+          return this.numberingPlan.ext();
+        }
+      }, {
+        key: "countryCallingCodes",
+        value: function countryCallingCodes() {
+          if (this.v1)
+            return this.metadata.country_phone_code_to_countries;
+          return this.metadata.country_calling_codes;
+        }
+      }, {
+        key: "chooseCountryByCountryCallingCode",
+        value: function chooseCountryByCountryCallingCode(callingCode) {
+          return this.selectNumberingPlan(callingCode);
+        }
+      }, {
+        key: "hasSelectedNumberingPlan",
+        value: function hasSelectedNumberingPlan() {
+          return this.numberingPlan !== void 0;
+        }
+      }]);
+      return Metadata2;
+    }();
+    exports["default"] = Metadata;
+    var NumberingPlan = /* @__PURE__ */ function() {
+      function NumberingPlan2(metadata, globalMetadataObject) {
+        _classCallCheck(this, NumberingPlan2);
+        this.globalMetadataObject = globalMetadataObject;
+        this.metadata = metadata;
+        setVersion.call(this, globalMetadataObject.metadata);
+      }
+      _createClass(NumberingPlan2, [{
+        key: "callingCode",
+        value: function callingCode() {
+          return this.metadata[0];
+        }
+      }, {
+        key: "getDefaultCountryMetadataForRegion",
+        value: function getDefaultCountryMetadataForRegion() {
+          return this.globalMetadataObject.getNumberingPlanMetadata(this.callingCode());
+        }
+      }, {
+        key: "IDDPrefix",
+        value: function IDDPrefix() {
+          if (this.v1 || this.v2)
+            return;
+          return this.metadata[1];
+        }
+      }, {
+        key: "defaultIDDPrefix",
+        value: function defaultIDDPrefix() {
+          if (this.v1 || this.v2)
+            return;
+          return this.metadata[12];
+        }
+      }, {
+        key: "nationalNumberPattern",
+        value: function nationalNumberPattern() {
+          if (this.v1 || this.v2)
+            return this.metadata[1];
+          return this.metadata[2];
+        }
+      }, {
+        key: "possibleLengths",
+        value: function possibleLengths() {
+          if (this.v1)
+            return;
+          return this.metadata[this.v2 ? 2 : 3];
+        }
+      }, {
+        key: "_getFormats",
+        value: function _getFormats(metadata) {
+          return metadata[this.v1 ? 2 : this.v2 ? 3 : 4];
+        }
+      }, {
+        key: "formats",
+        value: function formats() {
+          var _this = this;
+          var formats2 = this._getFormats(this.metadata) || this._getFormats(this.getDefaultCountryMetadataForRegion()) || [];
+          return formats2.map(function(_) {
+            return new Format(_, _this);
+          });
+        }
+      }, {
+        key: "nationalPrefix",
+        value: function nationalPrefix() {
+          return this.metadata[this.v1 ? 3 : this.v2 ? 4 : 5];
+        }
+      }, {
+        key: "_getNationalPrefixFormattingRule",
+        value: function _getNationalPrefixFormattingRule(metadata) {
+          return metadata[this.v1 ? 4 : this.v2 ? 5 : 6];
+        }
+      }, {
+        key: "nationalPrefixFormattingRule",
+        value: function nationalPrefixFormattingRule() {
+          return this._getNationalPrefixFormattingRule(this.metadata) || this._getNationalPrefixFormattingRule(this.getDefaultCountryMetadataForRegion());
+        }
+      }, {
+        key: "_nationalPrefixForParsing",
+        value: function _nationalPrefixForParsing() {
+          return this.metadata[this.v1 ? 5 : this.v2 ? 6 : 7];
+        }
+      }, {
+        key: "nationalPrefixForParsing",
+        value: function nationalPrefixForParsing() {
+          return this._nationalPrefixForParsing() || this.nationalPrefix();
+        }
+      }, {
+        key: "nationalPrefixTransformRule",
+        value: function nationalPrefixTransformRule() {
+          return this.metadata[this.v1 ? 6 : this.v2 ? 7 : 8];
+        }
+      }, {
+        key: "_getNationalPrefixIsOptionalWhenFormatting",
+        value: function _getNationalPrefixIsOptionalWhenFormatting() {
+          return !!this.metadata[this.v1 ? 7 : this.v2 ? 8 : 9];
+        }
+      }, {
+        key: "nationalPrefixIsOptionalWhenFormattingInNationalFormat",
+        value: function nationalPrefixIsOptionalWhenFormattingInNationalFormat() {
+          return this._getNationalPrefixIsOptionalWhenFormatting(this.metadata) || this._getNationalPrefixIsOptionalWhenFormatting(this.getDefaultCountryMetadataForRegion());
+        }
+      }, {
+        key: "leadingDigits",
+        value: function leadingDigits() {
+          return this.metadata[this.v1 ? 8 : this.v2 ? 9 : 10];
+        }
+      }, {
+        key: "types",
+        value: function types() {
+          return this.metadata[this.v1 ? 9 : this.v2 ? 10 : 11];
+        }
+      }, {
+        key: "hasTypes",
+        value: function hasTypes() {
+          if (this.types() && this.types().length === 0) {
+            return false;
+          }
+          return !!this.types();
+        }
+      }, {
+        key: "type",
+        value: function type(_type2) {
+          if (this.hasTypes() && getType(this.types(), _type2)) {
+            return new Type(getType(this.types(), _type2), this);
+          }
+        }
+      }, {
+        key: "ext",
+        value: function ext() {
+          if (this.v1 || this.v2)
+            return DEFAULT_EXT_PREFIX;
+          return this.metadata[13] || DEFAULT_EXT_PREFIX;
+        }
+      }]);
+      return NumberingPlan2;
+    }();
+    var Format = /* @__PURE__ */ function() {
+      function Format2(format, metadata) {
+        _classCallCheck(this, Format2);
+        this._format = format;
+        this.metadata = metadata;
+      }
+      _createClass(Format2, [{
+        key: "pattern",
+        value: function pattern() {
+          return this._format[0];
+        }
+      }, {
+        key: "format",
+        value: function format() {
+          return this._format[1];
+        }
+      }, {
+        key: "leadingDigitsPatterns",
+        value: function leadingDigitsPatterns() {
+          return this._format[2] || [];
+        }
+      }, {
+        key: "nationalPrefixFormattingRule",
+        value: function nationalPrefixFormattingRule() {
+          return this._format[3] || this.metadata.nationalPrefixFormattingRule();
+        }
+      }, {
+        key: "nationalPrefixIsOptionalWhenFormattingInNationalFormat",
+        value: function nationalPrefixIsOptionalWhenFormattingInNationalFormat() {
+          return !!this._format[4] || this.metadata.nationalPrefixIsOptionalWhenFormattingInNationalFormat();
+        }
+      }, {
+        key: "nationalPrefixIsMandatoryWhenFormattingInNationalFormat",
+        value: function nationalPrefixIsMandatoryWhenFormattingInNationalFormat() {
+          return this.usesNationalPrefix() && !this.nationalPrefixIsOptionalWhenFormattingInNationalFormat();
+        }
+      }, {
+        key: "usesNationalPrefix",
+        value: function usesNationalPrefix() {
+          return this.nationalPrefixFormattingRule() && !FIRST_GROUP_ONLY_PREFIX_PATTERN.test(this.nationalPrefixFormattingRule()) ? true : false;
+        }
+      }, {
+        key: "internationalFormat",
+        value: function internationalFormat() {
+          return this._format[5] || this.format();
+        }
+      }]);
+      return Format2;
+    }();
+    var FIRST_GROUP_ONLY_PREFIX_PATTERN = /^\(?\$1\)?$/;
+    var Type = /* @__PURE__ */ function() {
+      function Type2(type, metadata) {
+        _classCallCheck(this, Type2);
+        this.type = type;
+        this.metadata = metadata;
+      }
+      _createClass(Type2, [{
+        key: "pattern",
+        value: function pattern() {
+          if (this.metadata.v1)
+            return this.type;
+          return this.type[0];
+        }
+      }, {
+        key: "possibleLengths",
+        value: function possibleLengths() {
+          if (this.metadata.v1)
+            return;
+          return this.type[1] || this.metadata.possibleLengths();
+        }
+      }]);
+      return Type2;
+    }();
+    function getType(types, type) {
+      switch (type) {
+        case "FIXED_LINE":
+          return types[0];
+        case "MOBILE":
+          return types[1];
+        case "TOLL_FREE":
+          return types[2];
+        case "PREMIUM_RATE":
+          return types[3];
+        case "PERSONAL_NUMBER":
+          return types[4];
+        case "VOICEMAIL":
+          return types[5];
+        case "UAN":
+          return types[6];
+        case "PAGER":
+          return types[7];
+        case "VOIP":
+          return types[8];
+        case "SHARED_COST":
+          return types[9];
+      }
+    }
+    function validateMetadata(metadata) {
+      if (!metadata) {
+        throw new Error("[libphonenumber-js] `metadata` argument not passed. Check your arguments.");
+      }
+      if (!is_object(metadata) || !is_object(metadata.countries)) {
+        throw new Error("[libphonenumber-js] `metadata` argument was passed but it's not a valid metadata. Must be an object having `.countries` child object property. Got ".concat(is_object(metadata) ? "an object of shape: { " + Object.keys(metadata).join(", ") + " }" : "a " + type_of(metadata) + ": " + metadata, "."));
+      }
+    }
+    var is_object = function is_object2(_) {
+      return _typeof(_) === "object";
+    };
+    var type_of = function type_of2(_) {
+      return _typeof(_);
+    };
+    function getExtPrefix(country, metadata) {
+      metadata = new Metadata(metadata);
+      if (metadata.hasCountry(country)) {
+        return metadata.country(country).ext();
+      }
+      return DEFAULT_EXT_PREFIX;
+    }
+    function getCountryCallingCode(country, metadata) {
+      metadata = new Metadata(metadata);
+      if (metadata.hasCountry(country)) {
+        return metadata.country(country).countryCallingCode();
+      }
+      throw new Error("Unknown country: ".concat(country));
+    }
+    function isSupportedCountry(country, metadata) {
+      return metadata.countries[country] !== void 0;
+    }
+    function setVersion(metadata) {
+      var version2 = metadata.version;
+      if (typeof version2 === "number") {
+        this.v1 = version2 === 1;
+        this.v2 = version2 === 2;
+        this.v3 = version2 === 3;
+        this.v4 = version2 === 4;
+      } else {
+        if (!version2) {
+          this.v1 = true;
+        } else if ((0, _semverCompare["default"])(version2, V3) === -1) {
+          this.v2 = true;
+        } else if ((0, _semverCompare["default"])(version2, V4) === -1) {
+          this.v3 = true;
+        } else {
+          this.v4 = true;
+        }
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/extension/createExtensionPattern.js
+var require_createExtensionPattern = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/extension/createExtensionPattern.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = createExtensionPattern;
+    var _constants = require_constants2();
+    var RFC3966_EXTN_PREFIX = ";ext=";
+    var getExtensionDigitsPattern = function getExtensionDigitsPattern2(maxLength) {
+      return "([".concat(_constants.VALID_DIGITS, "]{1,").concat(maxLength, "})");
+    };
+    function createExtensionPattern(purpose) {
+      var extLimitAfterExplicitLabel = "20";
+      var extLimitAfterLikelyLabel = "15";
+      var extLimitAfterAmbiguousChar = "9";
+      var extLimitWhenNotSure = "6";
+      var possibleSeparatorsBetweenNumberAndExtLabel = "[ \xA0\\t,]*";
+      var possibleCharsAfterExtLabel = "[:\\.\uFF0E]?[ \xA0\\t,-]*";
+      var optionalExtnSuffix = "#?";
+      var explicitExtLabels = "(?:e?xt(?:ensi(?:o\u0301?|\xF3))?n?|\uFF45?\uFF58\uFF54\uFF4E?|\u0434\u043E\u0431|anexo)";
+      var ambiguousExtLabels = "(?:[x\uFF58#\uFF03~\uFF5E]|int|\uFF49\uFF4E\uFF54)";
+      var ambiguousSeparator = "[- ]+";
+      var possibleSeparatorsNumberExtLabelNoComma = "[ \xA0\\t]*";
+      var autoDiallingAndExtLabelsFound = "(?:,{2}|;)";
+      var rfcExtn = RFC3966_EXTN_PREFIX + getExtensionDigitsPattern(extLimitAfterExplicitLabel);
+      var explicitExtn = possibleSeparatorsBetweenNumberAndExtLabel + explicitExtLabels + possibleCharsAfterExtLabel + getExtensionDigitsPattern(extLimitAfterExplicitLabel) + optionalExtnSuffix;
+      var ambiguousExtn = possibleSeparatorsBetweenNumberAndExtLabel + ambiguousExtLabels + possibleCharsAfterExtLabel + getExtensionDigitsPattern(extLimitAfterAmbiguousChar) + optionalExtnSuffix;
+      var americanStyleExtnWithSuffix = ambiguousSeparator + getExtensionDigitsPattern(extLimitWhenNotSure) + "#";
+      var autoDiallingExtn = possibleSeparatorsNumberExtLabelNoComma + autoDiallingAndExtLabelsFound + possibleCharsAfterExtLabel + getExtensionDigitsPattern(extLimitAfterLikelyLabel) + optionalExtnSuffix;
+      var onlyCommasExtn = possibleSeparatorsNumberExtLabelNoComma + "(?:,)+" + possibleCharsAfterExtLabel + getExtensionDigitsPattern(extLimitAfterAmbiguousChar) + optionalExtnSuffix;
+      return rfcExtn + "|" + explicitExtn + "|" + ambiguousExtn + "|" + americanStyleExtnWithSuffix + "|" + autoDiallingExtn + "|" + onlyCommasExtn;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/isViablePhoneNumber.js
+var require_isViablePhoneNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/isViablePhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.VALID_PHONE_NUMBER_WITH_EXTENSION = exports.VALID_PHONE_NUMBER = void 0;
+    exports["default"] = isViablePhoneNumber;
+    exports.isViablePhoneNumberStart = isViablePhoneNumberStart;
+    var _constants = require_constants2();
+    var _createExtensionPattern = _interopRequireDefault(require_createExtensionPattern());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    var MIN_LENGTH_PHONE_NUMBER_PATTERN = "[" + _constants.VALID_DIGITS + "]{" + _constants.MIN_LENGTH_FOR_NSN + "}";
+    var VALID_PHONE_NUMBER = "[" + _constants.PLUS_CHARS + "]{0,1}(?:[" + _constants.VALID_PUNCTUATION + "]*[" + _constants.VALID_DIGITS + "]){3,}[" + _constants.VALID_PUNCTUATION + _constants.VALID_DIGITS + "]*";
+    exports.VALID_PHONE_NUMBER = VALID_PHONE_NUMBER;
+    var VALID_PHONE_NUMBER_START_REG_EXP = new RegExp("^[" + _constants.PLUS_CHARS + "]{0,1}(?:[" + _constants.VALID_PUNCTUATION + "]*[" + _constants.VALID_DIGITS + "]){1,2}$", "i");
+    var VALID_PHONE_NUMBER_WITH_EXTENSION = VALID_PHONE_NUMBER + "(?:" + (0, _createExtensionPattern["default"])() + ")?";
+    exports.VALID_PHONE_NUMBER_WITH_EXTENSION = VALID_PHONE_NUMBER_WITH_EXTENSION;
+    var VALID_PHONE_NUMBER_PATTERN = new RegExp(
+      "^" + MIN_LENGTH_PHONE_NUMBER_PATTERN + "$|^" + VALID_PHONE_NUMBER_WITH_EXTENSION + "$",
+      "i"
+    );
+    function isViablePhoneNumber(number) {
+      return number.length >= _constants.MIN_LENGTH_FOR_NSN && VALID_PHONE_NUMBER_PATTERN.test(number);
+    }
+    function isViablePhoneNumberStart(number) {
+      return VALID_PHONE_NUMBER_START_REG_EXP.test(number);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/extension/extractExtension.js
+var require_extractExtension = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/extension/extractExtension.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = extractExtension;
+    var _createExtensionPattern = _interopRequireDefault(require_createExtensionPattern());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    var EXTN_PATTERN = new RegExp("(?:" + (0, _createExtensionPattern["default"])() + ")$", "i");
+    function extractExtension(number) {
+      var start = number.search(EXTN_PATTERN);
+      if (start < 0) {
+        return {};
+      }
+      var numberWithoutExtension = number.slice(0, start);
+      var matches = number.match(EXTN_PATTERN);
+      var i = 1;
+      while (i < matches.length) {
+        if (matches[i]) {
+          return {
+            number: numberWithoutExtension,
+            ext: matches[i]
+          };
+        }
+        i++;
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/parseDigits.js
+var require_parseDigits = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/parseDigits.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.DIGITS = void 0;
+    exports["default"] = parseDigits;
+    exports.parseDigit = parseDigit;
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    var DIGITS = {
+      "0": "0",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "\uFF10": "0",
+      "\uFF11": "1",
+      "\uFF12": "2",
+      "\uFF13": "3",
+      "\uFF14": "4",
+      "\uFF15": "5",
+      "\uFF16": "6",
+      "\uFF17": "7",
+      "\uFF18": "8",
+      "\uFF19": "9",
+      "\u0660": "0",
+      "\u0661": "1",
+      "\u0662": "2",
+      "\u0663": "3",
+      "\u0664": "4",
+      "\u0665": "5",
+      "\u0666": "6",
+      "\u0667": "7",
+      "\u0668": "8",
+      "\u0669": "9",
+      "\u06F0": "0",
+      "\u06F1": "1",
+      "\u06F2": "2",
+      "\u06F3": "3",
+      "\u06F4": "4",
+      "\u06F5": "5",
+      "\u06F6": "6",
+      "\u06F7": "7",
+      "\u06F8": "8",
+      "\u06F9": "9"
+    };
+    exports.DIGITS = DIGITS;
+    function parseDigit(character) {
+      return DIGITS[character];
+    }
+    function parseDigits(string) {
+      var result = "";
+      for (var _iterator = _createForOfIteratorHelperLoose(string.split("")), _step; !(_step = _iterator()).done; ) {
+        var character = _step.value;
+        var digit = parseDigit(character);
+        if (digit) {
+          result += digit;
+        }
+      }
+      return result;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/parseIncompletePhoneNumber.js
+var require_parseIncompletePhoneNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/parseIncompletePhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parseIncompletePhoneNumber;
+    exports.parsePhoneNumberCharacter = parsePhoneNumberCharacter;
+    var _parseDigits = require_parseDigits();
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function parseIncompletePhoneNumber(string) {
+      var result = "";
+      for (var _iterator = _createForOfIteratorHelperLoose(string.split("")), _step; !(_step = _iterator()).done; ) {
+        var character = _step.value;
+        result += parsePhoneNumberCharacter(character, result) || "";
+      }
+      return result;
+    }
+    function parsePhoneNumberCharacter(character, prevParsedCharacters) {
+      if (character === "+") {
+        if (prevParsedCharacters) {
+          return;
+        }
+        return "+";
+      }
+      return (0, _parseDigits.parseDigit)(character);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/getCountryCallingCode.js
+var require_getCountryCallingCode = __commonJS({
+  "node_modules/libphonenumber-js/build/getCountryCallingCode.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    Object.defineProperty(exports, "default", {
+      enumerable: true,
+      get: function get() {
+        return _metadata.getCountryCallingCode;
+      }
+    });
+    var _metadata = require_metadata();
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/mergeArrays.js
+var require_mergeArrays = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/mergeArrays.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = mergeArrays;
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function mergeArrays(a, b) {
+      var merged = a.slice();
+      for (var _iterator = _createForOfIteratorHelperLoose(b), _step; !(_step = _iterator()).done; ) {
+        var element = _step.value;
+        if (a.indexOf(element) < 0) {
+          merged.push(element);
+        }
+      }
+      return merged.sort(function(a2, b2) {
+        return a2 - b2;
+      });
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/checkNumberLength.js
+var require_checkNumberLength = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/checkNumberLength.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.checkNumberLengthForType = checkNumberLengthForType;
+    exports["default"] = checkNumberLength;
+    var _mergeArrays = _interopRequireDefault(require_mergeArrays());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function checkNumberLength(nationalNumber, metadata) {
+      return checkNumberLengthForType(nationalNumber, void 0, metadata);
+    }
+    function checkNumberLengthForType(nationalNumber, type, metadata) {
+      var type_info = metadata.type(type);
+      var possible_lengths = type_info && type_info.possibleLengths() || metadata.possibleLengths();
+      if (!possible_lengths) {
+        return "IS_POSSIBLE";
+      }
+      if (type === "FIXED_LINE_OR_MOBILE") {
+        if (!metadata.type("FIXED_LINE")) {
+          return checkNumberLengthForType(nationalNumber, "MOBILE", metadata);
+        }
+        var mobile_type = metadata.type("MOBILE");
+        if (mobile_type) {
+          possible_lengths = (0, _mergeArrays["default"])(possible_lengths, mobile_type.possibleLengths());
+        }
+      } else if (type && !type_info) {
+        return "INVALID_LENGTH";
+      }
+      var actual_length = nationalNumber.length;
+      var minimum_length = possible_lengths[0];
+      if (minimum_length === actual_length) {
+        return "IS_POSSIBLE";
+      }
+      if (minimum_length > actual_length) {
+        return "TOO_SHORT";
+      }
+      if (possible_lengths[possible_lengths.length - 1] < actual_length) {
+        return "TOO_LONG";
+      }
+      return possible_lengths.indexOf(actual_length, 1) >= 0 ? "IS_POSSIBLE" : "INVALID_LENGTH";
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/isPossibleNumber_.js
+var require_isPossibleNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/isPossibleNumber_.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isPossiblePhoneNumber;
+    exports.isPossibleNumber = isPossibleNumber;
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _checkNumberLength = _interopRequireDefault(require_checkNumberLength());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function isPossiblePhoneNumber(input, options, metadata) {
+      if (options === void 0) {
+        options = {};
+      }
+      metadata = new _metadata["default"](metadata);
+      if (options.v2) {
+        if (!input.countryCallingCode) {
+          throw new Error("Invalid phone number object passed");
+        }
+        metadata.selectNumberingPlan(input.countryCallingCode);
+      } else {
+        if (!input.phone) {
+          return false;
+        }
+        if (input.country) {
+          if (!metadata.hasCountry(input.country)) {
+            throw new Error("Unknown country: ".concat(input.country));
+          }
+          metadata.country(input.country);
+        } else {
+          if (!input.countryCallingCode) {
+            throw new Error("Invalid phone number object passed");
+          }
+          metadata.selectNumberingPlan(input.countryCallingCode);
+        }
+      }
+      if (metadata.possibleLengths()) {
+        return isPossibleNumber(input.phone || input.nationalNumber, metadata);
+      } else {
+        if (input.countryCallingCode && metadata.isNonGeographicCallingCode(input.countryCallingCode)) {
+          return true;
+        } else {
+          throw new Error('Missing "possibleLengths" in metadata. Perhaps the metadata has been generated before v1.0.18.');
+        }
+      }
+    }
+    function isPossibleNumber(nationalNumber, metadata) {
+      switch ((0, _checkNumberLength["default"])(nationalNumber, metadata)) {
+        case "IS_POSSIBLE":
+          return true;
+        default:
+          return false;
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/RFC3966.js
+var require_RFC3966 = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/RFC3966.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.formatRFC3966 = formatRFC3966;
+    exports.parseRFC3966 = parseRFC3966;
+    var _isViablePhoneNumber = _interopRequireDefault(require_isViablePhoneNumber());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+    }
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _iterableToArrayLimit(arr, i) {
+      var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+      if (_i == null)
+        return;
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _s, _e;
+      try {
+        for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+          if (i && _arr.length === i)
+            break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"] != null)
+            _i["return"]();
+        } finally {
+          if (_d)
+            throw _e;
+        }
+      }
+      return _arr;
+    }
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr))
+        return arr;
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function parseRFC3966(text) {
+      var number;
+      var ext;
+      text = text.replace(/^tel:/, "tel=");
+      for (var _iterator = _createForOfIteratorHelperLoose(text.split(";")), _step; !(_step = _iterator()).done; ) {
+        var part = _step.value;
+        var _part$split = part.split("="), _part$split2 = _slicedToArray(_part$split, 2), name = _part$split2[0], value = _part$split2[1];
+        switch (name) {
+          case "tel":
+            number = value;
+            break;
+          case "ext":
+            ext = value;
+            break;
+          case "phone-context":
+            if (value[0] === "+") {
+              number = value + number;
+            }
+            break;
+        }
+      }
+      if (!(0, _isViablePhoneNumber["default"])(number)) {
+        return {};
+      }
+      var result = {
+        number
+      };
+      if (ext) {
+        result.ext = ext;
+      }
+      return result;
+    }
+    function formatRFC3966(_ref) {
+      var number = _ref.number, ext = _ref.ext;
+      if (!number) {
+        return "";
+      }
+      if (number[0] !== "+") {
+        throw new Error('"formatRFC3966()" expects "number" to be in E.164 format.');
+      }
+      return "tel:".concat(number).concat(ext ? ";ext=" + ext : "");
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/matchesEntirely.js
+var require_matchesEntirely = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/matchesEntirely.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = matchesEntirely;
+    function matchesEntirely(text, regular_expression) {
+      text = text || "";
+      return new RegExp("^(?:" + regular_expression + ")$").test(text);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/getNumberType.js
+var require_getNumberType = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/getNumberType.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = getNumberType;
+    exports.isNumberTypeEqualTo = isNumberTypeEqualTo;
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _matchesEntirely = _interopRequireDefault(require_matchesEntirely());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    var NON_FIXED_LINE_PHONE_TYPES = ["MOBILE", "PREMIUM_RATE", "TOLL_FREE", "SHARED_COST", "VOIP", "PERSONAL_NUMBER", "PAGER", "UAN", "VOICEMAIL"];
+    function getNumberType(input, options, metadata) {
+      options = options || {};
+      if (!input.country) {
+        return;
+      }
+      metadata = new _metadata["default"](metadata);
+      metadata.selectNumberingPlan(input.country, input.countryCallingCode);
+      var nationalNumber = options.v2 ? input.nationalNumber : input.phone;
+      if (!(0, _matchesEntirely["default"])(nationalNumber, metadata.nationalNumberPattern())) {
+        return;
+      }
+      if (isNumberTypeEqualTo(nationalNumber, "FIXED_LINE", metadata)) {
+        if (metadata.type("MOBILE") && metadata.type("MOBILE").pattern() === "") {
+          return "FIXED_LINE_OR_MOBILE";
+        }
+        if (!metadata.type("MOBILE")) {
+          return "FIXED_LINE_OR_MOBILE";
+        }
+        if (isNumberTypeEqualTo(nationalNumber, "MOBILE", metadata)) {
+          return "FIXED_LINE_OR_MOBILE";
+        }
+        return "FIXED_LINE";
+      }
+      for (var _iterator = _createForOfIteratorHelperLoose(NON_FIXED_LINE_PHONE_TYPES), _step; !(_step = _iterator()).done; ) {
+        var type = _step.value;
+        if (isNumberTypeEqualTo(nationalNumber, type, metadata)) {
+          return type;
+        }
+      }
+    }
+    function isNumberTypeEqualTo(nationalNumber, type, metadata) {
+      type = metadata.type(type);
+      if (!type || !type.pattern()) {
+        return false;
+      }
+      if (type.possibleLengths() && type.possibleLengths().indexOf(nationalNumber.length) < 0) {
+        return false;
+      }
+      return (0, _matchesEntirely["default"])(nationalNumber, type.pattern());
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/validate_.js
+var require_validate2 = __commonJS({
+  "node_modules/libphonenumber-js/build/validate_.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isValidNumber;
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _matchesEntirely = _interopRequireDefault(require_matchesEntirely());
+    var _getNumberType = _interopRequireDefault(require_getNumberType());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function isValidNumber(input, options, metadata) {
+      options = options || {};
+      metadata = new _metadata["default"](metadata);
+      if (!input.country) {
+        return false;
+      }
+      metadata.selectNumberingPlan(input.country, input.countryCallingCode);
+      if (metadata.hasTypes()) {
+        return (0, _getNumberType["default"])(input, options, metadata.metadata) !== void 0;
+      }
+      var national_number = options.v2 ? input.nationalNumber : input.phone;
+      return (0, _matchesEntirely["default"])(national_number, metadata.nationalNumberPattern());
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/isValidNumberForRegion_.js
+var require_isValidNumberForRegion = __commonJS({
+  "node_modules/libphonenumber-js/build/isValidNumberForRegion_.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isValidNumberForRegion;
+    var _validate_ = _interopRequireDefault(require_validate2());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function isValidNumberForRegion(input, country, options, metadata) {
+      options = options || {};
+      return input.country === country && (0, _validate_["default"])(input, options, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/applyInternationalSeparatorStyle.js
+var require_applyInternationalSeparatorStyle = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/applyInternationalSeparatorStyle.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = applyInternationalSeparatorStyle;
+    var _constants = require_constants2();
+    function applyInternationalSeparatorStyle(formattedNumber) {
+      return formattedNumber.replace(new RegExp("[".concat(_constants.VALID_PUNCTUATION, "]+"), "g"), " ").trim();
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/formatNationalNumberUsingFormat.js
+var require_formatNationalNumberUsingFormat = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/formatNationalNumberUsingFormat.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.FIRST_GROUP_PATTERN = void 0;
+    exports["default"] = formatNationalNumberUsingFormat;
+    var _applyInternationalSeparatorStyle = _interopRequireDefault(require_applyInternationalSeparatorStyle());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    var FIRST_GROUP_PATTERN = /(\$\d)/;
+    exports.FIRST_GROUP_PATTERN = FIRST_GROUP_PATTERN;
+    function formatNationalNumberUsingFormat(number, format, _ref) {
+      var useInternationalFormat = _ref.useInternationalFormat, withNationalPrefix = _ref.withNationalPrefix, carrierCode = _ref.carrierCode, metadata = _ref.metadata;
+      var formattedNumber = number.replace(new RegExp(format.pattern()), useInternationalFormat ? format.internationalFormat() : withNationalPrefix && format.nationalPrefixFormattingRule() ? format.format().replace(FIRST_GROUP_PATTERN, format.nationalPrefixFormattingRule()) : format.format());
+      if (useInternationalFormat) {
+        return (0, _applyInternationalSeparatorStyle["default"])(formattedNumber);
+      }
+      return formattedNumber;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/getIddPrefix.js
+var require_getIddPrefix = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/getIddPrefix.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = getIddPrefix;
+    var _metadata = _interopRequireDefault(require_metadata());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    var SINGLE_IDD_PREFIX_REG_EXP = /^[\d]+(?:[~\u2053\u223C\uFF5E][\d]+)?$/;
+    function getIddPrefix(country, callingCode, metadata) {
+      var countryMetadata = new _metadata["default"](metadata);
+      countryMetadata.selectNumberingPlan(country, callingCode);
+      if (countryMetadata.defaultIDDPrefix()) {
+        return countryMetadata.defaultIDDPrefix();
+      }
+      if (SINGLE_IDD_PREFIX_REG_EXP.test(countryMetadata.IDDPrefix())) {
+        return countryMetadata.IDDPrefix();
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/format_.js
+var require_format = __commonJS({
+  "node_modules/libphonenumber-js/build/format_.js"(exports) {
+    "use strict";
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = formatNumber2;
+    var _matchesEntirely = _interopRequireDefault(require_matchesEntirely());
+    var _formatNationalNumberUsingFormat = _interopRequireDefault(require_formatNationalNumberUsingFormat());
+    var _metadata = _interopRequireWildcard(require_metadata());
+    var _getIddPrefix = _interopRequireDefault(require_getIddPrefix());
+    var _RFC = require_RFC3966();
+    function _getRequireWildcardCache(nodeInterop) {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cacheBabelInterop = /* @__PURE__ */ new WeakMap();
+      var cacheNodeInterop = /* @__PURE__ */ new WeakMap();
+      return (_getRequireWildcardCache = function _getRequireWildcardCache2(nodeInterop2) {
+        return nodeInterop2 ? cacheNodeInterop : cacheBabelInterop;
+      })(nodeInterop);
+    }
+    function _interopRequireWildcard(obj, nodeInterop) {
+      if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+        return { "default": obj };
+      }
+      var cache = _getRequireWildcardCache(nodeInterop);
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key in obj) {
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      newObj["default"] = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    var DEFAULT_OPTIONS = {
+      formatExtension: function formatExtension(formattedNumber, extension, metadata) {
+        return "".concat(formattedNumber).concat(metadata.ext()).concat(extension);
+      }
+    };
+    function formatNumber2(input, format, options, metadata) {
+      if (options) {
+        options = _objectSpread(_objectSpread({}, DEFAULT_OPTIONS), options);
+      } else {
+        options = DEFAULT_OPTIONS;
+      }
+      metadata = new _metadata["default"](metadata);
+      if (input.country && input.country !== "001") {
+        if (!metadata.hasCountry(input.country)) {
+          throw new Error("Unknown country: ".concat(input.country));
+        }
+        metadata.country(input.country);
+      } else if (input.countryCallingCode) {
+        metadata.selectNumberingPlan(input.countryCallingCode);
+      } else
+        return input.phone || "";
+      var countryCallingCode = metadata.countryCallingCode();
+      var nationalNumber = options.v2 ? input.nationalNumber : input.phone;
+      var number;
+      switch (format) {
+        case "NATIONAL":
+          if (!nationalNumber) {
+            return "";
+          }
+          number = formatNationalNumber(nationalNumber, input.carrierCode, "NATIONAL", metadata, options);
+          return addExtension(number, input.ext, metadata, options.formatExtension);
+        case "INTERNATIONAL":
+          if (!nationalNumber) {
+            return "+".concat(countryCallingCode);
+          }
+          number = formatNationalNumber(nationalNumber, null, "INTERNATIONAL", metadata, options);
+          number = "+".concat(countryCallingCode, " ").concat(number);
+          return addExtension(number, input.ext, metadata, options.formatExtension);
+        case "E.164":
+          return "+".concat(countryCallingCode).concat(nationalNumber);
+        case "RFC3966":
+          return (0, _RFC.formatRFC3966)({
+            number: "+".concat(countryCallingCode).concat(nationalNumber),
+            ext: input.ext
+          });
+        case "IDD":
+          if (!options.fromCountry) {
+            return;
+          }
+          var formattedNumber = formatIDD(nationalNumber, input.carrierCode, countryCallingCode, options.fromCountry, metadata);
+          return addExtension(formattedNumber, input.ext, metadata, options.formatExtension);
+        default:
+          throw new Error('Unknown "format" argument passed to "formatNumber()": "'.concat(format, '"'));
+      }
+    }
+    function formatNationalNumber(number, carrierCode, formatAs, metadata, options) {
+      var format = chooseFormatForNumber(metadata.formats(), number);
+      if (!format) {
+        return number;
+      }
+      return (0, _formatNationalNumberUsingFormat["default"])(number, format, {
+        useInternationalFormat: formatAs === "INTERNATIONAL",
+        withNationalPrefix: format.nationalPrefixIsOptionalWhenFormattingInNationalFormat() && options && options.nationalPrefix === false ? false : true,
+        carrierCode,
+        metadata
+      });
+    }
+    function chooseFormatForNumber(availableFormats, nationalNnumber) {
+      for (var _iterator = _createForOfIteratorHelperLoose(availableFormats), _step; !(_step = _iterator()).done; ) {
+        var format = _step.value;
+        if (format.leadingDigitsPatterns().length > 0) {
+          var lastLeadingDigitsPattern = format.leadingDigitsPatterns()[format.leadingDigitsPatterns().length - 1];
+          if (nationalNnumber.search(lastLeadingDigitsPattern) !== 0) {
+            continue;
+          }
+        }
+        if ((0, _matchesEntirely["default"])(nationalNnumber, format.pattern())) {
+          return format;
+        }
+      }
+    }
+    function addExtension(formattedNumber, ext, metadata, formatExtension) {
+      return ext ? formatExtension(formattedNumber, ext, metadata) : formattedNumber;
+    }
+    function formatIDD(nationalNumber, carrierCode, countryCallingCode, fromCountry, metadata) {
+      var fromCountryCallingCode = (0, _metadata.getCountryCallingCode)(fromCountry, metadata.metadata);
+      if (fromCountryCallingCode === countryCallingCode) {
+        var formattedNumber = formatNationalNumber(nationalNumber, carrierCode, "NATIONAL", metadata);
+        if (countryCallingCode === "1") {
+          return countryCallingCode + " " + formattedNumber;
+        }
+        return formattedNumber;
+      }
+      var iddPrefix = (0, _getIddPrefix["default"])(fromCountry, void 0, metadata.metadata);
+      if (iddPrefix) {
+        return "".concat(iddPrefix, " ").concat(countryCallingCode, " ").concat(formatNationalNumber(nationalNumber, null, "INTERNATIONAL", metadata));
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/PhoneNumber.js
+var require_PhoneNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/PhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    var _metadata2 = _interopRequireDefault(require_metadata());
+    var _isPossibleNumber_ = _interopRequireDefault(require_isPossibleNumber());
+    var _validate_ = _interopRequireDefault(require_validate2());
+    var _isValidNumberForRegion_ = _interopRequireDefault(require_isValidNumberForRegion());
+    var _getNumberType = _interopRequireDefault(require_getNumberType());
+    var _format_ = _interopRequireDefault(require_format());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var USE_NON_GEOGRAPHIC_COUNTRY_CODE = false;
+    var PhoneNumber = /* @__PURE__ */ function() {
+      function PhoneNumber2(countryCallingCode, nationalNumber, metadata) {
+        _classCallCheck(this, PhoneNumber2);
+        if (!countryCallingCode) {
+          throw new TypeError("`country` or `countryCallingCode` not passed");
+        }
+        if (!nationalNumber) {
+          throw new TypeError("`nationalNumber` not passed");
+        }
+        if (!metadata) {
+          throw new TypeError("`metadata` not passed");
+        }
+        var _metadata = new _metadata2["default"](metadata);
+        if (isCountryCode(countryCallingCode)) {
+          this.country = countryCallingCode;
+          _metadata.country(countryCallingCode);
+          countryCallingCode = _metadata.countryCallingCode();
+        } else {
+          if (USE_NON_GEOGRAPHIC_COUNTRY_CODE) {
+            if (_metadata.isNonGeographicCallingCode(countryCallingCode)) {
+              this.country = "001";
+            }
+          }
+        }
+        this.countryCallingCode = countryCallingCode;
+        this.nationalNumber = nationalNumber;
+        this.number = "+" + this.countryCallingCode + this.nationalNumber;
+        this.metadata = metadata;
+      }
+      _createClass(PhoneNumber2, [{
+        key: "setExt",
+        value: function setExt(ext) {
+          this.ext = ext;
+        }
+      }, {
+        key: "isPossible",
+        value: function isPossible() {
+          return (0, _isPossibleNumber_["default"])(this, {
+            v2: true
+          }, this.metadata);
+        }
+      }, {
+        key: "isValid",
+        value: function isValid() {
+          return (0, _validate_["default"])(this, {
+            v2: true
+          }, this.metadata);
+        }
+      }, {
+        key: "isNonGeographic",
+        value: function isNonGeographic() {
+          var metadata = new _metadata2["default"](this.metadata);
+          return metadata.isNonGeographicCallingCode(this.countryCallingCode);
+        }
+      }, {
+        key: "isEqual",
+        value: function isEqual(phoneNumber) {
+          return this.number === phoneNumber.number && this.ext === phoneNumber.ext;
+        }
+      }, {
+        key: "getType",
+        value: function getType() {
+          return (0, _getNumberType["default"])(this, {
+            v2: true
+          }, this.metadata);
+        }
+      }, {
+        key: "format",
+        value: function format(_format, options) {
+          return (0, _format_["default"])(this, _format, options ? _objectSpread(_objectSpread({}, options), {}, {
+            v2: true
+          }) : {
+            v2: true
+          }, this.metadata);
+        }
+      }, {
+        key: "formatNational",
+        value: function formatNational(options) {
+          return this.format("NATIONAL", options);
+        }
+      }, {
+        key: "formatInternational",
+        value: function formatInternational(options) {
+          return this.format("INTERNATIONAL", options);
+        }
+      }, {
+        key: "getURI",
+        value: function getURI(options) {
+          return this.format("RFC3966", options);
+        }
+      }]);
+      return PhoneNumber2;
+    }();
+    exports["default"] = PhoneNumber;
+    var isCountryCode = function isCountryCode2(value) {
+      return /^[A-Z]{2}$/.test(value);
+    };
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/stripIddPrefix.js
+var require_stripIddPrefix = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/stripIddPrefix.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = stripIddPrefix;
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _constants = require_constants2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    var CAPTURING_DIGIT_PATTERN = new RegExp("([" + _constants.VALID_DIGITS + "])");
+    function stripIddPrefix(number, country, callingCode, metadata) {
+      if (!country) {
+        return;
+      }
+      var countryMetadata = new _metadata["default"](metadata);
+      countryMetadata.selectNumberingPlan(country, callingCode);
+      var IDDPrefixPattern = new RegExp(countryMetadata.IDDPrefix());
+      if (number.search(IDDPrefixPattern) !== 0) {
+        return;
+      }
+      number = number.slice(number.match(IDDPrefixPattern)[0].length);
+      var matchedGroups = number.match(CAPTURING_DIGIT_PATTERN);
+      if (matchedGroups && matchedGroups[1] != null && matchedGroups[1].length > 0) {
+        if (matchedGroups[1] === "0") {
+          return;
+        }
+      }
+      return number;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/extractNationalNumberFromPossiblyIncompleteNumber.js
+var require_extractNationalNumberFromPossiblyIncompleteNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/extractNationalNumberFromPossiblyIncompleteNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = extractNationalNumberFromPossiblyIncompleteNumber;
+    function extractNationalNumberFromPossiblyIncompleteNumber(number, metadata) {
+      if (number && metadata.numberingPlan.nationalPrefixForParsing()) {
+        var prefixPattern = new RegExp("^(?:" + metadata.numberingPlan.nationalPrefixForParsing() + ")");
+        var prefixMatch = prefixPattern.exec(number);
+        if (prefixMatch) {
+          var nationalNumber;
+          var carrierCode;
+          var capturedGroupsCount = prefixMatch.length - 1;
+          var hasCapturedGroups = capturedGroupsCount > 0 && prefixMatch[capturedGroupsCount];
+          if (metadata.nationalPrefixTransformRule() && hasCapturedGroups) {
+            nationalNumber = number.replace(prefixPattern, metadata.nationalPrefixTransformRule());
+            if (capturedGroupsCount > 1) {
+              carrierCode = prefixMatch[1];
+            }
+          } else {
+            var prefixBeforeNationalNumber = prefixMatch[0];
+            nationalNumber = number.slice(prefixBeforeNationalNumber.length);
+            if (hasCapturedGroups) {
+              carrierCode = prefixMatch[1];
+            }
+          }
+          var nationalPrefix;
+          if (hasCapturedGroups) {
+            var possiblePositionOfTheFirstCapturedGroup = number.indexOf(prefixMatch[1]);
+            var possibleNationalPrefix = number.slice(0, possiblePositionOfTheFirstCapturedGroup);
+            if (possibleNationalPrefix === metadata.numberingPlan.nationalPrefix()) {
+              nationalPrefix = metadata.numberingPlan.nationalPrefix();
+            }
+          } else {
+            nationalPrefix = prefixMatch[0];
+          }
+          return {
+            nationalNumber,
+            nationalPrefix,
+            carrierCode
+          };
+        }
+      }
+      return {
+        nationalNumber: number
+      };
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/extractNationalNumber.js
+var require_extractNationalNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/extractNationalNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = extractNationalNumber;
+    var _extractNationalNumberFromPossiblyIncompleteNumber = _interopRequireDefault(require_extractNationalNumberFromPossiblyIncompleteNumber());
+    var _matchesEntirely = _interopRequireDefault(require_matchesEntirely());
+    var _checkNumberLength = _interopRequireDefault(require_checkNumberLength());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function extractNationalNumber(number, metadata) {
+      var _extractNationalNumbe = (0, _extractNationalNumberFromPossiblyIncompleteNumber["default"])(number, metadata), carrierCode = _extractNationalNumbe.carrierCode, nationalNumber = _extractNationalNumbe.nationalNumber;
+      if (nationalNumber !== number) {
+        if (!shouldHaveExtractedNationalPrefix(number, nationalNumber, metadata)) {
+          return {
+            nationalNumber: number
+          };
+        }
+        if (metadata.possibleLengths()) {
+          if (!isPossibleIncompleteNationalNumber(nationalNumber, metadata)) {
+            return {
+              nationalNumber: number
+            };
+          }
+        }
+      }
+      return {
+        nationalNumber,
+        carrierCode
+      };
+    }
+    function shouldHaveExtractedNationalPrefix(nationalNumberBefore, nationalNumberAfter, metadata) {
+      if ((0, _matchesEntirely["default"])(nationalNumberBefore, metadata.nationalNumberPattern()) && !(0, _matchesEntirely["default"])(nationalNumberAfter, metadata.nationalNumberPattern())) {
+        return false;
+      }
+      return true;
+    }
+    function isPossibleIncompleteNationalNumber(nationalNumber, metadata) {
+      switch ((0, _checkNumberLength["default"])(nationalNumber, metadata)) {
+        case "TOO_SHORT":
+        case "INVALID_LENGTH":
+          return false;
+        default:
+          return true;
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/extractCountryCallingCodeFromInternationalNumberWithoutPlusSign.js
+var require_extractCountryCallingCodeFromInternationalNumberWithoutPlusSign = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/extractCountryCallingCodeFromInternationalNumberWithoutPlusSign.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = extractCountryCallingCodeFromInternationalNumberWithoutPlusSign;
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _matchesEntirely = _interopRequireDefault(require_matchesEntirely());
+    var _extractNationalNumber = _interopRequireDefault(require_extractNationalNumber());
+    var _checkNumberLength = _interopRequireDefault(require_checkNumberLength());
+    var _getCountryCallingCode = _interopRequireDefault(require_getCountryCallingCode());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function extractCountryCallingCodeFromInternationalNumberWithoutPlusSign(number, country, callingCode, metadata) {
+      var countryCallingCode = country ? (0, _getCountryCallingCode["default"])(country, metadata) : callingCode;
+      if (number.indexOf(countryCallingCode) === 0) {
+        metadata = new _metadata["default"](metadata);
+        metadata.selectNumberingPlan(country, callingCode);
+        var possibleShorterNumber = number.slice(countryCallingCode.length);
+        var _extractNationalNumbe = (0, _extractNationalNumber["default"])(possibleShorterNumber, metadata), possibleShorterNationalNumber = _extractNationalNumbe.nationalNumber;
+        var _extractNationalNumbe2 = (0, _extractNationalNumber["default"])(number, metadata), nationalNumber = _extractNationalNumbe2.nationalNumber;
+        if (!(0, _matchesEntirely["default"])(nationalNumber, metadata.nationalNumberPattern()) && (0, _matchesEntirely["default"])(possibleShorterNationalNumber, metadata.nationalNumberPattern()) || (0, _checkNumberLength["default"])(nationalNumber, metadata) === "TOO_LONG") {
+          return {
+            countryCallingCode,
+            number: possibleShorterNumber
+          };
+        }
+      }
+      return {
+        number
+      };
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/extractCountryCallingCode.js
+var require_extractCountryCallingCode = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/extractCountryCallingCode.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = extractCountryCallingCode;
+    var _stripIddPrefix = _interopRequireDefault(require_stripIddPrefix());
+    var _extractCountryCallingCodeFromInternationalNumberWithoutPlusSign = _interopRequireDefault(require_extractCountryCallingCodeFromInternationalNumberWithoutPlusSign());
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _constants = require_constants2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function extractCountryCallingCode(number, country, callingCode, metadata) {
+      if (!number) {
+        return {};
+      }
+      if (number[0] !== "+") {
+        var numberWithoutIDD = (0, _stripIddPrefix["default"])(number, country, callingCode, metadata);
+        if (numberWithoutIDD && numberWithoutIDD !== number) {
+          number = "+" + numberWithoutIDD;
+        } else {
+          if (country || callingCode) {
+            var _extractCountryCallin = (0, _extractCountryCallingCodeFromInternationalNumberWithoutPlusSign["default"])(number, country, callingCode, metadata), countryCallingCode = _extractCountryCallin.countryCallingCode, shorterNumber = _extractCountryCallin.number;
+            if (countryCallingCode) {
+              return {
+                countryCallingCode,
+                number: shorterNumber
+              };
+            }
+          }
+          return {
+            number
+          };
+        }
+      }
+      if (number[1] === "0") {
+        return {};
+      }
+      metadata = new _metadata["default"](metadata);
+      var i = 2;
+      while (i - 1 <= _constants.MAX_LENGTH_COUNTRY_CODE && i <= number.length) {
+        var _countryCallingCode = number.slice(1, i);
+        if (metadata.hasCallingCode(_countryCallingCode)) {
+          metadata.selectNumberingPlan(_countryCallingCode);
+          return {
+            countryCallingCode: _countryCallingCode,
+            number: number.slice(i)
+          };
+        }
+        i++;
+      }
+      return {};
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/helpers/getCountryByCallingCode.js
+var require_getCountryByCallingCode = __commonJS({
+  "node_modules/libphonenumber-js/build/helpers/getCountryByCallingCode.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = getCountryByCallingCode;
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _getNumberType = _interopRequireDefault(require_getNumberType());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    var USE_NON_GEOGRAPHIC_COUNTRY_CODE = false;
+    function getCountryByCallingCode(callingCode, nationalPhoneNumber, metadata) {
+      if (USE_NON_GEOGRAPHIC_COUNTRY_CODE) {
+        if (metadata.isNonGeographicCallingCode(callingCode)) {
+          return "001";
+        }
+      }
+      var possibleCountries = metadata.getCountryCodesForCallingCode(callingCode);
+      if (!possibleCountries) {
+        return;
+      }
+      if (possibleCountries.length === 1) {
+        return possibleCountries[0];
+      }
+      return selectCountryFromList(possibleCountries, nationalPhoneNumber, metadata.metadata);
+    }
+    function selectCountryFromList(possibleCountries, nationalPhoneNumber, metadata) {
+      metadata = new _metadata["default"](metadata);
+      for (var _iterator = _createForOfIteratorHelperLoose(possibleCountries), _step; !(_step = _iterator()).done; ) {
+        var country = _step.value;
+        metadata.country(country);
+        if (metadata.leadingDigits()) {
+          if (nationalPhoneNumber && nationalPhoneNumber.search(metadata.leadingDigits()) === 0) {
+            return country;
+          }
+        } else if ((0, _getNumberType["default"])({
+          phone: nationalPhoneNumber,
+          country
+        }, void 0, metadata.metadata)) {
+          return country;
+        }
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/parse_.js
+var require_parse3 = __commonJS({
+  "node_modules/libphonenumber-js/build/parse_.js"(exports) {
+    "use strict";
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parse;
+    var _constants = require_constants2();
+    var _ParseError = _interopRequireDefault(require_ParseError());
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _isViablePhoneNumber = _interopRequireWildcard(require_isViablePhoneNumber());
+    var _extractExtension = _interopRequireDefault(require_extractExtension());
+    var _parseIncompletePhoneNumber = _interopRequireDefault(require_parseIncompletePhoneNumber());
+    var _getCountryCallingCode = _interopRequireDefault(require_getCountryCallingCode());
+    var _isPossibleNumber_ = require_isPossibleNumber();
+    var _RFC = require_RFC3966();
+    var _PhoneNumber = _interopRequireDefault(require_PhoneNumber());
+    var _matchesEntirely = _interopRequireDefault(require_matchesEntirely());
+    var _extractCountryCallingCode = _interopRequireDefault(require_extractCountryCallingCode());
+    var _extractCountryCallingCodeFromInternationalNumberWithoutPlusSign = _interopRequireDefault(require_extractCountryCallingCodeFromInternationalNumberWithoutPlusSign());
+    var _extractNationalNumber = _interopRequireDefault(require_extractNationalNumber());
+    var _stripIddPrefix = _interopRequireDefault(require_stripIddPrefix());
+    var _getCountryByCallingCode = _interopRequireDefault(require_getCountryByCallingCode());
+    function _getRequireWildcardCache(nodeInterop) {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cacheBabelInterop = /* @__PURE__ */ new WeakMap();
+      var cacheNodeInterop = /* @__PURE__ */ new WeakMap();
+      return (_getRequireWildcardCache = function _getRequireWildcardCache2(nodeInterop2) {
+        return nodeInterop2 ? cacheNodeInterop : cacheBabelInterop;
+      })(nodeInterop);
+    }
+    function _interopRequireWildcard(obj, nodeInterop) {
+      if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+        return { "default": obj };
+      }
+      var cache = _getRequireWildcardCache(nodeInterop);
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key in obj) {
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      newObj["default"] = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    var MAX_INPUT_STRING_LENGTH = 250;
+    var PHONE_NUMBER_START_PATTERN = new RegExp("[" + _constants.PLUS_CHARS + _constants.VALID_DIGITS + "]");
+    var AFTER_PHONE_NUMBER_END_PATTERN = new RegExp("[^" + _constants.VALID_DIGITS + "#]+$");
+    var USE_NON_GEOGRAPHIC_COUNTRY_CODE = false;
+    function parse(text, options, metadata) {
+      options = options || {};
+      metadata = new _metadata["default"](metadata);
+      if (options.defaultCountry && !metadata.hasCountry(options.defaultCountry)) {
+        if (options.v2) {
+          throw new _ParseError["default"]("INVALID_COUNTRY");
+        }
+        throw new Error("Unknown country: ".concat(options.defaultCountry));
+      }
+      var _parseInput = parseInput(text, options.v2, options.extract), formattedPhoneNumber = _parseInput.number, ext = _parseInput.ext, error = _parseInput.error;
+      if (!formattedPhoneNumber) {
+        if (options.v2) {
+          if (error === "TOO_SHORT") {
+            throw new _ParseError["default"]("TOO_SHORT");
+          }
+          throw new _ParseError["default"]("NOT_A_NUMBER");
+        }
+        return {};
+      }
+      var _parsePhoneNumber = parsePhoneNumber(formattedPhoneNumber, options.defaultCountry, options.defaultCallingCode, metadata), country = _parsePhoneNumber.country, nationalNumber = _parsePhoneNumber.nationalNumber, countryCallingCode = _parsePhoneNumber.countryCallingCode, carrierCode = _parsePhoneNumber.carrierCode;
+      if (!metadata.hasSelectedNumberingPlan()) {
+        if (options.v2) {
+          throw new _ParseError["default"]("INVALID_COUNTRY");
+        }
+        return {};
+      }
+      if (!nationalNumber || nationalNumber.length < _constants.MIN_LENGTH_FOR_NSN) {
+        if (options.v2) {
+          throw new _ParseError["default"]("TOO_SHORT");
+        }
+        return {};
+      }
+      if (nationalNumber.length > _constants.MAX_LENGTH_FOR_NSN) {
+        if (options.v2) {
+          throw new _ParseError["default"]("TOO_LONG");
+        }
+        return {};
+      }
+      if (options.v2) {
+        var phoneNumber = new _PhoneNumber["default"](countryCallingCode, nationalNumber, metadata.metadata);
+        if (country) {
+          phoneNumber.country = country;
+        }
+        if (carrierCode) {
+          phoneNumber.carrierCode = carrierCode;
+        }
+        if (ext) {
+          phoneNumber.ext = ext;
+        }
+        return phoneNumber;
+      }
+      var valid = (options.extended ? metadata.hasSelectedNumberingPlan() : country) ? (0, _matchesEntirely["default"])(nationalNumber, metadata.nationalNumberPattern()) : false;
+      if (!options.extended) {
+        return valid ? result(country, nationalNumber, ext) : {};
+      }
+      return {
+        country,
+        countryCallingCode,
+        carrierCode,
+        valid,
+        possible: valid ? true : options.extended === true && metadata.possibleLengths() && (0, _isPossibleNumber_.isPossibleNumber)(nationalNumber, metadata) ? true : false,
+        phone: nationalNumber,
+        ext
+      };
+    }
+    function extractFormattedPhoneNumber(text, extract, throwOnError) {
+      if (!text) {
+        return;
+      }
+      if (text.length > MAX_INPUT_STRING_LENGTH) {
+        if (throwOnError) {
+          throw new _ParseError["default"]("TOO_LONG");
+        }
+        return;
+      }
+      if (extract === false) {
+        return text;
+      }
+      var startsAt = text.search(PHONE_NUMBER_START_PATTERN);
+      if (startsAt < 0) {
+        return;
+      }
+      return text.slice(startsAt).replace(AFTER_PHONE_NUMBER_END_PATTERN, "");
+    }
+    function parseInput(text, v2, extract) {
+      if (text && text.indexOf("tel:") === 0) {
+        return (0, _RFC.parseRFC3966)(text);
+      }
+      var number = extractFormattedPhoneNumber(text, extract, v2);
+      if (!number) {
+        return {};
+      }
+      if (!(0, _isViablePhoneNumber["default"])(number)) {
+        if ((0, _isViablePhoneNumber.isViablePhoneNumberStart)(number)) {
+          return {
+            error: "TOO_SHORT"
+          };
+        }
+        return {};
+      }
+      var withExtensionStripped = (0, _extractExtension["default"])(number);
+      if (withExtensionStripped.ext) {
+        return withExtensionStripped;
+      }
+      return {
+        number
+      };
+    }
+    function result(country, nationalNumber, ext) {
+      var result2 = {
+        country,
+        phone: nationalNumber
+      };
+      if (ext) {
+        result2.ext = ext;
+      }
+      return result2;
+    }
+    function parsePhoneNumber(formattedPhoneNumber, defaultCountry, defaultCallingCode, metadata) {
+      var _extractCountryCallin = (0, _extractCountryCallingCode["default"])((0, _parseIncompletePhoneNumber["default"])(formattedPhoneNumber), defaultCountry, defaultCallingCode, metadata.metadata), countryCallingCode = _extractCountryCallin.countryCallingCode, number = _extractCountryCallin.number;
+      var country;
+      if (countryCallingCode) {
+        metadata.selectNumberingPlan(countryCallingCode);
+      } else if (number && (defaultCountry || defaultCallingCode)) {
+        metadata.selectNumberingPlan(defaultCountry, defaultCallingCode);
+        if (defaultCountry) {
+          country = defaultCountry;
+        } else {
+          if (USE_NON_GEOGRAPHIC_COUNTRY_CODE) {
+            if (metadata.isNonGeographicCallingCode(defaultCallingCode)) {
+              country = "001";
+            }
+          }
+        }
+        countryCallingCode = defaultCallingCode || (0, _getCountryCallingCode["default"])(defaultCountry, metadata.metadata);
+      } else
+        return {};
+      if (!number) {
+        return {
+          countryCallingCode
+        };
+      }
+      var _extractNationalNumbe = (0, _extractNationalNumber["default"])((0, _parseIncompletePhoneNumber["default"])(number), metadata), nationalNumber = _extractNationalNumbe.nationalNumber, carrierCode = _extractNationalNumbe.carrierCode;
+      var exactCountry = (0, _getCountryByCallingCode["default"])(countryCallingCode, nationalNumber, metadata);
+      if (exactCountry) {
+        country = exactCountry;
+        if (exactCountry === "001") {
+        } else {
+          metadata.country(country);
+        }
+      }
+      return {
+        country,
+        countryCallingCode,
+        nationalNumber,
+        carrierCode
+      };
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/parsePhoneNumber_.js
+var require_parsePhoneNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/parsePhoneNumber_.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parsePhoneNumber;
+    var _parse_ = _interopRequireDefault(require_parse3());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function parsePhoneNumber(text, options, metadata) {
+      return (0, _parse_["default"])(text, _objectSpread(_objectSpread({}, options), {}, {
+        v2: true
+      }), metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/parsePhoneNumber.js
+var require_parsePhoneNumber2 = __commonJS({
+  "node_modules/libphonenumber-js/build/parsePhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parsePhoneNumber;
+    exports.normalizeArguments = normalizeArguments;
+    var _parsePhoneNumber_ = _interopRequireDefault(require_parsePhoneNumber());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+    }
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function _iterableToArrayLimit(arr, i) {
+      var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+      if (_i == null)
+        return;
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _s, _e;
+      try {
+        for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+          if (i && _arr.length === i)
+            break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"] != null)
+            _i["return"]();
+        } finally {
+          if (_d)
+            throw _e;
+        }
+      }
+      return _arr;
+    }
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr))
+        return arr;
+    }
+    function parsePhoneNumber() {
+      var _normalizeArguments = normalizeArguments(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _parsePhoneNumber_["default"])(text, options, metadata);
+    }
+    function normalizeArguments(args) {
+      var _Array$prototype$slic = Array.prototype.slice.call(args), _Array$prototype$slic2 = _slicedToArray(_Array$prototype$slic, 4), arg_1 = _Array$prototype$slic2[0], arg_2 = _Array$prototype$slic2[1], arg_3 = _Array$prototype$slic2[2], arg_4 = _Array$prototype$slic2[3];
+      var text;
+      var options;
+      var metadata;
+      if (typeof arg_1 === "string") {
+        text = arg_1;
+      } else
+        throw new TypeError("A text for parsing must be a string.");
+      if (!arg_2 || typeof arg_2 === "string") {
+        if (arg_4) {
+          options = arg_3;
+          metadata = arg_4;
+        } else {
+          options = void 0;
+          metadata = arg_3;
+        }
+        if (arg_2) {
+          options = _objectSpread({
+            defaultCountry: arg_2
+          }, options);
+        }
+      } else if (isObject(arg_2)) {
+        if (arg_3) {
+          options = arg_2;
+          metadata = arg_3;
+        } else {
+          metadata = arg_2;
+        }
+      } else
+        throw new Error("Invalid second argument: ".concat(arg_2));
+      return {
+        text,
+        options,
+        metadata
+      };
+    }
+    var isObject = function isObject2(_) {
+      return _typeof(_) === "object";
+    };
+  }
+});
+
+// node_modules/libphonenumber-js/build/parsePhoneNumberFromString_.js
+var require_parsePhoneNumberFromString = __commonJS({
+  "node_modules/libphonenumber-js/build/parsePhoneNumberFromString_.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parsePhoneNumberFromString;
+    var _parsePhoneNumber_ = _interopRequireDefault(require_parsePhoneNumber());
+    var _ParseError = _interopRequireDefault(require_ParseError());
+    var _metadata = require_metadata();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function parsePhoneNumberFromString(text, options, metadata) {
+      if (options && options.defaultCountry && !(0, _metadata.isSupportedCountry)(options.defaultCountry, metadata)) {
+        options = _objectSpread(_objectSpread({}, options), {}, {
+          defaultCountry: void 0
+        });
+      }
+      try {
+        return (0, _parsePhoneNumber_["default"])(text, options, metadata);
+      } catch (error) {
+        if (error instanceof _ParseError["default"]) {
+        } else {
+          throw error;
+        }
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/parsePhoneNumberFromString.js
+var require_parsePhoneNumberFromString2 = __commonJS({
+  "node_modules/libphonenumber-js/build/parsePhoneNumberFromString.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parsePhoneNumberFromString;
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    var _parsePhoneNumberFromString_ = _interopRequireDefault(require_parsePhoneNumberFromString());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function parsePhoneNumberFromString() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _parsePhoneNumberFromString_["default"])(text, options, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/isValidPhoneNumber.js
+var require_isValidPhoneNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/isValidPhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isValidPhoneNumber;
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    var _parsePhoneNumberFromString_ = _interopRequireDefault(require_parsePhoneNumberFromString());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function isValidPhoneNumber() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      options = _objectSpread(_objectSpread({}, options), {}, {
+        extract: false
+      });
+      var phoneNumber = (0, _parsePhoneNumberFromString_["default"])(text, options, metadata);
+      return phoneNumber && phoneNumber.isValid() || false;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/isPossiblePhoneNumber.js
+var require_isPossiblePhoneNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/isPossiblePhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isPossiblePhoneNumber;
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    var _parsePhoneNumberFromString_ = _interopRequireDefault(require_parsePhoneNumberFromString());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function isPossiblePhoneNumber() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      options = _objectSpread(_objectSpread({}, options), {}, {
+        extract: false
+      });
+      var phoneNumber = (0, _parsePhoneNumberFromString_["default"])(text, options, metadata);
+      return phoneNumber && phoneNumber.isPossible() || false;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/validatePhoneNumberLength.js
+var require_validatePhoneNumberLength = __commonJS({
+  "node_modules/libphonenumber-js/build/validatePhoneNumberLength.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = validatePhoneNumberLength;
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    var _parsePhoneNumber_ = _interopRequireDefault(require_parsePhoneNumber());
+    var _ParseError = _interopRequireDefault(require_ParseError());
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _checkNumberLength = _interopRequireDefault(require_checkNumberLength());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function validatePhoneNumberLength() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      options = _objectSpread(_objectSpread({}, options), {}, {
+        extract: false
+      });
+      try {
+        var phoneNumber = (0, _parsePhoneNumber_["default"])(text, options, metadata);
+        metadata = new _metadata["default"](metadata);
+        metadata.selectNumberingPlan(phoneNumber.countryCallingCode);
+        var result = (0, _checkNumberLength["default"])(phoneNumber.nationalNumber, metadata);
+        if (result !== "IS_POSSIBLE") {
+          return result;
+        }
+      } catch (error) {
+        if (error instanceof _ParseError["default"]) {
+          return error.message;
+        } else {
+          throw error;
+        }
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/LRUCache.js
+var require_LRUCache = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/LRUCache.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    var Node = /* @__PURE__ */ _createClass(function Node2(key, value) {
+      var next = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : null;
+      var prev = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : null;
+      _classCallCheck(this, Node2);
+      this.key = key;
+      this.value = value;
+      this.next = next;
+      this.prev = prev;
+    });
+    var LRUCache = /* @__PURE__ */ function() {
+      function LRUCache2() {
+        var limit = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : 10;
+        _classCallCheck(this, LRUCache2);
+        this.size = 0;
+        this.limit = limit;
+        this.head = null;
+        this.tail = null;
+        this.cache = {};
+      }
+      _createClass(LRUCache2, [{
+        key: "put",
+        value: function put(key, value) {
+          this.ensureLimit();
+          if (!this.head) {
+            this.head = this.tail = new Node(key, value);
+          } else {
+            var node = new Node(key, value, this.head);
+            this.head.prev = node;
+            this.head = node;
+          }
+          this.cache[key] = this.head;
+          this.size++;
+        }
+      }, {
+        key: "get",
+        value: function get(key) {
+          if (this.cache[key]) {
+            var value = this.cache[key].value;
+            this.remove(key);
+            this.put(key, value);
+            return value;
+          }
+          console.log("Item not available in cache for key ".concat(key));
+        }
+      }, {
+        key: "ensureLimit",
+        value: function ensureLimit() {
+          if (this.size === this.limit) {
+            this.remove(this.tail.key);
+          }
+        }
+      }, {
+        key: "remove",
+        value: function remove(key) {
+          var node = this.cache[key];
+          if (node.prev !== null) {
+            node.prev.next = node.next;
+          } else {
+            this.head = node.next;
+          }
+          if (node.next !== null) {
+            node.next.prev = node.prev;
+          } else {
+            this.tail = node.prev;
+          }
+          delete this.cache[key];
+          this.size--;
+        }
+      }, {
+        key: "clear",
+        value: function clear() {
+          this.head = null;
+          this.tail = null;
+          this.size = 0;
+          this.cache = {};
+        }
+      }]);
+      return LRUCache2;
+    }();
+    exports["default"] = LRUCache;
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/RegExpCache.js
+var require_RegExpCache = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/RegExpCache.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    var _LRUCache = _interopRequireDefault(require_LRUCache());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var RegExpCache = /* @__PURE__ */ function() {
+      function RegExpCache2(size) {
+        _classCallCheck(this, RegExpCache2);
+        this.cache = new _LRUCache["default"](size);
+      }
+      _createClass(RegExpCache2, [{
+        key: "getPatternForRegExp",
+        value: function getPatternForRegExp(pattern) {
+          var regExp = this.cache.get(pattern);
+          if (!regExp) {
+            regExp = new RegExp("^" + pattern);
+            this.cache.put(pattern, regExp);
+          }
+          return regExp;
+        }
+      }]);
+      return RegExpCache2;
+    }();
+    exports["default"] = RegExpCache;
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/util.js
+var require_util = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/util.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.endsWith = endsWith;
+    exports.limit = limit;
+    exports.startsWith = startsWith;
+    exports.trimAfterFirstMatch = trimAfterFirstMatch;
+    function limit(lower, upper) {
+      if (lower < 0 || upper <= 0 || upper < lower) {
+        throw new TypeError();
+      }
+      return "{".concat(lower, ",").concat(upper, "}");
+    }
+    function trimAfterFirstMatch(regexp, string) {
+      var index = string.search(regexp);
+      if (index >= 0) {
+        return string.slice(0, index);
+      }
+      return string;
+    }
+    function startsWith(string, substring) {
+      return string.indexOf(substring) === 0;
+    }
+    function endsWith(string, substring) {
+      return string.indexOf(substring, string.length - substring.length) === string.length - substring.length;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/utf-8.js
+var require_utf_8 = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/utf-8.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports._pN = exports._pL = exports.PZ = void 0;
+    exports.isInvalidPunctuationSymbol = isInvalidPunctuationSymbol;
+    exports.isLatinLetter = isLatinLetter;
+    exports.pZ = exports.pNd = void 0;
+    var _pZ = " \xA0\u1680\u180E\u2000-\u200A\u2028\u2029\u202F\u205F\u3000";
+    var pZ = "[".concat(_pZ, "]");
+    exports.pZ = pZ;
+    var PZ = "[^".concat(_pZ, "]");
+    exports.PZ = PZ;
+    var _pN = "0-9\xB2\xB3\xB9\xBC-\xBE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19";
+    exports._pN = _pN;
+    var _pNd = "0-9\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0BE6-\u0BEF\u0C66-\u0C6F\u0CE6-\u0CEF\u0D66-\u0D6F\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F29\u1040-\u1049\u1090-\u1099\u17E0-\u17E9\u1810-\u1819\u1946-\u194F\u19D0-\u19D9\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\uA620-\uA629\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19";
+    var pNd = "[".concat(_pNd, "]");
+    exports.pNd = pNd;
+    var _pL = "A-Za-z\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02C1\u02C6-\u02D1\u02E0-\u02E4\u02EC\u02EE\u0370-\u0374\u0376\u0377\u037A-\u037D\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0481\u048A-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05D0-\u05EA\u05F0-\u05F2\u0620-\u064A\u066E\u066F\u0671-\u06D3\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u06FC\u06FF\u0710\u0712-\u072F\u074D-\u07A5\u07B1\u07CA-\u07EA\u07F4\u07F5\u07FA\u0800-\u0815\u081A\u0824\u0828\u0840-\u0858\u08A0\u08A2-\u08AC\u0904-\u0939\u093D\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097F\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD\u09CE\u09DC\u09DD\u09DF-\u09E1\u09F0\u09F1\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A59-\u0A5C\u0A5E\u0A72-\u0A74\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD\u0AD0\u0AE0\u0AE1\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B5C\u0B5D\u0B5F-\u0B61\u0B71\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BD0\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C33\u0C35-\u0C39\u0C3D\u0C58\u0C59\u0C60\u0C61\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD\u0CDE\u0CE0\u0CE1\u0CF1\u0CF2\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D\u0D4E\u0D60\u0D61\u0D7A-\u0D7F\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0EDC-\u0EDF\u0F00\u0F40-\u0F47\u0F49-\u0F6C\u0F88-\u0F8C\u1000-\u102A\u103F\u1050-\u1055\u105A-\u105D\u1061\u1065\u1066\u106E-\u1070\u1075-\u1081\u108E\u10A0-\u10C5\u10C7\u10CD\u10D0-\u10FA\u10FC-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1380-\u138F\u13A0-\u13F4\u1401-\u166C\u166F-\u167F\u1681-\u169A\u16A0-\u16EA\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17D7\u17DC\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191C\u1950-\u196D\u1970-\u1974\u1980-\u19AB\u19C1-\u19C7\u1A00-\u1A16\u1A20-\u1A54\u1AA7\u1B05-\u1B33\u1B45-\u1B4B\u1B83-\u1BA0\u1BAE\u1BAF\u1BBA-\u1BE5\u1C00-\u1C23\u1C4D-\u1C4F\u1C5A-\u1C7D\u1CE9-\u1CEC\u1CEE-\u1CF1\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u2183\u2184\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u2E2F\u3005\u3006\u3031-\u3035\u303B\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D\u3131-\u318E\u31A0-\u31BA\u31F0-\u31FF\u3400-\u4DB5\u4E00-\u9FCC\uA000-\uA48C\uA4D0-\uA4FD\uA500-\uA60C\uA610-\uA61F\uA62A\uA62B\uA640-\uA66E\uA67F-\uA697\uA6A0-\uA6E5\uA717-\uA71F\uA722-\uA788\uA78B-\uA78E\uA790-\uA793\uA7A0-\uA7AA\uA7F8-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA822\uA840-\uA873\uA882-\uA8B3\uA8F2-\uA8F7\uA8FB\uA90A-\uA925\uA930-\uA946\uA960-\uA97C\uA984-\uA9B2\uA9CF\uAA00-\uAA28\uAA40-\uAA42\uAA44-\uAA4B\uAA60-\uAA76\uAA7A\uAA80-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAADD\uAAE0-\uAAEA\uAAF2-\uAAF4\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uABC0-\uABE2\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFB1D\uFB1F-\uFB28\uFB2A-\uFB36\uFB38-\uFB3C\uFB3E\uFB40\uFB41\uFB43\uFB44\uFB46-\uFBB1\uFBD3-\uFD3D\uFD50-\uFD8F\uFD92-\uFDC7\uFDF0-\uFDFB\uFE70-\uFE74\uFE76-\uFEFC\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC";
+    exports._pL = _pL;
+    var pL = "[".concat(_pL, "]");
+    var pL_regexp = new RegExp(pL);
+    var _pSc = "$\xA2-\xA5\u058F\u060B\u09F2\u09F3\u09FB\u0AF1\u0BF9\u0E3F\u17DB\u20A0-\u20B9\uA838\uFDFC\uFE69\uFF04\uFFE0\uFFE1\uFFE5\uFFE6";
+    var pSc = "[".concat(_pSc, "]");
+    var pSc_regexp = new RegExp(pSc);
+    var _pMn = "\u0300-\u036F\u0483-\u0487\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\u0711\u0730-\u074A\u07A6-\u07B0\u07EB-\u07F3\u0816-\u0819\u081B-\u0823\u0825-\u0827\u0829-\u082D\u0859-\u085B\u08E4-\u08FE\u0900-\u0902\u093A\u093C\u0941-\u0948\u094D\u0951-\u0957\u0962\u0963\u0981\u09BC\u09C1-\u09C4\u09CD\u09E2\u09E3\u0A01\u0A02\u0A3C\u0A41\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A70\u0A71\u0A75\u0A81\u0A82\u0ABC\u0AC1-\u0AC5\u0AC7\u0AC8\u0ACD\u0AE2\u0AE3\u0B01\u0B3C\u0B3F\u0B41-\u0B44\u0B4D\u0B56\u0B62\u0B63\u0B82\u0BC0\u0BCD\u0C3E-\u0C40\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C62\u0C63\u0CBC\u0CBF\u0CC6\u0CCC\u0CCD\u0CE2\u0CE3\u0D41-\u0D44\u0D4D\u0D62\u0D63\u0DCA\u0DD2-\u0DD4\u0DD6\u0E31\u0E34-\u0E3A\u0E47-\u0E4E\u0EB1\u0EB4-\u0EB9\u0EBB\u0EBC\u0EC8-\u0ECD\u0F18\u0F19\u0F35\u0F37\u0F39\u0F71-\u0F7E\u0F80-\u0F84\u0F86\u0F87\u0F8D-\u0F97\u0F99-\u0FBC\u0FC6\u102D-\u1030\u1032-\u1037\u1039\u103A\u103D\u103E\u1058\u1059\u105E-\u1060\u1071-\u1074\u1082\u1085\u1086\u108D\u109D\u135D-\u135F\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD\u180B-\u180D\u18A9\u1920-\u1922\u1927\u1928\u1932\u1939-\u193B\u1A17\u1A18\u1A56\u1A58-\u1A5E\u1A60\u1A62\u1A65-\u1A6C\u1A73-\u1A7C\u1A7F\u1B00-\u1B03\u1B34\u1B36-\u1B3A\u1B3C\u1B42\u1B6B-\u1B73\u1B80\u1B81\u1BA2-\u1BA5\u1BA8\u1BA9\u1BAB\u1BE6\u1BE8\u1BE9\u1BED\u1BEF-\u1BF1\u1C2C-\u1C33\u1C36\u1C37\u1CD0-\u1CD2\u1CD4-\u1CE0\u1CE2-\u1CE8\u1CED\u1CF4\u1DC0-\u1DE6\u1DFC-\u1DFF\u20D0-\u20DC\u20E1\u20E5-\u20F0\u2CEF-\u2CF1\u2D7F\u2DE0-\u2DFF\u302A-\u302D\u3099\u309A\uA66F\uA674-\uA67D\uA69F\uA6F0\uA6F1\uA802\uA806\uA80B\uA825\uA826\uA8C4\uA8E0-\uA8F1\uA926-\uA92D\uA947-\uA951\uA980-\uA982\uA9B3\uA9B6-\uA9B9\uA9BC\uAA29-\uAA2E\uAA31\uAA32\uAA35\uAA36\uAA43\uAA4C\uAAB0\uAAB2-\uAAB4\uAAB7\uAAB8\uAABE\uAABF\uAAC1\uAAEC\uAAED\uAAF6\uABE5\uABE8\uABED\uFB1E\uFE00-\uFE0F\uFE20-\uFE26";
+    var pMn = "[".concat(_pMn, "]");
+    var pMn_regexp = new RegExp(pMn);
+    var _InBasic_Latin = "\0-\x7F";
+    var _InLatin_1_Supplement = "\x80-\xFF";
+    var _InLatin_Extended_A = "\u0100-\u017F";
+    var _InLatin_Extended_Additional = "\u1E00-\u1EFF";
+    var _InLatin_Extended_B = "\u0180-\u024F";
+    var _InCombining_Diacritical_Marks = "\u0300-\u036F";
+    var latinLetterRegexp = new RegExp("[" + _InBasic_Latin + _InLatin_1_Supplement + _InLatin_Extended_A + _InLatin_Extended_Additional + _InLatin_Extended_B + _InCombining_Diacritical_Marks + "]");
+    function isLatinLetter(letter) {
+      if (!pL_regexp.test(letter) && !pMn_regexp.test(letter)) {
+        return false;
+      }
+      return latinLetterRegexp.test(letter);
+    }
+    function isInvalidPunctuationSymbol(character) {
+      return character === "%" || pSc_regexp.test(character);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/Leniency.js
+var require_Leniency = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/Leniency.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.containsMoreThanOneSlashInNationalNumber = containsMoreThanOneSlashInNationalNumber;
+    exports["default"] = void 0;
+    var _validate_ = _interopRequireDefault(require_validate2());
+    var _parseDigits = _interopRequireDefault(require_parseDigits());
+    var _util = require_util();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    var _default = {
+      POSSIBLE: function POSSIBLE(number, candidate, metadata) {
+        return true;
+      },
+      VALID: function VALID(number, candidate, metadata) {
+        if (!(0, _validate_["default"])(number, void 0, metadata) || !containsOnlyValidXChars(number, candidate.toString(), metadata)) {
+          return false;
+        }
+        return true;
+      },
+      STRICT_GROUPING: function STRICT_GROUPING(number, candidate, metadata, regExpCache) {
+        var candidateString = candidate.toString();
+        if (!(0, _validate_["default"])(number, void 0, metadata) || !containsOnlyValidXChars(number, candidateString, metadata) || containsMoreThanOneSlashInNationalNumber(number, candidateString) || !isNationalPrefixPresentIfRequired(number, metadata)) {
+          return false;
+        }
+        return checkNumberGroupingIsValid(number, candidate, metadata, allNumberGroupsRemainGrouped, regExpCache);
+      },
+      EXACT_GROUPING: function EXACT_GROUPING(number, candidate, metadata, regExpCache) {
+        var candidateString = candidate.toString();
+        if (!(0, _validate_["default"])(number, void 0, metadata) || !containsOnlyValidXChars(number, candidateString, metadata) || containsMoreThanOneSlashInNationalNumber(number, candidateString) || !isNationalPrefixPresentIfRequired(number, metadata)) {
+          return false;
+        }
+        return checkNumberGroupingIsValid(number, candidate, metadata, allNumberGroupsAreExactlyPresent, regExpCache);
+      }
+    };
+    exports["default"] = _default;
+    function containsOnlyValidXChars(number, candidate, metadata) {
+      for (var index = 0; index < candidate.length - 1; index++) {
+        var charAtIndex = candidate.charAt(index);
+        if (charAtIndex === "x" || charAtIndex === "X") {
+          var charAtNextIndex = candidate.charAt(index + 1);
+          if (charAtNextIndex === "x" || charAtNextIndex === "X") {
+            index++;
+            if (util.isNumberMatch(number, candidate.substring(index)) != MatchType.NSN_MATCH) {
+              return false;
+            }
+          } else if ((0, _parseDigits["default"])(candidate.substring(index)) !== number.ext) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+    function isNationalPrefixPresentIfRequired(number, _metadata) {
+      if (number.getCountryCodeSource() != "FROM_DEFAULT_COUNTRY") {
+        return true;
+      }
+      var phoneNumberRegion = util.getRegionCodeForCountryCode(number.getCountryCode());
+      var metadata = util.getMetadataForRegion(phoneNumberRegion);
+      if (metadata == null) {
+        return true;
+      }
+      var nationalNumber = util.getNationalSignificantNumber(number);
+      var formatRule = util.chooseFormattingPatternForNumber(metadata.numberFormats(), nationalNumber);
+      if (formatRule && formatRule.getNationalPrefixFormattingRule().length > 0) {
+        if (formatRule.getNationalPrefixOptionalWhenFormatting()) {
+          return true;
+        }
+        if (PhoneNumberUtil.formattingRuleHasFirstGroupOnly(formatRule.getNationalPrefixFormattingRule())) {
+          return true;
+        }
+        var rawInputCopy = PhoneNumberUtil.normalizeDigitsOnly(number.getRawInput());
+        return util.maybeStripNationalPrefixAndCarrierCode(rawInputCopy, metadata, null);
+      }
+      return true;
+    }
+    function containsMoreThanOneSlashInNationalNumber(number, candidate) {
+      var firstSlashInBodyIndex = candidate.indexOf("/");
+      if (firstSlashInBodyIndex < 0) {
+        return false;
+      }
+      var secondSlashInBodyIndex = candidate.indexOf("/", firstSlashInBodyIndex + 1);
+      if (secondSlashInBodyIndex < 0) {
+        return false;
+      }
+      var candidateHasCountryCode = number.getCountryCodeSource() === CountryCodeSource.FROM_NUMBER_WITH_PLUS_SIGN || number.getCountryCodeSource() === CountryCodeSource.FROM_NUMBER_WITHOUT_PLUS_SIGN;
+      if (candidateHasCountryCode && PhoneNumberUtil.normalizeDigitsOnly(candidate.substring(0, firstSlashInBodyIndex)) === String(number.getCountryCode())) {
+        return candidate.slice(secondSlashInBodyIndex + 1).indexOf("/") >= 0;
+      }
+      return true;
+    }
+    function checkNumberGroupingIsValid(number, candidate, metadata, checkGroups, regExpCache) {
+      var normalizedCandidate = normalizeDigits(
+        candidate,
+        true
+      );
+      var formattedNumberGroups = getNationalNumberGroups(metadata, number, null);
+      if (checkGroups(metadata, number, normalizedCandidate, formattedNumberGroups)) {
+        return true;
+      }
+      var alternateFormats = MetadataManager.getAlternateFormatsForCountry(number.getCountryCode());
+      var nationalSignificantNumber = util.getNationalSignificantNumber(number);
+      if (alternateFormats) {
+        for (var _iterator = _createForOfIteratorHelperLoose(alternateFormats.numberFormats()), _step; !(_step = _iterator()).done; ) {
+          var alternateFormat = _step.value;
+          if (alternateFormat.leadingDigitsPatterns().length > 0) {
+            var leadingDigitsRegExp = regExpCache.getPatternForRegExp("^" + alternateFormat.leadingDigitsPatterns()[0]);
+            if (!leadingDigitsRegExp.test(nationalSignificantNumber)) {
+              continue;
+            }
+          }
+          formattedNumberGroups = getNationalNumberGroups(metadata, number, alternateFormat);
+          if (checkGroups(metadata, number, normalizedCandidate, formattedNumberGroups)) {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+    function getNationalNumberGroups(metadata, number, formattingPattern) {
+      if (formattingPattern) {
+        var nationalSignificantNumber = util.getNationalSignificantNumber(number);
+        return util.formatNsnUsingPattern(nationalSignificantNumber, formattingPattern, "RFC3966", metadata).split("-");
+      }
+      var rfc3966Format = formatNumber(number, "RFC3966", metadata);
+      var endIndex = rfc3966Format.indexOf(";");
+      if (endIndex < 0) {
+        endIndex = rfc3966Format.length;
+      }
+      var startIndex = rfc3966Format.indexOf("-") + 1;
+      return rfc3966Format.slice(startIndex, endIndex).split("-");
+    }
+    function allNumberGroupsAreExactlyPresent(metadata, number, normalizedCandidate, formattedNumberGroups) {
+      var candidateGroups = normalizedCandidate.split(NON_DIGITS_PATTERN);
+      var candidateNumberGroupIndex = number.hasExtension() ? candidateGroups.length - 2 : candidateGroups.length - 1;
+      if (candidateGroups.length == 1 || candidateGroups[candidateNumberGroupIndex].contains(util.getNationalSignificantNumber(number))) {
+        return true;
+      }
+      var formattedNumberGroupIndex = formattedNumberGroups.length - 1;
+      while (formattedNumberGroupIndex > 0 && candidateNumberGroupIndex >= 0) {
+        if (candidateGroups[candidateNumberGroupIndex] !== formattedNumberGroups[formattedNumberGroupIndex]) {
+          return false;
+        }
+        formattedNumberGroupIndex--;
+        candidateNumberGroupIndex--;
+      }
+      return candidateNumberGroupIndex >= 0 && (0, _util.endsWith)(candidateGroups[candidateNumberGroupIndex], formattedNumberGroups[0]);
+    }
+    function allNumberGroupsRemainGrouped(metadata, number, normalizedCandidate, formattedNumberGroups) {
+      var fromIndex = 0;
+      if (number.getCountryCodeSource() !== CountryCodeSource.FROM_DEFAULT_COUNTRY) {
+        var countryCode = String(number.getCountryCode());
+        fromIndex = normalizedCandidate.indexOf(countryCode) + countryCode.length();
+      }
+      for (var i = 0; i < formattedNumberGroups.length; i++) {
+        fromIndex = normalizedCandidate.indexOf(formattedNumberGroups[i], fromIndex);
+        if (fromIndex < 0) {
+          return false;
+        }
+        fromIndex += formattedNumberGroups[i].length();
+        if (i == 0 && fromIndex < normalizedCandidate.length()) {
+          var region = util.getRegionCodeForCountryCode(number.getCountryCode());
+          if (util.getNddPrefixForRegion(region, true) != null && Character.isDigit(normalizedCandidate.charAt(fromIndex))) {
+            var nationalSignificantNumber = util.getNationalSignificantNumber(number);
+            return (0, _util.startsWith)(normalizedCandidate.slice(fromIndex - formattedNumberGroups[i].length), nationalSignificantNumber);
+          }
+        }
+      }
+      return normalizedCandidate.slice(fromIndex).contains(number.getExtension());
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/parsePreCandidate.js
+var require_parsePreCandidate = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/parsePreCandidate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parsePreCandidate;
+    var _util = require_util();
+    var SECOND_NUMBER_START_PATTERN = /[\\/] *x/;
+    function parsePreCandidate(candidate) {
+      return (0, _util.trimAfterFirstMatch)(SECOND_NUMBER_START_PATTERN, candidate);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/isValidPreCandidate.js
+var require_isValidPreCandidate = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/isValidPreCandidate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isValidPreCandidate;
+    var SLASH_SEPARATED_DATES = /(?:(?:[0-3]?\d\/[01]?\d)|(?:[01]?\d\/[0-3]?\d))\/(?:[12]\d)?\d{2}/;
+    var TIME_STAMPS = /[12]\d{3}[-/]?[01]\d[-/]?[0-3]\d +[0-2]\d$/;
+    var TIME_STAMPS_SUFFIX_LEADING = /^:[0-5]\d/;
+    function isValidPreCandidate(candidate, offset, text) {
+      if (SLASH_SEPARATED_DATES.test(candidate)) {
+        return false;
+      }
+      if (TIME_STAMPS.test(candidate)) {
+        var followingText = text.slice(offset + candidate.length);
+        if (TIME_STAMPS_SUFFIX_LEADING.test(followingText)) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers/isValidCandidate.js
+var require_isValidCandidate = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers/isValidCandidate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.LEAD_CLASS = void 0;
+    exports["default"] = isValidCandidate;
+    var _constants = require_constants2();
+    var _util = require_util();
+    var _utf = require_utf_8();
+    var OPENING_PARENS = "(\\[\uFF08\uFF3B";
+    var CLOSING_PARENS = ")\\]\uFF09\uFF3D";
+    var NON_PARENS = "[^".concat(OPENING_PARENS).concat(CLOSING_PARENS, "]");
+    var LEAD_CLASS = "[".concat(OPENING_PARENS).concat(_constants.PLUS_CHARS, "]");
+    exports.LEAD_CLASS = LEAD_CLASS;
+    var LEAD_CLASS_LEADING = new RegExp("^" + LEAD_CLASS);
+    var BRACKET_PAIR_LIMIT = (0, _util.limit)(0, 3);
+    var MATCHING_BRACKETS_ENTIRE = new RegExp("^(?:[" + OPENING_PARENS + "])?(?:" + NON_PARENS + "+[" + CLOSING_PARENS + "])?" + NON_PARENS + "+(?:[" + OPENING_PARENS + "]" + NON_PARENS + "+[" + CLOSING_PARENS + "])" + BRACKET_PAIR_LIMIT + NON_PARENS + "*$");
+    var PUB_PAGES = /\d{1,5}-+\d{1,5}\s{0,4}\(\d{1,4}/;
+    function isValidCandidate(candidate, offset, text, leniency) {
+      if (!MATCHING_BRACKETS_ENTIRE.test(candidate) || PUB_PAGES.test(candidate)) {
+        return;
+      }
+      if (leniency !== "POSSIBLE") {
+        if (offset > 0 && !LEAD_CLASS_LEADING.test(candidate)) {
+          var previousChar = text[offset - 1];
+          if ((0, _utf.isInvalidPunctuationSymbol)(previousChar) || (0, _utf.isLatinLetter)(previousChar)) {
+            return false;
+          }
+        }
+        var lastCharIndex = offset + candidate.length;
+        if (lastCharIndex < text.length) {
+          var nextChar = text[lastCharIndex];
+          if ((0, _utf.isInvalidPunctuationSymbol)(nextChar) || (0, _utf.isLatinLetter)(nextChar)) {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/PhoneNumberMatcher.js
+var require_PhoneNumberMatcher = __commonJS({
+  "node_modules/libphonenumber-js/build/PhoneNumberMatcher.js"(exports) {
+    "use strict";
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    var _PhoneNumber = _interopRequireDefault(require_PhoneNumber());
+    var _constants = require_constants2();
+    var _createExtensionPattern = _interopRequireDefault(require_createExtensionPattern());
+    var _RegExpCache = _interopRequireDefault(require_RegExpCache());
+    var _util = require_util();
+    var _utf = require_utf_8();
+    var _Leniency = _interopRequireDefault(require_Leniency());
+    var _parsePreCandidate = _interopRequireDefault(require_parsePreCandidate());
+    var _isValidPreCandidate = _interopRequireDefault(require_isValidPreCandidate());
+    var _isValidCandidate = _interopRequireWildcard(require_isValidCandidate());
+    var _metadata = require_metadata();
+    var _parse_ = _interopRequireDefault(require_parse3());
+    function _getRequireWildcardCache(nodeInterop) {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cacheBabelInterop = /* @__PURE__ */ new WeakMap();
+      var cacheNodeInterop = /* @__PURE__ */ new WeakMap();
+      return (_getRequireWildcardCache = function _getRequireWildcardCache2(nodeInterop2) {
+        return nodeInterop2 ? cacheNodeInterop : cacheBabelInterop;
+      })(nodeInterop);
+    }
+    function _interopRequireWildcard(obj, nodeInterop) {
+      if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+        return { "default": obj };
+      }
+      var cache = _getRequireWildcardCache(nodeInterop);
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key in obj) {
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      newObj["default"] = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var EXTN_PATTERNS_FOR_MATCHING = (0, _createExtensionPattern["default"])("matching");
+    var INNER_MATCHES = [
+      "\\/+(.*)/",
+      "(\\([^(]*)",
+      "(?:".concat(_utf.pZ, "-|-").concat(_utf.pZ, ")").concat(_utf.pZ, "*(.+)"),
+      "[\u2012-\u2015\uFF0D]".concat(_utf.pZ, "*(.+)"),
+      "\\.+".concat(_utf.pZ, "*([^.]+)"),
+      "".concat(_utf.pZ, "+(").concat(_utf.PZ, "+)")
+    ];
+    var leadLimit = (0, _util.limit)(0, 2);
+    var punctuationLimit = (0, _util.limit)(0, 4);
+    var digitBlockLimit = _constants.MAX_LENGTH_FOR_NSN + _constants.MAX_LENGTH_COUNTRY_CODE;
+    var blockLimit = (0, _util.limit)(0, digitBlockLimit);
+    var punctuation = "[".concat(_constants.VALID_PUNCTUATION, "]") + punctuationLimit;
+    var digitSequence = _utf.pNd + (0, _util.limit)(1, digitBlockLimit);
+    var PATTERN = "(?:" + _isValidCandidate.LEAD_CLASS + punctuation + ")" + leadLimit + digitSequence + "(?:" + punctuation + digitSequence + ")" + blockLimit + "(?:" + EXTN_PATTERNS_FOR_MATCHING + ")?";
+    var UNWANTED_END_CHAR_PATTERN = new RegExp("[^".concat(_utf._pN).concat(_utf._pL, "#]+$"));
+    var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || Math.pow(2, 53) - 1;
+    var PhoneNumberMatcher = /* @__PURE__ */ function() {
+      function PhoneNumberMatcher2() {
+        var text = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "";
+        var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+        var metadata = arguments.length > 2 ? arguments[2] : void 0;
+        _classCallCheck(this, PhoneNumberMatcher2);
+        options = _objectSpread(_objectSpread({}, options), {}, {
+          defaultCallingCode: options.defaultCallingCode,
+          defaultCountry: options.defaultCountry && (0, _metadata.isSupportedCountry)(options.defaultCountry, metadata) ? options.defaultCountry : void 0,
+          leniency: options.leniency || options.extended ? "POSSIBLE" : "VALID",
+          maxTries: options.maxTries || MAX_SAFE_INTEGER
+        });
+        if (!options.leniency) {
+          throw new TypeError("`Leniency` not supplied");
+        }
+        if (options.maxTries < 0) {
+          throw new TypeError("`maxTries` not supplied");
+        }
+        this.text = text;
+        this.options = options;
+        this.metadata = metadata;
+        this.leniency = _Leniency["default"][options.leniency];
+        if (!this.leniency) {
+          throw new TypeError("Unknown leniency: ".concat(options.leniency, "."));
+        }
+        this.maxTries = options.maxTries;
+        this.PATTERN = new RegExp(PATTERN, "ig");
+        this.state = "NOT_READY";
+        this.searchIndex = 0;
+        this.regExpCache = new _RegExpCache["default"](32);
+      }
+      _createClass(PhoneNumberMatcher2, [{
+        key: "find",
+        value: function find() {
+          var matches;
+          while (this.maxTries > 0 && (matches = this.PATTERN.exec(this.text)) !== null) {
+            var candidate = matches[0];
+            var offset = matches.index;
+            candidate = (0, _parsePreCandidate["default"])(candidate);
+            if ((0, _isValidPreCandidate["default"])(candidate, offset, this.text)) {
+              var match = this.parseAndVerify(candidate, offset, this.text) || this.extractInnerMatch(candidate, offset, this.text);
+              if (match) {
+                if (this.options.v2) {
+                  var phoneNumber = new _PhoneNumber["default"](match.country || match.countryCallingCode, match.phone, this.metadata);
+                  if (match.ext) {
+                    phoneNumber.ext = match.ext;
+                  }
+                  return {
+                    startsAt: match.startsAt,
+                    endsAt: match.endsAt,
+                    number: phoneNumber
+                  };
+                }
+                return match;
+              }
+            }
+            this.maxTries--;
+          }
+        }
+      }, {
+        key: "extractInnerMatch",
+        value: function extractInnerMatch(substring, offset, text) {
+          for (var _iterator = _createForOfIteratorHelperLoose(INNER_MATCHES), _step; !(_step = _iterator()).done; ) {
+            var innerMatchPattern = _step.value;
+            var isFirstMatch = true;
+            var candidateMatch = void 0;
+            var innerMatchRegExp = new RegExp(innerMatchPattern, "g");
+            while (this.maxTries > 0 && (candidateMatch = innerMatchRegExp.exec(substring)) !== null) {
+              if (isFirstMatch) {
+                var _candidate = (0, _util.trimAfterFirstMatch)(UNWANTED_END_CHAR_PATTERN, substring.slice(0, candidateMatch.index));
+                var _match = this.parseAndVerify(_candidate, offset, text);
+                if (_match) {
+                  return _match;
+                }
+                this.maxTries--;
+                isFirstMatch = false;
+              }
+              var candidate = (0, _util.trimAfterFirstMatch)(UNWANTED_END_CHAR_PATTERN, candidateMatch[1]);
+              var candidateIndexGuess = substring.indexOf(candidate, candidateMatch.index);
+              var match = this.parseAndVerify(candidate, offset + candidateIndexGuess, text);
+              if (match) {
+                return match;
+              }
+              this.maxTries--;
+            }
+          }
+        }
+      }, {
+        key: "parseAndVerify",
+        value: function parseAndVerify(candidate, offset, text) {
+          if (!(0, _isValidCandidate["default"])(candidate, offset, text, this.options.leniency)) {
+            return;
+          }
+          var number = (0, _parse_["default"])(candidate, {
+            extended: true,
+            defaultCountry: this.options.defaultCountry,
+            defaultCallingCode: this.options.defaultCallingCode
+          }, this.metadata);
+          if (!number.possible) {
+            return;
+          }
+          if (this.leniency(number, candidate, this.metadata, this.regExpCache)) {
+            var result = {
+              startsAt: offset,
+              endsAt: offset + candidate.length,
+              phone: number.phone
+            };
+            if (number.country && number.country !== "001") {
+              result.country = number.country;
+            } else {
+              result.countryCallingCode = number.countryCallingCode;
+            }
+            if (number.ext) {
+              result.ext = number.ext;
+            }
+            return result;
+          }
+        }
+      }, {
+        key: "hasNext",
+        value: function hasNext() {
+          if (this.state === "NOT_READY") {
+            this.lastMatch = this.find();
+            if (this.lastMatch) {
+              this.state = "READY";
+            } else {
+              this.state = "DONE";
+            }
+          }
+          return this.state === "READY";
+        }
+      }, {
+        key: "next",
+        value: function next() {
+          if (!this.hasNext()) {
+            throw new Error("No next element");
+          }
+          var result = this.lastMatch;
+          this.lastMatch = null;
+          this.state = "NOT_READY";
+          return result;
+        }
+      }]);
+      return PhoneNumberMatcher2;
+    }();
+    exports["default"] = PhoneNumberMatcher;
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers_.js
+var require_findNumbers = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers_.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = findNumbers;
+    var _PhoneNumberMatcher = _interopRequireDefault(require_PhoneNumberMatcher());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function findNumbers(text, options, metadata) {
+      var matcher = new _PhoneNumberMatcher["default"](text, options, metadata);
+      var results = [];
+      while (matcher.hasNext()) {
+        results.push(matcher.next());
+      }
+      return results;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findNumbers.js
+var require_findNumbers2 = __commonJS({
+  "node_modules/libphonenumber-js/build/findNumbers.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = findNumbers;
+    var _findNumbers_ = _interopRequireDefault(require_findNumbers());
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function findNumbers() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _findNumbers_["default"])(text, options, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/searchNumbers.js
+var require_searchNumbers = __commonJS({
+  "node_modules/libphonenumber-js/build/searchNumbers.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = searchNumbers;
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    var _PhoneNumberMatcher = _interopRequireDefault(require_PhoneNumberMatcher());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function searchNumbers() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      var matcher = new _PhoneNumberMatcher["default"](text, options, metadata);
+      return _defineProperty({}, Symbol.iterator, function() {
+        return {
+          next: function next() {
+            if (matcher.hasNext()) {
+              return {
+                done: false,
+                value: matcher.next()
+              };
+            }
+            return {
+              done: true
+            };
+          }
+        };
+      });
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findPhoneNumbersInText.js
+var require_findPhoneNumbersInText = __commonJS({
+  "node_modules/libphonenumber-js/build/findPhoneNumbersInText.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = findPhoneNumbersInText;
+    exports.getArguments = getArguments;
+    var _findNumbers = _interopRequireDefault(require_findNumbers2());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    function ownKeys(object, enumerableOnly) {
+      var keys = Object.keys(object);
+      if (Object.getOwnPropertySymbols) {
+        var symbols = Object.getOwnPropertySymbols(object);
+        enumerableOnly && (symbols = symbols.filter(function(sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        })), keys.push.apply(keys, symbols);
+      }
+      return keys;
+    }
+    function _objectSpread(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = null != arguments[i] ? arguments[i] : {};
+        i % 2 ? ownKeys(Object(source), true).forEach(function(key) {
+          _defineProperty(target, key, source[key]);
+        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+      return target;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    function findPhoneNumbersInText(text, defaultCountry, options, metadata) {
+      var args = getArguments(defaultCountry, options, metadata);
+      return (0, _findNumbers["default"])(text, args.options, args.metadata);
+    }
+    function getArguments(defaultCountry, options, metadata) {
+      if (metadata) {
+        if (defaultCountry) {
+          options = _objectSpread(_objectSpread({}, options), {}, {
+            defaultCountry
+          });
+        }
+      } else {
+        if (options) {
+          metadata = options;
+          if (defaultCountry) {
+            if (is_object(defaultCountry)) {
+              options = defaultCountry;
+            } else {
+              options = {
+                defaultCountry
+              };
+            }
+          } else {
+            options = void 0;
+          }
+        } else {
+          metadata = defaultCountry;
+          options = void 0;
+        }
+      }
+      return {
+        options: _objectSpread(_objectSpread({}, options), {}, {
+          v2: true
+        }),
+        metadata
+      };
+    }
+    var is_object = function is_object2(_) {
+      return _typeof(_) === "object";
+    };
+  }
+});
+
+// node_modules/libphonenumber-js/build/searchPhoneNumbersInText.js
+var require_searchPhoneNumbersInText = __commonJS({
+  "node_modules/libphonenumber-js/build/searchPhoneNumbersInText.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = searchPhoneNumbersInText;
+    var _searchNumbers = _interopRequireDefault(require_searchNumbers());
+    var _findPhoneNumbersInText = require_findPhoneNumbersInText();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function searchPhoneNumbersInText(text, defaultCountry, options, metadata) {
+      var args = (0, _findPhoneNumbersInText.getArguments)(defaultCountry, options, metadata);
+      return (0, _searchNumbers["default"])(text, args.options, args.metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouTypeState.js
+var require_AsYouTypeState = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouTypeState.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var AsYouTypeState = /* @__PURE__ */ function() {
+      function AsYouTypeState2(_ref) {
+        var onCountryChange = _ref.onCountryChange, onCallingCodeChange = _ref.onCallingCodeChange;
+        _classCallCheck(this, AsYouTypeState2);
+        this.onCountryChange = onCountryChange;
+        this.onCallingCodeChange = onCallingCodeChange;
+      }
+      _createClass(AsYouTypeState2, [{
+        key: "reset",
+        value: function reset(defaultCountry, defaultCallingCode) {
+          this.international = false;
+          this.IDDPrefix = void 0;
+          this.missingPlus = void 0;
+          this.callingCode = void 0;
+          this.digits = "";
+          this.resetNationalSignificantNumber();
+          this.initCountryAndCallingCode(defaultCountry, defaultCallingCode);
+        }
+      }, {
+        key: "resetNationalSignificantNumber",
+        value: function resetNationalSignificantNumber() {
+          this.nationalSignificantNumber = this.getNationalDigits();
+          this.nationalSignificantNumberMatchesInput = true;
+          this.nationalPrefix = void 0;
+          this.carrierCode = void 0;
+          this.complexPrefixBeforeNationalSignificantNumber = void 0;
+        }
+      }, {
+        key: "update",
+        value: function update(properties) {
+          for (var _i = 0, _Object$keys = Object.keys(properties); _i < _Object$keys.length; _i++) {
+            var key = _Object$keys[_i];
+            this[key] = properties[key];
+          }
+        }
+      }, {
+        key: "initCountryAndCallingCode",
+        value: function initCountryAndCallingCode(country, callingCode) {
+          this.setCountry(country);
+          this.setCallingCode(callingCode);
+        }
+      }, {
+        key: "setCountry",
+        value: function setCountry(country) {
+          this.country = country;
+          this.onCountryChange(country);
+        }
+      }, {
+        key: "setCallingCode",
+        value: function setCallingCode(callingCode) {
+          this.callingCode = callingCode;
+          this.onCallingCodeChange(callingCode, this.country);
+        }
+      }, {
+        key: "startInternationalNumber",
+        value: function startInternationalNumber(country, callingCode) {
+          this.international = true;
+          this.initCountryAndCallingCode(country, callingCode);
+        }
+      }, {
+        key: "appendDigits",
+        value: function appendDigits(nextDigits) {
+          this.digits += nextDigits;
+        }
+      }, {
+        key: "appendNationalSignificantNumberDigits",
+        value: function appendNationalSignificantNumberDigits(nextDigits) {
+          this.nationalSignificantNumber += nextDigits;
+        }
+      }, {
+        key: "getNationalDigits",
+        value: function getNationalDigits() {
+          if (this.international) {
+            return this.digits.slice((this.IDDPrefix ? this.IDDPrefix.length : 0) + (this.callingCode ? this.callingCode.length : 0));
+          }
+          return this.digits;
+        }
+      }, {
+        key: "getDigitsWithoutInternationalPrefix",
+        value: function getDigitsWithoutInternationalPrefix() {
+          if (this.international) {
+            if (this.IDDPrefix) {
+              return this.digits.slice(this.IDDPrefix.length);
+            }
+          }
+          return this.digits;
+        }
+      }]);
+      return AsYouTypeState2;
+    }();
+    exports["default"] = AsYouTypeState;
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouTypeFormatter.util.js
+var require_AsYouTypeFormatter_util = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouTypeFormatter.util.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.DIGIT_PLACEHOLDER = void 0;
+    exports.closeNonPairedParens = closeNonPairedParens;
+    exports.countOccurences = countOccurences;
+    exports.cutAndStripNonPairedParens = cutAndStripNonPairedParens;
+    exports.populateTemplateWithDigits = populateTemplateWithDigits;
+    exports.repeat = repeat;
+    exports.stripNonPairedParens = stripNonPairedParens;
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    var DIGIT_PLACEHOLDER = "x";
+    exports.DIGIT_PLACEHOLDER = DIGIT_PLACEHOLDER;
+    var DIGIT_PLACEHOLDER_MATCHER = new RegExp(DIGIT_PLACEHOLDER);
+    function countOccurences(symbol, string) {
+      var count = 0;
+      for (var _iterator = _createForOfIteratorHelperLoose(string.split("")), _step; !(_step = _iterator()).done; ) {
+        var character = _step.value;
+        if (character === symbol) {
+          count++;
+        }
+      }
+      return count;
+    }
+    function repeat(string, times) {
+      if (times < 1) {
+        return "";
+      }
+      var result = "";
+      while (times > 1) {
+        if (times & 1) {
+          result += string;
+        }
+        times >>= 1;
+        string += string;
+      }
+      return result + string;
+    }
+    function cutAndStripNonPairedParens(string, cutBeforeIndex) {
+      if (string[cutBeforeIndex] === ")") {
+        cutBeforeIndex++;
+      }
+      return stripNonPairedParens(string.slice(0, cutBeforeIndex));
+    }
+    function closeNonPairedParens(template, cut_before) {
+      var retained_template = template.slice(0, cut_before);
+      var opening_braces = countOccurences("(", retained_template);
+      var closing_braces = countOccurences(")", retained_template);
+      var dangling_braces = opening_braces - closing_braces;
+      while (dangling_braces > 0 && cut_before < template.length) {
+        if (template[cut_before] === ")") {
+          dangling_braces--;
+        }
+        cut_before++;
+      }
+      return template.slice(0, cut_before);
+    }
+    function stripNonPairedParens(string) {
+      var dangling_braces = [];
+      var i = 0;
+      while (i < string.length) {
+        if (string[i] === "(") {
+          dangling_braces.push(i);
+        } else if (string[i] === ")") {
+          dangling_braces.pop();
+        }
+        i++;
+      }
+      var start = 0;
+      var cleared_string = "";
+      dangling_braces.push(string.length);
+      for (var _i = 0, _dangling_braces = dangling_braces; _i < _dangling_braces.length; _i++) {
+        var index = _dangling_braces[_i];
+        cleared_string += string.slice(start, index);
+        start = index + 1;
+      }
+      return cleared_string;
+    }
+    function populateTemplateWithDigits(template, position, digits) {
+      for (var _iterator2 = _createForOfIteratorHelperLoose(digits.split("")), _step2; !(_step2 = _iterator2()).done; ) {
+        var digit = _step2.value;
+        if (template.slice(position + 1).search(DIGIT_PLACEHOLDER_MATCHER) < 0) {
+          return;
+        }
+        position = template.search(DIGIT_PLACEHOLDER_MATCHER);
+        template = template.replace(DIGIT_PLACEHOLDER_MATCHER, digit);
+      }
+      return [template, position];
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouTypeFormatter.complete.js
+var require_AsYouTypeFormatter_complete = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouTypeFormatter.complete.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.canFormatCompleteNumber = canFormatCompleteNumber;
+    exports["default"] = formatCompleteNumber;
+    var _checkNumberLength = _interopRequireDefault(require_checkNumberLength());
+    var _parseDigits = _interopRequireDefault(require_parseDigits());
+    var _formatNationalNumberUsingFormat = _interopRequireDefault(require_formatNationalNumberUsingFormat());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function formatCompleteNumber(state, format, _ref) {
+      var metadata = _ref.metadata, shouldTryNationalPrefixFormattingRule = _ref.shouldTryNationalPrefixFormattingRule, getSeparatorAfterNationalPrefix = _ref.getSeparatorAfterNationalPrefix;
+      var matcher = new RegExp("^(?:".concat(format.pattern(), ")$"));
+      if (matcher.test(state.nationalSignificantNumber)) {
+        return formatNationalNumberWithAndWithoutNationalPrefixFormattingRule(state, format, {
+          metadata,
+          shouldTryNationalPrefixFormattingRule,
+          getSeparatorAfterNationalPrefix
+        });
+      }
+    }
+    function canFormatCompleteNumber(nationalSignificantNumber, metadata) {
+      return (0, _checkNumberLength["default"])(nationalSignificantNumber, metadata) === "IS_POSSIBLE";
+    }
+    function formatNationalNumberWithAndWithoutNationalPrefixFormattingRule(state, format, _ref2) {
+      var metadata = _ref2.metadata, shouldTryNationalPrefixFormattingRule = _ref2.shouldTryNationalPrefixFormattingRule, getSeparatorAfterNationalPrefix = _ref2.getSeparatorAfterNationalPrefix;
+      var nationalSignificantNumber = state.nationalSignificantNumber, international = state.international, nationalPrefix = state.nationalPrefix, carrierCode = state.carrierCode;
+      if (shouldTryNationalPrefixFormattingRule(format)) {
+        var formattedNumber = formatNationalNumber(state, format, {
+          useNationalPrefixFormattingRule: true,
+          getSeparatorAfterNationalPrefix,
+          metadata
+        });
+        if (formattedNumber) {
+          return formattedNumber;
+        }
+      }
+      return formatNationalNumber(state, format, {
+        useNationalPrefixFormattingRule: false,
+        getSeparatorAfterNationalPrefix,
+        metadata
+      });
+    }
+    function formatNationalNumber(state, format, _ref3) {
+      var metadata = _ref3.metadata, useNationalPrefixFormattingRule = _ref3.useNationalPrefixFormattingRule, getSeparatorAfterNationalPrefix = _ref3.getSeparatorAfterNationalPrefix;
+      var formattedNationalNumber = (0, _formatNationalNumberUsingFormat["default"])(state.nationalSignificantNumber, format, {
+        carrierCode: state.carrierCode,
+        useInternationalFormat: state.international,
+        withNationalPrefix: useNationalPrefixFormattingRule,
+        metadata
+      });
+      if (!useNationalPrefixFormattingRule) {
+        if (state.nationalPrefix) {
+          formattedNationalNumber = state.nationalPrefix + getSeparatorAfterNationalPrefix(format) + formattedNationalNumber;
+        } else if (state.complexPrefixBeforeNationalSignificantNumber) {
+          formattedNationalNumber = state.complexPrefixBeforeNationalSignificantNumber + " " + formattedNationalNumber;
+        }
+      }
+      if (isValidFormattedNationalNumber(formattedNationalNumber, state)) {
+        return formattedNationalNumber;
+      }
+    }
+    function isValidFormattedNationalNumber(formattedNationalNumber, state) {
+      return (0, _parseDigits["default"])(formattedNationalNumber) === state.getNationalDigits();
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouTypeFormatter.PatternParser.js
+var require_AsYouTypeFormatter_PatternParser = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouTypeFormatter.PatternParser.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var PatternParser = /* @__PURE__ */ function() {
+      function PatternParser2() {
+        _classCallCheck(this, PatternParser2);
+      }
+      _createClass(PatternParser2, [{
+        key: "parse",
+        value: function parse(pattern) {
+          this.context = [{
+            or: true,
+            instructions: []
+          }];
+          this.parsePattern(pattern);
+          if (this.context.length !== 1) {
+            throw new Error("Non-finalized contexts left when pattern parse ended");
+          }
+          var _this$context$ = this.context[0], branches = _this$context$.branches, instructions = _this$context$.instructions;
+          if (branches) {
+            return {
+              op: "|",
+              args: branches.concat([expandSingleElementArray(instructions)])
+            };
+          }
+          if (instructions.length === 0) {
+            throw new Error("Pattern is required");
+          }
+          if (instructions.length === 1) {
+            return instructions[0];
+          }
+          return instructions;
+        }
+      }, {
+        key: "startContext",
+        value: function startContext(context) {
+          this.context.push(context);
+        }
+      }, {
+        key: "endContext",
+        value: function endContext() {
+          this.context.pop();
+        }
+      }, {
+        key: "getContext",
+        value: function getContext() {
+          return this.context[this.context.length - 1];
+        }
+      }, {
+        key: "parsePattern",
+        value: function parsePattern(pattern) {
+          if (!pattern) {
+            throw new Error("Pattern is required");
+          }
+          var match = pattern.match(OPERATOR);
+          if (!match) {
+            if (ILLEGAL_CHARACTER_REGEXP.test(pattern)) {
+              throw new Error("Illegal characters found in a pattern: ".concat(pattern));
+            }
+            this.getContext().instructions = this.getContext().instructions.concat(pattern.split(""));
+            return;
+          }
+          var operator = match[1];
+          var before = pattern.slice(0, match.index);
+          var rightPart = pattern.slice(match.index + operator.length);
+          switch (operator) {
+            case "(?:":
+              if (before) {
+                this.parsePattern(before);
+              }
+              this.startContext({
+                or: true,
+                instructions: [],
+                branches: []
+              });
+              break;
+            case ")":
+              if (!this.getContext().or) {
+                throw new Error('")" operator must be preceded by "(?:" operator');
+              }
+              if (before) {
+                this.parsePattern(before);
+              }
+              if (this.getContext().instructions.length === 0) {
+                throw new Error('No instructions found after "|" operator in an "or" group');
+              }
+              var _this$getContext = this.getContext(), branches = _this$getContext.branches;
+              branches.push(expandSingleElementArray(this.getContext().instructions));
+              this.endContext();
+              this.getContext().instructions.push({
+                op: "|",
+                args: branches
+              });
+              break;
+            case "|":
+              if (!this.getContext().or) {
+                throw new Error('"|" operator can only be used inside "or" groups');
+              }
+              if (before) {
+                this.parsePattern(before);
+              }
+              if (!this.getContext().branches) {
+                if (this.context.length === 1) {
+                  this.getContext().branches = [];
+                } else {
+                  throw new Error('"branches" not found in an "or" group context');
+                }
+              }
+              this.getContext().branches.push(expandSingleElementArray(this.getContext().instructions));
+              this.getContext().instructions = [];
+              break;
+            case "[":
+              if (before) {
+                this.parsePattern(before);
+              }
+              this.startContext({
+                oneOfSet: true
+              });
+              break;
+            case "]":
+              if (!this.getContext().oneOfSet) {
+                throw new Error('"]" operator must be preceded by "[" operator');
+              }
+              this.endContext();
+              this.getContext().instructions.push({
+                op: "[]",
+                args: parseOneOfSet(before)
+              });
+              break;
+            default:
+              throw new Error("Unknown operator: ".concat(operator));
+          }
+          if (rightPart) {
+            this.parsePattern(rightPart);
+          }
+        }
+      }]);
+      return PatternParser2;
+    }();
+    exports["default"] = PatternParser;
+    function parseOneOfSet(pattern) {
+      var values = [];
+      var i = 0;
+      while (i < pattern.length) {
+        if (pattern[i] === "-") {
+          if (i === 0 || i === pattern.length - 1) {
+            throw new Error("Couldn't parse a one-of set pattern: ".concat(pattern));
+          }
+          var prevValue = pattern[i - 1].charCodeAt(0) + 1;
+          var nextValue = pattern[i + 1].charCodeAt(0) - 1;
+          var value = prevValue;
+          while (value <= nextValue) {
+            values.push(String.fromCharCode(value));
+            value++;
+          }
+        } else {
+          values.push(pattern[i]);
+        }
+        i++;
+      }
+      return values;
+    }
+    var ILLEGAL_CHARACTER_REGEXP = /[\(\)\[\]\?\:\|]/;
+    var OPERATOR = new RegExp(
+      "(\\||\\(\\?\\:|\\)|\\[|\\])"
+    );
+    function expandSingleElementArray(array) {
+      if (array.length === 1) {
+        return array[0];
+      }
+      return array;
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouTypeFormatter.PatternMatcher.js
+var require_AsYouTypeFormatter_PatternMatcher = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouTypeFormatter.PatternMatcher.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    var _AsYouTypeFormatterPatternParser = _interopRequireDefault(require_AsYouTypeFormatter_PatternParser());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var PatternMatcher = /* @__PURE__ */ function() {
+      function PatternMatcher2(pattern) {
+        _classCallCheck(this, PatternMatcher2);
+        this.matchTree = new _AsYouTypeFormatterPatternParser["default"]().parse(pattern);
+      }
+      _createClass(PatternMatcher2, [{
+        key: "match",
+        value: function match(string) {
+          var _ref = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, allowOverflow = _ref.allowOverflow;
+          if (!string) {
+            throw new Error("String is required");
+          }
+          var result = _match(string.split(""), this.matchTree, true);
+          if (result && result.match) {
+            delete result.matchedChars;
+          }
+          if (result && result.overflow) {
+            if (!allowOverflow) {
+              return;
+            }
+          }
+          return result;
+        }
+      }]);
+      return PatternMatcher2;
+    }();
+    exports["default"] = PatternMatcher;
+    function _match(characters, tree, last) {
+      if (typeof tree === "string") {
+        var characterString = characters.join("");
+        if (tree.indexOf(characterString) === 0) {
+          if (characters.length === tree.length) {
+            return {
+              match: true,
+              matchedChars: characters
+            };
+          }
+          return {
+            partialMatch: true
+          };
+        }
+        if (characterString.indexOf(tree) === 0) {
+          if (last) {
+            if (characters.length > tree.length) {
+              return {
+                overflow: true
+              };
+            }
+          }
+          return {
+            match: true,
+            matchedChars: characters.slice(0, tree.length)
+          };
+        }
+        return;
+      }
+      if (Array.isArray(tree)) {
+        var restCharacters = characters.slice();
+        var i = 0;
+        while (i < tree.length) {
+          var subtree = tree[i];
+          var result = _match(restCharacters, subtree, last && i === tree.length - 1);
+          if (!result) {
+            return;
+          } else if (result.overflow) {
+            return result;
+          } else if (result.match) {
+            restCharacters = restCharacters.slice(result.matchedChars.length);
+            if (restCharacters.length === 0) {
+              if (i === tree.length - 1) {
+                return {
+                  match: true,
+                  matchedChars: characters
+                };
+              } else {
+                return {
+                  partialMatch: true
+                };
+              }
+            }
+          } else {
+            if (result.partialMatch) {
+              return {
+                partialMatch: true
+              };
+            } else {
+              throw new Error("Unsupported match result:\n".concat(JSON.stringify(result, null, 2)));
+            }
+          }
+          i++;
+        }
+        if (last) {
+          return {
+            overflow: true
+          };
+        }
+        return {
+          match: true,
+          matchedChars: characters.slice(0, characters.length - restCharacters.length)
+        };
+      }
+      switch (tree.op) {
+        case "|":
+          var partialMatch;
+          for (var _iterator = _createForOfIteratorHelperLoose(tree.args), _step; !(_step = _iterator()).done; ) {
+            var branch = _step.value;
+            var _result = _match(characters, branch, last);
+            if (_result) {
+              if (_result.overflow) {
+                return _result;
+              } else if (_result.match) {
+                return {
+                  match: true,
+                  matchedChars: _result.matchedChars
+                };
+              } else {
+                if (_result.partialMatch) {
+                  partialMatch = true;
+                } else {
+                  throw new Error("Unsupported match result:\n".concat(JSON.stringify(_result, null, 2)));
+                }
+              }
+            }
+          }
+          if (partialMatch) {
+            return {
+              partialMatch: true
+            };
+          }
+          return;
+        case "[]":
+          for (var _iterator2 = _createForOfIteratorHelperLoose(tree.args), _step2; !(_step2 = _iterator2()).done; ) {
+            var _char = _step2.value;
+            if (characters[0] === _char) {
+              if (characters.length === 1) {
+                return {
+                  match: true,
+                  matchedChars: characters
+                };
+              }
+              if (last) {
+                return {
+                  overflow: true
+                };
+              }
+              return {
+                match: true,
+                matchedChars: [_char]
+              };
+            }
+          }
+          return;
+        default:
+          throw new Error("Unsupported instruction tree: ".concat(tree));
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouTypeFormatter.js
+var require_AsYouTypeFormatter = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouTypeFormatter.js"(exports) {
+    "use strict";
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    Object.defineProperty(exports, "DIGIT_PLACEHOLDER", {
+      enumerable: true,
+      get: function get() {
+        return _AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER;
+      }
+    });
+    exports["default"] = void 0;
+    var _AsYouTypeFormatterUtil = require_AsYouTypeFormatter_util();
+    var _AsYouTypeFormatterComplete = _interopRequireWildcard(require_AsYouTypeFormatter_complete());
+    var _AsYouTypeFormatterPatternMatcher = _interopRequireDefault(require_AsYouTypeFormatter_PatternMatcher());
+    var _parseDigits = _interopRequireDefault(require_parseDigits());
+    var _formatNationalNumberUsingFormat = require_formatNationalNumberUsingFormat();
+    var _constants = require_constants2();
+    var _applyInternationalSeparatorStyle = _interopRequireDefault(require_applyInternationalSeparatorStyle());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _getRequireWildcardCache(nodeInterop) {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cacheBabelInterop = /* @__PURE__ */ new WeakMap();
+      var cacheNodeInterop = /* @__PURE__ */ new WeakMap();
+      return (_getRequireWildcardCache = function _getRequireWildcardCache2(nodeInterop2) {
+        return nodeInterop2 ? cacheNodeInterop : cacheBabelInterop;
+      })(nodeInterop);
+    }
+    function _interopRequireWildcard(obj, nodeInterop) {
+      if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+        return { "default": obj };
+      }
+      var cache = _getRequireWildcardCache(nodeInterop);
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key in obj) {
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      newObj["default"] = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+      var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+      if (it)
+        return (it = it.call(o)).next.bind(it);
+      if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+        if (it)
+          o = it;
+        var i = 0;
+        return function() {
+          if (i >= o.length)
+            return { done: true };
+          return { done: false, value: o[i++] };
+        };
+      }
+      throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var DUMMY_DIGIT = "9";
+    var LONGEST_NATIONAL_PHONE_NUMBER_LENGTH = 15;
+    var LONGEST_DUMMY_PHONE_NUMBER = (0, _AsYouTypeFormatterUtil.repeat)(DUMMY_DIGIT, LONGEST_NATIONAL_PHONE_NUMBER_LENGTH);
+    var NATIONAL_PREFIX_SEPARATORS_PATTERN = /[- ]/;
+    var SUPPORT_LEGACY_FORMATTING_PATTERNS = true;
+    var CREATE_CHARACTER_CLASS_PATTERN = SUPPORT_LEGACY_FORMATTING_PATTERNS && function() {
+      return /\[([^\[\]])*\]/g;
+    };
+    var CREATE_STANDALONE_DIGIT_PATTERN = SUPPORT_LEGACY_FORMATTING_PATTERNS && function() {
+      return /\d(?=[^,}][^,}])/g;
+    };
+    var NON_ALTERING_FORMAT_REG_EXP = new RegExp("[" + _constants.VALID_PUNCTUATION + "]*\\$1[" + _constants.VALID_PUNCTUATION + "]*(\\$\\d[" + _constants.VALID_PUNCTUATION + "]*)*$");
+    var MIN_LEADING_DIGITS_LENGTH = 3;
+    var AsYouTypeFormatter = /* @__PURE__ */ function() {
+      function AsYouTypeFormatter2(_ref) {
+        var state = _ref.state, metadata = _ref.metadata;
+        _classCallCheck(this, AsYouTypeFormatter2);
+        this.metadata = metadata;
+        this.resetFormat();
+      }
+      _createClass(AsYouTypeFormatter2, [{
+        key: "resetFormat",
+        value: function resetFormat() {
+          this.chosenFormat = void 0;
+          this.template = void 0;
+          this.nationalNumberTemplate = void 0;
+          this.populatedNationalNumberTemplate = void 0;
+          this.populatedNationalNumberTemplatePosition = -1;
+        }
+      }, {
+        key: "reset",
+        value: function reset(numberingPlan, state) {
+          this.resetFormat();
+          if (numberingPlan) {
+            this.isNANP = numberingPlan.callingCode() === "1";
+            this.matchingFormats = numberingPlan.formats();
+            if (state.nationalSignificantNumber) {
+              this.narrowDownMatchingFormats(state);
+            }
+          } else {
+            this.isNANP = void 0;
+            this.matchingFormats = [];
+          }
+        }
+      }, {
+        key: "format",
+        value: function format(nextDigits, state) {
+          var _this = this;
+          if ((0, _AsYouTypeFormatterComplete.canFormatCompleteNumber)(state.nationalSignificantNumber, this.metadata)) {
+            for (var _iterator = _createForOfIteratorHelperLoose(this.matchingFormats), _step; !(_step = _iterator()).done; ) {
+              var format2 = _step.value;
+              var formattedCompleteNumber = (0, _AsYouTypeFormatterComplete["default"])(state, format2, {
+                metadata: this.metadata,
+                shouldTryNationalPrefixFormattingRule: function shouldTryNationalPrefixFormattingRule(format3) {
+                  return _this.shouldTryNationalPrefixFormattingRule(format3, {
+                    international: state.international,
+                    nationalPrefix: state.nationalPrefix
+                  });
+                },
+                getSeparatorAfterNationalPrefix: function getSeparatorAfterNationalPrefix(format3) {
+                  return _this.getSeparatorAfterNationalPrefix(format3);
+                }
+              });
+              if (formattedCompleteNumber) {
+                this.resetFormat();
+                this.chosenFormat = format2;
+                this.setNationalNumberTemplate(formattedCompleteNumber.replace(/\d/g, _AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER), state);
+                this.populatedNationalNumberTemplate = formattedCompleteNumber;
+                this.populatedNationalNumberTemplatePosition = this.template.lastIndexOf(_AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER);
+                return formattedCompleteNumber;
+              }
+            }
+          }
+          return this.formatNationalNumberWithNextDigits(nextDigits, state);
+        }
+      }, {
+        key: "formatNationalNumberWithNextDigits",
+        value: function formatNationalNumberWithNextDigits(nextDigits, state) {
+          var previouslyChosenFormat = this.chosenFormat;
+          var newlyChosenFormat = this.chooseFormat(state);
+          if (newlyChosenFormat) {
+            if (newlyChosenFormat === previouslyChosenFormat) {
+              return this.formatNextNationalNumberDigits(nextDigits);
+            } else {
+              return this.formatNextNationalNumberDigits(state.getNationalDigits());
+            }
+          }
+        }
+      }, {
+        key: "narrowDownMatchingFormats",
+        value: function narrowDownMatchingFormats(_ref2) {
+          var _this2 = this;
+          var nationalSignificantNumber = _ref2.nationalSignificantNumber, nationalPrefix = _ref2.nationalPrefix, international = _ref2.international;
+          var leadingDigits = nationalSignificantNumber;
+          var leadingDigitsPatternIndex = leadingDigits.length - MIN_LEADING_DIGITS_LENGTH;
+          if (leadingDigitsPatternIndex < 0) {
+            leadingDigitsPatternIndex = 0;
+          }
+          this.matchingFormats = this.matchingFormats.filter(function(format) {
+            return _this2.formatSuits(format, international, nationalPrefix) && _this2.formatMatches(format, leadingDigits, leadingDigitsPatternIndex);
+          });
+          if (this.chosenFormat && this.matchingFormats.indexOf(this.chosenFormat) === -1) {
+            this.resetFormat();
+          }
+        }
+      }, {
+        key: "formatSuits",
+        value: function formatSuits(format, international, nationalPrefix) {
+          if (nationalPrefix && !format.usesNationalPrefix() && !format.nationalPrefixIsOptionalWhenFormattingInNationalFormat()) {
+            return false;
+          }
+          if (!international && !nationalPrefix && format.nationalPrefixIsMandatoryWhenFormattingInNationalFormat()) {
+            return false;
+          }
+          return true;
+        }
+      }, {
+        key: "formatMatches",
+        value: function formatMatches(format, leadingDigits, leadingDigitsPatternIndex) {
+          var leadingDigitsPatternsCount = format.leadingDigitsPatterns().length;
+          if (leadingDigitsPatternsCount === 0) {
+            return true;
+          }
+          leadingDigitsPatternIndex = Math.min(leadingDigitsPatternIndex, leadingDigitsPatternsCount - 1);
+          var leadingDigitsPattern = format.leadingDigitsPatterns()[leadingDigitsPatternIndex];
+          if (leadingDigits.length < MIN_LEADING_DIGITS_LENGTH) {
+            try {
+              return new _AsYouTypeFormatterPatternMatcher["default"](leadingDigitsPattern).match(leadingDigits, {
+                allowOverflow: true
+              }) !== void 0;
+            } catch (error) {
+              console.error(error);
+              return true;
+            }
+          }
+          return new RegExp("^(".concat(leadingDigitsPattern, ")")).test(leadingDigits);
+        }
+      }, {
+        key: "getFormatFormat",
+        value: function getFormatFormat(format, international) {
+          return international ? format.internationalFormat() : format.format();
+        }
+      }, {
+        key: "chooseFormat",
+        value: function chooseFormat(state) {
+          var _this3 = this;
+          var _loop = function _loop2() {
+            var format = _step2.value;
+            if (_this3.chosenFormat === format) {
+              return "break";
+            }
+            if (!NON_ALTERING_FORMAT_REG_EXP.test(_this3.getFormatFormat(format, state.international))) {
+              return "continue";
+            }
+            if (!_this3.createTemplateForFormat(format, state)) {
+              _this3.matchingFormats = _this3.matchingFormats.filter(function(_) {
+                return _ !== format;
+              });
+              return "continue";
+            }
+            _this3.chosenFormat = format;
+            return "break";
+          };
+          for (var _iterator2 = _createForOfIteratorHelperLoose(this.matchingFormats.slice()), _step2; !(_step2 = _iterator2()).done; ) {
+            var _ret = _loop();
+            if (_ret === "break")
+              break;
+            if (_ret === "continue")
+              continue;
+          }
+          if (!this.chosenFormat) {
+            this.resetFormat();
+          }
+          return this.chosenFormat;
+        }
+      }, {
+        key: "createTemplateForFormat",
+        value: function createTemplateForFormat(format, state) {
+          if (SUPPORT_LEGACY_FORMATTING_PATTERNS && format.pattern().indexOf("|") >= 0) {
+            return;
+          }
+          var template = this.getTemplateForFormat(format, state);
+          if (template) {
+            this.setNationalNumberTemplate(template, state);
+            return true;
+          }
+        }
+      }, {
+        key: "getSeparatorAfterNationalPrefix",
+        value: function getSeparatorAfterNationalPrefix(format) {
+          if (this.isNANP) {
+            return " ";
+          }
+          if (format && format.nationalPrefixFormattingRule() && NATIONAL_PREFIX_SEPARATORS_PATTERN.test(format.nationalPrefixFormattingRule())) {
+            return " ";
+          }
+          return "";
+        }
+      }, {
+        key: "getInternationalPrefixBeforeCountryCallingCode",
+        value: function getInternationalPrefixBeforeCountryCallingCode(_ref3, options) {
+          var IDDPrefix = _ref3.IDDPrefix, missingPlus = _ref3.missingPlus;
+          if (IDDPrefix) {
+            return options && options.spacing === false ? IDDPrefix : IDDPrefix + " ";
+          }
+          if (missingPlus) {
+            return "";
+          }
+          return "+";
+        }
+      }, {
+        key: "getTemplate",
+        value: function getTemplate(state) {
+          if (!this.template) {
+            return;
+          }
+          var index = -1;
+          var i = 0;
+          var internationalPrefix = state.international ? this.getInternationalPrefixBeforeCountryCallingCode(state, {
+            spacing: false
+          }) : "";
+          while (i < internationalPrefix.length + state.getDigitsWithoutInternationalPrefix().length) {
+            index = this.template.indexOf(_AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER, index + 1);
+            i++;
+          }
+          return (0, _AsYouTypeFormatterUtil.cutAndStripNonPairedParens)(this.template, index + 1);
+        }
+      }, {
+        key: "setNationalNumberTemplate",
+        value: function setNationalNumberTemplate(template, state) {
+          this.nationalNumberTemplate = template;
+          this.populatedNationalNumberTemplate = template;
+          this.populatedNationalNumberTemplatePosition = -1;
+          if (state.international) {
+            this.template = this.getInternationalPrefixBeforeCountryCallingCode(state).replace(/[\d\+]/g, _AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER) + (0, _AsYouTypeFormatterUtil.repeat)(_AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER, state.callingCode.length) + " " + template;
+          } else {
+            this.template = template;
+          }
+        }
+      }, {
+        key: "getTemplateForFormat",
+        value: function getTemplateForFormat(format, _ref4) {
+          var nationalSignificantNumber = _ref4.nationalSignificantNumber, international = _ref4.international, nationalPrefix = _ref4.nationalPrefix, complexPrefixBeforeNationalSignificantNumber = _ref4.complexPrefixBeforeNationalSignificantNumber;
+          var pattern = format.pattern();
+          if (SUPPORT_LEGACY_FORMATTING_PATTERNS) {
+            pattern = pattern.replace(CREATE_CHARACTER_CLASS_PATTERN(), "\\d").replace(CREATE_STANDALONE_DIGIT_PATTERN(), "\\d");
+          }
+          var digits = LONGEST_DUMMY_PHONE_NUMBER.match(pattern)[0];
+          if (nationalSignificantNumber.length > digits.length) {
+            return;
+          }
+          var strictPattern = new RegExp("^" + pattern + "$");
+          var nationalNumberDummyDigits = nationalSignificantNumber.replace(/\d/g, DUMMY_DIGIT);
+          if (strictPattern.test(nationalNumberDummyDigits)) {
+            digits = nationalNumberDummyDigits;
+          }
+          var numberFormat = this.getFormatFormat(format, international);
+          var nationalPrefixIncludedInTemplate;
+          if (this.shouldTryNationalPrefixFormattingRule(format, {
+            international,
+            nationalPrefix
+          })) {
+            var numberFormatWithNationalPrefix = numberFormat.replace(_formatNationalNumberUsingFormat.FIRST_GROUP_PATTERN, format.nationalPrefixFormattingRule());
+            if ((0, _parseDigits["default"])(format.nationalPrefixFormattingRule()) === (nationalPrefix || "") + (0, _parseDigits["default"])("$1")) {
+              numberFormat = numberFormatWithNationalPrefix;
+              nationalPrefixIncludedInTemplate = true;
+              if (nationalPrefix) {
+                var i = nationalPrefix.length;
+                while (i > 0) {
+                  numberFormat = numberFormat.replace(/\d/, _AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER);
+                  i--;
+                }
+              }
+            }
+          }
+          var template = digits.replace(new RegExp(pattern), numberFormat).replace(new RegExp(DUMMY_DIGIT, "g"), _AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER);
+          if (!nationalPrefixIncludedInTemplate) {
+            if (complexPrefixBeforeNationalSignificantNumber) {
+              template = (0, _AsYouTypeFormatterUtil.repeat)(_AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER, complexPrefixBeforeNationalSignificantNumber.length) + " " + template;
+            } else if (nationalPrefix) {
+              template = (0, _AsYouTypeFormatterUtil.repeat)(_AsYouTypeFormatterUtil.DIGIT_PLACEHOLDER, nationalPrefix.length) + this.getSeparatorAfterNationalPrefix(format) + template;
+            }
+          }
+          if (international) {
+            template = (0, _applyInternationalSeparatorStyle["default"])(template);
+          }
+          return template;
+        }
+      }, {
+        key: "formatNextNationalNumberDigits",
+        value: function formatNextNationalNumberDigits(digits) {
+          var result = (0, _AsYouTypeFormatterUtil.populateTemplateWithDigits)(this.populatedNationalNumberTemplate, this.populatedNationalNumberTemplatePosition, digits);
+          if (!result) {
+            this.resetFormat();
+            return;
+          }
+          this.populatedNationalNumberTemplate = result[0];
+          this.populatedNationalNumberTemplatePosition = result[1];
+          return (0, _AsYouTypeFormatterUtil.cutAndStripNonPairedParens)(this.populatedNationalNumberTemplate, this.populatedNationalNumberTemplatePosition + 1);
+        }
+      }, {
+        key: "shouldTryNationalPrefixFormattingRule",
+        value: function shouldTryNationalPrefixFormattingRule(format, _ref5) {
+          var international = _ref5.international, nationalPrefix = _ref5.nationalPrefix;
+          if (format.nationalPrefixFormattingRule()) {
+            var usesNationalPrefix = format.usesNationalPrefix();
+            if (usesNationalPrefix && nationalPrefix || !usesNationalPrefix && !international) {
+              return true;
+            }
+          }
+        }
+      }]);
+      return AsYouTypeFormatter2;
+    }();
+    exports["default"] = AsYouTypeFormatter;
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouTypeParser.js
+var require_AsYouTypeParser = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouTypeParser.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    exports.extractFormattedDigitsAndPlus = extractFormattedDigitsAndPlus;
+    var _extractCountryCallingCode2 = _interopRequireDefault(require_extractCountryCallingCode());
+    var _extractCountryCallingCodeFromInternationalNumberWithoutPlusSign = _interopRequireDefault(require_extractCountryCallingCodeFromInternationalNumberWithoutPlusSign());
+    var _extractNationalNumberFromPossiblyIncompleteNumber = _interopRequireDefault(require_extractNationalNumberFromPossiblyIncompleteNumber());
+    var _stripIddPrefix = _interopRequireDefault(require_stripIddPrefix());
+    var _parseDigits = _interopRequireDefault(require_parseDigits());
+    var _constants = require_constants2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+    }
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function _iterableToArrayLimit(arr, i) {
+      var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+      if (_i == null)
+        return;
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _s, _e;
+      try {
+        for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+          if (i && _arr.length === i)
+            break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"] != null)
+            _i["return"]();
+        } finally {
+          if (_d)
+            throw _e;
+        }
+      }
+      return _arr;
+    }
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr))
+        return arr;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var VALID_FORMATTED_PHONE_NUMBER_DIGITS_PART = "[" + _constants.VALID_PUNCTUATION + _constants.VALID_DIGITS + "]+";
+    var VALID_FORMATTED_PHONE_NUMBER_DIGITS_PART_PATTERN = new RegExp("^" + VALID_FORMATTED_PHONE_NUMBER_DIGITS_PART + "$", "i");
+    var VALID_FORMATTED_PHONE_NUMBER_PART = "(?:[" + _constants.PLUS_CHARS + "][" + _constants.VALID_PUNCTUATION + _constants.VALID_DIGITS + "]*|[" + _constants.VALID_PUNCTUATION + _constants.VALID_DIGITS + "]+)";
+    var AFTER_PHONE_NUMBER_DIGITS_END_PATTERN = new RegExp("[^" + _constants.VALID_PUNCTUATION + _constants.VALID_DIGITS + "]+.*$");
+    var COMPLEX_NATIONAL_PREFIX = /[^\d\[\]]/;
+    var AsYouTypeParser = /* @__PURE__ */ function() {
+      function AsYouTypeParser2(_ref) {
+        var defaultCountry = _ref.defaultCountry, defaultCallingCode = _ref.defaultCallingCode, metadata = _ref.metadata, onNationalSignificantNumberChange = _ref.onNationalSignificantNumberChange;
+        _classCallCheck(this, AsYouTypeParser2);
+        this.defaultCountry = defaultCountry;
+        this.defaultCallingCode = defaultCallingCode;
+        this.metadata = metadata;
+        this.onNationalSignificantNumberChange = onNationalSignificantNumberChange;
+      }
+      _createClass(AsYouTypeParser2, [{
+        key: "input",
+        value: function input(text, state) {
+          var _extractFormattedDigi = extractFormattedDigitsAndPlus(text), _extractFormattedDigi2 = _slicedToArray(_extractFormattedDigi, 2), formattedDigits = _extractFormattedDigi2[0], hasPlus = _extractFormattedDigi2[1];
+          var digits = (0, _parseDigits["default"])(formattedDigits);
+          var justLeadingPlus;
+          if (hasPlus) {
+            if (!state.digits) {
+              state.startInternationalNumber();
+              if (!digits) {
+                justLeadingPlus = true;
+              }
+            }
+          }
+          if (digits) {
+            this.inputDigits(digits, state);
+          }
+          return {
+            digits,
+            justLeadingPlus
+          };
+        }
+      }, {
+        key: "inputDigits",
+        value: function inputDigits(nextDigits, state) {
+          var digits = state.digits;
+          var hasReceivedThreeLeadingDigits = digits.length < 3 && digits.length + nextDigits.length >= 3;
+          state.appendDigits(nextDigits);
+          if (hasReceivedThreeLeadingDigits) {
+            this.extractIddPrefix(state);
+          }
+          if (this.isWaitingForCountryCallingCode(state)) {
+            if (!this.extractCountryCallingCode(state)) {
+              return;
+            }
+          } else {
+            state.appendNationalSignificantNumberDigits(nextDigits);
+          }
+          if (!state.international) {
+            if (!this.hasExtractedNationalSignificantNumber) {
+              this.extractNationalSignificantNumber(state.getNationalDigits(), function(stateUpdate) {
+                return state.update(stateUpdate);
+              });
+            }
+          }
+        }
+      }, {
+        key: "isWaitingForCountryCallingCode",
+        value: function isWaitingForCountryCallingCode(_ref2) {
+          var international = _ref2.international, callingCode = _ref2.callingCode;
+          return international && !callingCode;
+        }
+      }, {
+        key: "extractCountryCallingCode",
+        value: function extractCountryCallingCode(state) {
+          var _extractCountryCallin = (0, _extractCountryCallingCode2["default"])("+" + state.getDigitsWithoutInternationalPrefix(), this.defaultCountry, this.defaultCallingCode, this.metadata.metadata), countryCallingCode = _extractCountryCallin.countryCallingCode, number = _extractCountryCallin.number;
+          if (countryCallingCode) {
+            state.setCallingCode(countryCallingCode);
+            state.update({
+              nationalSignificantNumber: number
+            });
+            return true;
+          }
+        }
+      }, {
+        key: "reset",
+        value: function reset(numberingPlan) {
+          if (numberingPlan) {
+            this.hasSelectedNumberingPlan = true;
+            var nationalPrefixForParsing = numberingPlan._nationalPrefixForParsing();
+            this.couldPossiblyExtractAnotherNationalSignificantNumber = nationalPrefixForParsing && COMPLEX_NATIONAL_PREFIX.test(nationalPrefixForParsing);
+          } else {
+            this.hasSelectedNumberingPlan = void 0;
+            this.couldPossiblyExtractAnotherNationalSignificantNumber = void 0;
+          }
+        }
+      }, {
+        key: "extractNationalSignificantNumber",
+        value: function extractNationalSignificantNumber(nationalDigits, setState) {
+          if (!this.hasSelectedNumberingPlan) {
+            return;
+          }
+          var _extractNationalNumbe = (0, _extractNationalNumberFromPossiblyIncompleteNumber["default"])(nationalDigits, this.metadata), nationalPrefix = _extractNationalNumbe.nationalPrefix, nationalNumber = _extractNationalNumbe.nationalNumber, carrierCode = _extractNationalNumbe.carrierCode;
+          if (nationalNumber === nationalDigits) {
+            return;
+          }
+          this.onExtractedNationalNumber(nationalPrefix, carrierCode, nationalNumber, nationalDigits, setState);
+          return true;
+        }
+      }, {
+        key: "extractAnotherNationalSignificantNumber",
+        value: function extractAnotherNationalSignificantNumber(nationalDigits, prevNationalSignificantNumber, setState) {
+          if (!this.hasExtractedNationalSignificantNumber) {
+            return this.extractNationalSignificantNumber(nationalDigits, setState);
+          }
+          if (!this.couldPossiblyExtractAnotherNationalSignificantNumber) {
+            return;
+          }
+          var _extractNationalNumbe2 = (0, _extractNationalNumberFromPossiblyIncompleteNumber["default"])(nationalDigits, this.metadata), nationalPrefix = _extractNationalNumbe2.nationalPrefix, nationalNumber = _extractNationalNumbe2.nationalNumber, carrierCode = _extractNationalNumbe2.carrierCode;
+          if (nationalNumber === prevNationalSignificantNumber) {
+            return;
+          }
+          this.onExtractedNationalNumber(nationalPrefix, carrierCode, nationalNumber, nationalDigits, setState);
+          return true;
+        }
+      }, {
+        key: "onExtractedNationalNumber",
+        value: function onExtractedNationalNumber(nationalPrefix, carrierCode, nationalSignificantNumber, nationalDigits, setState) {
+          var complexPrefixBeforeNationalSignificantNumber;
+          var nationalSignificantNumberMatchesInput;
+          var nationalSignificantNumberIndex = nationalDigits.lastIndexOf(nationalSignificantNumber);
+          if (nationalSignificantNumberIndex >= 0 && nationalSignificantNumberIndex === nationalDigits.length - nationalSignificantNumber.length) {
+            nationalSignificantNumberMatchesInput = true;
+            var prefixBeforeNationalNumber = nationalDigits.slice(0, nationalSignificantNumberIndex);
+            if (prefixBeforeNationalNumber !== nationalPrefix) {
+              complexPrefixBeforeNationalSignificantNumber = prefixBeforeNationalNumber;
+            }
+          }
+          setState({
+            nationalPrefix,
+            carrierCode,
+            nationalSignificantNumber,
+            nationalSignificantNumberMatchesInput,
+            complexPrefixBeforeNationalSignificantNumber
+          });
+          this.hasExtractedNationalSignificantNumber = true;
+          this.onNationalSignificantNumberChange();
+        }
+      }, {
+        key: "reExtractNationalSignificantNumber",
+        value: function reExtractNationalSignificantNumber(state) {
+          if (this.extractAnotherNationalSignificantNumber(state.getNationalDigits(), state.nationalSignificantNumber, function(stateUpdate) {
+            return state.update(stateUpdate);
+          })) {
+            return true;
+          }
+          if (this.extractIddPrefix(state)) {
+            this.extractCallingCodeAndNationalSignificantNumber(state);
+            return true;
+          }
+          if (this.fixMissingPlus(state)) {
+            this.extractCallingCodeAndNationalSignificantNumber(state);
+            return true;
+          }
+        }
+      }, {
+        key: "extractIddPrefix",
+        value: function extractIddPrefix(state) {
+          var international = state.international, IDDPrefix = state.IDDPrefix, digits = state.digits, nationalSignificantNumber = state.nationalSignificantNumber;
+          if (international || IDDPrefix) {
+            return;
+          }
+          var numberWithoutIDD = (0, _stripIddPrefix["default"])(digits, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata);
+          if (numberWithoutIDD !== void 0 && numberWithoutIDD !== digits) {
+            state.update({
+              IDDPrefix: digits.slice(0, digits.length - numberWithoutIDD.length)
+            });
+            this.startInternationalNumber(state, {
+              country: void 0,
+              callingCode: void 0
+            });
+            return true;
+          }
+        }
+      }, {
+        key: "fixMissingPlus",
+        value: function fixMissingPlus(state) {
+          if (!state.international) {
+            var _extractCountryCallin2 = (0, _extractCountryCallingCodeFromInternationalNumberWithoutPlusSign["default"])(state.digits, this.defaultCountry, this.defaultCallingCode, this.metadata.metadata), newCallingCode = _extractCountryCallin2.countryCallingCode, number = _extractCountryCallin2.number;
+            if (newCallingCode) {
+              state.update({
+                missingPlus: true
+              });
+              this.startInternationalNumber(state, {
+                country: state.country,
+                callingCode: newCallingCode
+              });
+              return true;
+            }
+          }
+        }
+      }, {
+        key: "startInternationalNumber",
+        value: function startInternationalNumber(state, _ref3) {
+          var country = _ref3.country, callingCode = _ref3.callingCode;
+          state.startInternationalNumber(country, callingCode);
+          if (state.nationalSignificantNumber) {
+            state.resetNationalSignificantNumber();
+            this.onNationalSignificantNumberChange();
+            this.hasExtractedNationalSignificantNumber = void 0;
+          }
+        }
+      }, {
+        key: "extractCallingCodeAndNationalSignificantNumber",
+        value: function extractCallingCodeAndNationalSignificantNumber(state) {
+          if (this.extractCountryCallingCode(state)) {
+            this.extractNationalSignificantNumber(state.getNationalDigits(), function(stateUpdate) {
+              return state.update(stateUpdate);
+            });
+          }
+        }
+      }]);
+      return AsYouTypeParser2;
+    }();
+    exports["default"] = AsYouTypeParser;
+    function extractFormattedPhoneNumber(text) {
+      var startsAt = text.search(VALID_FORMATTED_PHONE_NUMBER_PART);
+      if (startsAt < 0) {
+        return;
+      }
+      text = text.slice(startsAt);
+      var hasPlus;
+      if (text[0] === "+") {
+        hasPlus = true;
+        text = text.slice("+".length);
+      }
+      text = text.replace(AFTER_PHONE_NUMBER_DIGITS_END_PATTERN, "");
+      if (hasPlus) {
+        text = "+" + text;
+      }
+      return text;
+    }
+    function _extractFormattedDigitsAndPlus(text) {
+      var extractedNumber = extractFormattedPhoneNumber(text) || "";
+      if (extractedNumber[0] === "+") {
+        return [extractedNumber.slice("+".length), true];
+      }
+      return [extractedNumber];
+    }
+    function extractFormattedDigitsAndPlus(text) {
+      var _extractFormattedDigi3 = _extractFormattedDigitsAndPlus(text), _extractFormattedDigi4 = _slicedToArray(_extractFormattedDigi3, 2), formattedDigits = _extractFormattedDigi4[0], hasPlus = _extractFormattedDigi4[1];
+      if (!VALID_FORMATTED_PHONE_NUMBER_DIGITS_PART_PATTERN.test(formattedDigits)) {
+        formattedDigits = "";
+      }
+      return [formattedDigits, hasPlus];
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/AsYouType.js
+var require_AsYouType = __commonJS({
+  "node_modules/libphonenumber-js/build/AsYouType.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = void 0;
+    var _metadata = _interopRequireDefault(require_metadata());
+    var _PhoneNumber = _interopRequireDefault(require_PhoneNumber());
+    var _AsYouTypeState = _interopRequireDefault(require_AsYouTypeState());
+    var _AsYouTypeFormatter = _interopRequireWildcard(require_AsYouTypeFormatter());
+    var _AsYouTypeParser = _interopRequireWildcard(require_AsYouTypeParser());
+    var _getCountryByCallingCode = _interopRequireDefault(require_getCountryByCallingCode());
+    function _getRequireWildcardCache(nodeInterop) {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cacheBabelInterop = /* @__PURE__ */ new WeakMap();
+      var cacheNodeInterop = /* @__PURE__ */ new WeakMap();
+      return (_getRequireWildcardCache = function _getRequireWildcardCache2(nodeInterop2) {
+        return nodeInterop2 ? cacheNodeInterop : cacheBabelInterop;
+      })(nodeInterop);
+    }
+    function _interopRequireWildcard(obj, nodeInterop) {
+      if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+        return { "default": obj };
+      }
+      var cache = _getRequireWildcardCache(nodeInterop);
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key in obj) {
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      newObj["default"] = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+    }
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function _iterableToArrayLimit(arr, i) {
+      var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+      if (_i == null)
+        return;
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _s, _e;
+      try {
+        for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+          if (i && _arr.length === i)
+            break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"] != null)
+            _i["return"]();
+        } finally {
+          if (_d)
+            throw _e;
+        }
+      }
+      return _arr;
+    }
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr))
+        return arr;
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    var USE_NON_GEOGRAPHIC_COUNTRY_CODE = false;
+    var AsYouType = /* @__PURE__ */ function() {
+      function AsYouType2(optionsOrDefaultCountry, metadata) {
+        _classCallCheck(this, AsYouType2);
+        this.metadata = new _metadata["default"](metadata);
+        var _this$getCountryAndCa = this.getCountryAndCallingCode(optionsOrDefaultCountry), _this$getCountryAndCa2 = _slicedToArray(_this$getCountryAndCa, 2), defaultCountry = _this$getCountryAndCa2[0], defaultCallingCode = _this$getCountryAndCa2[1];
+        this.defaultCountry = defaultCountry;
+        this.defaultCallingCode = defaultCallingCode;
+        this.reset();
+      }
+      _createClass(AsYouType2, [{
+        key: "getCountryAndCallingCode",
+        value: function getCountryAndCallingCode(optionsOrDefaultCountry) {
+          var defaultCountry;
+          var defaultCallingCode;
+          if (optionsOrDefaultCountry) {
+            if (_typeof(optionsOrDefaultCountry) === "object") {
+              defaultCountry = optionsOrDefaultCountry.defaultCountry;
+              defaultCallingCode = optionsOrDefaultCountry.defaultCallingCode;
+            } else {
+              defaultCountry = optionsOrDefaultCountry;
+            }
+          }
+          if (defaultCountry && !this.metadata.hasCountry(defaultCountry)) {
+            defaultCountry = void 0;
+          }
+          if (defaultCallingCode) {
+            if (USE_NON_GEOGRAPHIC_COUNTRY_CODE) {
+              if (this.metadata.isNonGeographicCallingCode(defaultCallingCode)) {
+                defaultCountry = "001";
+              }
+            }
+          }
+          return [defaultCountry, defaultCallingCode];
+        }
+      }, {
+        key: "input",
+        value: function input(text) {
+          var _this$parser$input = this.parser.input(text, this.state), digits = _this$parser$input.digits, justLeadingPlus = _this$parser$input.justLeadingPlus;
+          if (justLeadingPlus) {
+            this.formattedOutput = "+";
+          } else if (digits) {
+            this.determineTheCountryIfNeeded();
+            if (this.state.nationalSignificantNumber) {
+              this.formatter.narrowDownMatchingFormats(this.state);
+            }
+            var formattedNationalNumber;
+            if (this.metadata.hasSelectedNumberingPlan()) {
+              formattedNationalNumber = this.formatter.format(digits, this.state);
+            }
+            if (formattedNationalNumber === void 0) {
+              if (this.parser.reExtractNationalSignificantNumber(this.state)) {
+                this.determineTheCountryIfNeeded();
+                var nationalDigits = this.state.getNationalDigits();
+                if (nationalDigits) {
+                  formattedNationalNumber = this.formatter.format(nationalDigits, this.state);
+                }
+              }
+            }
+            this.formattedOutput = formattedNationalNumber ? this.getFullNumber(formattedNationalNumber) : this.getNonFormattedNumber();
+          }
+          return this.formattedOutput;
+        }
+      }, {
+        key: "reset",
+        value: function reset() {
+          var _this = this;
+          this.state = new _AsYouTypeState["default"]({
+            onCountryChange: function onCountryChange(country) {
+              _this.country = country;
+            },
+            onCallingCodeChange: function onCallingCodeChange(callingCode, country) {
+              _this.metadata.selectNumberingPlan(country, callingCode);
+              _this.formatter.reset(_this.metadata.numberingPlan, _this.state);
+              _this.parser.reset(_this.metadata.numberingPlan);
+            }
+          });
+          this.formatter = new _AsYouTypeFormatter["default"]({
+            state: this.state,
+            metadata: this.metadata
+          });
+          this.parser = new _AsYouTypeParser["default"]({
+            defaultCountry: this.defaultCountry,
+            defaultCallingCode: this.defaultCallingCode,
+            metadata: this.metadata,
+            state: this.state,
+            onNationalSignificantNumberChange: function onNationalSignificantNumberChange() {
+              _this.determineTheCountryIfNeeded();
+              _this.formatter.reset(_this.metadata.numberingPlan, _this.state);
+            }
+          });
+          this.state.reset(this.defaultCountry, this.defaultCallingCode);
+          this.formattedOutput = "";
+          return this;
+        }
+      }, {
+        key: "isInternational",
+        value: function isInternational() {
+          return this.state.international;
+        }
+      }, {
+        key: "getCallingCode",
+        value: function getCallingCode() {
+          if (this.isInternational()) {
+            return this.state.callingCode;
+          }
+        }
+      }, {
+        key: "getCountryCallingCode",
+        value: function getCountryCallingCode() {
+          return this.getCallingCode();
+        }
+      }, {
+        key: "getCountry",
+        value: function getCountry() {
+          var digits = this.state.digits;
+          if (digits) {
+            return this._getCountry();
+          }
+        }
+      }, {
+        key: "_getCountry",
+        value: function _getCountry() {
+          var country = this.state.country;
+          if (USE_NON_GEOGRAPHIC_COUNTRY_CODE) {
+            if (country === "001") {
+              return;
+            }
+          }
+          return country;
+        }
+      }, {
+        key: "determineTheCountryIfNeeded",
+        value: function determineTheCountryIfNeeded() {
+          if (!this.state.country || this.isCountryCallingCodeAmbiguous()) {
+            this.determineTheCountry();
+          }
+        }
+      }, {
+        key: "getFullNumber",
+        value: function getFullNumber(formattedNationalNumber) {
+          var _this2 = this;
+          if (this.isInternational()) {
+            var prefix = function prefix2(text) {
+              return _this2.formatter.getInternationalPrefixBeforeCountryCallingCode(_this2.state, {
+                spacing: text ? true : false
+              }) + text;
+            };
+            var callingCode = this.state.callingCode;
+            if (!callingCode) {
+              return prefix("".concat(this.state.getDigitsWithoutInternationalPrefix()));
+            }
+            if (!formattedNationalNumber) {
+              return prefix(callingCode);
+            }
+            return prefix("".concat(callingCode, " ").concat(formattedNationalNumber));
+          }
+          return formattedNationalNumber;
+        }
+      }, {
+        key: "getNonFormattedNationalNumberWithPrefix",
+        value: function getNonFormattedNationalNumberWithPrefix() {
+          var _this$state = this.state, nationalSignificantNumber = _this$state.nationalSignificantNumber, complexPrefixBeforeNationalSignificantNumber = _this$state.complexPrefixBeforeNationalSignificantNumber, nationalPrefix = _this$state.nationalPrefix;
+          var number = nationalSignificantNumber;
+          var prefix = complexPrefixBeforeNationalSignificantNumber || nationalPrefix;
+          if (prefix) {
+            number = prefix + number;
+          }
+          return number;
+        }
+      }, {
+        key: "getNonFormattedNumber",
+        value: function getNonFormattedNumber() {
+          var nationalSignificantNumberMatchesInput = this.state.nationalSignificantNumberMatchesInput;
+          return this.getFullNumber(nationalSignificantNumberMatchesInput ? this.getNonFormattedNationalNumberWithPrefix() : this.state.getNationalDigits());
+        }
+      }, {
+        key: "getNonFormattedTemplate",
+        value: function getNonFormattedTemplate() {
+          var number = this.getNonFormattedNumber();
+          if (number) {
+            return number.replace(/[\+\d]/g, _AsYouTypeFormatter.DIGIT_PLACEHOLDER);
+          }
+        }
+      }, {
+        key: "isCountryCallingCodeAmbiguous",
+        value: function isCountryCallingCodeAmbiguous() {
+          var callingCode = this.state.callingCode;
+          var countryCodes = this.metadata.getCountryCodesForCallingCode(callingCode);
+          return countryCodes && countryCodes.length > 1;
+        }
+      }, {
+        key: "determineTheCountry",
+        value: function determineTheCountry() {
+          this.state.setCountry((0, _getCountryByCallingCode["default"])(this.isInternational() ? this.state.callingCode : this.defaultCallingCode, this.state.nationalSignificantNumber, this.metadata));
+        }
+      }, {
+        key: "getNumberValue",
+        value: function getNumberValue() {
+          var _this$state2 = this.state, digits = _this$state2.digits, callingCode = _this$state2.callingCode, country = _this$state2.country, nationalSignificantNumber = _this$state2.nationalSignificantNumber;
+          if (!digits) {
+            return;
+          }
+          if (this.isInternational()) {
+            if (callingCode) {
+              return "+" + callingCode + nationalSignificantNumber;
+            } else {
+              return "+" + digits;
+            }
+          } else {
+            if (country || callingCode) {
+              var callingCode_ = country ? this.metadata.countryCallingCode() : callingCode;
+              return "+" + callingCode_ + nationalSignificantNumber;
+            }
+          }
+        }
+      }, {
+        key: "getNumber",
+        value: function getNumber() {
+          var _this$state3 = this.state, nationalSignificantNumber = _this$state3.nationalSignificantNumber, carrierCode = _this$state3.carrierCode, callingCode = _this$state3.callingCode;
+          var country = this._getCountry();
+          if (!nationalSignificantNumber) {
+            return;
+          }
+          if (!country && !callingCode) {
+            return;
+          }
+          var phoneNumber = new _PhoneNumber["default"](country || callingCode, nationalSignificantNumber, this.metadata.metadata);
+          if (carrierCode) {
+            phoneNumber.carrierCode = carrierCode;
+          }
+          return phoneNumber;
+        }
+      }, {
+        key: "isPossible",
+        value: function isPossible() {
+          var phoneNumber = this.getNumber();
+          if (!phoneNumber) {
+            return false;
+          }
+          return phoneNumber.isPossible();
+        }
+      }, {
+        key: "isValid",
+        value: function isValid() {
+          var phoneNumber = this.getNumber();
+          if (!phoneNumber) {
+            return false;
+          }
+          return phoneNumber.isValid();
+        }
+      }, {
+        key: "getNationalNumber",
+        value: function getNationalNumber() {
+          return this.state.nationalSignificantNumber;
+        }
+      }, {
+        key: "getChars",
+        value: function getChars() {
+          return (this.state.international ? "+" : "") + this.state.digits;
+        }
+      }, {
+        key: "getTemplate",
+        value: function getTemplate() {
+          return this.formatter.getTemplate(this.state) || this.getNonFormattedTemplate() || "";
+        }
+      }]);
+      return AsYouType2;
+    }();
+    exports["default"] = AsYouType;
+  }
+});
+
+// node_modules/libphonenumber-js/build/getCountries.js
+var require_getCountries = __commonJS({
+  "node_modules/libphonenumber-js/build/getCountries.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = getCountries;
+    var _metadata = _interopRequireDefault(require_metadata());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function getCountries(metadata) {
+      return new _metadata["default"](metadata).getCountries();
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/getExampleNumber.js
+var require_getExampleNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/getExampleNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = getExampleNumber;
+    var _PhoneNumber = _interopRequireDefault(require_PhoneNumber());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function getExampleNumber(country, examples, metadata) {
+      if (examples[country]) {
+        return new _PhoneNumber["default"](country, examples[country], metadata);
+      }
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/formatIncompletePhoneNumber.js
+var require_formatIncompletePhoneNumber = __commonJS({
+  "node_modules/libphonenumber-js/build/formatIncompletePhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = formatIncompletePhoneNumber;
+    var _AsYouType = _interopRequireDefault(require_AsYouType());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function formatIncompletePhoneNumber(value, country, metadata) {
+      if (!metadata) {
+        metadata = country;
+        country = void 0;
+      }
+      return new _AsYouType["default"](country, metadata).input(value);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/core/index.cjs
 var require_core = __commonJS({
+  "node_modules/libphonenumber-js/core/index.cjs"(exports, module2) {
+    "use strict";
+    var parsePhoneNumberFromString = require_parsePhoneNumberFromString2().default;
+    exports = module2.exports = parsePhoneNumberFromString;
+    exports["default"] = parsePhoneNumberFromString;
+    exports.ParseError = require_ParseError().default;
+    var parsePhoneNumberWithError = require_parsePhoneNumber2().default;
+    exports.parsePhoneNumberWithError = parsePhoneNumberWithError;
+    exports.parsePhoneNumber = parsePhoneNumberWithError;
+    exports.parsePhoneNumberFromString = parsePhoneNumberFromString;
+    exports.isValidPhoneNumber = require_isValidPhoneNumber().default;
+    exports.isPossiblePhoneNumber = require_isPossiblePhoneNumber().default;
+    exports.validatePhoneNumberLength = require_validatePhoneNumberLength().default;
+    exports.findNumbers = require_findNumbers2().default;
+    exports.searchNumbers = require_searchNumbers().default;
+    exports.findPhoneNumbersInText = require_findPhoneNumbersInText().default;
+    exports.searchPhoneNumbersInText = require_searchPhoneNumbersInText().default;
+    exports.PhoneNumberMatcher = require_PhoneNumberMatcher().default;
+    exports.AsYouType = require_AsYouType().default;
+    exports.Metadata = require_metadata().default;
+    exports.isSupportedCountry = require_metadata().isSupportedCountry;
+    exports.getCountries = require_getCountries().default;
+    exports.getCountryCallingCode = require_metadata().getCountryCallingCode;
+    exports.getExtPrefix = require_metadata().getExtPrefix;
+    exports.getExampleNumber = require_getExampleNumber().default;
+    exports.formatIncompletePhoneNumber = require_formatIncompletePhoneNumber().default;
+    exports.parseIncompletePhoneNumber = require_parseIncompletePhoneNumber().default;
+    exports.parsePhoneNumberCharacter = require_parseIncompletePhoneNumber().parsePhoneNumberCharacter;
+    exports.parseDigits = require_parseDigits().default;
+    exports.DIGIT_PLACEHOLDER = require_AsYouTypeFormatter().DIGIT_PLACEHOLDER;
+    exports.parseRFC3966 = require_RFC3966().parseRFC3966;
+    exports.formatRFC3966 = require_RFC3966().formatRFC3966;
+  }
+});
+
+// node_modules/libphonenumber-js/min/index.cjs
+var require_min = __commonJS({
+  "node_modules/libphonenumber-js/min/index.cjs"(exports, module2) {
+    "use strict";
+    var metadata = (init_metadata_min(), __toCommonJS(metadata_min_exports));
+    var core = require_core();
+    function call(func, _arguments) {
+      var args = Array.prototype.slice.call(_arguments);
+      args.push(metadata);
+      return func.apply(this, args);
+    }
+    function parsePhoneNumberFromString() {
+      return call(core.parsePhoneNumberFromString, arguments);
+    }
+    exports = module2.exports = parsePhoneNumberFromString;
+    exports["default"] = parsePhoneNumberFromString;
+    exports.ParseError = core.ParseError;
+    function parsePhoneNumberWithError() {
+      return call(core.parsePhoneNumberWithError, arguments);
+    }
+    exports.parsePhoneNumber = parsePhoneNumberWithError;
+    exports.parsePhoneNumberWithError = parsePhoneNumberWithError;
+    exports.parsePhoneNumberFromString = parsePhoneNumberFromString;
+    exports.isValidPhoneNumber = function isValidPhoneNumber() {
+      return call(core.isValidPhoneNumber, arguments);
+    };
+    exports.isPossiblePhoneNumber = function isPossiblePhoneNumber() {
+      return call(core.isPossiblePhoneNumber, arguments);
+    };
+    exports.validatePhoneNumberLength = function validatePhoneNumberLength() {
+      return call(core.validatePhoneNumberLength, arguments);
+    };
+    exports.findNumbers = function findNumbers() {
+      return call(core.findNumbers, arguments);
+    };
+    exports.searchNumbers = function searchNumbers() {
+      return call(core.searchNumbers, arguments);
+    };
+    exports.findPhoneNumbersInText = function findPhoneNumbersInText() {
+      return call(core.findPhoneNumbersInText, arguments);
+    };
+    exports.searchPhoneNumbersInText = function searchPhoneNumbersInText() {
+      return call(core.searchPhoneNumbersInText, arguments);
+    };
+    exports.PhoneNumberMatcher = function PhoneNumberMatcher(text, options) {
+      return core.PhoneNumberMatcher.call(this, text, options, metadata);
+    };
+    exports.PhoneNumberMatcher.prototype = Object.create(core.PhoneNumberMatcher.prototype, {});
+    exports.PhoneNumberMatcher.prototype.constructor = exports.PhoneNumberMatcher;
+    exports.AsYouType = function AsYouType(country) {
+      return core.AsYouType.call(this, country, metadata);
+    };
+    exports.AsYouType.prototype = Object.create(core.AsYouType.prototype, {});
+    exports.AsYouType.prototype.constructor = exports.AsYouType;
+    exports.isSupportedCountry = function isSupportedCountry(country) {
+      return call(core.isSupportedCountry, arguments);
+    };
+    exports.getCountries = function getCountries() {
+      return call(core.getCountries, arguments);
+    };
+    exports.getCountryCallingCode = function getCountryCallingCode() {
+      return call(core.getCountryCallingCode, arguments);
+    };
+    exports.getExtPrefix = function getExtPrefix(country) {
+      return call(core.getExtPrefix, arguments);
+    };
+    exports.getExampleNumber = function getExampleNumber() {
+      return call(core.getExampleNumber, arguments);
+    };
+    exports.Metadata = function Metadata() {
+      return core.Metadata.call(this, metadata);
+    };
+    exports.Metadata.prototype = Object.create(core.Metadata.prototype, {});
+    exports.Metadata.prototype.constructor = exports.Metadata;
+    exports.formatIncompletePhoneNumber = function formatIncompletePhoneNumber() {
+      return call(core.formatIncompletePhoneNumber, arguments);
+    };
+    exports.parseIncompletePhoneNumber = core.parseIncompletePhoneNumber;
+    exports.parsePhoneNumberCharacter = core.parsePhoneNumberCharacter;
+    exports.parseDigits = core.parseDigits;
+    exports.DIGIT_PLACEHOLDER = core.DIGIT_PLACEHOLDER;
+    exports.parseRFC3966 = core.parseRFC3966;
+    exports.formatRFC3966 = core.formatRFC3966;
+  }
+});
+
+// node_modules/libphonenumber-js/build/parse.js
+var require_parse4 = __commonJS({
+  "node_modules/libphonenumber-js/build/parse.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = parseNumber;
+    var _parse_ = _interopRequireDefault(require_parse3());
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function parseNumber() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _parse_["default"])(text, options, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/format.js
+var require_format2 = __commonJS({
+  "node_modules/libphonenumber-js/build/format.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = formatNumber2;
+    var _format_ = _interopRequireDefault(require_format());
+    var _parse_ = _interopRequireDefault(require_parse3());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+    }
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function _iterableToArrayLimit(arr, i) {
+      var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+      if (_i == null)
+        return;
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _s, _e;
+      try {
+        for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+          if (i && _arr.length === i)
+            break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"] != null)
+            _i["return"]();
+        } finally {
+          if (_d)
+            throw _e;
+        }
+      }
+      return _arr;
+    }
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr))
+        return arr;
+    }
+    function formatNumber2() {
+      var _normalizeArguments = normalizeArguments(arguments), input = _normalizeArguments.input, format = _normalizeArguments.format, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _format_["default"])(input, format, options, metadata);
+    }
+    function normalizeArguments(args) {
+      var _Array$prototype$slic = Array.prototype.slice.call(args), _Array$prototype$slic2 = _slicedToArray(_Array$prototype$slic, 5), arg_1 = _Array$prototype$slic2[0], arg_2 = _Array$prototype$slic2[1], arg_3 = _Array$prototype$slic2[2], arg_4 = _Array$prototype$slic2[3], arg_5 = _Array$prototype$slic2[4];
+      var input;
+      var format;
+      var options;
+      var metadata;
+      if (typeof arg_1 === "string") {
+        if (typeof arg_3 === "string") {
+          format = arg_3;
+          if (arg_5) {
+            options = arg_4;
+            metadata = arg_5;
+          } else {
+            metadata = arg_4;
+          }
+          input = (0, _parse_["default"])(arg_1, {
+            defaultCountry: arg_2,
+            extended: true
+          }, metadata);
+        } else {
+          if (typeof arg_2 !== "string") {
+            throw new Error("`format` argument not passed to `formatNumber(number, format)`");
+          }
+          format = arg_2;
+          if (arg_4) {
+            options = arg_3;
+            metadata = arg_4;
+          } else {
+            metadata = arg_3;
+          }
+          input = (0, _parse_["default"])(arg_1, {
+            extended: true
+          }, metadata);
+        }
+      } else if (is_object(arg_1)) {
+        input = arg_1;
+        format = arg_2;
+        if (arg_4) {
+          options = arg_3;
+          metadata = arg_4;
+        } else {
+          metadata = arg_3;
+        }
+      } else
+        throw new TypeError("A phone number must either be a string or an object of shape { phone, [country] }.");
+      if (format === "International") {
+        format = "INTERNATIONAL";
+      } else if (format === "National") {
+        format = "NATIONAL";
+      }
+      return {
+        input,
+        format,
+        options,
+        metadata
+      };
+    }
+    var is_object = function is_object2(_) {
+      return _typeof(_) === "object";
+    };
+  }
+});
+
+// node_modules/libphonenumber-js/build/getNumberType.js
+var require_getNumberType2 = __commonJS({
+  "node_modules/libphonenumber-js/build/getNumberType.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = getNumberType;
+    exports.normalizeArguments = normalizeArguments;
+    var _isViablePhoneNumber = _interopRequireDefault(require_isViablePhoneNumber());
+    var _getNumberType2 = _interopRequireDefault(require_getNumberType());
+    var _parse_ = _interopRequireDefault(require_parse3());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    function _slicedToArray(arr, i) {
+      return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+    }
+    function _nonIterableRest() {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    function _unsupportedIterableToArray(o, minLen) {
+      if (!o)
+        return;
+      if (typeof o === "string")
+        return _arrayLikeToArray(o, minLen);
+      var n = Object.prototype.toString.call(o).slice(8, -1);
+      if (n === "Object" && o.constructor)
+        n = o.constructor.name;
+      if (n === "Map" || n === "Set")
+        return Array.from(o);
+      if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+        return _arrayLikeToArray(o, minLen);
+    }
+    function _arrayLikeToArray(arr, len) {
+      if (len == null || len > arr.length)
+        len = arr.length;
+      for (var i = 0, arr2 = new Array(len); i < len; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    }
+    function _iterableToArrayLimit(arr, i) {
+      var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+      if (_i == null)
+        return;
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _s, _e;
+      try {
+        for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+          if (i && _arr.length === i)
+            break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"] != null)
+            _i["return"]();
+        } finally {
+          if (_d)
+            throw _e;
+        }
+      }
+      return _arr;
+    }
+    function _arrayWithHoles(arr) {
+      if (Array.isArray(arr))
+        return arr;
+    }
+    function getNumberType() {
+      var _normalizeArguments = normalizeArguments(arguments), input = _normalizeArguments.input, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _getNumberType2["default"])(input, options, metadata);
+    }
+    function normalizeArguments(args) {
+      var _Array$prototype$slic = Array.prototype.slice.call(args), _Array$prototype$slic2 = _slicedToArray(_Array$prototype$slic, 4), arg_1 = _Array$prototype$slic2[0], arg_2 = _Array$prototype$slic2[1], arg_3 = _Array$prototype$slic2[2], arg_4 = _Array$prototype$slic2[3];
+      var input;
+      var options = {};
+      var metadata;
+      if (typeof arg_1 === "string") {
+        if (_typeof(arg_2) !== "object") {
+          if (arg_4) {
+            options = arg_3;
+            metadata = arg_4;
+          } else {
+            metadata = arg_3;
+          }
+          if ((0, _isViablePhoneNumber["default"])(arg_1)) {
+            input = (0, _parse_["default"])(arg_1, {
+              defaultCountry: arg_2
+            }, metadata);
+          } else {
+            input = {};
+          }
+        } else {
+          if (arg_3) {
+            options = arg_2;
+            metadata = arg_3;
+          } else {
+            metadata = arg_2;
+          }
+          if ((0, _isViablePhoneNumber["default"])(arg_1)) {
+            input = (0, _parse_["default"])(arg_1, void 0, metadata);
+          } else {
+            input = {};
+          }
+        }
+      } else if (is_object(arg_1)) {
+        input = arg_1;
+        if (arg_3) {
+          options = arg_2;
+          metadata = arg_3;
+        } else {
+          metadata = arg_2;
+        }
+      } else
+        throw new TypeError("A phone number must either be a string or an object of shape { phone, [country] }.");
+      return {
+        input,
+        options,
+        metadata
+      };
+    }
+    var is_object = function is_object2(_) {
+      return _typeof(_) === "object";
+    };
+  }
+});
+
+// node_modules/libphonenumber-js/build/isPossibleNumber.js
+var require_isPossibleNumber2 = __commonJS({
+  "node_modules/libphonenumber-js/build/isPossibleNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isPossibleNumber;
+    var _getNumberType = require_getNumberType2();
+    var _isPossibleNumber_ = _interopRequireDefault(require_isPossibleNumber());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function isPossibleNumber() {
+      var _normalizeArguments = (0, _getNumberType.normalizeArguments)(arguments), input = _normalizeArguments.input, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _isPossibleNumber_["default"])(input, options, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/validate.js
+var require_validate3 = __commonJS({
+  "node_modules/libphonenumber-js/build/validate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isValidNumber;
+    var _validate_ = _interopRequireDefault(require_validate2());
+    var _getNumberType = require_getNumberType2();
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function isValidNumber() {
+      var _normalizeArguments = (0, _getNumberType.normalizeArguments)(arguments), input = _normalizeArguments.input, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _validate_["default"])(input, options, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/isValidNumberForRegion.js
+var require_isValidNumberForRegion2 = __commonJS({
+  "node_modules/libphonenumber-js/build/isValidNumberForRegion.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = isValidNumberForRegion;
+    var _isViablePhoneNumber = _interopRequireDefault(require_isViablePhoneNumber());
+    var _parse_ = _interopRequireDefault(require_parse3());
+    var _isValidNumberForRegion_ = _interopRequireDefault(require_isValidNumberForRegion());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function isValidNumberForRegion(number, country, metadata) {
+      if (typeof number !== "string") {
+        throw new TypeError("number must be a string");
+      }
+      if (typeof country !== "string") {
+        throw new TypeError("country must be a string");
+      }
+      var input;
+      if ((0, _isViablePhoneNumber["default"])(number)) {
+        input = (0, _parse_["default"])(number, {
+          defaultCountry: country
+        }, metadata);
+      } else {
+        input = {};
+      }
+      return (0, _isValidNumberForRegion_["default"])(input, country, void 0, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/build/findPhoneNumbers_.js
+var require_findPhoneNumbers = __commonJS({
+  "node_modules/libphonenumber-js/build/findPhoneNumbers_.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.PhoneNumberSearch = exports.EXTN_PATTERNS_FOR_PARSING = void 0;
+    exports["default"] = findPhoneNumbers;
+    exports.searchPhoneNumbers = searchPhoneNumbers;
+    var _constants = require_constants2();
+    var _parse_ = _interopRequireDefault(require_parse3());
+    var _isViablePhoneNumber = require_isViablePhoneNumber();
+    var _createExtensionPattern = _interopRequireDefault(require_createExtensionPattern());
+    var _parsePreCandidate = _interopRequireDefault(require_parsePreCandidate());
+    var _isValidPreCandidate = _interopRequireDefault(require_isValidPreCandidate());
+    var _isValidCandidate = _interopRequireDefault(require_isValidCandidate());
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
+    }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
+    function _defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor)
+          descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+    function _createClass(Constructor, protoProps, staticProps) {
+      if (protoProps)
+        _defineProperties(Constructor.prototype, protoProps);
+      if (staticProps)
+        _defineProperties(Constructor, staticProps);
+      Object.defineProperty(Constructor, "prototype", { writable: false });
+      return Constructor;
+    }
+    function _defineProperty(obj, key, value) {
+      if (key in obj) {
+        Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+      } else {
+        obj[key] = value;
+      }
+      return obj;
+    }
+    var EXTN_PATTERNS_FOR_PARSING = (0, _createExtensionPattern["default"])("parsing");
+    exports.EXTN_PATTERNS_FOR_PARSING = EXTN_PATTERNS_FOR_PARSING;
+    var WHITESPACE_IN_THE_BEGINNING_PATTERN = new RegExp("^[" + _constants.WHITESPACE + "]+");
+    var PUNCTUATION_IN_THE_END_PATTERN = new RegExp("[" + _constants.VALID_PUNCTUATION + "]+$");
+    function findPhoneNumbers(text, options, metadata) {
+      if (options === void 0) {
+        options = {};
+      }
+      var search = new PhoneNumberSearch(text, options, metadata);
+      var phones = [];
+      while (search.hasNext()) {
+        phones.push(search.next());
+      }
+      return phones;
+    }
+    function searchPhoneNumbers(text, options, metadata) {
+      if (options === void 0) {
+        options = {};
+      }
+      var search = new PhoneNumberSearch(text, options, metadata);
+      return _defineProperty({}, Symbol.iterator, function() {
+        return {
+          next: function next() {
+            if (search.hasNext()) {
+              return {
+                done: false,
+                value: search.next()
+              };
+            }
+            return {
+              done: true
+            };
+          }
+        };
+      });
+    }
+    var PhoneNumberSearch = /* @__PURE__ */ function() {
+      function PhoneNumberSearch2(text, options, metadata) {
+        _classCallCheck(this, PhoneNumberSearch2);
+        this.text = text;
+        this.options = options || {};
+        this.metadata = metadata;
+        this.state = "NOT_READY";
+        this.regexp = new RegExp(_isViablePhoneNumber.VALID_PHONE_NUMBER_WITH_EXTENSION, "ig");
+      }
+      _createClass(PhoneNumberSearch2, [{
+        key: "find",
+        value: function find() {
+          var matches = this.regexp.exec(this.text);
+          if (!matches) {
+            return;
+          }
+          var number = matches[0];
+          var startsAt = matches.index;
+          number = number.replace(WHITESPACE_IN_THE_BEGINNING_PATTERN, "");
+          startsAt += matches[0].length - number.length;
+          number = number.replace(PUNCTUATION_IN_THE_END_PATTERN, "");
+          number = (0, _parsePreCandidate["default"])(number);
+          var result = this.parseCandidate(number, startsAt);
+          if (result) {
+            return result;
+          }
+          return this.find();
+        }
+      }, {
+        key: "parseCandidate",
+        value: function parseCandidate(number, startsAt) {
+          if (!(0, _isValidPreCandidate["default"])(number, startsAt, this.text)) {
+            return;
+          }
+          if (!(0, _isValidCandidate["default"])(number, startsAt, this.text, this.options.extended ? "POSSIBLE" : "VALID")) {
+            return;
+          }
+          var result = (0, _parse_["default"])(number, this.options, this.metadata);
+          if (!result.phone) {
+            return;
+          }
+          result.startsAt = startsAt;
+          result.endsAt = startsAt + number.length;
+          return result;
+        }
+      }, {
+        key: "hasNext",
+        value: function hasNext() {
+          if (this.state === "NOT_READY") {
+            this.last_match = this.find();
+            if (this.last_match) {
+              this.state = "READY";
+            } else {
+              this.state = "DONE";
+            }
+          }
+          return this.state === "READY";
+        }
+      }, {
+        key: "next",
+        value: function next() {
+          if (!this.hasNext()) {
+            throw new Error("No next element");
+          }
+          var result = this.last_match;
+          this.last_match = null;
+          this.state = "NOT_READY";
+          return result;
+        }
+      }]);
+      return PhoneNumberSearch2;
+    }();
+    exports.PhoneNumberSearch = PhoneNumberSearch;
+  }
+});
+
+// node_modules/libphonenumber-js/build/findPhoneNumbers.js
+var require_findPhoneNumbers2 = __commonJS({
+  "node_modules/libphonenumber-js/build/findPhoneNumbers.js"(exports) {
+    "use strict";
+    function _typeof(obj) {
+      "@babel/helpers - typeof";
+      return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
+        return typeof obj2;
+      } : function(obj2) {
+        return obj2 && "function" == typeof Symbol && obj2.constructor === Symbol && obj2 !== Symbol.prototype ? "symbol" : typeof obj2;
+      }, _typeof(obj);
+    }
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports["default"] = findPhoneNumbers;
+    exports.searchPhoneNumbers = searchPhoneNumbers;
+    var _findPhoneNumbers_ = _interopRequireWildcard(require_findPhoneNumbers());
+    var _parsePhoneNumber = require_parsePhoneNumber2();
+    function _getRequireWildcardCache(nodeInterop) {
+      if (typeof WeakMap !== "function")
+        return null;
+      var cacheBabelInterop = /* @__PURE__ */ new WeakMap();
+      var cacheNodeInterop = /* @__PURE__ */ new WeakMap();
+      return (_getRequireWildcardCache = function _getRequireWildcardCache2(nodeInterop2) {
+        return nodeInterop2 ? cacheNodeInterop : cacheBabelInterop;
+      })(nodeInterop);
+    }
+    function _interopRequireWildcard(obj, nodeInterop) {
+      if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+      }
+      if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") {
+        return { "default": obj };
+      }
+      var cache = _getRequireWildcardCache(nodeInterop);
+      if (cache && cache.has(obj)) {
+        return cache.get(obj);
+      }
+      var newObj = {};
+      var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+      for (var key in obj) {
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+          if (desc && (desc.get || desc.set)) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+      newObj["default"] = obj;
+      if (cache) {
+        cache.set(obj, newObj);
+      }
+      return newObj;
+    }
+    function findPhoneNumbers() {
+      var _normalizeArguments = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments.text, options = _normalizeArguments.options, metadata = _normalizeArguments.metadata;
+      return (0, _findPhoneNumbers_["default"])(text, options, metadata);
+    }
+    function searchPhoneNumbers() {
+      var _normalizeArguments2 = (0, _parsePhoneNumber.normalizeArguments)(arguments), text = _normalizeArguments2.text, options = _normalizeArguments2.options, metadata = _normalizeArguments2.metadata;
+      return (0, _findPhoneNumbers_.searchPhoneNumbers)(text, options, metadata);
+    }
+  }
+});
+
+// node_modules/libphonenumber-js/index.cjs
+var require_libphonenumber_js = __commonJS({
+  "node_modules/libphonenumber-js/index.cjs"(exports, module2) {
+    "use strict";
+    var min = require_min();
+    var metadata = (init_metadata_min(), __toCommonJS(metadata_min_exports));
+    function withMetadataArgument(func, _arguments) {
+      var args = Array.prototype.slice.call(_arguments);
+      args.push(metadata);
+      return func.apply(this, args);
+    }
+    exports = module2.exports = min.parsePhoneNumberFromString;
+    exports["default"] = min.parsePhoneNumberFromString;
+    exports.parsePhoneNumberFromString = min.parsePhoneNumberFromString;
+    exports.ParseError = min.ParseError;
+    exports.parsePhoneNumber = min.parsePhoneNumberWithError;
+    exports.parsePhoneNumberWithError = min.parsePhoneNumberWithError;
+    exports.isValidPhoneNumber = min.isValidPhoneNumber;
+    exports.isPossiblePhoneNumber = min.isPossiblePhoneNumber;
+    exports.validatePhoneNumberLength = min.validatePhoneNumberLength;
+    var parse_ = require_parse4().default;
+    exports.parse = function parse() {
+      return withMetadataArgument(parse_, arguments);
+    };
+    exports.parseNumber = exports.parse;
+    var format_ = require_format2().default;
+    exports.format = function format() {
+      return withMetadataArgument(format_, arguments);
+    };
+    exports.formatNumber = exports.format;
+    var getNumberType_ = require_getNumberType2().default;
+    exports.getNumberType = function getNumberType() {
+      return withMetadataArgument(getNumberType_, arguments);
+    };
+    var isPossibleNumber_ = require_isPossibleNumber2().default;
+    exports.isPossibleNumber = function isPossibleNumber() {
+      return withMetadataArgument(isPossibleNumber_, arguments);
+    };
+    var isValidNumber_ = require_validate3().default;
+    exports.isValidNumber = function isValidNumber() {
+      return withMetadataArgument(isValidNumber_, arguments);
+    };
+    var isValidNumberForRegion_ = require_isValidNumberForRegion2().default;
+    exports.isValidNumberForRegion = function isValidNumberForRegion() {
+      return withMetadataArgument(isValidNumberForRegion_, arguments);
+    };
+    exports.getExampleNumber = min.getExampleNumber;
+    exports.Metadata = min.Metadata;
+    var findPhoneNumbers_ = require_findPhoneNumbers2().default;
+    exports.findPhoneNumbers = function findPhoneNumbers() {
+      return withMetadataArgument(findPhoneNumbers_, arguments);
+    };
+    var searchPhoneNumbers_ = require_findPhoneNumbers2().searchPhoneNumbers;
+    exports.searchPhoneNumbers = function searchPhoneNumbers() {
+      return withMetadataArgument(searchPhoneNumbers_, arguments);
+    };
+    var PhoneNumberSearch_ = require_findPhoneNumbers().PhoneNumberSearch;
+    exports.PhoneNumberSearch = function PhoneNumberSearch(text, options) {
+      return PhoneNumberSearch_.call(this, text, options, metadata);
+    };
+    exports.PhoneNumberSearch.prototype = Object.create(PhoneNumberSearch_.prototype, {});
+    exports.PhoneNumberSearch.prototype.constructor = exports.PhoneNumberSearch;
+    exports.findNumbers = min.findNumbers;
+    exports.searchNumbers = min.searchNumbers;
+    exports.findPhoneNumbersInText = min.findPhoneNumbersInText;
+    exports.searchPhoneNumbersInText = min.searchPhoneNumbersInText;
+    exports.PhoneNumberMatcher = min.PhoneNumberMatcher;
+    exports.AsYouType = min.AsYouType;
+    exports.getCountries = min.getCountries;
+    exports.getCountryCallingCode = min.getCountryCallingCode;
+    exports.isSupportedCountry = min.isSupportedCountry;
+    exports.getExtPrefix = min.getExtPrefix;
+    exports.parseRFC3966 = min.parseRFC3966;
+    exports.formatRFC3966 = min.formatRFC3966;
+    exports.DIGITS = require_parseDigits().DIGITS;
+    exports.DIGIT_PLACEHOLDER = min.DIGIT_PLACEHOLDER;
+    exports.getPhoneCode = min.getCountryCallingCode;
+    exports.formatIncompletePhoneNumber = min.formatIncompletePhoneNumber;
+    exports.parseIncompletePhoneNumber = min.parseIncompletePhoneNumber;
+    exports.parsePhoneNumberCharacter = min.parsePhoneNumberCharacter;
+    exports.parseDigits = min.parseDigits;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsPhoneNumber.js
+var require_IsPhoneNumber = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsPhoneNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsPhoneNumber = exports.isPhoneNumber = exports.IS_PHONE_NUMBER = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var libphonenumber_js_1 = require_libphonenumber_js();
+    exports.IS_PHONE_NUMBER = "isPhoneNumber";
+    function isPhoneNumber(value, region) {
+      try {
+        const phoneNum = (0, libphonenumber_js_1.parsePhoneNumberFromString)(value, region);
+        const result = phoneNum === null || phoneNum === void 0 ? void 0 : phoneNum.isValid();
+        return !!result;
+      } catch (error) {
+        return false;
+      }
+    }
+    exports.isPhoneNumber = isPhoneNumber;
+    function IsPhoneNumber(region, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_PHONE_NUMBER,
+        constraints: [region],
+        validator: {
+          validate: (value, args) => isPhoneNumber(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid phone number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsPhoneNumber = IsPhoneNumber;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsMilitaryTime.js
+var require_IsMilitaryTime = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsMilitaryTime.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsMilitaryTime = exports.isMilitaryTime = exports.IS_MILITARY_TIME = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var matches_1 = __importDefault(require_matches());
+    exports.IS_MILITARY_TIME = "isMilitaryTime";
+    function isMilitaryTime(value) {
+      const militaryTimeRegex = /^([01]\d|2[0-3]):?([0-5]\d)$/;
+      return typeof value === "string" && (0, matches_1.default)(value, militaryTimeRegex);
+    }
+    exports.isMilitaryTime = isMilitaryTime;
+    function IsMilitaryTime(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_MILITARY_TIME,
+        validator: {
+          validate: (value, args) => isMilitaryTime(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid representation of military time in the format HH:MM", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsMilitaryTime = IsMilitaryTime;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsHash.js
+var require_IsHash = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsHash.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsHash = exports.isHash = exports.IS_HASH = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isHash_1 = __importDefault(require_isHash());
+    exports.IS_HASH = "isHash";
+    function isHash(value, algorithm) {
+      return typeof value === "string" && (0, isHash_1.default)(value, algorithm);
+    }
+    exports.isHash = isHash;
+    function IsHash(algorithm, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_HASH,
+        constraints: [algorithm],
+        validator: {
+          validate: (value, args) => isHash(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a hash of type $constraint1", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsHash = IsHash;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsISSN.js
+var require_IsISSN = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsISSN.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsISSN = exports.isISSN = exports.IS_ISSN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isISSN_1 = __importDefault(require_isISSN());
+    exports.IS_ISSN = "isISSN";
+    function isISSN(value, options) {
+      return typeof value === "string" && (0, isISSN_1.default)(value, options);
+    }
+    exports.isISSN = isISSN;
+    function IsISSN(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ISSN,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isISSN(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a ISSN", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsISSN = IsISSN;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsDateString.js
+var require_IsDateString = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsDateString.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsDateString = exports.isDateString = exports.IS_DATE_STRING = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var IsISO8601_1 = require_IsISO8601();
+    exports.IS_DATE_STRING = "isDateString";
+    function isDateString(value, options) {
+      return (0, IsISO8601_1.isISO8601)(value, options);
+    }
+    exports.isDateString = isDateString;
+    function IsDateString(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_DATE_STRING,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isDateString(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid ISO 8601 date string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsDateString = IsDateString;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsBooleanString.js
+var require_IsBooleanString = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsBooleanString.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsBooleanString = exports.isBooleanString = exports.IS_BOOLEAN_STRING = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isBoolean_1 = __importDefault(require_isBoolean());
+    exports.IS_BOOLEAN_STRING = "isBooleanString";
+    function isBooleanString(value) {
+      return typeof value === "string" && (0, isBoolean_1.default)(value);
+    }
+    exports.isBooleanString = isBooleanString;
+    function IsBooleanString(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_BOOLEAN_STRING,
+        validator: {
+          validate: (value, args) => isBooleanString(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a boolean string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsBooleanString = IsBooleanString;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsNumberString.js
+var require_IsNumberString = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsNumberString.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsNumberString = exports.isNumberString = exports.IS_NUMBER_STRING = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isNumeric_1 = __importDefault(require_isNumeric());
+    exports.IS_NUMBER_STRING = "isNumberString";
+    function isNumberString(value, options) {
+      return typeof value === "string" && (0, isNumeric_1.default)(value, options);
+    }
+    exports.isNumberString = isNumberString;
+    function IsNumberString(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_NUMBER_STRING,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isNumberString(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a number string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsNumberString = IsNumberString;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsBase32.js
+var require_IsBase32 = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsBase32.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsBase32 = exports.isBase32 = exports.IS_BASE32 = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isBase32_1 = __importDefault(require_isBase32());
+    exports.IS_BASE32 = "isBase32";
+    function isBase32(value) {
+      return typeof value === "string" && (0, isBase32_1.default)(value);
+    }
+    exports.isBase32 = isBase32;
+    function IsBase32(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_BASE32,
+        validator: {
+          validate: (value, args) => isBase32(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be base32 encoded", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsBase32 = IsBase32;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsBIC.js
+var require_IsBIC = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsBIC.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsBIC = exports.isBIC = exports.IS_BIC = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isBIC_1 = __importDefault(require_isBIC());
+    exports.IS_BIC = "isBIC";
+    function isBIC(value) {
+      return typeof value === "string" && (0, isBIC_1.default)(value);
+    }
+    exports.isBIC = isBIC;
+    function IsBIC(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_BIC,
+        validator: {
+          validate: (value, args) => isBIC(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a BIC or SWIFT code", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsBIC = IsBIC;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsBtcAddress.js
+var require_IsBtcAddress = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsBtcAddress.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsBtcAddress = exports.isBtcAddress = exports.IS_BTC_ADDRESS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isBtcAddress_1 = __importDefault(require_isBtcAddress());
+    exports.IS_BTC_ADDRESS = "isBtcAddress";
+    function isBtcAddress(value) {
+      return typeof value === "string" && (0, isBtcAddress_1.default)(value);
+    }
+    exports.isBtcAddress = isBtcAddress;
+    function IsBtcAddress(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_BTC_ADDRESS,
+        validator: {
+          validate: (value, args) => isBtcAddress(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a BTC address", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsBtcAddress = IsBtcAddress;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsDataURI.js
+var require_IsDataURI = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsDataURI.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsDataURI = exports.isDataURI = exports.IS_DATA_URI = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isDataURI_1 = __importDefault(require_isDataURI());
+    exports.IS_DATA_URI = "isDataURI";
+    function isDataURI(value) {
+      return typeof value === "string" && (0, isDataURI_1.default)(value);
+    }
+    exports.isDataURI = isDataURI;
+    function IsDataURI(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_DATA_URI,
+        validator: {
+          validate: (value, args) => isDataURI(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a data uri format", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsDataURI = IsDataURI;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsEAN.js
+var require_IsEAN = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsEAN.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsEAN = exports.isEAN = exports.IS_EAN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isEAN_1 = __importDefault(require_isEAN());
+    exports.IS_EAN = "isEAN";
+    function isEAN(value) {
+      return typeof value === "string" && (0, isEAN_1.default)(value);
+    }
+    exports.isEAN = isEAN;
+    function IsEAN(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_EAN,
+        validator: {
+          validate: (value, args) => isEAN(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an EAN (European Article Number)", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsEAN = IsEAN;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsEthereumAddress.js
+var require_IsEthereumAddress = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsEthereumAddress.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsEthereumAddress = exports.isEthereumAddress = exports.IS_ETHEREUM_ADDRESS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isEthereumAddress_1 = __importDefault(require_isEthereumAddress());
+    exports.IS_ETHEREUM_ADDRESS = "isEthereumAddress";
+    function isEthereumAddress(value) {
+      return typeof value === "string" && (0, isEthereumAddress_1.default)(value);
+    }
+    exports.isEthereumAddress = isEthereumAddress;
+    function IsEthereumAddress(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ETHEREUM_ADDRESS,
+        validator: {
+          validate: (value, args) => isEthereumAddress(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an Ethereum address", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsEthereumAddress = IsEthereumAddress;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsHSL.js
+var require_IsHSL = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsHSL.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsHSL = exports.isHSL = exports.IS_HSL = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isHSL_1 = __importDefault(require_isHSL());
+    exports.IS_HSL = "isHSL";
+    function isHSL(value) {
+      return typeof value === "string" && (0, isHSL_1.default)(value);
+    }
+    exports.isHSL = isHSL;
+    function IsHSL(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_HSL,
+        validator: {
+          validate: (value, args) => isHSL(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a HSL color", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsHSL = IsHSL;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsIBAN.js
+var require_IsIBAN = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsIBAN.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsIBAN = exports.isIBAN = exports.IS_IBAN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isIBAN_1 = __importDefault(require_isIBAN());
+    exports.IS_IBAN = "isIBAN";
+    function isIBAN(value) {
+      return typeof value === "string" && (0, isIBAN_1.default)(value);
+    }
+    exports.isIBAN = isIBAN;
+    function IsIBAN(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_IBAN,
+        validator: {
+          validate: (value, args) => isIBAN(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an IBAN", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsIBAN = IsIBAN;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsIdentityCard.js
+var require_IsIdentityCard = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsIdentityCard.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsIdentityCard = exports.isIdentityCard = exports.IS_IDENTITY_CARD = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isIdentityCard_1 = __importDefault(require_isIdentityCard());
+    exports.IS_IDENTITY_CARD = "isIdentityCard";
+    function isIdentityCard(value, locale) {
+      return typeof value === "string" && (0, isIdentityCard_1.default)(value, locale);
+    }
+    exports.isIdentityCard = isIdentityCard;
+    function IsIdentityCard(locale, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_IDENTITY_CARD,
+        constraints: [locale],
+        validator: {
+          validate: (value, args) => isIdentityCard(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a identity card number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsIdentityCard = IsIdentityCard;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsISRC.js
+var require_IsISRC = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsISRC.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsISRC = exports.isISRC = exports.IS_ISRC = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isISRC_1 = __importDefault(require_isISRC());
+    exports.IS_ISRC = "isISRC";
+    function isISRC(value) {
+      return typeof value === "string" && (0, isISRC_1.default)(value);
+    }
+    exports.isISRC = isISRC;
+    function IsISRC(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ISRC,
+        validator: {
+          validate: (value, args) => isISRC(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an ISRC", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsISRC = IsISRC;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsLocale.js
+var require_IsLocale = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsLocale.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsLocale = exports.isLocale = exports.IS_LOCALE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isLocale_1 = __importDefault(require_isLocale());
+    exports.IS_LOCALE = "isLocale";
+    function isLocale(value) {
+      return typeof value === "string" && (0, isLocale_1.default)(value);
+    }
+    exports.isLocale = isLocale;
+    function IsLocale(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_LOCALE,
+        validator: {
+          validate: (value, args) => isLocale(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be locale", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsLocale = IsLocale;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsMagnetURI.js
+var require_IsMagnetURI = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsMagnetURI.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsMagnetURI = exports.isMagnetURI = exports.IS_MAGNET_URI = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isMagnetURI_1 = __importDefault(require_isMagnetURI());
+    exports.IS_MAGNET_URI = "isMagnetURI";
+    function isMagnetURI(value) {
+      return typeof value === "string" && (0, isMagnetURI_1.default)(value);
+    }
+    exports.isMagnetURI = isMagnetURI;
+    function IsMagnetURI(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_MAGNET_URI,
+        validator: {
+          validate: (value, args) => isMagnetURI(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be magnet uri format", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsMagnetURI = IsMagnetURI;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsMimeType.js
+var require_IsMimeType = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsMimeType.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsMimeType = exports.isMimeType = exports.IS_MIME_TYPE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isMimeType_1 = __importDefault(require_isMimeType());
+    exports.IS_MIME_TYPE = "isMimeType";
+    function isMimeType(value) {
+      return typeof value === "string" && (0, isMimeType_1.default)(value);
+    }
+    exports.isMimeType = isMimeType;
+    function IsMimeType(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_MIME_TYPE,
+        validator: {
+          validate: (value, args) => isMimeType(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be MIME type format", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsMimeType = IsMimeType;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsOctal.js
+var require_IsOctal = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsOctal.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsOctal = exports.isOctal = exports.IS_OCTAL = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isOctal_1 = __importDefault(require_isOctal());
+    exports.IS_OCTAL = "isOctal";
+    function isOctal(value) {
+      return typeof value === "string" && (0, isOctal_1.default)(value);
+    }
+    exports.isOctal = isOctal;
+    function IsOctal(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_OCTAL,
+        validator: {
+          validate: (value, args) => isOctal(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be valid octal number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsOctal = IsOctal;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsPassportNumber.js
+var require_IsPassportNumber = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsPassportNumber.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsPassportNumber = exports.isPassportNumber = exports.IS_PASSPORT_NUMBER = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isPassportNumber_1 = __importDefault(require_isPassportNumber());
+    exports.IS_PASSPORT_NUMBER = "isPassportNumber";
+    function isPassportNumber(value, countryCode) {
+      return typeof value === "string" && (0, isPassportNumber_1.default)(value, countryCode);
+    }
+    exports.isPassportNumber = isPassportNumber;
+    function IsPassportNumber(countryCode, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_PASSPORT_NUMBER,
+        constraints: [countryCode],
+        validator: {
+          validate: (value, args) => isPassportNumber(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be valid passport number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsPassportNumber = IsPassportNumber;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsPostalCode.js
+var require_IsPostalCode = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsPostalCode.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsPostalCode = exports.isPostalCode = exports.IS_POSTAL_CODE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isPostalCode_1 = __importDefault(require_isPostalCode());
+    exports.IS_POSTAL_CODE = "isPostalCode";
+    function isPostalCode(value, locale) {
+      return typeof value === "string" && (0, isPostalCode_1.default)(value, locale);
+    }
+    exports.isPostalCode = isPostalCode;
+    function IsPostalCode(locale, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_POSTAL_CODE,
+        constraints: [locale],
+        validator: {
+          validate: (value, args) => isPostalCode(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a postal code", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsPostalCode = IsPostalCode;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsRFC3339.js
+var require_IsRFC3339 = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsRFC3339.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsRFC3339 = exports.isRFC3339 = exports.IS_RFC_3339 = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isRFC3339_1 = __importDefault(require_isRFC3339());
+    exports.IS_RFC_3339 = "isRFC3339";
+    function isRFC3339(value) {
+      return typeof value === "string" && (0, isRFC3339_1.default)(value);
+    }
+    exports.isRFC3339 = isRFC3339;
+    function IsRFC3339(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_RFC_3339,
+        validator: {
+          validate: (value, args) => isRFC3339(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be RFC 3339 date", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsRFC3339 = IsRFC3339;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsRgbColor.js
+var require_IsRgbColor = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsRgbColor.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsRgbColor = exports.isRgbColor = exports.IS_RGB_COLOR = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isRgbColor_1 = __importDefault(require_isRgbColor());
+    exports.IS_RGB_COLOR = "isRgbColor";
+    function isRgbColor(value, includePercentValues) {
+      return typeof value === "string" && (0, isRgbColor_1.default)(value, includePercentValues);
+    }
+    exports.isRgbColor = isRgbColor;
+    function IsRgbColor(includePercentValues, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_RGB_COLOR,
+        constraints: [includePercentValues],
+        validator: {
+          validate: (value, args) => isRgbColor(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be RGB color", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsRgbColor = IsRgbColor;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/string/IsSemVer.js
+var require_IsSemVer = __commonJS({
+  "node_modules/class-validator/cjs/decorator/string/IsSemVer.js"(exports) {
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsSemVer = exports.isSemVer = exports.IS_SEM_VER = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var isSemVer_1 = __importDefault(require_isSemVer());
+    exports.IS_SEM_VER = "isSemVer";
+    function isSemVer(value) {
+      return typeof value === "string" && (0, isSemVer_1.default)(value);
+    }
+    exports.isSemVer = isSemVer;
+    function IsSemVer(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_SEM_VER,
+        validator: {
+          validate: (value, args) => isSemVer(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a Semantic Versioning Specification", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsSemVer = IsSemVer;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsBoolean.js
+var require_IsBoolean = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsBoolean.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsBoolean = exports.isBoolean = exports.IS_BOOLEAN = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_BOOLEAN = "isBoolean";
+    function isBoolean(value) {
+      return value instanceof Boolean || typeof value === "boolean";
+    }
+    exports.isBoolean = isBoolean;
+    function IsBoolean(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_BOOLEAN,
+        validator: {
+          validate: (value, args) => isBoolean(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a boolean value", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsBoolean = IsBoolean;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsDate.js
+var require_IsDate = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsDate.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsDate = exports.isDate = exports.IS_DATE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_DATE = "isDate";
+    function isDate(value) {
+      return value instanceof Date && !isNaN(value.getTime());
+    }
+    exports.isDate = isDate;
+    function IsDate(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_DATE,
+        validator: {
+          validate: (value, args) => isDate(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a Date instance", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsDate = IsDate;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsNumber.js
+var require_IsNumber = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsNumber.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsNumber = exports.isNumber = exports.IS_NUMBER = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_NUMBER = "isNumber";
+    function isNumber(value, options = {}) {
+      if (typeof value !== "number") {
+        return false;
+      }
+      if (value === Infinity || value === -Infinity) {
+        return options.allowInfinity;
+      }
+      if (Number.isNaN(value)) {
+        return options.allowNaN;
+      }
+      if (options.maxDecimalPlaces !== void 0) {
+        let decimalPlaces = 0;
+        if (value % 1 !== 0) {
+          decimalPlaces = value.toString().split(".")[1].length;
+        }
+        if (decimalPlaces > options.maxDecimalPlaces) {
+          return false;
+        }
+      }
+      return Number.isFinite(value);
+    }
+    exports.isNumber = isNumber;
+    function IsNumber(options = {}, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_NUMBER,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isNumber(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a number conforming to the specified constraints", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsNumber = IsNumber;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsEnum.js
+var require_IsEnum = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsEnum.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsEnum = exports.isEnum = exports.IS_ENUM = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_ENUM = "isEnum";
+    function isEnum(value, entity) {
+      const enumValues = Object.keys(entity).map((k) => entity[k]);
+      return enumValues.indexOf(value) >= 0;
+    }
+    exports.isEnum = isEnum;
+    function IsEnum(entity, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ENUM,
+        constraints: [entity],
+        validator: {
+          validate: (value, args) => isEnum(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a valid enum value", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsEnum = IsEnum;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsInt.js
+var require_IsInt = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsInt.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsInt = exports.isInt = exports.IS_INT = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_INT = "isInt";
+    function isInt(val) {
+      return typeof val === "number" && Number.isInteger(val);
+    }
+    exports.isInt = isInt;
+    function IsInt(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_INT,
+        validator: {
+          validate: (value, args) => isInt(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an integer number", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsInt = IsInt;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsString.js
+var require_IsString = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsString.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsString = exports.isString = exports.IS_STRING = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_STRING = "isString";
+    function isString(value) {
+      return value instanceof String || typeof value === "string";
+    }
+    exports.isString = isString;
+    function IsString(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_STRING,
+        validator: {
+          validate: (value, args) => isString(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a string", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsString = IsString;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsArray.js
+var require_IsArray = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsArray.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsArray = exports.isArray = exports.IS_ARRAY = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_ARRAY = "isArray";
+    function isArray(value) {
+      return Array.isArray(value);
+    }
+    exports.isArray = isArray;
+    function IsArray(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_ARRAY,
+        validator: {
+          validate: (value, args) => isArray(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an array", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsArray = IsArray;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/typechecker/IsObject.js
+var require_IsObject = __commonJS({
+  "node_modules/class-validator/cjs/decorator/typechecker/IsObject.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsObject = exports.isObject = exports.IS_OBJECT = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_OBJECT = "isObject";
+    function isObject(value) {
+      return value != null && (typeof value === "object" || typeof value === "function") && !Array.isArray(value);
+    }
+    exports.isObject = isObject;
+    function IsObject(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_OBJECT,
+        validator: {
+          validate: (value, args) => isObject(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be an object", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsObject = IsObject;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/array/ArrayContains.js
+var require_ArrayContains = __commonJS({
+  "node_modules/class-validator/cjs/decorator/array/ArrayContains.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ArrayContains = exports.arrayContains = exports.ARRAY_CONTAINS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.ARRAY_CONTAINS = "arrayContains";
+    function arrayContains(array, values) {
+      if (!Array.isArray(array))
+        return false;
+      return values.every((value) => array.indexOf(value) !== -1);
+    }
+    exports.arrayContains = arrayContains;
+    function ArrayContains(values, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.ARRAY_CONTAINS,
+        constraints: [values],
+        validator: {
+          validate: (value, args) => arrayContains(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain $constraint1 values", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.ArrayContains = ArrayContains;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/array/ArrayNotContains.js
+var require_ArrayNotContains = __commonJS({
+  "node_modules/class-validator/cjs/decorator/array/ArrayNotContains.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ArrayNotContains = exports.arrayNotContains = exports.ARRAY_NOT_CONTAINS = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.ARRAY_NOT_CONTAINS = "arrayNotContains";
+    function arrayNotContains(array, values) {
+      if (!Array.isArray(array))
+        return false;
+      return values.every((value) => array.indexOf(value) === -1);
+    }
+    exports.arrayNotContains = arrayNotContains;
+    function ArrayNotContains(values, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.ARRAY_NOT_CONTAINS,
+        constraints: [values],
+        validator: {
+          validate: (value, args) => arrayNotContains(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property should not contain $constraint1 values", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.ArrayNotContains = ArrayNotContains;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/array/ArrayNotEmpty.js
+var require_ArrayNotEmpty = __commonJS({
+  "node_modules/class-validator/cjs/decorator/array/ArrayNotEmpty.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ArrayNotEmpty = exports.arrayNotEmpty = exports.ARRAY_NOT_EMPTY = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.ARRAY_NOT_EMPTY = "arrayNotEmpty";
+    function arrayNotEmpty(array) {
+      return Array.isArray(array) && array.length > 0;
+    }
+    exports.arrayNotEmpty = arrayNotEmpty;
+    function ArrayNotEmpty(validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.ARRAY_NOT_EMPTY,
+        validator: {
+          validate: (value, args) => arrayNotEmpty(value),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property should not be empty", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.ArrayNotEmpty = ArrayNotEmpty;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/array/ArrayMinSize.js
+var require_ArrayMinSize = __commonJS({
+  "node_modules/class-validator/cjs/decorator/array/ArrayMinSize.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ArrayMinSize = exports.arrayMinSize = exports.ARRAY_MIN_SIZE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.ARRAY_MIN_SIZE = "arrayMinSize";
+    function arrayMinSize(array, min) {
+      return Array.isArray(array) && array.length >= min;
+    }
+    exports.arrayMinSize = arrayMinSize;
+    function ArrayMinSize(min, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.ARRAY_MIN_SIZE,
+        constraints: [min],
+        validator: {
+          validate: (value, args) => arrayMinSize(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain at least $constraint1 elements", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.ArrayMinSize = ArrayMinSize;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/array/ArrayMaxSize.js
+var require_ArrayMaxSize = __commonJS({
+  "node_modules/class-validator/cjs/decorator/array/ArrayMaxSize.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ArrayMaxSize = exports.arrayMaxSize = exports.ARRAY_MAX_SIZE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.ARRAY_MAX_SIZE = "arrayMaxSize";
+    function arrayMaxSize(array, max) {
+      return Array.isArray(array) && array.length <= max;
+    }
+    exports.arrayMaxSize = arrayMaxSize;
+    function ArrayMaxSize(max, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.ARRAY_MAX_SIZE,
+        constraints: [max],
+        validator: {
+          validate: (value, args) => arrayMaxSize(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must contain not more than $constraint1 elements", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.ArrayMaxSize = ArrayMaxSize;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/array/ArrayUnique.js
+var require_ArrayUnique = __commonJS({
+  "node_modules/class-validator/cjs/decorator/array/ArrayUnique.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ArrayUnique = exports.arrayUnique = exports.ARRAY_UNIQUE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.ARRAY_UNIQUE = "arrayUnique";
+    function arrayUnique(array, identifier2) {
+      if (!Array.isArray(array))
+        return false;
+      if (identifier2) {
+        array = array.map((o) => o != null ? identifier2(o) : o);
+      }
+      const uniqueItems = array.filter((a, b, c) => c.indexOf(a) === b);
+      return array.length === uniqueItems.length;
+    }
+    exports.arrayUnique = arrayUnique;
+    function ArrayUnique(identifierOrOptions, validationOptions) {
+      const identifier2 = typeof identifierOrOptions === "function" ? identifierOrOptions : void 0;
+      const options = typeof identifierOrOptions !== "function" ? identifierOrOptions : validationOptions;
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.ARRAY_UNIQUE,
+        validator: {
+          validate: (value, args) => arrayUnique(value, identifier2),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "All $property's elements must be unique", options)
+        }
+      }, options);
+    }
+    exports.ArrayUnique = ArrayUnique;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/object/IsNotEmptyObject.js
+var require_IsNotEmptyObject = __commonJS({
+  "node_modules/class-validator/cjs/decorator/object/IsNotEmptyObject.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsNotEmptyObject = exports.isNotEmptyObject = exports.IS_NOT_EMPTY_OBJECT = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    var IsObject_1 = require_IsObject();
+    exports.IS_NOT_EMPTY_OBJECT = "isNotEmptyObject";
+    function isNotEmptyObject(value, options) {
+      if (!(0, IsObject_1.isObject)(value)) {
+        return false;
+      }
+      if ((options === null || options === void 0 ? void 0 : options.nullable) === true) {
+        return !Object.values(value).every((propertyValue) => propertyValue === null || propertyValue === void 0);
+      }
+      for (const key in value) {
+        if (value.hasOwnProperty(key)) {
+          return true;
+        }
+      }
+      return false;
+    }
+    exports.isNotEmptyObject = isNotEmptyObject;
+    function IsNotEmptyObject(options, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_NOT_EMPTY_OBJECT,
+        constraints: [options],
+        validator: {
+          validate: (value, args) => isNotEmptyObject(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix) => eachPrefix + "$property must be a non-empty object", validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsNotEmptyObject = IsNotEmptyObject;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/object/IsInstance.js
+var require_IsInstance = __commonJS({
+  "node_modules/class-validator/cjs/decorator/object/IsInstance.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.IsInstance = exports.isInstance = exports.IS_INSTANCE = void 0;
+    var ValidateBy_1 = require_ValidateBy();
+    exports.IS_INSTANCE = "isInstance";
+    function isInstance(object, targetTypeConstructor) {
+      return targetTypeConstructor && typeof targetTypeConstructor === "function" && object instanceof targetTypeConstructor;
+    }
+    exports.isInstance = isInstance;
+    function IsInstance(targetType, validationOptions) {
+      return (0, ValidateBy_1.ValidateBy)({
+        name: exports.IS_INSTANCE,
+        constraints: [targetType],
+        validator: {
+          validate: (value, args) => isInstance(value, args.constraints[0]),
+          defaultMessage: (0, ValidateBy_1.buildMessage)((eachPrefix, args) => {
+            if (args.constraints[0]) {
+              return eachPrefix + `$property must be an instance of ${args.constraints[0].name}`;
+            } else {
+              return eachPrefix + `${exports.IS_INSTANCE} decorator expects and object as value, but got falsy value.`;
+            }
+          }, validationOptions)
+        }
+      }, validationOptions);
+    }
+    exports.IsInstance = IsInstance;
+  }
+});
+
+// node_modules/class-validator/cjs/decorator/decorators.js
+var require_decorators = __commonJS({
+  "node_modules/class-validator/cjs/decorator/decorators.js"(exports) {
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+      for (var p in m)
+        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+          __createBinding(exports2, m, p);
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __exportStar(require_Allow(), exports);
+    __exportStar(require_IsDefined(), exports);
+    __exportStar(require_IsOptional(), exports);
+    __exportStar(require_Validate(), exports);
+    __exportStar(require_ValidateBy(), exports);
+    __exportStar(require_ValidateIf(), exports);
+    __exportStar(require_ValidateNested(), exports);
+    __exportStar(require_ValidatePromise(), exports);
+    __exportStar(require_IsLatLong(), exports);
+    __exportStar(require_IsLatitude(), exports);
+    __exportStar(require_IsLongitude(), exports);
+    __exportStar(require_Equals(), exports);
+    __exportStar(require_NotEquals(), exports);
+    __exportStar(require_IsEmpty(), exports);
+    __exportStar(require_IsNotEmpty(), exports);
+    __exportStar(require_IsIn(), exports);
+    __exportStar(require_IsNotIn(), exports);
+    __exportStar(require_IsDivisibleBy(), exports);
+    __exportStar(require_IsPositive(), exports);
+    __exportStar(require_IsNegative(), exports);
+    __exportStar(require_Max(), exports);
+    __exportStar(require_Min(), exports);
+    __exportStar(require_MinDate(), exports);
+    __exportStar(require_MaxDate(), exports);
+    __exportStar(require_Contains(), exports);
+    __exportStar(require_NotContains(), exports);
+    __exportStar(require_IsAlpha(), exports);
+    __exportStar(require_IsAlphanumeric(), exports);
+    __exportStar(require_IsDecimal(), exports);
+    __exportStar(require_IsAscii(), exports);
+    __exportStar(require_IsBase64(), exports);
+    __exportStar(require_IsByteLength(), exports);
+    __exportStar(require_IsCreditCard(), exports);
+    __exportStar(require_IsCurrency(), exports);
+    __exportStar(require_IsEmail(), exports);
+    __exportStar(require_IsFQDN(), exports);
+    __exportStar(require_IsFullWidth(), exports);
+    __exportStar(require_IsHalfWidth(), exports);
+    __exportStar(require_IsVariableWidth(), exports);
+    __exportStar(require_IsHexColor(), exports);
+    __exportStar(require_IsHexadecimal(), exports);
+    __exportStar(require_IsMacAddress(), exports);
+    __exportStar(require_IsIP(), exports);
+    __exportStar(require_IsPort(), exports);
+    __exportStar(require_IsISBN(), exports);
+    __exportStar(require_IsISIN(), exports);
+    __exportStar(require_IsISO8601(), exports);
+    __exportStar(require_IsJSON(), exports);
+    __exportStar(require_IsJWT(), exports);
+    __exportStar(require_IsLowercase(), exports);
+    __exportStar(require_IsMobilePhone(), exports);
+    __exportStar(require_IsISO31661Alpha2(), exports);
+    __exportStar(require_IsISO31661Alpha3(), exports);
+    __exportStar(require_IsMongoId(), exports);
+    __exportStar(require_IsMultibyte(), exports);
+    __exportStar(require_IsSurrogatePair(), exports);
+    __exportStar(require_IsUrl(), exports);
+    __exportStar(require_IsUUID(), exports);
+    __exportStar(require_IsFirebasePushId(), exports);
+    __exportStar(require_IsUppercase(), exports);
+    __exportStar(require_Length(), exports);
+    __exportStar(require_MaxLength(), exports);
+    __exportStar(require_MinLength(), exports);
+    __exportStar(require_Matches(), exports);
+    __exportStar(require_IsPhoneNumber(), exports);
+    __exportStar(require_IsMilitaryTime(), exports);
+    __exportStar(require_IsHash(), exports);
+    __exportStar(require_IsISSN(), exports);
+    __exportStar(require_IsDateString(), exports);
+    __exportStar(require_IsBooleanString(), exports);
+    __exportStar(require_IsNumberString(), exports);
+    __exportStar(require_IsBase32(), exports);
+    __exportStar(require_IsBIC(), exports);
+    __exportStar(require_IsBtcAddress(), exports);
+    __exportStar(require_IsDataURI(), exports);
+    __exportStar(require_IsEAN(), exports);
+    __exportStar(require_IsEthereumAddress(), exports);
+    __exportStar(require_IsHSL(), exports);
+    __exportStar(require_IsIBAN(), exports);
+    __exportStar(require_IsIdentityCard(), exports);
+    __exportStar(require_IsISRC(), exports);
+    __exportStar(require_IsLocale(), exports);
+    __exportStar(require_IsMagnetURI(), exports);
+    __exportStar(require_IsMimeType(), exports);
+    __exportStar(require_IsOctal(), exports);
+    __exportStar(require_IsPassportNumber(), exports);
+    __exportStar(require_IsPostalCode(), exports);
+    __exportStar(require_IsRFC3339(), exports);
+    __exportStar(require_IsRgbColor(), exports);
+    __exportStar(require_IsSemVer(), exports);
+    __exportStar(require_IsBoolean(), exports);
+    __exportStar(require_IsDate(), exports);
+    __exportStar(require_IsNumber(), exports);
+    __exportStar(require_IsEnum(), exports);
+    __exportStar(require_IsInt(), exports);
+    __exportStar(require_IsString(), exports);
+    __exportStar(require_IsArray(), exports);
+    __exportStar(require_IsObject(), exports);
+    __exportStar(require_ArrayContains(), exports);
+    __exportStar(require_ArrayNotContains(), exports);
+    __exportStar(require_ArrayNotEmpty(), exports);
+    __exportStar(require_ArrayMinSize(), exports);
+    __exportStar(require_ArrayMaxSize(), exports);
+    __exportStar(require_ArrayUnique(), exports);
+    __exportStar(require_IsNotEmptyObject(), exports);
+    __exportStar(require_IsInstance(), exports);
+  }
+});
+
+// node_modules/class-validator/cjs/validation/ValidatorConstraintInterface.js
+var require_ValidatorConstraintInterface = __commonJS({
+  "node_modules/class-validator/cjs/validation/ValidatorConstraintInterface.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+  }
+});
+
+// node_modules/class-validator/cjs/validation/ValidatorOptions.js
+var require_ValidatorOptions = __commonJS({
+  "node_modules/class-validator/cjs/validation/ValidatorOptions.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+  }
+});
+
+// node_modules/class-validator/cjs/validation/ValidationArguments.js
+var require_ValidationArguments = __commonJS({
+  "node_modules/class-validator/cjs/validation/ValidationArguments.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+  }
+});
+
+// node_modules/class-validator/cjs/validation-schema/ValidationSchema.js
+var require_ValidationSchema = __commonJS({
+  "node_modules/class-validator/cjs/validation-schema/ValidationSchema.js"(exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+  }
+});
+
+// node_modules/class-validator/cjs/index.js
+var require_cjs = __commonJS({
+  "node_modules/class-validator/cjs/index.js"(exports) {
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+      for (var p in m)
+        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+          __createBinding(exports2, m, p);
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.registerSchema = exports.validateSync = exports.validateOrReject = exports.validate = void 0;
+    var MetadataStorage_1 = require_MetadataStorage();
+    var Validator_1 = require_Validator();
+    var container_1 = require_container();
+    __exportStar(require_container(), exports);
+    __exportStar(require_decorators(), exports);
+    __exportStar(require_ValidationOptions(), exports);
+    __exportStar(require_ValidatorConstraintInterface(), exports);
+    __exportStar(require_ValidationError(), exports);
+    __exportStar(require_ValidatorOptions(), exports);
+    __exportStar(require_ValidationArguments(), exports);
+    __exportStar(require_ValidationTypes(), exports);
+    __exportStar(require_Validator(), exports);
+    __exportStar(require_ValidationSchema(), exports);
+    __exportStar(require_register_decorator(), exports);
+    __exportStar(require_MetadataStorage(), exports);
+    function validate2(schemaNameOrObject, objectOrValidationOptions, maybeValidatorOptions) {
+      if (typeof schemaNameOrObject === "string") {
+        return (0, container_1.getFromContainer)(Validator_1.Validator).validate(schemaNameOrObject, objectOrValidationOptions, maybeValidatorOptions);
+      } else {
+        return (0, container_1.getFromContainer)(Validator_1.Validator).validate(schemaNameOrObject, objectOrValidationOptions);
+      }
+    }
+    exports.validate = validate2;
+    function validateOrReject(schemaNameOrObject, objectOrValidationOptions, maybeValidatorOptions) {
+      if (typeof schemaNameOrObject === "string") {
+        return (0, container_1.getFromContainer)(Validator_1.Validator).validateOrReject(schemaNameOrObject, objectOrValidationOptions, maybeValidatorOptions);
+      } else {
+        return (0, container_1.getFromContainer)(Validator_1.Validator).validateOrReject(schemaNameOrObject, objectOrValidationOptions);
+      }
+    }
+    exports.validateOrReject = validateOrReject;
+    function validateSync(schemaNameOrObject, objectOrValidationOptions, maybeValidatorOptions) {
+      if (typeof schemaNameOrObject === "string") {
+        return (0, container_1.getFromContainer)(Validator_1.Validator).validateSync(schemaNameOrObject, objectOrValidationOptions, maybeValidatorOptions);
+      } else {
+        return (0, container_1.getFromContainer)(Validator_1.Validator).validateSync(schemaNameOrObject, objectOrValidationOptions);
+      }
+    }
+    exports.validateSync = validateSync;
+    function registerSchema(schema) {
+      (0, MetadataStorage_1.getMetadataStorage)().addValidationSchema(schema);
+    }
+    exports.registerSchema = registerSchema;
+  }
+});
+
+// node_modules/@middy/core/index.js
+var require_core2 = __commonJS({
   "node_modules/@middy/core/index.js"(exports, module2) {
     "use strict";
     var middy2 = (baseHandler = () => {
@@ -47593,7 +58649,7 @@ var require_codes = __commonJS({
 });
 
 // node_modules/@middy/util/index.js
-var require_util = __commonJS({
+var require_util2 = __commonJS({
   "node_modules/@middy/util/index.js"(exports, module2) {
     "use strict";
     var {
@@ -47846,7 +58902,7 @@ var require_http_json_body_parser = __commonJS({
           } catch (err) {
             const {
               createError
-            } = require_util();
+            } = require_util2();
             throw createError(422, "Content type defined as JSON but an invalid JSON was provided");
           }
         }
@@ -48052,8 +59108,13 @@ BrandModel.init(
 var BrandModel_default = BrandModel;
 
 // src/functions/controllers/brand/createBrandController.ts
-var createBrandController = async (data) => {
-  return await BrandModel_default.create(data);
+var import_class_validator = __toESM(require_cjs());
+var createBrandController = async (model) => {
+  const validationBranch = await (0, import_class_validator.validate)(model);
+  if (validationBranch.length > 0) {
+    return validationBranch;
+  }
+  return await BrandModel_default.create(model);
 };
 var createBrandController_default = createBrandController;
 
@@ -48072,7 +59133,7 @@ var formatJSONResponse = (code, response) => {
 };
 
 // src/libs/lambda.ts
-var import_core = __toESM(require_core());
+var import_core = __toESM(require_core2());
 var import_http_json_body_parser = __toESM(require_http_json_body_parser());
 
 // node_modules/@middy/http-cors/node_modules/@middy/util/index.js
@@ -48215,14 +59276,48 @@ var statusCode = {
   "STATUS_CODE_400": 400
 };
 
+// src/functions/schemas/BrandSchema.ts
+var import_class_validator2 = __toESM(require_cjs());
+var BrandSchema = class {
+};
+__decorateClass([
+  (0, import_class_validator2.IsOptional)()
+], BrandSchema.prototype, "id", 2);
+__decorateClass([
+  (0, import_class_validator2.IsDefined)(),
+  (0, import_class_validator2.IsNotEmpty)()
+], BrandSchema.prototype, "status", 2);
+__decorateClass([
+  (0, import_class_validator2.IsDefined)(),
+  (0, import_class_validator2.IsNotEmpty)()
+], BrandSchema.prototype, "name", 2);
+var BrandSchema_default = BrandSchema;
+
+// src/functions/transformers/BrandTransformer.ts
+var BrandTransformer = class {
+  static transform() {
+    throw new Error("This method is not implement yet.");
+  }
+  static reverse(model) {
+    const brand = new BrandSchema_default();
+    brand.name = model.name;
+    brand.status = Boolean(model.status);
+    return brand;
+  }
+};
+var BrandTransformer_default = BrandTransformer;
+
 // src/functions/lambdas/brand/createBrand.ts
 var create = async (event) => {
-  const { name, status } = event.body;
-  const data = {
-    name,
-    status
-  };
-  const rerieveData = await createBrandController_default(data);
+  const brand = BrandTransformer_default.reverse(event.body);
+  const rerieveData = await createBrandController_default(brand);
+  if (Array.isArray(rerieveData)) {
+    return formatJSONResponse(statusCode.STATUS_CODE_FORM_ERROR, {
+      success: false,
+      message: "Unsatisfied model",
+      data: rerieveData
+    });
+  }
   return formatJSONResponse(statusCode.STATUS_CODE_CREATED, {
     success: true,
     message: "Brand created",
